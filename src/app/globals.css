@@ -3,14 +3,34 @@
 :root {
   --color-bg: #fbfaf6;
   --color-fg: #1e293b;
-  --color-muted: #64748b;
+  /*
+   * Muted body text. Bumped from slate-500 (#64748b, ~4.6:1) to slate-600
+   * (~7.1:1) so it stays readable on a phone under direct sunlight — the
+   * primary usage context for this app during the trip.
+   */
+  --color-muted: #475569;
   --color-card: #ffffff;
-  --color-border: #e2e8f0;
+  /* slate-300 — visible card edges outdoors; slate-200 disappeared in glare. */
+  --color-border: #cbd5e1;
   --color-steppe: #2563eb;
   --color-steppe-dark: #1d4ed8;
   --color-sand: #d4b483;
   --color-sand-dark: #a98654;
   --color-accent: #16a34a;
+}
+
+/*
+ * Honour the OS-level "Increase Contrast" preference (iOS Accessibility →
+ * Display & Text Size → Increase Contrast; equivalent on Android & macOS).
+ * Pushes muted text and borders even harder so the trip site stays legible
+ * in the harshest conditions.
+ */
+@media (prefers-contrast: more) {
+  :root {
+    --color-muted: #334155;
+    --color-border: #94a3b8;
+    --color-steppe: #1d4ed8;
+  }
 }
 
 @theme inline {
