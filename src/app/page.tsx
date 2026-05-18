@@ -1,65 +1,110 @@
-import Image from "next/image";
+import Link from 'next/link';
+import { sights } from '@/data/sights';
+import { categoryMeta } from '@/data/categories';
 
-export default function Home() {
+export default function HomePage() {
+  const featured = sights.filter((s) => s.featured && s.status === 'verified');
+  const drafts = sights.filter((s) => s.status === 'draft');
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="space-y-12">
+      <section className="space-y-3">
+        <p className="text-sm uppercase tracking-wide text-(--color-muted)">
+          Reissuopas itsellesi ja kaverille
+        </p>
+        <h1 className="text-4xl font-bold tracking-tight">
+          Suunnitellaan reissu Kazakstaniin.
+        </h1>
+        <p className="max-w-2xl text-lg text-(--color-muted)">
+          Tämä on päätöstyökalu — selaa kohteita kartalla, vertaa valmiita reittejä, ja
+          tallenna suosikit shortlistille. Jaa nykyinen näkymä kaverille linkillä.
+        </p>
+      </section>
+
+      <section className="grid gap-4 sm:grid-cols-3">
+        <PathCard
+          href="/kartta"
+          title="Selaa kartalla"
+          description="Interaktiivinen kartta + filtterit. Klikkaa kohteita ja lisää shortlistille."
+          accent="steppe"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+        <PathCard
+          href="/reitit"
+          title="Valmiit reittirungot"
+          description="3 erilaista pohjaa: 5, 7 ja 10 päivän versiot. Hyvä lähtökohta."
+          accent="sand"
+        />
+        <PathCard
+          href="/info"
+          title="Käytännön info"
+          description="Viisumi, valuutta, kuljetukset, ennen lähtöä -checklist."
+          accent="accent"
+        />
+      </section>
+
+      {featured.length > 0 && (
+        <section className="space-y-4">
+          <h2 className="text-2xl font-semibold">Klassikkokohteet</h2>
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {featured.map((s) => (
+              <li
+                key={s.id}
+                className="rounded-lg border border-(--color-border) bg-(--color-card) p-4"
+              >
+                <p className="text-xs uppercase tracking-wide text-(--color-muted)">
+                  {categoryMeta[s.category].emoji} {categoryMeta[s.category].fi}
+                </p>
+                <h3 className="mt-1 text-lg font-semibold">
+                  <Link href={`/nahtavyydet/${s.slug}`}>{s.name}</Link>
+                </h3>
+                <p className="mt-1 text-sm text-(--color-muted)">{s.shortDescription}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {drafts.length > 0 && (
+        <section className="space-y-3">
+          <h2 className="text-xl font-semibold">Myöhemmin lisättävät / vahvistettavat</h2>
+          <p className="text-sm text-(--color-muted)">
+            Nämä eivät vielä näy kartalla — odottavat varmistusta.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+          <ul className="text-sm">
+            {drafts.map((s) => (
+              <li key={s.id}>• {s.name}</li>
+            ))}
+          </ul>
+        </section>
+      )}
     </div>
+  );
+}
+
+function PathCard({
+  href,
+  title,
+  description,
+  accent,
+}: {
+  href: string;
+  title: string;
+  description: string;
+  accent: 'steppe' | 'sand' | 'accent';
+}) {
+  const accentBorder =
+    accent === 'steppe'
+      ? 'border-(--color-steppe)'
+      : accent === 'sand'
+        ? 'border-(--color-sand-dark)'
+        : 'border-(--color-accent)';
+  return (
+    <Link
+      href={href}
+      className={`block rounded-lg border-2 ${accentBorder} bg-(--color-card) p-5 transition hover:-translate-y-0.5 hover:no-underline`}
+    >
+      <h3 className="text-lg font-semibold text-(--color-fg)">{title} →</h3>
+      <p className="mt-2 text-sm text-(--color-muted)">{description}</p>
+    </Link>
   );
 }
