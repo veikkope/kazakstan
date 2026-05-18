@@ -6,24 +6,30 @@ import { sights } from '@/data/sights';
 import { categoryMeta } from '@/data/categories';
 import { findById } from '@/lib/filters';
 import { useShortlist, getStatusLabel } from '@/lib/shortlist';
+import { shareUrl } from '@/lib/share';
 import type { ShortlistStatus } from '@/lib/types';
 
 const STATUS_ORDER: ShortlistStatus[] = ['in', 'considering', 'out'];
 
 function ShortlistPageInner() {
   const { entries, hydrated, setStatus, remove, clear } = useShortlist();
-  const [copyState, setCopyState] = useState<'idle' | 'done' | 'error'>('idle');
+  const [shareState, setShareState] = useState<'idle' | 'copied' | 'error'>('idle');
 
   async function share() {
     if (typeof window === 'undefined') return;
-    try {
-      await navigator.clipboard.writeText(window.location.href);
-      setCopyState('done');
-      setTimeout(() => setCopyState('idle'), 2500);
-    } catch {
-      setCopyState('error');
-      setTimeout(() => setCopyState('idle'), 2500);
+    const result = await shareUrl({
+      url: window.location.href,
+      title: 'Kazakstan-reissun shortlist',
+      text: 'Tässä mun shortlist Kazakstaniin — mitä mieltä?',
+    });
+    if (result === 'copied') {
+      setShareState('copied');
+      setTimeout(() => setShareState('idle'), 2500);
+    } else if (result === 'error') {
+      setShareState('error');
+      setTimeout(() => setShareState('idle'), 2500);
     }
+    // 'shared' and 'cancelled' need no UI feedback — the native sheet already conveyed it.
   }
 
   if (!hydrated) {
@@ -50,19 +56,19 @@ function ShortlistPageInner() {
           <button
             type="button"
             onClick={share}
-            className="rounded-md bg-(--color-steppe) px-3 py-2 text-sm text-white hover:bg-(--color-steppe-dark)"
+            className="inline-flex min-h-11 items-center rounded-md bg-(--color-steppe) px-4 text-sm text-white hover:bg-(--color-steppe-dark)"
           >
-            {copyState === 'done'
+            {shareState === 'copied'
               ? '✓ Linkki kopioitu'
-              : copyState === 'error'
-                ? 'Kopiointi epäonnistui'
-                : 'Jaa kavereille (kopioi linkki)'}
+              : shareState === 'error'
+                ? 'Jakaminen epäonnistui'
+                : 'Jaa kavereille'}
           </button>
           {entries.length > 0 && (
             <button
               type="button"
               onClick={clear}
-              className="rounded-md border border-(--color-border) bg-(--color-card) px-3 py-2 text-sm text-(--color-muted) hover:text-(--color-fg)"
+              className="inline-flex min-h-11 items-center rounded-md border border-(--color-border) bg-(--color-card) px-4 text-sm text-(--color-muted) hover:text-(--color-fg)"
             >
               Tyhjennä
             </button>
@@ -114,7 +120,7 @@ function ShortlistPageInner() {
                             type="button"
                             onClick={() => remove(entry.sightId)}
                             aria-label="Poista shortlistilta"
-                            className="text-(--color-muted) hover:text-(--color-fg)"
+                            className="-mr-2 -mt-2 flex h-11 w-11 shrink-0 items-center justify-center text-(--color-muted) hover:text-(--color-fg)"
                           >
                             ✕
                           </button>
@@ -122,13 +128,14 @@ function ShortlistPageInner() {
                         <p className="mt-2 text-sm text-(--color-muted)">
                           {sight.shortDescription}
                         </p>
-                        <div className="mt-3 flex flex-wrap gap-1">
+                        <div className="mt-3 flex flex-wrap gap-2">
                           {STATUS_ORDER.map((s) => (
                             <button
                               key={s}
                               type="button"
                               onClick={() => setStatus(entry.sightId, s)}
-                              className={`rounded-full border px-2 py-0.5 text-xs ${
+                              aria-pressed={entry.status === s}
+                              className={`inline-flex min-h-11 items-center rounded-full border px-4 text-sm ${
                                 entry.status === s
                                   ? 'border-(--color-fg) bg-(--color-fg) text-white'
                                   : 'border-(--color-border) bg-(--color-card) text-(--color-muted) hover:text-(--color-fg)'
