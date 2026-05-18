@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Kazakstan-reissu">
+  <rect width="512" height="512" rx="96" fill="#2563eb"/>
+  <circle cx="376" cy="148" r="40" fill="#fbbf24"/>
+  <path d="M48 392 L156 232 L228 312 L296 208 L388 320 L464 392 Z" fill="#ffffff"/>
+  <path d="M48 392 L156 232 L196 280 L168 304 L228 312 L296 208 L324 256 L296 280 L388 320 L464 392 Z" fill="#e2e8f0" opacity="0.7"/>
+  <rect x="48" y="392" width="416" height="40" fill="#d4b483"/>
+</svg>

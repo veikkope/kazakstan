@@ -1,0 +1,47 @@
+{
+  "name": "Kazakstan-reissun suunnittelu",
+  "short_name": "Kazakstan",
+  "description": "Henkilökohtainen reissusuunnittelu — kartta, valmiit reitit, käytännön info ja budjetti.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fbfaf6",
+  "theme_color": "#2563eb",
+  "lang": "fi",
+  "categories": ["travel", "navigation", "utilities"],
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Kartta",
+      "short_name": "Kartta",
+      "url": "/kartta",
+      "description": "Avaa interaktiivinen kartta"
+    },
+    {
+      "name": "Reittisuunnitelma",
+      "short_name": "Päivät",
+      "url": "/reittisuunnitelma",
+      "description": "Oma reittisuunnitelma päivä päivältä"
+    },
+    {
+      "name": "Shortlist",
+      "short_name": "Shortlist",
+      "url": "/shortlist",
+      "description": "Tallennetut kohteet"
+    }
+  ]
+}
