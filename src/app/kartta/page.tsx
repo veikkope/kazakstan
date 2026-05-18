@@ -28,8 +28,15 @@ function KarttaPageInner() {
       <p className="text-sm text-(--color-muted)">
         {visible.length} kohdetta. Klikkaa pini tai listariviä kun haluat zoomata.
       </p>
-      <div className="flex flex-col gap-3 sm:h-[70vh] sm:flex-row">
-        <aside className="overflow-y-auto rounded-lg border border-(--color-border) bg-(--color-card) sm:w-80">
+      <div className="flex flex-col gap-3 sm:h-[70dvh] sm:flex-row">
+        <div className="order-2 h-[60dvh] flex-1 overflow-hidden rounded-lg border border-(--color-border) sm:order-1 sm:h-auto">
+          <MapViewClient
+            sights={visible}
+            selectedId={state.selectedId}
+            onSelect={(id) => update({ selectedId: id })}
+          />
+        </div>
+        <aside className="order-1 max-h-[40dvh] overflow-y-auto rounded-lg border border-(--color-border) bg-(--color-card) sm:order-2 sm:max-h-none sm:w-80">
           <SightList
             sights={visible}
             selectedId={state.selectedId}
@@ -38,13 +45,6 @@ function KarttaPageInner() {
             }
           />
         </aside>
-        <div className="h-[60vh] flex-1 overflow-hidden rounded-lg border border-(--color-border) sm:h-auto">
-          <MapViewClient
-            sights={visible}
-            selectedId={state.selectedId}
-            onSelect={(id) => update({ selectedId: id })}
-          />
-        </div>
       </div>
     </div>
   );
