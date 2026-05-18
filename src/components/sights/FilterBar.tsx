@@ -47,7 +47,8 @@ export default function FilterBar({
           <button
             type="button"
             onClick={() => onRegionsChange([])}
-            className={`rounded-full border px-3 py-1 text-xs ${
+            aria-pressed={regions.length === 0}
+            className={`inline-flex min-h-11 items-center rounded-full border px-4 text-sm ${
               regions.length === 0
                 ? 'border-(--color-fg) bg-(--color-fg) text-white'
                 : 'border-(--color-border) bg-(--color-card)'
@@ -62,7 +63,8 @@ export default function FilterBar({
                 key={r}
                 type="button"
                 onClick={() => toggleRegion(r)}
-                className={`rounded-full border px-3 py-1 text-xs ${
+                aria-pressed={isOn}
+                className={`inline-flex min-h-11 items-center rounded-full border px-4 text-sm ${
                   isOn
                     ? 'border-(--color-steppe) bg-(--color-steppe) text-white'
                     : 'border-(--color-border) bg-(--color-card) text-(--color-muted)'

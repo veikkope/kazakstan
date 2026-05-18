@@ -39,11 +39,12 @@ function NahtavyydetPageInner() {
       />
 
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <label className="flex items-center gap-2 text-sm text-(--color-muted)">
+        <label className="inline-flex min-h-11 items-center gap-2 text-sm text-(--color-muted)">
           <input
             type="checkbox"
             checked={state.showDrafts}
             onChange={(e) => update({ showDrafts: e.target.checked })}
+            className="h-5 w-5"
           />
           Näytä myös luonnokset (vahvistamattomat kohteet)
         </label>
@@ -52,7 +53,7 @@ function NahtavyydetPageInner() {
           <select
             value={state.sort}
             onChange={(e) => update({ sort: e.target.value as SortDimension })}
-            className="rounded-md border border-(--color-border) bg-(--color-card) px-2 py-1"
+            className="min-h-11 rounded-md border border-(--color-border) bg-(--color-card) px-3 text-base sm:text-sm"
           >
             {SORT_OPTIONS.map((s) => (
               <option key={s} value={s}>

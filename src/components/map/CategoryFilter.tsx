@@ -37,7 +37,8 @@ export default function CategoryFilter({ value, onChange }: Props) {
       <button
         type="button"
         onClick={showAll}
-        className={`rounded-full border px-3 py-1 text-xs ${
+        aria-pressed={isAllShown}
+        className={`inline-flex min-h-11 items-center rounded-full border px-4 text-sm ${
           isAllShown
             ? 'border-(--color-fg) bg-(--color-fg) text-white'
             : 'border-(--color-border) bg-(--color-card)'
@@ -53,7 +54,8 @@ export default function CategoryFilter({ value, onChange }: Props) {
             key={cat}
             type="button"
             onClick={() => toggle(cat)}
-            className={`rounded-full border px-3 py-1 text-xs transition ${
+            aria-pressed={isOn}
+            className={`inline-flex min-h-11 items-center rounded-full border px-4 text-sm transition ${
               isOn
                 ? 'border-transparent text-white'
                 : 'border-(--color-border) bg-(--color-card) text-(--color-muted)'

@@ -23,6 +23,11 @@ function ShortlistButtonInner({ sightId, variant = 'icon' }: Props) {
         ? '☆ Lisää shortlistille'
         : '☆';
 
+  const sizing =
+    variant === 'full'
+      ? 'min-h-11 px-4 text-sm'
+      : 'min-h-11 min-w-11 px-2 text-lg leading-none';
+
   return (
     <button
       type="button"
@@ -34,7 +39,7 @@ function ShortlistButtonInner({ sightId, variant = 'icon' }: Props) {
       disabled={!hydrated}
       aria-pressed={active}
       aria-label={active ? 'Poista shortlistilta' : 'Lisää shortlistille'}
-      className={`rounded-md border px-2 py-1 text-sm transition ${
+      className={`inline-flex items-center justify-center rounded-md border transition ${sizing} ${
         active
           ? 'border-(--color-sand-dark) bg-(--color-sand) text-(--color-fg)'
           : 'border-(--color-border) bg-(--color-card) text-(--color-muted) hover:text-(--color-fg)'
@@ -46,6 +51,10 @@ function ShortlistButtonInner({ sightId, variant = 'icon' }: Props) {
 }
 
 export default function ShortlistButton(props: Props) {
+  const sizing =
+    props.variant === 'full'
+      ? 'min-h-11 px-4 text-sm'
+      : 'min-h-11 min-w-11 px-2 text-lg leading-none';
   // useSearchParams (kautta useUrlState) vaatii Suspense-rajan staattisessa prerenderissä.
   return (
     <Suspense
@@ -53,7 +62,7 @@ export default function ShortlistButton(props: Props) {
         <button
           type="button"
           disabled
-          className="rounded-md border border-(--color-border) bg-(--color-card) px-2 py-1 text-sm text-(--color-muted)"
+          className={`inline-flex items-center justify-center rounded-md border border-(--color-border) bg-(--color-card) text-(--color-muted) ${sizing}`}
         >
           ☆
         </button>
