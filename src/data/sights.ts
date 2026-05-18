@@ -21,6 +21,14 @@ export const sights: Sight[] = [
       'Kazakstanin suurin kaupunki Tienšanin juurella — entinen pääkaupunki, vihreä ja vilkas.',
     description:
       'Almaty on maan kulttuurikeskus ja portti maan parhaisiin luontokohteisiin. Panfilovin puisto, Vihreä basaari ja Zenkovin katedraali ovat keskustan ydintä, ja kaupunkia kiertävät puistokujat tekevät kävelystä helppoa.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Almaty_city_skyline.jpg',
+    imageAlt: 'Almatyn keskustan siluetti ja Tienšanin vuoristotausta',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Almaty_city_skyline.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Dauren Nabijan',
+      license: 'CC0',
+    },
     tags: ['kaupunki', 'puisto'],
     bestMonths: [4, 5, 6, 7, 8, 9, 10],
     travelTimeFromAlmatyHours: 0,
@@ -51,6 +59,14 @@ export const sights: Sight[] = [
       'Yksi maailman korkeimmista puurakenteisista kirkoista — Panfilovin puiston ydin.',
     description:
       '1907 valmistunut ortodoksinen katedraali rakennettiin ilman naulaa ja kesti vuoden 1911 tuhoisan Almatyn maanjäristyksen. Pastellinen ulkokuori ja tunnelmallinen sisätila tekevät tästä kaupungin ehdottoman must-see.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Zenkov_cathedral.jpg',
+    imageAlt: 'Zenkovin katedraali Panfilovin puistossa Almatyssa',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Zenkov_cathedral.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Petar Milošević',
+      license: 'CC BY-SA 4.0',
+    },
     tags: ['kirkko', 'historia', 'arkkitehtuuri'],
     bestMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     travelTimeFromAlmatyHours: 0,
@@ -82,6 +98,15 @@ export const sights: Sight[] = [
       'Almatyn klassinen ruokahalli — hevosenliha, kuivatut hedelmät ja mausteet.',
     description:
       'Paras paikka maistaa kazi-makkaraa, kymyziä (käynyt tammavä) ja kuivattuja meloneita. Toimii samalla yhden lounaan ravintolakatuna — yläkerran nuudelikojut ovat halpoja ja hyviä.',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/7/77/Kok_Bazaar-Green_Bazaar%2C_Almaty_-_panoramio.jpg',
+    imageAlt: 'Vihreän basaarin värikkäät kojurivit ja kävijät',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Kok_Bazaar-Green_Bazaar,_Almaty_-_panoramio.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Halit Edib Özcan',
+      license: 'CC BY-SA 3.0',
+    },
     tags: ['basaari', 'paikallisruoka', 'maistelu'],
     bestMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     travelTimeFromAlmatyHours: 0,
@@ -113,6 +138,16 @@ export const sights: Sight[] = [
       'Almatyn yllä kohoava kukkula köysiradalla — kaupunkinäkymät ja Beatles-patsas.',
     description:
       'Köysirata nousee keskustasta 1100 metriin. Ylhäällä on huvipuisto, näköalaravintolat ja Beatles-patsas. Tule auringonlaskun aikaan kun kaupungin valot syttyvät.',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/2/2b/%D0%92%D0%B8%D0%B4_%D0%BD%D0%B0_%D0%9A%D0%BE%D0%BA-%D0%A2%D0%BE%D0%B1%D0%B5_%D0%BD%D0%B0_%D0%AE%D0%B3_%D0%BD%D0%B0_%D0%B7%D0%B0%D0%BA%D0%B0%D1%82%D0%B5_%D1%81_%D0%B4%D1%80%D0%BE%D0%BD%D0%B0.jpg',
+    imageAlt: 'Ilmakuva Kok-Tobe-kukkulasta auringonlaskussa, TV-torni ja Almatyn siluetti',
+    imageAttribution: {
+      sourceUrl:
+        'https://commons.wikimedia.org/wiki/File:%D0%92%D0%B8%D0%B4_%D0%BD%D0%B0_%D0%9A%D0%BE%D0%BA-%D0%A2%D0%BE%D0%B1%D0%B5_%D0%BD%D0%B0_%D0%AE%D0%B3_%D0%BD%D0%B0_%D0%B7%D0%B0%D0%BA%D0%B0%D1%82%D0%B5_%D1%81_%D0%B4%D1%80%D0%BE%D0%BD%D0%B0.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Rem.photographer',
+      license: 'CC BY-SA 4.0',
+    },
     tags: ['näköalapaikka', 'köysirata'],
     bestMonths: [4, 5, 6, 7, 8, 9, 10],
     travelTimeFromAlmatyHours: 0,
@@ -142,6 +177,16 @@ export const sights: Sight[] = [
       'Maailman korkeimmalla sijaitseva luistinrata ja Keski-Aasian suurin hiihtokeskus.',
     description:
       'Medeun luistinrata (1691 m) ja yläpuolinen Shymbulakin hiihtokeskus (2200–3200 m) ovat yhden bussimatkan päässä keskustasta. Kesällä gondolihissi vie näkymäpaikoille, talvella laskettelu on huippua.',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/f/fe/%D0%9C%D0%B5%D0%B4%D0%B5%D1%83%2C_%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B%2C_2023_%D0%B6%D1%8B%D0%BB%D2%93%D1%8B_%D2%9B%D0%B0%D2%A3%D1%82%D0%B0%D1%80_%281%29.jpg',
+    imageAlt: 'Medeun luistinrata Almatyn yläpuolella vuoristomaisemassa',
+    imageAttribution: {
+      sourceUrl:
+        'https://commons.wikimedia.org/wiki/File:%D0%9C%D0%B5%D0%B4%D0%B5%D1%83,_%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B,_2023_%D0%B6%D1%8B%D0%BB%D2%93%D1%8B_%D2%9B%D0%B0%D2%A3%D1%82%D0%B0%D1%80_(1).jpg',
+      source: 'Wikimedia Commons',
+      author: 'Batyrbek.kz',
+      license: 'CC BY-SA 4.0',
+    },
     tags: ['vuoret', 'hiihto', 'luistelu', 'gondoli'],
     bestMonths: [1, 2, 3, 6, 7, 8, 9, 11, 12],
     travelTimeFromAlmatyHours: 1,
@@ -175,6 +220,14 @@ export const sights: Sight[] = [
       'Maan suurin museo — paimentolaiskulttuurista nykypäivään.',
     description:
       'Neljä pääsalia kattavat arkeologian, etnografian ja itsenäisyyden ajan. Issykin Kultainen mies -kopio on klassinen kohokohta.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Kazakhstan_State_Museum.jpg',
+    imageAlt: 'Keskusvaltionmuseon julkisivu Almatyssa',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Kazakhstan_State_Museum.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Dauren Nabijan',
+      license: 'CC0',
+    },
     tags: ['museo', 'historia'],
     bestMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     travelTimeFromAlmatyHours: 0,
@@ -205,6 +258,14 @@ export const sights: Sight[] = [
       'Kävelykatu kahviloineen, baarivyöhykkeen sydän iltaisin.',
     description:
       'Almatyn rentoutuneen iltaelämän selkäranka — ravintoloita, katumuusikoita ja parin korttelin kävelyetäisyydellä useita craft beer -baareja.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/Zhibek_Zholy_on_a_Snowy_Day.jpg',
+    imageAlt: 'Zhibek Zholyn kävelykatu Almatyssa lumisena päivänä',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Zhibek_Zholy_on_a_Snowy_Day.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Fred Cherrygarden',
+      license: 'CC BY-SA 4.0',
+    },
     tags: ['baarit', 'kävelykatu'],
     bestMonths: [4, 5, 6, 7, 8, 9, 10],
     travelTimeFromAlmatyHours: 0,
@@ -262,6 +323,16 @@ export const sights: Sight[] = [
       'Turkoosi vuoristojärvi 2511 metrissä, n. 30 km Almatysta.',
     description:
       'Päivän klassikkoretki. Pääsy vaatii oman auton tai taksin — myös rajavyöhykelupa on usein tarpeen, koska järvi on lähellä Kirgisian rajaa. Vesi vaihtaa väriä turkoosista smaragdiin vuodenajan mukaan.',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/a/a0/Big_Almaty_Lake_%282511_m%29_and_snowy_peak_of_Soviets_%284317_m%29_in_September%2C_2%2C_2017.jpg',
+    imageAlt: 'Iso Almatyn järvi syyskuussa, taustalla Sovettien huippu',
+    imageAttribution: {
+      sourceUrl:
+        'https://commons.wikimedia.org/wiki/File:Big_Almaty_Lake_(2511_m)_and_snowy_peak_of_Soviets_(4317_m)_in_September,_2,_2017.jpg',
+      source: 'Wikimedia Commons',
+      author: 'МаратД',
+      license: 'CC BY-SA 4.0',
+    },
     tags: ['järvi', 'vuoret', 'näköala'],
     bestMonths: [5, 6, 7, 8, 9],
     travelTimeFromAlmatyHours: 1.5,
@@ -296,6 +367,15 @@ export const sights: Sight[] = [
       'Keski-Aasian suurin kanjoni — "linnojen laakso" muistuttaa Grand Canyonia pienoiskoossa.',
     description:
       '154 km pitkä, 200–300 m syvä kanjoni n. 200 km Almatysta itään. Päiväretki Almatysta on klassikko. Aurinkoisina päivinä kuumuus voi olla rankka — vesi ja päähine mukaan.',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/b/b0/Charyn_Canyon%2C_Kazakhstan_03.jpg',
+    imageAlt: 'Charynin kanjonin punaiset hiekkakivimuodostelmat',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Charyn_Canyon,_Kazakhstan_03.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Bgag',
+      license: 'CC0',
+    },
     tags: ['kanjoni', 'aavikko', 'päiväretki'],
     bestMonths: [4, 5, 6, 9, 10],
     travelTimeFromAlmatyHours: 3.5,
@@ -329,6 +409,14 @@ export const sights: Sight[] = [
       'Kolmen alppijärven ketju Tienšanin kuusimetsissä, 300 km Almatysta.',
     description:
       'Ensimmäiselle järvelle pääsee autolla, ylemmille kävelemällä tai ratsain. Maisema on Sveitsiä muistuttava. Yöpyminen lähikylässä Saty mahdollistaa kaksi-päiväretken yhdessä Kaindyn järven kanssa.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Kolsay_Lake.jpeg',
+    imageAlt: 'Alimmainen Kolsain järvi kuusimetsän keskellä',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Kolsay_Lake.jpeg',
+      source: 'Wikimedia Commons',
+      author: 'Нұрлан Рахымжанов',
+      license: 'CC0',
+    },
     tags: ['järvi', 'vaellus', 'metsä'],
     bestMonths: [6, 7, 8, 9],
     travelTimeFromAlmatyHours: 5,
@@ -358,6 +446,15 @@ export const sights: Sight[] = [
       'Vuonna 1911 maanjäristyksessä syntynyt järvi, jonka pinnasta törröttää kuolleita kuusia.',
     description:
       'Kirkas turkoosi vesi ja veden alle jääneet kuuset tekevät paikasta surrealistisen. Viimeinen kilometri ajetaan 4WD:llä; kävelyä kahteen suuntaan vajaa tunti.',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/2/26/Kaindy_lake_south-east_Kazakhstan.jpg',
+    imageAlt: 'Kaindyn järvi ja vedestä nousevat hopeaksi haalistuneet kuusenrungot',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Kaindy_lake_south-east_Kazakhstan.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Jonas Satkauskas',
+      license: 'CC BY 2.0',
+    },
     tags: ['järvi', 'erikoisuus', '4wd'],
     bestMonths: [6, 7, 8, 9],
     travelTimeFromAlmatyHours: 6,
@@ -386,6 +483,15 @@ export const sights: Sight[] = [
       '150 m korkea hiekkadyyni, joka "laulaa" kuivassa säässä.',
     description:
       'Altyn-Emelin kansallispuiston tähti — kuivan tuulen liikuttaman hiekan ääni muistuttaa kaukaista urkujen huokausta. Tarvitaan puiston pääsylippu ja kuljettaja.',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/9/9e/210723_Altyn_Emel_Singing_Dune_valley.jpg',
+    imageAlt: 'Laulavat hiekkadyynit Altyn-Emelin laaksossa',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:210723_Altyn_Emel_Singing_Dune_valley.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Jjm2311',
+      license: 'CC BY-SA 4.0',
+    },
     tags: ['aavikko', 'kansallispuisto', 'erikoisuus'],
     bestMonths: [4, 5, 6, 9, 10],
     travelTimeFromAlmatyHours: 4,
@@ -420,6 +526,14 @@ export const sights: Sight[] = [
       'Värikkäät kerrostuneet vuoret Altyn-Emelin kansallispuistossa.',
     description:
       'Geologinen sateenkaari — punaista, valkoista ja vihreää savikerrosta. Samalla yhdellä Altyn-Emel-retkellä yleensä Laulavien dyynien kanssa.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/3/38/Altynemel_landscape.jpg',
+    imageAlt: 'Altyn-Emelin värikkäät kerrosvuoret — punaista ja kultaista kalliota',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Altynemel_landscape.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Kalpak Travel',
+      license: 'CC BY 2.0',
+    },
     tags: ['vuoret', 'kansallispuisto', 'geologia'],
     bestMonths: [4, 5, 6, 9, 10],
     travelTimeFromAlmatyHours: 4.5,
@@ -452,6 +566,14 @@ export const sights: Sight[] = [
       'Astanan ikoni — 97 m korkea torni, näköalataso 86 metrissä.',
     description:
       'Symboli kazakkimyytistä, jossa Samruk-lintu munii kultaisen munan. Tornin huipulta avautuu näkymä koko modernin pääkaupungin ylle.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/0/00/Interior_of_Bayterek_Tower_01.jpg',
+    imageAlt: 'Bayterek-tornin koristeellinen sisätila Astanassa',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Interior_of_Bayterek_Tower_01.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Davide Mauro',
+      license: 'CC BY-SA 4.0',
+    },
     tags: ['näköalapaikka', 'arkkitehtuuri', 'ikoni'],
     bestMonths: [5, 6, 7, 8, 9],
     travelTimeFromAstanaHours: 0,
@@ -484,6 +606,14 @@ export const sights: Sight[] = [
       'Maailman suurin telttarakennelma — Foster + Partnersin suunnittelema kauppakeskus.',
     description:
       '150 m korkea läpinäkyvä "jurtta" kestää –35 °C:n pakkasen ja luo sisälleen kesän. Sisältä löytyy ostosalueita, kahviloita ja jopa hiekkaranta.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Khan_Shatyr.jpg',
+    imageAlt: 'Khan Shatyr -teltta Astanan keskustassa',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Khan_Shatyr.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Quarot',
+      license: 'CC0',
+    },
     tags: ['arkkitehtuuri', 'ostokset'],
     bestMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     travelTimeFromAstanaHours: 0,
@@ -513,6 +643,14 @@ export const sights: Sight[] = [
       'Astanan suurin moskeija ennen Hazret Sultania, kultainen kupoli 40 m korkealla.',
     description:
       'Numerot 40 ja 63 viittaavat Muhammadin ikään ilmestyksessä ja kuolemassa. Sisällä mahtuu 5000 rukoilijaa.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Nur_Astana_Mosque_02.jpg',
+    imageAlt: 'Nur-Astana-moskeijan kullattu kupoli ilta-aurinkossa',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Nur_Astana_Mosque_02.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Davide Mauro',
+      license: 'CC BY-SA 4.0',
+    },
     tags: ['moskeija', 'islam', 'arkkitehtuuri'],
     bestMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     travelTimeFromAstanaHours: 0,
@@ -544,6 +682,16 @@ export const sights: Sight[] = [
       'Foster + Partnersin lasipyramidi — maailmanuskontojen kongressitalo.',
     description:
       '77 m korkea pyramidi, sisätilat täynnä symboliikkaa eri uskonnoista. Konferenssisali on pyramidin huipussa.',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/2/21/210719_View_from_Palace_of_Peace_and_Reconciliation_to_Skyline.jpg',
+    imageAlt: 'Näkymä Rauhan ja sovinnon palatsista Astanan modernin keskustan ylle',
+    imageAttribution: {
+      sourceUrl:
+        'https://commons.wikimedia.org/wiki/File:210719_View_from_Palace_of_Peace_and_Reconciliation_to_Skyline.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Jjm2311',
+      license: 'CC BY-SA 4.0',
+    },
     tags: ['arkkitehtuuri', 'ikoni'],
     bestMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     travelTimeFromAstanaHours: 0,
@@ -605,6 +753,16 @@ export const sights: Sight[] = [
       'UNESCO-kohde, Timurin teettämä 1389 — Kazakstanin tärkein islamilainen rakennus.',
     description:
       'Sufi-runoilijan Yasawin haudan päälle rakennettu mausoleumi on Timurid-arkkitehtuurin alku ja edeltäjä Samarkandin monumenteille. Vierailu vaatii vähintään puoli päivää.',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/c/c2/%D0%9C%D0%B0%D1%83%D0%B7%D0%BE%D0%BB%D0%B5%D1%98_%D0%A5%D0%BE%D0%B4%D0%B6%D0%B5_%D0%90%D1%85%D0%BC%D0%B5%D0%B4%D0%B0_%D0%88%D0%B0%D1%81%D0%B0%D0%B2%D0%B8%D1%98%D0%B0_%28%D0%B3%D1%80%D0%B0%D0%B4_%D0%A2%D1%83%D1%80%D0%BA%D0%B5%D1%81%D1%82%D0%B0%D0%BD%2C_%D0%9A%D0%B0%D0%B7%D0%B0%D1%85%D1%81%D1%82%D0%B0%D0%BD%29.jpg',
+    imageAlt: 'Khoja Ahmed Yasawin mausoleumin turkoosi kupoli Turkistanissa',
+    imageAttribution: {
+      sourceUrl:
+        'https://commons.wikimedia.org/wiki/File:%D0%9C%D0%B0%D1%83%D0%B7%D0%BE%D0%BB%D0%B5%D1%98_%D0%A5%D0%BE%D0%B4%D0%B6%D0%B5_%D0%90%D1%85%D0%BC%D0%B5%D0%B4%D0%B0_%D0%88%D0%B0%D1%81%D0%B0%D0%B2%D0%B8%D1%98%D0%B0_(%D0%B3%D1%80%D0%B0%D0%B4_%D0%A2%D1%83%D1%80%D0%BA%D0%B5%D1%81%D1%82%D0%B0%D0%BD,_%D0%9A%D0%B0%D0%B7%D0%B0%D1%85%D1%81%D1%82%D0%B0%D0%BD).jpg',
+      source: 'Wikimedia Commons',
+      author: 'Petar Milošević',
+      license: 'CC BY-SA 3.0',
+    },
     tags: ['unesco', 'mausoleumi', 'islam', 'silkkitie'],
     bestMonths: [3, 4, 5, 6, 9, 10, 11],
     difficulty: 'easy',
@@ -665,6 +823,16 @@ export const sights: Sight[] = [
       'Mangystaun toismaallinen kalkkikivimaisema — "Marsia maan päällä".',
     description:
       'Hammaslaitaiset jyrkänteet ja suolatasangot 200 km Aktausta. Yöpyminen jurtassa keskellä aavikkoa on osa kokemusta.',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/3/3e/Boszhira_tract._Kazakhstan%2C_Mangistau._November_2024.jpg',
+    imageAlt: 'Bozzhyran dramaattiset kalkkikivimuodostelmat Mangystaussa',
+    imageAttribution: {
+      sourceUrl:
+        'https://commons.wikimedia.org/wiki/File:Boszhira_tract._Kazakhstan,_Mangistau._November_2024.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Astrobond',
+      license: 'CC BY-SA 4.0',
+    },
     tags: ['aavikko', 'kanjoni', 'surreaali'],
     bestMonths: [3, 4, 5, 9, 10],
     difficulty: 'hard',
@@ -726,6 +894,14 @@ export const sights: Sight[] = [
       'Pyhiinvaelluskohde — 1700-luvulla luolaan rakennettu sufimoskeija.',
     description:
       'Beket Ata oli kazakkien sufitietäjä; hänen hautansa houkuttelee pyhiinvaeltajia ympäri maan. Vierailijat tulevat usein yöksi viettämään hiljaisuutta luolissa.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/b/bf/Beket-Ata_%28Oglandy%29.jpg',
+    imageAlt: 'Beket-Atan maanalainen moskeija kalliossa',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Beket-Ata_(Oglandy).jpg',
+      source: 'Wikimedia Commons',
+      author: 'Yakov Fedorov',
+      license: 'CC BY-SA 4.0',
+    },
     tags: ['moskeija', 'pyhiinvaellus', 'sufi'],
     bestMonths: [3, 4, 5, 9, 10],
     difficulty: 'moderate',
@@ -757,6 +933,15 @@ export const sights: Sight[] = [
       'Etelä-Kazakstanin metropolin historiallinen ydin ja basaarit.',
     description:
       'Vanhempi ja rennompi kuin Almaty — hyvä portti Turkistaniin. Restauroidut linnoituksen muurit ja Megabasaari ovat keskustan kohokohdat.',
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/4/41/Tulip-Fountain-Shymkent-Kazakhstan.jpg',
+    imageAlt: 'Tulppaanisuihku Shymkentin keskustassa',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Tulip-Fountain-Shymkent-Kazakhstan.jpg',
+      source: 'Wikimedia Commons',
+      author: 'TheGreatSteppe',
+      license: 'CC BY-SA 4.0',
+    },
     tags: ['kaupunki', 'basaari'],
     bestMonths: [3, 4, 5, 6, 9, 10, 11],
     difficulty: 'easy',
@@ -786,6 +971,14 @@ export const sights: Sight[] = [
       'Keski-Aasian vanhin luonnonpuisto — vuoria, jokia, lumileopardin elinaluetta.',
     description:
       'Talas-Alatau-vuoriston etelärinne, 1300–4239 m. Vaatii etukäteisluvan ja oppaan. Lisätään tarkemmin kun reitti varmistuu.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/2/22/Aksu_Jabagly_2.JPG',
+    imageAlt: 'Aksu-Zhabaglyn luonnonpuiston vuoristomaisema lumihuipuilla',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Aksu_Jabagly_2.JPG',
+      source: 'Wikimedia Commons',
+      author: 'Tomiris',
+      license: 'CC BY-SA 3.0',
+    },
     tags: ['kansallispuisto', 'vaellus', 'biodiversiteetti'],
     bestMonths: [5, 6, 7, 8, 9],
     difficulty: 'hard',
