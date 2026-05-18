@@ -34,6 +34,24 @@ Kaikki sisältö on typed TypeScriptiä. Ei JSON, ei DB.
 - `historicalContext` on lyhyt — 1–2 lausetta. Pidemmät tarinat menevät research-tiedostoon.
 - `lastEnriched` päivittyy automaattisesti kun `sight-enricher` koskee entryyn.
 
+## Kuvat ja attribuutiot
+- `Sight.image` on **suora URL** kuvaan — yleensä `https://upload.wikimedia.org/.../File.jpg`.
+- `Sight.imageAlt` on lyhyt suomenkielinen alt-teksti (esim. "Charynin kanjoni iltavalossa"). Älä toista nimeä jos `name` ajaa saman asian.
+- `Sight.imageAttribution` on **pakollinen** ulkoisille kuville. Rakenne:
+  ```ts
+  imageAttribution: {
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Charyn_Canyon.jpg', // tiedostosivu, EI kuva
+    source: 'Wikimedia Commons',
+    author: 'Etunimi Sukunimi',   // CC-BY vaatii
+    license: 'CC BY-SA 4.0',      // lisenssin tarkka nimi
+  }
+  ```
+- Vain `upload.wikimedia.org` on sallittu host (configuroitu `next.config.ts`:ssä). Jos lisäät muita lähteitä, päivitä `remotePatterns` myös.
+- Käytä **kuva-API**:n direct-URLia (`upload.wikimedia.org/wikipedia/commons/...`), ei thumbnaileja. `next/image` hoitaa skaalauksen ja optimoinnin.
+- Lisenssi pitää sallia kaupallinen jakelu ja muokkaaminen → suodata Wikimediassa "CC-BY-SA" tai "CC0" -tagilla. Älä käytä "Fair use" -kuvia.
+- Tarkista kuvan `imageAttribution.sourceUrl` toimii ja että tekijä + lisenssi näkyvät siellä — `SightImage`-komponentti linkittää siihen klikatessa.
+- Jos kuvaa ei ole, jätä kentät pois — komponentti renderöi kategoria-värisen placeholderin emojilla.
+
 ## Tarkistuslista muokkauksen jälkeen
 1. `pnpm typecheck`
 2. Avaa `/kartta` dev-serverillä — markkeri näkyy oikeassa paikassa

@@ -7,6 +7,8 @@ import { excludeDrafts, findBySlug } from '@/lib/filters';
 import { nearestSights } from '@/lib/distance';
 import NearbyList from '@/components/sights/NearbyList';
 import ShortlistButton from '@/components/sights/ShortlistButton';
+import SightActionBar from '@/components/sights/SightActionBar';
+import SightImage from '@/components/sights/SightImage';
 import StarRating, { RatingPlaceholder } from '@/components/sights/StarRating';
 import OverallStars from '@/components/sights/OverallStars';
 import { formatKZT } from '@/lib/currency';
@@ -46,7 +48,15 @@ export default async function SightDetailPage({
   const nearby = nearestSights(sight, excludeDrafts(sights), 5);
 
   return (
-    <article className="space-y-8">
+    <>
+    <article className="space-y-8 pb-20 lg:pb-0">
+      <SightImage
+        sight={sight}
+        sizes="(min-width: 1024px) 1024px, 100vw"
+        aspect="aspect-[16/9] sm:aspect-[21/9]"
+        className="rounded-lg"
+        priority
+      />
       <header className="space-y-3">
         <div className="flex flex-wrap items-center gap-2">
           <span
@@ -220,7 +230,7 @@ export default async function SightDetailPage({
             </p>
             <Link
               href={`/kartta?id=${sight.id}`}
-              className="mt-3 inline-block rounded-md bg-(--color-steppe) px-3 py-2 text-sm text-white hover:bg-(--color-steppe-dark) hover:no-underline"
+              className="mt-3 inline-flex min-h-11 items-center rounded-md bg-(--color-steppe) px-4 text-sm text-white hover:bg-(--color-steppe-dark) hover:no-underline"
             >
               Avaa kartalla →
             </Link>
@@ -228,6 +238,8 @@ export default async function SightDetailPage({
         </aside>
       </div>
     </article>
+    <SightActionBar sight={sight} />
+    </>
   );
 }
 

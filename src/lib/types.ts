@@ -34,6 +34,18 @@ export interface Coords {
   lng: number;
 }
 
+/** Attribution metadata for an externally-licensed image (CC-BY etc.). */
+export interface ImageAttribution {
+  /** Lähdesivun URL (Wikimedia Commons -tiedostosivu, Flickr-sivu, jne.). */
+  sourceUrl: string;
+  /** Lähteen nimi näytettäväksi, esim. 'Wikimedia Commons'. */
+  source: string;
+  /** Kuvan tekijä — CC-BY-lisenssi vaatii. */
+  author?: string;
+  /** Lisenssin lyhytkoodi, esim. 'CC BY-SA 4.0'. */
+  license?: string;
+}
+
 export interface Sight {
   id: string;
   slug: string;
@@ -48,6 +60,7 @@ export interface Sight {
   description: string;
   image?: string;
   imageAlt?: string;
+  imageAttribution?: ImageAttribution;
   bestMonths?: number[];
   travelTimeFromAlmatyHours?: number;
   travelTimeFromAstanaHours?: number;
