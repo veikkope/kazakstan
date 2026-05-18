@@ -1,0 +1,46 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm install)",
+      "Bash(pnpm add:*)",
+      "Bash(pnpm remove:*)",
+      "Bash(pnpm dev)",
+      "Bash(pnpm build)",
+      "Bash(pnpm lint)",
+      "Bash(pnpm lint:*)",
+      "Bash(pnpm typecheck)",
+      "Bash(pnpm format:*)",
+      "Bash(pnpm exec:*)",
+      "Bash(npx create-next-app:*)",
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git branch:*)",
+      "Bash(git checkout:*)",
+      "Bash(git push:*)",
+      "Bash(git pull:*)",
+      "Bash(node:*)",
+      "Bash(ls:*)",
+      "Bash(cp:*)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "PowerShell(pnpm:*)",
+      "PowerShell(node:*)",
+      "PowerShell(git:*)",
+      "WebFetch(domain:nominatim.openstreetmap.org)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "WebFetch(domain:fi.wikipedia.org)",
+      "WebFetch(domain:openstreetmap.org)",
+      "WebFetch(domain:caravanistan.com)",
+      "WebFetch(domain:advantour.com)"
+    ],
+    "deny": [
+      "Bash(rm -rf:*)",
+      "Bash(git push --force:*)",
+      "Bash(git reset --hard:*)",
+      "PowerShell(Remove-Item -Recurse -Force:*)"
+    ]
+  }
+}
