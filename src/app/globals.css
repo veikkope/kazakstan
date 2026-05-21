@@ -255,6 +255,36 @@ a:hover {
 }
 
 /*
+ * Kartta page lock — when the route mounts it adds .kartta-locked to
+ * <body>; this disables document scroll and hides the Footer so only
+ * Header, filter, map and BottomNav remain. The route's useEffect
+ * also sets `html { overflow: hidden }` and reverts on unmount.
+ */
+body.kartta-locked {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+body.kartta-locked footer {
+  display: none;
+}
+
+/*
+ * Mobile: the kartta page floats a translucent filter chip strip over
+ * the top of the map (≈56px tall). Push the topright zoom controls
+ * below it so +/- stay visible and tappable. Desktop renders the
+ * filter inline above the map, so no offset is needed.
+ */
+.leaflet-top.leaflet-right {
+  margin-top: 56px;
+  margin-right: 12px;
+}
+@media (min-width: 640px) {
+  .leaflet-top.leaflet-right {
+    margin-top: 0;
+  }
+}
+
+/*
  * Pulsing dot marker for the user's current location. Two concentric
  * elements — solid centre dot and an animated ring that fades outward.
  * Reduced-motion users get the dot only.

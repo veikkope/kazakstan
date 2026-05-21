@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, useMemo, useState } from 'react';
+import { Suspense, useEffect, useMemo, useState } from 'react';
 import { Info, List as ListIcon, Map as MapIcon } from 'lucide-react';
 import MapViewClient from '@/components/map/MapView.client';
 import CategoryFilter from '@/components/map/CategoryFilter';
@@ -24,6 +24,22 @@ function KarttaPageInner() {
   // ignores this — state is intentionally not in URL since it's purely
   // ephemeral mobile chrome.
   const [viewMode, setViewMode] = useState<ViewMode>('map');
+
+  // Lock the page to the viewport: the map fills the available space
+  // between Header and BottomNav, no document scroll, Footer hidden.
+  // Cleanup on unmount restores defaults so the rest of the app keeps
+  // its normal flow.
+  useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+    const prevHtmlOverflow = html.style.overflow;
+    html.style.overflow = 'hidden';
+    body.classList.add('kartta-locked');
+    return () => {
+      html.style.overflow = prevHtmlOverflow;
+      body.classList.remove('kartta-locked');
+    };
+  }, []);
 
   const visible = useMemo(() => {
     const base = state.showDrafts ? sights : excludeDrafts(sights);
@@ -78,11 +94,12 @@ function KarttaPageInner() {
       {/*
         Map area.
         Mobile: full viewport between Header (3.5rem) and BottomNav
-        (~5rem with iOS safe area). Filter chips overlay the top of the
-        canvas. dvh adapts to Safari address-bar autohide.
+        (~4rem natural + env(safe-area-inset-bottom) for the home
+        indicator on notched phones). Filter chips overlay the top of
+        the canvas. dvh adapts to Safari address-bar autohide.
         Desktop: classic 70dvh side-by-side with sidebar.
       */}
-      <div className="relative flex h-[calc(100dvh-3.5rem-5rem)] sm:h-[70dvh] sm:flex-row sm:gap-3">
+      <div className="relative flex h-[calc(100dvh-3.5rem-4rem-env(safe-area-inset-bottom))] sm:h-[70dvh] sm:flex-row sm:gap-3">
         {/* Map canvas (always mounted) */}
         <div className="relative h-full flex-1 overflow-hidden sm:overflow-hidden sm:rounded-lg sm:border sm:border-border">
           <MapViewClient
