@@ -12,6 +12,13 @@ import SightImage from '@/components/sights/SightImage';
 import StarRating, { RatingPlaceholder } from '@/components/sights/StarRating';
 import OverallStars from '@/components/sights/OverallStars';
 import { formatKZT } from '@/lib/currency';
+import { Badge } from '@/components/ui/badge';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 
 export function generateStaticParams() {
   return sights.map((s) => ({ slug: s.slug }));
@@ -65,64 +72,79 @@ export default async function SightDetailPage({
           >
             {cat.emoji} {cat.fi}
           </span>
-          <span className="text-sm text-(--color-muted)">{region.fi}</span>
+          <span className="text-sm text-muted-foreground">{region.fi}</span>
           {sight.status === 'draft' && (
-            <span className="rounded-full bg-(--color-sand) px-2 py-0.5 text-xs uppercase tracking-wide text-(--color-fg)">
+            <Badge
+              variant="outline"
+              className="border-(--color-sand-dark) text-(--color-sand-dark) uppercase tracking-wide"
+            >
               Luonnos — odottaa vahvistusta
-            </span>
+            </Badge>
           )}
         </div>
         <div className="flex flex-wrap items-center gap-3">
-          <h1 className="text-3xl font-bold tracking-tight">{sight.name}</h1>
-          <ShortlistButton sightId={sight.id} variant="full" />
+          <h1 className="text-balance text-3xl font-bold tracking-tight">{sight.name}</h1>
+          <ShortlistButton sightId={sight.id} sightName={sight.name} variant="full" />
         </div>
         {sight.nameLocal && (
-          <p className="text-sm text-(--color-muted)">{sight.nameLocal}</p>
+          <p className="text-sm text-muted-foreground">{sight.nameLocal}</p>
         )}
         {sight.ratings && (
           <div>
             <OverallStars ratings={sight.ratings} size="lg" />
           </div>
         )}
-        <p className="max-w-2xl text-lg text-(--color-muted)">
+        <p className="max-w-2xl text-lg text-muted-foreground">
           {sight.shortDescription}
         </p>
       </header>
 
       <div className="grid gap-8 lg:grid-cols-3">
         <div className="space-y-6 lg:col-span-2">
-          <section className="rounded-lg border border-(--color-border) bg-(--color-card) p-5">
-            <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-(--color-muted)">
-              Kuvaus
-            </h2>
-            <p className="whitespace-pre-line text-(--color-fg)">{sight.description}</p>
-          </section>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                Kuvaus
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="whitespace-pre-line text-foreground">{sight.description}</p>
+            </CardContent>
+          </Card>
 
           {sight.historicalContext && (
-            <section className="rounded-lg border border-(--color-border) bg-(--color-card) p-5">
-              <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-(--color-muted)">
-                Historia
-              </h2>
-              <p className="text-sm">{sight.historicalContext}</p>
-            </section>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                  Historia
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm">{sight.historicalContext}</p>
+              </CardContent>
+            </Card>
           )}
 
           {sight.practicalTips && sight.practicalTips.length > 0 && (
-            <section className="rounded-lg border border-(--color-border) bg-(--color-card) p-5">
-              <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-(--color-muted)">
-                Käytännön vinkit
-              </h2>
-              <ul className="list-disc space-y-1 pl-5 text-sm">
-                {sight.practicalTips.map((tip, i) => (
-                  <li key={i}>{tip}</li>
-                ))}
-              </ul>
-            </section>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                  Käytännön vinkit
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="list-disc space-y-1 pl-5 text-sm">
+                  {sight.practicalTips.map((tip, i) => (
+                    <li key={i}>{tip}</li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
           )}
 
           {nearby.length > 0 && (
             <section>
-              <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-(--color-muted)">
+              <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
                 Lähellä tätä
               </h2>
               <NearbyList items={nearby} />
@@ -131,110 +153,122 @@ export default async function SightDetailPage({
         </div>
 
         <aside className="space-y-4">
-          <section className="rounded-lg border border-(--color-border) bg-(--color-card) p-5">
-            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-(--color-muted)">
-              Arvosanat
-            </h2>
-            {sight.ratings ? (
-              <>
-                <StarRating ratings={sight.ratings} />
-                <p className="mt-3 text-[11px] text-(--color-muted)">
-                  Arvioitu {sight.ratings.ratedAt}
-                </p>
-              </>
-            ) : (
-              <RatingPlaceholder />
-            )}
-          </section>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                Arvosanat
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              {sight.ratings ? (
+                <>
+                  <StarRating ratings={sight.ratings} />
+                  <p className="mt-3 text-[11px] text-muted-foreground">
+                    Arvioitu {sight.ratings.ratedAt}
+                  </p>
+                </>
+              ) : (
+                <RatingPlaceholder />
+              )}
+            </CardContent>
+          </Card>
 
-          <section className="rounded-lg border border-(--color-border) bg-(--color-card) p-5">
-            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-(--color-muted)">
-              Pikatiedot
-            </h2>
-            <dl className="space-y-2 text-sm">
-              {sight.city && (
-                <Row label="Kaupunki" value={sight.city} />
-              )}
-              {sight.timeNeededHours !== undefined && (
-                <Row label="Vierailuaika" value={`${sight.timeNeededHours} h`} />
-              )}
-              {sight.difficulty && (
-                <Row
-                  label="Vaativuus"
-                  value={
-                    sight.difficulty === 'easy'
-                      ? 'helppo'
-                      : sight.difficulty === 'moderate'
-                        ? 'keskitaso'
-                        : 'vaativa'
-                  }
-                />
-              )}
-              {sight.budgetLevel && (
-                <Row
-                  label="Hintataso"
-                  value={
-                    sight.budgetLevel === 'low'
-                      ? 'edullinen'
-                      : sight.budgetLevel === 'mid'
-                        ? 'keskitaso'
-                        : 'kallis'
-                  }
-                />
-              )}
-              {sight.costKZT !== undefined && (
-                <Row
-                  label="Sisäänpääsy"
-                  value={sight.costKZT === 'free' ? 'Maksuton' : formatKZT(sight.costKZT)}
-                />
-              )}
-              {sight.openingHours && (
-                <Row label="Aukiolo" value={sight.openingHours} />
-              )}
-              {sight.needsCar !== undefined && (
-                <Row label="Vaatii auton" value={sight.needsCar ? 'Kyllä' : 'Ei'} />
-              )}
-              {sight.needsGuide !== undefined && (
-                <Row
-                  label="Suositellaan opasta"
-                  value={sight.needsGuide ? 'Kyllä' : 'Ei'}
-                />
-              )}
-              {sight.travelTimeFromAlmatyHours !== undefined && (
-                <Row
-                  label="Matka Almatysta"
-                  value={`~${sight.travelTimeFromAlmatyHours} h`}
-                />
-              )}
-              {sight.travelTimeFromAstanaHours !== undefined && (
-                <Row
-                  label="Matka Astanasta"
-                  value={`~${sight.travelTimeFromAstanaHours} h`}
-                />
-              )}
-              {sight.bestMonths && sight.bestMonths.length > 0 && (
-                <Row
-                  label="Paras aika"
-                  value={sight.bestMonths.map((m) => MONTHS_FI[m]).join(', ')}
-                />
-              )}
-            </dl>
-          </section>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                Pikatiedot
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <dl className="space-y-2 text-sm">
+                {sight.city && (
+                  <Row label="Kaupunki" value={sight.city} />
+                )}
+                {sight.timeNeededHours !== undefined && (
+                  <Row label="Vierailuaika" value={`${sight.timeNeededHours} h`} />
+                )}
+                {sight.difficulty && (
+                  <Row
+                    label="Vaativuus"
+                    value={
+                      sight.difficulty === 'easy'
+                        ? 'helppo'
+                        : sight.difficulty === 'moderate'
+                          ? 'keskitaso'
+                          : 'vaativa'
+                    }
+                  />
+                )}
+                {sight.budgetLevel && (
+                  <Row
+                    label="Hintataso"
+                    value={
+                      sight.budgetLevel === 'low'
+                        ? 'edullinen'
+                        : sight.budgetLevel === 'mid'
+                          ? 'keskitaso'
+                          : 'kallis'
+                    }
+                  />
+                )}
+                {sight.costKZT !== undefined && (
+                  <Row
+                    label="Sisäänpääsy"
+                    value={sight.costKZT === 'free' ? 'Maksuton' : formatKZT(sight.costKZT)}
+                  />
+                )}
+                {sight.openingHours && (
+                  <Row label="Aukiolo" value={sight.openingHours} />
+                )}
+                {sight.needsCar !== undefined && (
+                  <Row label="Vaatii auton" value={sight.needsCar ? 'Kyllä' : 'Ei'} />
+                )}
+                {sight.needsGuide !== undefined && (
+                  <Row
+                    label="Suositellaan opasta"
+                    value={sight.needsGuide ? 'Kyllä' : 'Ei'}
+                  />
+                )}
+                {sight.travelTimeFromAlmatyHours !== undefined && (
+                  <Row
+                    label="Matka Almatysta"
+                    value={`~${sight.travelTimeFromAlmatyHours} h`}
+                  />
+                )}
+                {sight.travelTimeFromAstanaHours !== undefined && (
+                  <Row
+                    label="Matka Astanasta"
+                    value={`~${sight.travelTimeFromAstanaHours} h`}
+                  />
+                )}
+                {sight.bestMonths && sight.bestMonths.length > 0 && (
+                  <Row
+                    label="Paras aika"
+                    value={sight.bestMonths.map((m) => MONTHS_FI[m]).join(', ')}
+                  />
+                )}
+              </dl>
+            </CardContent>
+          </Card>
 
-          <section className="rounded-lg border border-(--color-border) bg-(--color-card) p-5">
-            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-(--color-muted)">
-              Sijainti
-            </h2>
-            <p className="text-sm text-(--color-muted)">
-              {sight.coords.lat.toFixed(4)}, {sight.coords.lng.toFixed(4)}
-            </p>
-            <Link
-              href={`/kartta?id=${sight.id}`}
-              className="mt-3 inline-flex min-h-11 items-center rounded-md bg-(--color-steppe) px-4 text-sm text-white hover:bg-(--color-steppe-dark) hover:no-underline"
-            >
-              Avaa kartalla →
-            </Link>
-          </section>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                Sijainti
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                {sight.coords.lat.toFixed(4)}, {sight.coords.lng.toFixed(4)}
+              </p>
+              <Link
+                href={`/kartta?id=${sight.id}`}
+                className="mt-3 inline-flex min-h-11 items-center rounded-md bg-(--color-steppe) px-4 text-sm text-white hover:bg-(--color-steppe-dark) hover:no-underline"
+              >
+                Avaa kartalla →
+              </Link>
+            </CardContent>
+          </Card>
         </aside>
       </div>
     </article>
@@ -246,8 +280,8 @@ export default async function SightDetailPage({
 function Row({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex justify-between gap-2">
-      <dt className="text-(--color-muted)">{label}</dt>
-      <dd className="text-right text-(--color-fg)">{value}</dd>
+      <dt className="text-muted-foreground">{label}</dt>
+      <dd className="text-right text-foreground">{value}</dd>
     </div>
   );
 }

@@ -1,12 +1,21 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
+  /*
+   * Outdoor palette (canonical).
+   * Existing code references these via Tailwind v4 arbitrary form
+   * `text-(--color-muted)` / `bg-(--color-card)` etc., not utility classes,
+   * so renaming would be a wide-blast refactor — we keep them as-is.
+   */
   --color-bg: #fbfaf6;
   --color-fg: #1e293b;
   /*
-   * Muted body text. Bumped from slate-500 (#64748b, ~4.6:1) to slate-600
-   * (~7.1:1) so it stays readable on a phone under direct sunlight — the
-   * primary usage context for this app during the trip.
+   * Muted body text — slate-600 (~7.1:1) so it stays readable on a phone
+   * under direct sunlight, the primary usage context for this app.
    */
   --color-muted: #475569;
   --color-card: #ffffff;
@@ -17,35 +26,115 @@
   --color-sand: #d4b483;
   --color-sand-dark: #a98654;
   --color-accent: #16a34a;
+
+  /*
+   * shadcn/ui semantic tokens. OKLCH-tuned so shadcn surfaces (muted,
+   * accent, popover, card) read as the same warm off-white family as the
+   * outdoor palette. Keep --primary and --ring on the steppe-blue so
+   * focus rings and CTA fills match the rest of the site.
+   *
+   * Note: --muted here is a *surface* token (subtle hover background),
+   * NOT the muted-text color. The outdoor muted-text lives in
+   * --color-muted / shadcn's --muted-foreground.
+   */
+  --background: oklch(0.985 0.005 80);
+  --foreground: oklch(0.255 0.025 263);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.255 0.025 263);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.255 0.025 263);
+  --primary: oklch(0.546 0.215 262);
+  --primary-foreground: oklch(0.985 0.005 80);
+  --secondary: oklch(0.93 0.025 78);
+  --secondary-foreground: oklch(0.255 0.025 263);
+  --muted: oklch(0.955 0.012 80);
+  --muted-foreground: oklch(0.43 0.035 263);
+  --accent: oklch(0.94 0.022 75);
+  --accent-foreground: oklch(0.255 0.025 263);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.86 0.018 263);
+  --input: oklch(0.86 0.018 263);
+  --ring: oklch(0.546 0.215 262);
+  --chart-1: oklch(0.546 0.215 262);
+  --chart-2: oklch(0.62 0.18 145);
+  --chart-3: oklch(0.78 0.07 78);
+  --chart-4: oklch(0.488 0.225 264);
+  --chart-5: oklch(0.625 0.078 70);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0.005 80);
+  --sidebar-foreground: oklch(0.255 0.025 263);
+  --sidebar-primary: oklch(0.546 0.215 262);
+  --sidebar-primary-foreground: oklch(0.985 0.005 80);
+  --sidebar-accent: oklch(0.94 0.022 75);
+  --sidebar-accent-foreground: oklch(0.255 0.025 263);
+  --sidebar-border: oklch(0.86 0.018 263);
+  --sidebar-ring: oklch(0.546 0.215 262);
 }
 
 /*
- * Honour the OS-level "Increase Contrast" preference (iOS Accessibility →
- * Display & Text Size → Increase Contrast; equivalent on Android & macOS).
- * Pushes muted text and borders even harder so the trip site stays legible
- * in the harshest conditions.
+ * Honour OS-level "Increase Contrast". Bumps both outdoor palette
+ * variables and shadcn semantic tokens so every surface stays legible
+ * in harsh glare.
  */
 @media (prefers-contrast: more) {
   :root {
     --color-muted: #334155;
     --color-border: #94a3b8;
     --color-steppe: #1d4ed8;
+
+    --foreground: oklch(0.21 0.025 263);
+    --muted-foreground: oklch(0.36 0.04 263);
+    --border: oklch(0.72 0.025 263);
+    --input: oklch(0.72 0.025 263);
+    --ring: oklch(0.488 0.225 264);
+    --primary: oklch(0.488 0.225 264);
   }
 }
 
 @theme inline {
-  --color-background: var(--color-bg);
-  --color-foreground: var(--color-fg);
-  --color-muted: var(--color-muted);
-  --color-card: var(--color-card);
-  --color-border: var(--color-border);
-  --color-steppe: var(--color-steppe);
-  --color-steppe-dark: var(--color-steppe-dark);
-  --color-sand: var(--color-sand);
-  --color-sand-dark: var(--color-sand-dark);
-  --color-accent: var(--color-accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-geist-sans);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 body {
@@ -61,4 +150,152 @@ a {
 a:hover {
   color: var(--color-steppe-dark);
   text-decoration: underline;
+}
+
+/*
+ * Dark mode tokens kept for shadcn components that reference `dark:`
+ * variants — currently no .dark class is applied to <html>, so this
+ * block is inert. Leave intact so the components compile cleanly and
+ * dark mode can be wired in later without re-tuning palettes.
+ */
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.62 0.21 262);
+  --primary-foreground: oklch(0.145 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.62 0.21 262);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.62 0.21 262);
+  --sidebar-primary-foreground: oklch(0.145 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+  /*
+   * Heading typography. Tighter tracking on h1–h3 gives the outdoor sans
+   * (Geist) a more confident editorial feel without changing the palette.
+   * Body copy keeps default tracking — only display sizes benefit from
+   * negative letter-spacing.
+   */
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.02em;
+  }
+  h1 {
+    font-weight: 700;
+  }
+  h2 {
+    font-weight: 600;
+  }
+}
+
+/*
+ * Leaflet popup scope for the sight cards. Default Leaflet popups have
+ * 14px/20px content padding which would offset our edge-to-edge hero
+ * image. We zero the padding and let the inner HTML control layout.
+ */
+.leaflet-popup.sight-popup .leaflet-popup-content-wrapper {
+  padding: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.18);
+}
+.leaflet-popup.sight-popup .leaflet-popup-content {
+  margin: 0;
+  width: auto !important;
+  line-height: 1.4;
+}
+.leaflet-popup.sight-popup .leaflet-popup-tip {
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.18);
+}
+.leaflet-popup.sight-popup a {
+  color: #2563eb;
+}
+.leaflet-popup.sight-popup a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/*
+ * "Show my location" floating action button. The container is created
+ * by Leaflet's L.Control in the bottomright corner; React portals the
+ * button inside. Margin clears the OSM attribution which lives in the
+ * same corner stack.
+ */
+.locate-control-container {
+  margin: 0 12px 28px 0;
+}
+
+/*
+ * Pulsing dot marker for the user's current location. Two concentric
+ * elements — solid centre dot and an animated ring that fades outward.
+ * Reduced-motion users get the dot only.
+ */
+.locate-pulse-wrapper {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+.locate-pulse-dot {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #2563eb;
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 1px 5px rgba(15, 23, 42, 0.35);
+}
+.locate-pulse-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #2563eb;
+  opacity: 0.35;
+  animation: locate-pulse 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+@keyframes locate-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .locate-pulse-ring {
+    animation: none;
+    opacity: 0.2;
+  }
 }

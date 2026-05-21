@@ -1,71 +1,98 @@
 'use client';
 
 import { Suspense } from 'react';
+import { Star } from 'lucide-react';
+import { toast } from 'sonner';
+import { Button } from '@/components/ui/button';
 import { useShortlist } from '@/lib/shortlist';
+import { cn } from '@/lib/utils';
 
 interface Props {
   sightId: string;
+  sightName?: string;
   variant?: 'icon' | 'full';
 }
 
-function ShortlistButtonInner({ sightId, variant = 'icon' }: Props) {
+function ShortlistButtonInner({ sightId, sightName, variant = 'icon' }: Props) {
   const { hydrated, has, toggle } = useShortlist();
   const active = hydrated && has(sightId);
 
-  // Pre-hydration: render a stable placeholder so SSR/CSR match.
-  const label = !hydrated
-    ? '☆'
-    : active
-      ? variant === 'full'
-        ? '★ Shortlistilla'
-        : '★'
-      : variant === 'full'
-        ? '☆ Lisää shortlistille'
-        : '☆';
+  const label = active ? 'Shortlistilla' : 'Lisää shortlistille';
 
-  const sizing =
-    variant === 'full'
-      ? 'min-h-11 px-4 text-sm'
-      : 'min-h-11 min-w-11 px-2 text-lg leading-none';
+  function handleToggle() {
+    // Capture pre-toggle state so we know which direction we just moved.
+    const wasActive = active;
+    toggle(sightId);
+    if (wasActive) {
+      toast('Poistettu listalta');
+    } else {
+      toast.success(
+        'Lisätty Mukaan-listalle',
+        sightName ? { description: sightName } : undefined,
+      );
+    }
+  }
+
+  // Pre-hydration: render a stable, disabled outline button so SSR/CSR match.
+  if (variant === 'full') {
+    return (
+      <Button
+        type="button"
+        variant={active ? 'default' : 'outline'}
+        size="default"
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          handleToggle();
+        }}
+        disabled={!hydrated}
+        aria-pressed={active}
+        aria-label={active ? 'Poista shortlistilta' : 'Lisää shortlistille'}
+        className="min-h-11 px-4"
+      >
+        <Star className={cn('size-4', active && 'fill-current')} aria-hidden />
+        <span>{label}</span>
+      </Button>
+    );
+  }
 
   return (
-    <button
+    <Button
       type="button"
+      variant={active ? 'default' : 'outline'}
+      size="icon"
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
-        toggle(sightId);
+        handleToggle();
       }}
       disabled={!hydrated}
       aria-pressed={active}
       aria-label={active ? 'Poista shortlistilta' : 'Lisää shortlistille'}
-      className={`inline-flex items-center justify-center rounded-md border transition ${sizing} ${
-        active
-          ? 'border-(--color-sand-dark) bg-(--color-sand) text-(--color-fg)'
-          : 'border-(--color-border) bg-(--color-card) text-(--color-muted) hover:text-(--color-fg)'
-      }`}
+      className="min-h-11 min-w-11"
     >
-      {label}
-    </button>
+      <Star className={cn('size-5', active && 'fill-current')} aria-hidden />
+    </Button>
   );
 }
 
 export default function ShortlistButton(props: Props) {
-  const sizing =
-    props.variant === 'full'
-      ? 'min-h-11 px-4 text-sm'
-      : 'min-h-11 min-w-11 px-2 text-lg leading-none';
+  const isFull = props.variant === 'full';
   // useSearchParams (kautta useUrlState) vaatii Suspense-rajan staattisessa prerenderissä.
   return (
     <Suspense
       fallback={
-        <button
+        <Button
           type="button"
+          variant="outline"
+          size={isFull ? 'default' : 'icon'}
           disabled
-          className={`inline-flex items-center justify-center rounded-md border border-(--color-border) bg-(--color-card) text-(--color-muted) ${sizing}`}
+          aria-label="Lisää shortlistille"
+          className={isFull ? 'min-h-11 px-4' : 'min-h-11 min-w-11'}
         >
-          ☆
-        </button>
+          <Star className={isFull ? 'size-4' : 'size-5'} aria-hidden />
+          {isFull && <span>Lisää shortlistille</span>}
+        </Button>
       }
     >
       <ShortlistButtonInner {...props} />

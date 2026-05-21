@@ -1,4 +1,15 @@
+import Link from 'next/link';
+import { CalendarRange } from 'lucide-react';
 import DayCard from './DayCard';
+import { Button } from '@/components/ui/button';
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from '@/components/ui/empty';
 import type { ItineraryDay } from '@/lib/types';
 
 /** Local YYYY-MM-DD — avoids UTC drift around midnight in CET/CEST. */
@@ -13,10 +24,23 @@ function todayLocalISO(): string {
 export default function DayTimeline({ days }: { days: ItineraryDay[] }) {
   if (days.length === 0) {
     return (
-      <p className="rounded-lg border border-(--color-border) bg-(--color-card) p-6 text-center text-sm text-(--color-muted)">
-        Ei vielä päiviä — kopioi runko valmiista reiteistä tai lisää käsin tiedostoon{' '}
-        <code>src/data/itinerary.ts</code>.
-      </p>
+      <Empty className="border border-dashed">
+        <EmptyHeader>
+          <EmptyMedia variant="icon">
+            <CalendarRange />
+          </EmptyMedia>
+          <EmptyTitle>Reittisuunnitelma on tyhjä</EmptyTitle>
+          <EmptyDescription>
+            Ei vielä päiviä — kopioi runko valmiista reiteistä tai lisää käsin
+            tiedostoon <code>src/data/itinerary.ts</code>.
+          </EmptyDescription>
+        </EmptyHeader>
+        <EmptyContent>
+          <Button asChild>
+            <Link href="/reitit">Selaa valmiita reittejä</Link>
+          </Button>
+        </EmptyContent>
+      </Empty>
     );
   }
 

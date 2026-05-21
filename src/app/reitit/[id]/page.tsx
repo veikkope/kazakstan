@@ -4,6 +4,14 @@ import type { Metadata } from 'next';
 import { presets } from '@/data/presets';
 import DayTimeline from '@/components/itinerary/DayTimeline';
 import { formatEUR } from '@/lib/currency';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
 export function generateStaticParams() {
   return presets.map((p) => ({ id: p.id }));
@@ -35,11 +43,11 @@ export default async function PresetDetailPage({
   return (
     <article className="space-y-6">
       <header className="space-y-2">
-        <p className="text-sm text-(--color-muted)">
+        <Button asChild variant="ghost" size="sm" className="-ml-2 px-2 text-muted-foreground">
           <Link href="/reitit">← Valmiit reittirungot</Link>
-        </p>
-        <h1 className="text-3xl font-bold tracking-tight">{preset.title}</h1>
-        <p className="max-w-2xl text-lg text-(--color-muted)">
+        </Button>
+        <h1 className="text-balance text-3xl font-bold tracking-tight">{preset.title}</h1>
+        <p className="max-w-2xl text-lg text-muted-foreground">
           {preset.shortDescription}
         </p>
       </header>
@@ -54,7 +62,7 @@ export default async function PresetDetailPage({
       </section>
 
       <section>
-        <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-(--color-muted)">
+        <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
           Kohokohdat
         </h2>
         <ul className="grid gap-1 text-sm sm:grid-cols-2">
@@ -65,29 +73,33 @@ export default async function PresetDetailPage({
       </section>
 
       <section className="space-y-3">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-(--color-muted)">
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
           Päivä päivältä
         </h2>
         <DayTimeline days={preset.days} />
       </section>
 
-      <section className="rounded-lg border border-(--color-border) bg-(--color-card) p-5">
-        <h2 className="mb-2 font-semibold">Käytä pohjana omassa reittisuunnitelmassa</h2>
-        <p className="text-sm text-(--color-muted)">
-          Kopioi <code>preset.days</code> tämän tiedoston tunnisteella{' '}
-          <code>{preset.id}</code> ja vie ne <code>src/data/itinerary.ts</code>:n{' '}
-          <code>userItinerary</code> -taulukkoon. Sen jälkeen muokkaa vapaasti.
-        </p>
-      </section>
+      <Card>
+        <CardHeader>
+          <CardTitle>Käytä pohjana omassa reittisuunnitelmassa</CardTitle>
+          <CardDescription>
+            Kopioi <code>preset.days</code> tämän tiedoston tunnisteella{' '}
+            <code>{preset.id}</code> ja vie ne <code>src/data/itinerary.ts</code>:n{' '}
+            <code>userItinerary</code> -taulukkoon. Sen jälkeen muokkaa vapaasti.
+          </CardDescription>
+        </CardHeader>
+      </Card>
     </article>
   );
 }
 
 function InfoTile({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-lg border border-(--color-border) bg-(--color-card) p-4">
-      <p className="text-xs uppercase tracking-wide text-(--color-muted)">{label}</p>
-      <p className="mt-1 text-sm">{value}</p>
-    </div>
+    <Card size="sm">
+      <CardContent>
+        <p className="text-xs uppercase tracking-wide text-muted-foreground">{label}</p>
+        <p className="mt-1 text-sm">{value}</p>
+      </CardContent>
+    </Card>
   );
 }

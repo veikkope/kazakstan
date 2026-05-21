@@ -1,11 +1,22 @@
 'use client';
 
 import { useState } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { STATIC_KZT_PER_EUR } from '@/data/budget';
 import { eurToKzt, kztToEur, formatEUR, formatKZT } from '@/lib/currency';
 
+type Direction = 'kzt-to-eur' | 'eur-to-kzt';
+
 export default function CurrencyConverter() {
-  const [direction, setDirection] = useState<'kzt-to-eur' | 'eur-to-kzt'>('kzt-to-eur');
+  const [direction, setDirection] = useState<Direction>('kzt-to-eur');
   const [input, setInput] = useState('10000');
 
   const numeric = Number(input.replace(/\s/g, '').replace(',', '.')) || 0;
@@ -15,33 +26,47 @@ export default function CurrencyConverter() {
       : formatKZT(eurToKzt(numeric));
 
   return (
-    <section className="rounded-lg border border-(--color-border) bg-(--color-card) p-5">
-      <h2 className="mb-3 font-semibold">Valuuttamuunnin</h2>
-      <p className="mb-3 text-xs text-(--color-muted)">
-        Staattinen kurssi: 1 € ≈ {STATIC_KZT_PER_EUR.toLocaleString('fi-FI')} ₸. Tarkista
-        päiväkurssi ennen reissua.
-      </p>
-      <div className="flex flex-wrap items-center gap-3">
-        <select
-          value={direction}
-          onChange={(e) => setDirection(e.target.value as 'kzt-to-eur' | 'eur-to-kzt')}
-          className="min-h-11 rounded-md border border-(--color-border) bg-(--color-bg) px-3 text-base sm:text-sm"
-        >
-          <option value="kzt-to-eur">KZT → EUR</option>
-          <option value="eur-to-kzt">EUR → KZT</option>
-        </select>
-        <input
-          type="text"
-          inputMode="decimal"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          className="w-40 min-h-11 rounded-md border border-(--color-border) bg-(--color-bg) px-3 text-base sm:text-sm"
-        />
-        <span className="text-sm">
-          ={' '}
-          <strong className="text-(--color-fg)">{result}</strong>
-        </span>
-      </div>
-    </section>
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-base font-semibold">Valuuttamuunnin</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p className="mb-3 text-xs text-(--color-muted)">
+          Staattinen kurssi: 1 € ≈ {STATIC_KZT_PER_EUR.toLocaleString('fi-FI')} ₸. Tarkista
+          päiväkurssi ennen reissua.
+        </p>
+        <div className="flex flex-wrap items-center gap-3">
+          <Select
+            value={direction}
+            onValueChange={(v) => setDirection(v as Direction)}
+          >
+            <SelectTrigger
+              size="default"
+              className="min-h-11"
+              aria-label="Muunnoksen suunta"
+            >
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="kzt-to-eur">KZT → EUR</SelectItem>
+              <SelectItem value="eur-to-kzt">EUR → KZT</SelectItem>
+            </SelectContent>
+          </Select>
+          <Input
+            type="text"
+            inputMode="decimal"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            className="w-40 min-h-11"
+            aria-label={
+              direction === 'kzt-to-eur' ? 'Summa tengeinä' : 'Summa euroina'
+            }
+          />
+          <span className="text-sm">
+            = <strong className="text-(--color-fg)">{result}</strong>
+          </span>
+        </div>
+      </CardContent>
+    </Card>
   );
 }

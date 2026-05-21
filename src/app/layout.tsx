@@ -6,6 +6,9 @@ import Footer from '@/components/layout/Footer';
 import BottomNav from '@/components/layout/BottomNav';
 import OfflineBanner from '@/components/layout/OfflineBanner';
 import ServiceWorkerRegistration from '@/components/layout/ServiceWorkerRegistration';
+import { TooltipProvider } from '@/components/ui/tooltip';
+import { Toaster } from '@/components/ui/sonner';
+import MotionProvider from '@/components/layout/MotionProvider';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -53,14 +56,19 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <ServiceWorkerRegistration />
-        <Header />
-        <OfflineBanner />
-        <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 pb-24 sm:pb-6">
-          {children}
-        </main>
-        <Footer />
-        <BottomNav />
+        <TooltipProvider delayDuration={150}>
+          <MotionProvider>
+            <ServiceWorkerRegistration />
+            <Header />
+            <OfflineBanner />
+            <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 pb-24 sm:pb-6">
+              {children}
+            </main>
+            <Footer />
+            <BottomNav />
+            <Toaster position="bottom-center" richColors closeButton />
+          </MotionProvider>
+        </TooltipProvider>
       </body>
     </html>
   );

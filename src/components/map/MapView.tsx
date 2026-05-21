@@ -9,6 +9,7 @@ import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import type { Sight } from '@/lib/types';
 import { categoryMeta } from '@/data/categories';
+import LocateControl from './LocateControl';
 
 L.Icon.Default.mergeOptions({
   iconUrl: '/leaflet/marker-icon.png',
@@ -29,33 +30,89 @@ function makeIcon(color: string): L.DivIcon {
   });
 }
 
+function safeText(s: string): string {
+  return s.replace(/[&<>"']/g, (c) => {
+    switch (c) {
+      case '&':
+        return '&amp;';
+      case '<':
+        return '&lt;';
+      case '>':
+        return '&gt;';
+      case '"':
+        return '&quot;';
+      default:
+        return '&#39;';
+    }
+  });
+}
+
+function safeAttr(s: string): string {
+  return safeText(s);
+}
+
+function safeUrl(s: string): string {
+  // Allow relative paths and https only — strip everything else.
+  if (s.startsWith('/') || s.startsWith('https://')) return safeAttr(s);
+  return '';
+}
+
+function starsRow(rating: number): string {
+  const rounded = Math.round(rating);
+  let stars = '';
+  for (let i = 1; i <= 5; i++) {
+    stars += i <= rounded ? '★' : '☆';
+  }
+  return `
+    <div style="display:flex;align-items:center;gap:6px;margin-top:6px">
+      <span style="display:inline-flex;letter-spacing:1px;color:#a98654;font-size:13px;line-height:1">
+        ${stars}
+      </span>
+      <span style="font-size:11px;color:#64748b">${rating.toFixed(1)}</span>
+    </div>
+  `;
+}
+
 function popupHtml(sight: Sight): string {
   const meta = categoryMeta[sight.category];
-  // Manual escaping for the few fields rendered into innerHTML. Sight content
-  // is author-controlled but we still keep this defensive.
-  const safe = (s: string) =>
-    s.replace(/[&<>"']/g, (c) => {
-      switch (c) {
-        case '&':
-          return '&amp;';
-        case '<':
-          return '&lt;';
-        case '>':
-          return '&gt;';
-        case '"':
-          return '&quot;';
-        default:
-          return '&#39;';
-      }
-    });
-  return `
-    <div style="min-width:180px">
-      <strong>${safe(sight.name)}</strong>
-      <div style="font-size:12px;color:#475569;margin-top:2px">
+  const imageUrl = sight.image ? safeUrl(sight.image) : '';
+  const imageAlt = safeAttr(sight.imageAlt ?? sight.name);
+
+  const hero = imageUrl
+    ? `<div style="position:relative;height:132px;overflow:hidden;background:#f1ede4">
+        <img src="${imageUrl}" alt="${imageAlt}" loading="lazy"
+          style="width:100%;height:100%;object-fit:cover;display:block" />
+        <span style="position:absolute;bottom:8px;left:8px;display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;background:rgba(15,23,42,0.62);color:#fff;font-size:11px;font-weight:500;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)">
+          <span style="display:inline-block;width:6px;height:6px;border-radius:999px;background:${meta.color}"></span>
+          <span>${meta.emoji} ${meta.fi}</span>
+        </span>
+      </div>`
+    : `<div style="height:56px;display:flex;align-items:center;justify-content:center;background:${meta.color}1a;color:#1e293b;font-size:13px;font-weight:500;gap:6px">
+        <span style="display:inline-block;width:8px;height:8px;border-radius:999px;background:${meta.color}"></span>
         ${meta.emoji} ${meta.fi}
+      </div>`;
+
+  const ratings = sight.ratings
+    ? starsRow(
+        (sight.ratings.popularity +
+          sight.ratings.interest +
+          sight.ratings.uniqueness) /
+          3,
+      )
+    : '';
+
+  return `
+    <div style="width:248px;font-family:var(--font-geist-sans),system-ui,-apple-system,sans-serif;color:#1e293b">
+      ${hero}
+      <div style="padding:11px 14px 13px">
+        <strong style="display:block;font-size:15px;line-height:1.25;letter-spacing:-0.01em">${safeText(sight.name)}</strong>
+        ${ratings}
+        <p style="font-size:13px;line-height:1.45;margin:8px 0 10px;color:#475569">${safeText(sight.shortDescription)}</p>
+        <a href="/nahtavyydet/${safeAttr(sight.slug)}" style="display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:600;color:#2563eb;text-decoration:none">
+          Lue lisää
+          <span aria-hidden="true">→</span>
+        </a>
       </div>
-      <p style="font-size:13px;margin:6px 0 4px;color:#1e293b">${safe(sight.shortDescription)}</p>
-      <a href="/nahtavyydet/${sight.slug}">Lue lisää →</a>
     </div>
   `;
 }
@@ -88,7 +145,11 @@ function MarkerClusterLayer({ sights, onSelect, registerMarkers }: ClusterProps)
       const marker = L.marker([s.coords.lat, s.coords.lng], {
         icon: makeIcon(categoryMeta[s.category].color),
       });
-      marker.bindPopup(popupHtml(s));
+      marker.bindPopup(popupHtml(s), {
+        className: 'sight-popup',
+        maxWidth: 280,
+        minWidth: 248,
+      });
       marker.on('click', () => onSelect(s.id));
       cluster.addLayer(marker);
       markers.set(s.id, marker);
@@ -164,12 +225,17 @@ export default function MapView({ sights, selectedId, onSelect }: Props) {
       center={[48.0, 68.0]}
       zoom={5}
       minZoom={3}
+      maxZoom={17}
+      wheelDebounceTime={100}
+      wheelPxPerZoomLevel={80}
       style={{ height: '100%', width: '100%' }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        maxZoom={19}
+        maxZoom={17}
+        keepBuffer={4}
+        updateWhenZooming={false}
       />
       <MarkerClusterLayer
         sights={sights}
@@ -182,6 +248,7 @@ export default function MapView({ sights, selectedId, onSelect }: Props) {
         clusterRef={clusterRef}
         markersRef={markersRef}
       />
+      <LocateControl />
     </MapContainer>
   );
 }

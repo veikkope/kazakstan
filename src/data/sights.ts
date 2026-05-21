@@ -21,7 +21,7 @@ export const sights: Sight[] = [
       'Kazakstanin suurin kaupunki Tienšanin juurella — entinen pääkaupunki, vihreä ja vilkas.',
     description:
       'Almaty on maan kulttuurikeskus ja portti maan parhaisiin luontokohteisiin. Panfilovin puisto, Vihreä basaari ja Zenkovin katedraali ovat keskustan ydintä, ja kaupunkia kiertävät puistokujat tekevät kävelystä helppoa.',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Almaty_city_skyline.jpg',
+    image: '/images/sights/almaty-keskusta.jpg',
     imageAlt: 'Almatyn keskustan siluetti ja Tienšanin vuoristotausta',
     imageAttribution: {
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:Almaty_city_skyline.jpg',
@@ -59,7 +59,7 @@ export const sights: Sight[] = [
       'Yksi maailman korkeimmista puurakenteisista kirkoista — Panfilovin puiston ydin.',
     description:
       '1907 valmistunut ortodoksinen katedraali rakennettiin ilman naulaa ja kesti vuoden 1911 tuhoisan Almatyn maanjäristyksen. Pastellinen ulkokuori ja tunnelmallinen sisätila tekevät tästä kaupungin ehdottoman must-see.',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/4/4c/Zenkov_cathedral.jpg',
+    image: '/images/sights/zenkovin-katedraali.jpg',
     imageAlt: 'Zenkovin katedraali Panfilovin puistossa Almatyssa',
     imageAttribution: {
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:Zenkov_cathedral.jpg',
@@ -99,7 +99,7 @@ export const sights: Sight[] = [
     description:
       'Paras paikka maistaa kazi-makkaraa, kymyziä (käynyt tammavä) ja kuivattuja meloneita. Toimii samalla yhden lounaan ravintolakatuna — yläkerran nuudelikojut ovat halpoja ja hyviä.',
     image:
-      'https://upload.wikimedia.org/wikipedia/commons/7/77/Kok_Bazaar-Green_Bazaar%2C_Almaty_-_panoramio.jpg',
+      '/images/sights/vihrea-basaari.jpg',
     imageAlt: 'Vihreän basaarin värikkäät kojurivit ja kävijät',
     imageAttribution: {
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:Kok_Bazaar-Green_Bazaar,_Almaty_-_panoramio.jpg',
@@ -115,7 +115,7 @@ export const sights: Sight[] = [
     budgetLevel: 'low',
     timeNeededHours: 2,
     combinesWith: ['zenkov-cathedral', 'almaty-keskusta'],
-    openingHours: 'pe–ke 08:00–18:00',
+    openingHours: 'ma–su 08:00–18:00',
     ratings: {
       popularity: 4,
       interest: 4,
@@ -139,7 +139,7 @@ export const sights: Sight[] = [
     description:
       'Köysirata nousee keskustasta 1100 metriin. Ylhäällä on huvipuisto, näköalaravintolat ja Beatles-patsas. Tule auringonlaskun aikaan kun kaupungin valot syttyvät.',
     image:
-      'https://upload.wikimedia.org/wikipedia/commons/2/2b/%D0%92%D0%B8%D0%B4_%D0%BD%D0%B0_%D0%9A%D0%BE%D0%BA-%D0%A2%D0%BE%D0%B1%D0%B5_%D0%BD%D0%B0_%D0%AE%D0%B3_%D0%BD%D0%B0_%D0%B7%D0%B0%D0%BA%D0%B0%D1%82%D0%B5_%D1%81_%D0%B4%D1%80%D0%BE%D0%BD%D0%B0.jpg',
+      '/images/sights/kok-tobe.jpg',
     imageAlt: 'Ilmakuva Kok-Tobe-kukkulasta auringonlaskussa, TV-torni ja Almatyn siluetti',
     imageAttribution: {
       sourceUrl:
@@ -155,7 +155,14 @@ export const sights: Sight[] = [
     needsCar: false,
     budgetLevel: 'mid',
     timeNeededHours: 3,
+    openingHours: 'päivittäin 11:00–22:00 (köysirata; huipulla ravintolat myöhempään)',
     costKZT: 3000,
+    practicalTips: [
+      'Köysiradan lippu meno-paluu n. 3000 KZT, yksisuuntainen halvempi (alas voi taksilla).',
+      'Auringonlaskun aika on paras — kaupungin valot syttyvät ja vuoret hehkuvat.',
+      'Yläkerrassa lasten huvipuisto, ravintoloita ja Beatles-patsas — perheystävällinen 1–2 h käynti.',
+      'Yandex Go köysiradan alaasemalle Dostyk Avenuelta n. 1000 KZT.',
+    ],
     ratings: {
       popularity: 4,
       interest: 3,
@@ -178,7 +185,7 @@ export const sights: Sight[] = [
     description:
       'Medeun luistinrata (1691 m) ja yläpuolinen Shymbulakin hiihtokeskus (2200–3200 m) ovat yhden bussimatkan päässä keskustasta. Kesällä gondolihissi vie näkymäpaikoille, talvella laskettelu on huippua.',
     image:
-      'https://upload.wikimedia.org/wikipedia/commons/f/fe/%D0%9C%D0%B5%D0%B4%D0%B5%D1%83%2C_%D0%90%D0%BB%D0%BC%D0%B0%D1%82%D1%8B%2C_2023_%D0%B6%D1%8B%D0%BB%D2%93%D1%8B_%D2%9B%D0%B0%D2%A3%D1%82%D0%B0%D1%80_%281%29.jpg',
+      '/images/sights/medeu-shymbulak.jpg',
     imageAlt: 'Medeun luistinrata Almatyn yläpuolella vuoristomaisemassa',
     imageAttribution: {
       sourceUrl:
@@ -194,9 +201,13 @@ export const sights: Sight[] = [
     needsCar: false,
     budgetLevel: 'mid',
     timeNeededHours: 6,
+    openingHours: 'gondoli päivittäin n. 10:00–18:00 (kausivaihtelut)',
+    costKZT: 5000,
     practicalTips: [
-      'Lämmin takki mukaan: ylhäällä on 10–15 °C viileämpää.',
-      'Gondoli-lippu vain Medeu→Shymbulak n. 5000 ₸, yhdistelmälipulla edullisempi.',
+      'Lämmin takki mukaan: ylhäällä on 10–15 °C viileämpää, Shymbulakissa lunta vielä toukokuussa.',
+      'Gondoli-lippu Medeu→Shymbulak n. 5000 KZT/aikuinen, yhdistelmälippu kaikkiin tasoihin edullisempi.',
+      'Bussilinja 12 Almatysta Medeun → kävellen tai gondolilla ylöspäin. Yandex Go ~3000 KZT.',
+      'Yhdistä Kök-Töbeen tai Big Almaty Lakeen samana päivänä (vuoret-akseli).',
     ],
     ratings: {
       popularity: 5,
@@ -220,7 +231,7 @@ export const sights: Sight[] = [
       'Maan suurin museo — paimentolaiskulttuurista nykypäivään.',
     description:
       'Neljä pääsalia kattavat arkeologian, etnografian ja itsenäisyyden ajan. Issykin Kultainen mies -kopio on klassinen kohokohta.',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/3/31/Kazakhstan_State_Museum.jpg',
+    image: '/images/sights/keskusvaltio-museo.jpg',
     imageAlt: 'Keskusvaltionmuseon julkisivu Almatyssa',
     imageAttribution: {
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:Kazakhstan_State_Museum.jpg',
@@ -258,7 +269,7 @@ export const sights: Sight[] = [
       'Kävelykatu kahviloineen, baarivyöhykkeen sydän iltaisin.',
     description:
       'Almatyn rentoutuneen iltaelämän selkäranka — ravintoloita, katumuusikoita ja parin korttelin kävelyetäisyydellä useita craft beer -baareja.',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/e/e4/Zhibek_Zholy_on_a_Snowy_Day.jpg',
+    image: '/images/sights/almaty-arbat.jpg',
     imageAlt: 'Zhibek Zholyn kävelykatu Almatyssa lumisena päivänä',
     imageAttribution: {
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:Zhibek_Zholy_on_a_Snowy_Day.jpg',
@@ -324,7 +335,7 @@ export const sights: Sight[] = [
     description:
       'Päivän klassikkoretki. Pääsy vaatii oman auton tai taksin — myös rajavyöhykelupa on usein tarpeen, koska järvi on lähellä Kirgisian rajaa. Vesi vaihtaa väriä turkoosista smaragdiin vuodenajan mukaan.',
     image:
-      'https://upload.wikimedia.org/wikipedia/commons/a/a0/Big_Almaty_Lake_%282511_m%29_and_snowy_peak_of_Soviets_%284317_m%29_in_September%2C_2%2C_2017.jpg',
+      '/images/sights/iso-almatyn-jarvi.jpg',
     imageAlt: 'Iso Almatyn järvi syyskuussa, taustalla Sovettien huippu',
     imageAttribution: {
       sourceUrl:
@@ -341,10 +352,13 @@ export const sights: Sight[] = [
     needsGuide: false,
     budgetLevel: 'mid',
     timeNeededHours: 5,
+    costKZT: 'free',
     practicalTips: [
-      'Tarkista rajavyöhykelupa etukäteen — sääntö vaihtelee.',
-      'Lämmin vaatetus mukaan, järvellä voi olla +10 °C vaikka Almatyssa olisi +30 °C.',
-      'Yandex Go -taksilla edestakaisin n. 15 000–25 000 ₸.',
+      '⚠️ Rajavyöhykelupa: BAO on Kirgisian rajan rajavyöhykkeellä. Vaatimus on vaihdellut — viime vuosina pelkkä passikopio riittänyt järvelle asti, mutta tarkista paikallisilta operaattoreilta (Kazakhstan Discovery, Visit Almaty) lähempänä matkaa.',
+      'Lähestyminen rannalle KIELLETTY — järvi on Almatyn juomavesilähde, valvonta tiukkaa. Näköalapisteet polun varrella ovat OK.',
+      'Lämmin vaatetus mukaan: järvellä voi olla +10 °C vaikka Almatyssa olisi +30 °C.',
+      'Yandex Go -taksilla edestakaisin n. 15 000–25 000 KZT — sovi kuljettaja odottamaan.',
+      'Ei juomavettä tai kioskeja paikan päällä — tuo eväät ja vesi mukaan.',
     ],
     ratings: {
       popularity: 4,
@@ -368,7 +382,7 @@ export const sights: Sight[] = [
     description:
       '154 km pitkä, 200–300 m syvä kanjoni n. 200 km Almatysta itään. Päiväretki Almatysta on klassikko. Aurinkoisina päivinä kuumuus voi olla rankka — vesi ja päähine mukaan.',
     image:
-      'https://upload.wikimedia.org/wikipedia/commons/b/b0/Charyn_Canyon%2C_Kazakhstan_03.jpg',
+      '/images/sights/charyn-canyon.jpg',
     imageAlt: 'Charynin kanjonin punaiset hiekkakivimuodostelmat',
     imageAttribution: {
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:Charyn_Canyon,_Kazakhstan_03.jpg',
@@ -383,18 +397,30 @@ export const sights: Sight[] = [
     needsCar: true,
     budgetLevel: 'mid',
     timeNeededHours: 10,
+    openingHours: 'päivittäin auringonnoususta -laskuun (portti)',
+    costKZT: 2000,
     combinesWith: ['kolsai-lakes', 'kaindy-lake'],
     practicalTips: [
-      'Yhden päivän retki Almatysta yleensä kuljettajan kanssa, 60–80 €.',
-      'Heinä-elokuussa kanjonissa voi olla +35 °C — käy aamulla.',
+      'Lähde Almatysta klo 7 — edestakainen ajo + vaellus vie 11–13 tuntia.',
+      'Kansallispuiston portti n. 1500–2500 KZT/aikuinen + ajoneuvomaksu — vahvista paikan päällä.',
+      'Vesi mukaan vähintään 2 l/henkilö — polulla ei myydä juotavaa.',
+      'Päähine, aurinkovoide ja aurinkolasit pakolliset — maasto on avoin ja paahteinen.',
+      'Kuljettaja Almatysta yksityisesti ~150–200 €/auto tai jaettu ryhmäretki 60–100 €/henkilö.',
+      'Vaella Linnojen laaksossa 2–3 km ylätasangolta joelle ja takaisin.',
+      'Kesäkuussa vältä vaellusta klo 12–15 — kanjonin pohjalla on huomattavasti reunaa kuumempi.',
     ],
+    historicalContext:
+      'Charynjoki on uurtanut 154 km pitkän, 150–300 m syvän kanjonin punaiseen hiekkakiveen miljoonien vuosien aikana. Vuonna 2004 perustettu Charynin kansallispuisto (≈125 050 ha) suojelee kanjonin kuuluisaa Linnojen laaksoa sekä paleogeenikauden saarnimetsikköä.',
     ratings: {
       popularity: 5,
       interest: 4,
       uniqueness: 3,
-      ratedAt: '2026-05-18',
-      rationale: 'Klassikko, "pieni Grand Canyon" — vaikuttava, mutta kanjoneita on muuallakin.',
+      ratedAt: '2026-05-21',
+      rationale:
+        'Klassinen Almaty-päiväretkikohde — saavutettava ja näyttävä, mutta vertailukohtia (mm. Grand Canyon) löytyy globaalisti.',
     },
+    researchSlug: 'charyn-canyon',
+    lastEnriched: '2026-05-21',
     status: 'verified',
     featured: true,
   },
@@ -409,7 +435,7 @@ export const sights: Sight[] = [
       'Kolmen alppijärven ketju Tienšanin kuusimetsissä, 300 km Almatysta.',
     description:
       'Ensimmäiselle järvelle pääsee autolla, ylemmille kävelemällä tai ratsain. Maisema on Sveitsiä muistuttava. Yöpyminen lähikylässä Saty mahdollistaa kaksi-päiväretken yhdessä Kaindyn järven kanssa.',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Kolsay_Lake.jpeg',
+    image: '/images/sights/kolsain-jarvet.jpg',
     imageAlt: 'Alimmainen Kolsain järvi kuusimetsän keskellä',
     imageAttribution: {
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:Kolsay_Lake.jpeg',
@@ -424,14 +450,29 @@ export const sights: Sight[] = [
     needsCar: true,
     budgetLevel: 'mid',
     timeNeededHours: 24,
+    openingHours: 'kansallispuiston portti päivittäin auringonnoususta -laskuun',
+    costKZT: 1500,
     combinesWith: ['kaindy-lake', 'charyn-canyon'],
+    historicalContext:
+      'Kolmen alppijärven ketju Pohjois-Tienšanin Kolsay Lakes National Parkissa kolmella eri korkeustasolla (Kolsay-1 1 818 m, Kolsay-2 2 252 m, Kolsay-3 2 850 m). Naapurissa sijaitseva Kaindyn järvi syntyi vuoden 1911 Kebin-maanjäristyksen massiivisen kalkkikivivyöryn tukittua laakson.',
+    practicalTips: [
+      'Yövy Saty-kylässä — guesthouse paikan päällä tai etukäteen esim. kalpak-travel.com:n kautta. Päiväreissu Almatysta on liian tiukka (5–6 h ajoa per suunta).',
+      'Vaellus Kolsay-1 → Kolsay-2 vie 4–5 h suuntaansa ja nousee 1 820 m → 2 250 m — vaativampi kuin pelkkä alaranta-kierros.',
+      'Kaindyn viimeinen 10–15 km vaatii 4WD:n; paikallinen UAZ-shuttle Satystä on käytännössä ainoa järkevä vaihtoehto.',
+      'Ota yötakki ja sadetakki mukaan vaikka olisi kesä — Kolsay-2:n korkeudessa (2 252 m) lämpötila tippuu helposti ja vuoristosateet ovat tavallisia.',
+      'Ratsastusvaihtoehto Satystä on vakiintunut tapa nousta ylemmille järville ja Sary-Bulakin solalle ilman omaa kuntoa.',
+      'Tankkaa Almatyssa tai Kegenissä — Satyssä ei ole vakiintunutta huoltoasemaa. Ota käteistä KZT:nä porttimaksuihin.',
+    ],
     ratings: {
       popularity: 4,
       interest: 4,
       uniqueness: 3,
-      ratedAt: '2026-05-18',
-      rationale: 'Tienšanin alppimaisema parhaimmillaan; vuoristojärviä toki muuallakin.',
+      ratedAt: '2026-05-21',
+      rationale:
+        'Tienšanin alppijärviketju kolmessa korkeustasossa — vaellus, ratsastus ja yöpyminen Satyssa nostavat interestin; vuoristojärviä on globaalisti useita.',
     },
+    researchSlug: 'kolsain-jarvet',
+    lastEnriched: '2026-05-21',
     status: 'verified',
     featured: true,
   },
@@ -447,7 +488,7 @@ export const sights: Sight[] = [
     description:
       'Kirkas turkoosi vesi ja veden alle jääneet kuuset tekevät paikasta surrealistisen. Viimeinen kilometri ajetaan 4WD:llä; kävelyä kahteen suuntaan vajaa tunti.',
     image:
-      'https://upload.wikimedia.org/wikipedia/commons/2/26/Kaindy_lake_south-east_Kazakhstan.jpg',
+      '/images/sights/kaindyn-jarvi.jpg',
     imageAlt: 'Kaindyn järvi ja vedestä nousevat hopeaksi haalistuneet kuusenrungot',
     imageAttribution: {
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:Kaindy_lake_south-east_Kazakhstan.jpg',
@@ -462,7 +503,17 @@ export const sights: Sight[] = [
     needsCar: true,
     budgetLevel: 'mid',
     timeNeededHours: 6,
+    costKZT: 1500,
     combinesWith: ['kolsai-lakes'],
+    historicalContext:
+      'Kaindyn järvi syntyi vuonna 1911 Kebin-maanjäristyksen aiheuttaman maanvyörymän tukittua laakson. Kuusimetsä jäi veden alle — rungot pysyivät pystyssä ja näkyvät vieläkin pinnasta hopeisina, koska kylmä vuoristovesi hidastaa lahoamista.',
+    practicalTips: [
+      'Saty-kylästä UAZ-shuttle Kaindyn parkkipaikalle ~5000–8000 KZT/auto edestakaisin (yhteishinta 4 hengelle).',
+      'Viimeinen 10–15 km vaatii 4WD:n — älä yritä omalla autolla, paikallinen kuljettaja hoitaa.',
+      'Parkkipaikalta järvelle kävelyä n. 45 min suuntaansa, korkeusero pieni mutta polku epätasainen.',
+      'Kansallispuiston portti n. 1500 KZT/aikuinen — sama kuin Kolsailla, voi maksaa yhdellä lipulla jos sama päivä.',
+      'Paras valo aamulla — vesi rauhallisin ja vihreä-turkoosi heijastus voimakkain.',
+    ],
     ratings: {
       popularity: 4,
       interest: 4,
@@ -484,7 +535,7 @@ export const sights: Sight[] = [
     description:
       'Altyn-Emelin kansallispuiston tähti — kuivan tuulen liikuttaman hiekan ääni muistuttaa kaukaista urkujen huokausta. Tarvitaan puiston pääsylippu ja kuljettaja.',
     image:
-      'https://upload.wikimedia.org/wikipedia/commons/9/9e/210723_Altyn_Emel_Singing_Dune_valley.jpg',
+      '/images/sights/laulavat-dyynit.jpg',
     imageAlt: 'Laulavat hiekkadyynit Altyn-Emelin laaksossa',
     imageAttribution: {
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:210723_Altyn_Emel_Singing_Dune_valley.jpg',
@@ -500,10 +551,15 @@ export const sights: Sight[] = [
     needsGuide: true,
     budgetLevel: 'high',
     timeNeededHours: 10,
+    costKZT: 2000,
     combinesWith: ['altyn-emel-aktau'],
     practicalTips: [
-      'Sisäänpääsy puistoon vaatii erillisen luvan ja maksun.',
-      'Aurinkosuoja ja vesi mukaan — auringossa +40 °C kesällä.',
+      'Altyn-Emelin kansallispuiston pääsylippu n. 1500–2500 KZT/hlö + ajoneuvomaksu — maksetaan portilla.',
+      'Sisäänpääsy vaatii erillisen luvan: hae viranomaisilta (Saryozek) tai operaattorilta etukäteen — voi viedä päivän.',
+      'Etäisyys Almatysta n. 300 km — yhden päivän retki tiukka, suositus 2 päivää + yöpyminen Basshissa.',
+      'Aurinkosuoja, päähine ja 3 l vettä/hlö — varjoa ei ole, kesällä +40 °C.',
+      'Paras aika dyyneille on aamu tai ilta — keskipäivän kuumassa hiekka voi olla liian kuumaa kävellä.',
+      'Kuljettaja + 4WD Almatysta n. 200–300 €/päivä — jaettu retki halvempi.',
     ],
     ratings: {
       popularity: 4,
@@ -526,7 +582,7 @@ export const sights: Sight[] = [
       'Värikkäät kerrostuneet vuoret Altyn-Emelin kansallispuistossa.',
     description:
       'Geologinen sateenkaari — punaista, valkoista ja vihreää savikerrosta. Samalla yhdellä Altyn-Emel-retkellä yleensä Laulavien dyynien kanssa.',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/3/38/Altynemel_landscape.jpg',
+    image: '/images/sights/altyn-emel-aktau-vuoret.jpg',
     imageAlt: 'Altyn-Emelin värikkäät kerrosvuoret — punaista ja kultaista kalliota',
     imageAttribution: {
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:Altynemel_landscape.jpg',
@@ -542,7 +598,15 @@ export const sights: Sight[] = [
     needsGuide: true,
     budgetLevel: 'high',
     timeNeededHours: 6,
+    costKZT: 2000,
     combinesWith: ['singing-dunes'],
+    practicalTips: [
+      'Yhdistyy yleensä Laulavien dyynien kanssa samalle Altyn-Emel-päivälle — sama puistolippu (~1500–2500 KZT) kelpaa.',
+      'Etäisyys Laulavilta dyyneiltä n. 20 km — 4WD-kuljettajan kanssa ajetaan päivän aikana molempiin.',
+      'Värit korostuvat aamu- ja iltavalossa — keskipäivän kontrasti syö kerrostumat.',
+      'Lyhyt vaellus n. 1 h riittää — ei merkattuja polkuja, kuljettaja näyttää reitin.',
+      'Vesi 2 l/hlö, päähine — varjoa ei ole, kesällä +40 °C.',
+    ],
     ratings: {
       popularity: 3,
       interest: 3,
@@ -566,7 +630,7 @@ export const sights: Sight[] = [
       'Astanan ikoni — 97 m korkea torni, näköalataso 86 metrissä.',
     description:
       'Symboli kazakkimyytistä, jossa Samruk-lintu munii kultaisen munan. Tornin huipulta avautuu näkymä koko modernin pääkaupungin ylle.',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/0/00/Interior_of_Bayterek_Tower_01.jpg',
+    image: '/images/sights/baiterek-torni.jpg',
     imageAlt: 'Bayterek-tornin koristeellinen sisätila Astanassa',
     imageAttribution: {
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:Interior_of_Bayterek_Tower_01.jpg',
@@ -581,16 +645,28 @@ export const sights: Sight[] = [
     needsCar: false,
     budgetLevel: 'low',
     timeNeededHours: 1,
-    openingHours: 'pe–ke 10:00–22:00',
-    costKZT: 3000,
+    openingHours: 'päivittäin 10:00–22:00',
+    costKZT: 2500,
     combinesWith: ['khan-shatyr', 'nur-astana-mosque', 'palace-of-peace'],
+    practicalTips: [
+      'Aukio ympärillä ilmainen vierailla — Nurzhol-bulevardilta upea näkymä.',
+      'Aikuisten lippu n. 2500 KZT, lapset alennuksella.',
+      'Yläkerroksessa Nazarbajevin kämmenen muotoinen muotti — paikallinen toiverituaali.',
+      'Auringonlasku iltapäivällä = paras kuvauspaikka ympärillä.',
+      'Yhdistä Khan Shatyrin kanssa kävellen (~1 km Nurzhol-bulevardia).',
+    ],
+    historicalContext:
+      'Symboli kazakkien Samruk-lintumyytistä: lintu munii kultaisen munan Tree-of-Life’iin, jota Baiterek edustaa. Arkkitehti Akmurza Rustembekov (EI Norman Foster, joka suunnitteli viereisen Khan Shatyrin), valmistunut 2002, samana vuonna kun Astanasta tuli pääkaupunki.',
     ratings: {
       popularity: 5,
       interest: 3,
-      uniqueness: 4,
-      ratedAt: '2026-05-18',
-      rationale: 'Astanan ikoni — modernina symbolina omanlaisensa kaupunki-kontekstissa.',
+      uniqueness: 3,
+      ratedAt: '2026-05-22',
+      rationale:
+        'Astanan ikoni ja pääkaupungin symboli, mutta näköalatorni + symbolinen huippu -konsepti toistuu globaalisti (Atomium, Space Needle).',
     },
+    researchSlug: 'baiterek-torni',
+    lastEnriched: '2026-05-22',
     status: 'verified',
     featured: true,
   },
@@ -606,7 +682,7 @@ export const sights: Sight[] = [
       'Maailman suurin telttarakennelma — Foster + Partnersin suunnittelema kauppakeskus.',
     description:
       '150 m korkea läpinäkyvä "jurtta" kestää –35 °C:n pakkasen ja luo sisälleen kesän. Sisältä löytyy ostosalueita, kahviloita ja jopa hiekkaranta.',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Khan_Shatyr.jpg',
+    image: '/images/sights/khan-shatyr.jpg',
     imageAlt: 'Khan Shatyr -teltta Astanan keskustassa',
     imageAttribution: {
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:Khan_Shatyr.jpg',
@@ -621,14 +697,29 @@ export const sights: Sight[] = [
     needsCar: false,
     budgetLevel: 'low',
     timeNeededHours: 2,
-    combinesWith: ['bayterek'],
+    combinesWith: ['bayterek', 'nur-astana-mosque', 'palace-of-peace'],
+    openingHours: 'ma–su 10:00–22:00 (vahvista virallisesta sivusta)',
+    historicalContext:
+      'Sir Norman Fosterin ja Foster + Partnersin suunnittelema, valmistunut 2010. Moderni uudelleentulkinta kazakkilaisesta jurtasta — ETFE-kalvotekniikka kestää −35 °C talvet ja kesän kuumuuden, mikä luo sisälleen pysyvät kesäolosuhteet steppien keskelle.',
+    practicalTips: [
+      'Sisäänkäynti ostoskeskukseen on ilmainen — maksat vain käyttämistäsi attraktioista ja ruoasta.',
+      'Sky Beach -hiekkaranta yläkerrassa on erikseen maksullinen; kesäkuussa vähemmän käytetty kuin talvella (alkup. talven kesäloma-konsepti).',
+      'Sky Beachin hintahaitari 12 000–50 000 KZT lähteittäin — vahvista paikan päällä, viikonloput selvästi kalliimpia.',
+      'Monorail-kierros sisällä noin 1 000 KZT, drop tower ja dinopark erikseen.',
+      'Iltavalo on paras ulkokuoren kuvaukseen — läpinäkyvyys hehkuttaa värivaloissa.',
+      'Yhdistä Baiterekin kanssa kävellen Nurzhol-bulevardia (~1 km).',
+      'Aukioloajat n. 10:00–22:00 — vahvista Khan Shatyrin viralliselta sivulta.',
+    ],
     ratings: {
       popularity: 4,
-      interest: 3,
+      interest: 4,
       uniqueness: 5,
-      ratedAt: '2026-05-18',
-      rationale: 'Maailman suurin telttarakennelma — Foster + Partnersin signature-rakennus.',
+      ratedAt: '2026-05-22',
+      rationale:
+        'Foster + Partnersin 150 m ETFE-jurtta on Guinness-sertifioitu maailman korkein vetorakenteinen telttarakennelma — Sky Beach, monorail, huvipuisto ja sisäjoki tarjoavat 4–5 h kokopäivän ohjelmaa.',
     },
+    researchSlug: 'khan-shatyr',
+    lastEnriched: '2026-05-22',
     status: 'verified',
   },
   {
@@ -643,7 +734,7 @@ export const sights: Sight[] = [
       'Astanan suurin moskeija ennen Hazret Sultania, kultainen kupoli 40 m korkealla.',
     description:
       'Numerot 40 ja 63 viittaavat Muhammadin ikään ilmestyksessä ja kuolemassa. Sisällä mahtuu 5000 rukoilijaa.',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Nur_Astana_Mosque_02.jpg',
+    image: '/images/sights/nur-astana-moskeija.jpg',
     imageAlt: 'Nur-Astana-moskeijan kullattu kupoli ilta-aurinkossa',
     imageAttribution: {
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:Nur_Astana_Mosque_02.jpg',
@@ -683,7 +774,7 @@ export const sights: Sight[] = [
     description:
       '77 m korkea pyramidi, sisätilat täynnä symboliikkaa eri uskonnoista. Konferenssisali on pyramidin huipussa.',
     image:
-      'https://upload.wikimedia.org/wikipedia/commons/2/21/210719_View_from_Palace_of_Peace_and_Reconciliation_to_Skyline.jpg',
+      '/images/sights/rauhan-palatsi.jpg',
     imageAlt: 'Näkymä Rauhan ja sovinnon palatsista Astanan modernin keskustan ylle',
     imageAttribution: {
       sourceUrl:
@@ -699,7 +790,17 @@ export const sights: Sight[] = [
     needsCar: false,
     budgetLevel: 'low',
     timeNeededHours: 1,
+    openingHours: 'ti–su 10:00–18:00',
+    costKZT: 1500,
     combinesWith: ['nur-astana-mosque', 'bayterek'],
+    historicalContext:
+      'Norman Fosterin suunnittelema, valmistunut 2006 Maailman uskontojen kongressin (Congress of Leaders of World and Traditional Religions) tarpeisiin. 77 m korkea lasipyramidi, jonka huipussa kokoussali ja 1500-paikkainen oopperasali alimmissa kerroksissa.',
+    practicalTips: [
+      'Sisäänpääsy alakerran näyttelyihin n. 1500 KZT/aikuinen — täsmennä paikan päällä.',
+      'Pyramidin huippukerros vaatii erillisen lipun tai opastetun kierroksen — varaa etukäteen.',
+      'Maanantaisin kiinni; rukousaikoina ei rajoituksia (ei uskonnollinen rakennus).',
+      'Kävelyetäisyydellä Hazret Sultan -moskeijasta ja Kansallismuseosta — yhdistä samalle iltapäivälle.',
+    ],
     ratings: {
       popularity: 3,
       interest: 3,
@@ -721,6 +822,14 @@ export const sights: Sight[] = [
       'Keski-Aasian suurimpia moskeijoita, valmistunut 2012.',
     description:
       'Sininen kupoli (51 m), minareetit 77 m. Mahtuu 10 000 rukoilijaa. Sisätila on rauhallinen ja mahtipontinen samaan aikaan.',
+    image: '/images/sights/hazret-sultan-moskeija.jpg',
+    imageAlt: 'Hazret Sultan -moskeijan valkoinen julkisivu ja sininen kupoli minareetteineen Astanassa',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Kazakhstan_P9130227_(40051226042).jpg',
+      source: 'Wikimedia Commons',
+      author: 't_y_l (Flickr)',
+      license: 'CC BY-SA 2.0',
+    },
     tags: ['moskeija', 'islam', 'arkkitehtuuri'],
     bestMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     travelTimeFromAstanaHours: 0,
@@ -730,13 +839,26 @@ export const sights: Sight[] = [
     timeNeededHours: 1,
     costKZT: 'free',
     combinesWith: ['palace-of-peace', 'nur-astana-mosque'],
+    practicalTips: [
+      'Sijaitsee Independence Squarella (Tauelsizdik-aukio) — kävelyetäisyydellä Kansallismuseosta ja Rauhan palatsista.',
+      'Pukukoodi: pitkät housut, naisille huivi (saatavilla lainaksi sisäänkäynnillä).',
+      'Vältä rukousaikoja (5×/päivä, erityisesti perjantain jumu\'ah) jos haluat valokuvauksen rauhassa.',
+      'Ilmainen sisäänkäynti, kengät pois sisällä — varaa sukat tai sandaalit jotka helppo riisua.',
+      'Astanan suurmoskeija (Beibitshilik-puistossa, 2022 avattu) on lähistöllä myös käymisen arvoinen — yhdistä jos kiinnostaa.',
+      'Iltavalossa kupoli ja minareetit hehkuvat — paras valokuvauksen aika.',
+    ],
+    historicalContext:
+      'Avattu heinäkuussa 2012, oli Keski-Aasian suurin moskeija avaushetkellään (10 000 rukoilijan kapasiteetti, sininen kupoli 51 m, minareetit 77 m). 2022 valmistunut Astanan suurmoskeija ohitti sen 235 000 hengen kapasiteetilla — Hazret Sultan jää nyt arkkitehtonisesti merkittäväksi mutta ei enää suurimmaksi.',
     ratings: {
-      popularity: 4,
-      interest: 4,
+      popularity: 3,
+      interest: 3,
       uniqueness: 3,
-      ratedAt: '2026-05-18',
-      rationale: 'Keski-Aasian suurimpia moskeijoita; arkkitehtonisesti vahva.',
+      ratedAt: '2026-05-22',
+      rationale:
+        "Astanan vasemman rannan iso moskeija (2012), mutta menetti 'Keski-Aasian suurin'-statuksensa 2022 uudelle Astanan suurmoskeijalle (235 000 hengen kapasiteetti vs Hazret Sultanin 10 000). Klassikkopysähdys, mutta ei enää pakollinen.",
     },
+    researchSlug: 'hazret-sultan-moskeija',
+    lastEnriched: '2026-05-22',
     status: 'verified',
   },
 
@@ -754,7 +876,7 @@ export const sights: Sight[] = [
     description:
       'Sufi-runoilijan Yasawin haudan päälle rakennettu mausoleumi on Timurid-arkkitehtuurin alku ja edeltäjä Samarkandin monumenteille. Vierailu vaatii vähintään puoli päivää.',
     image:
-      'https://upload.wikimedia.org/wikipedia/commons/c/c2/%D0%9C%D0%B0%D1%83%D0%B7%D0%BE%D0%BB%D0%B5%D1%98_%D0%A5%D0%BE%D0%B4%D0%B6%D0%B5_%D0%90%D1%85%D0%BC%D0%B5%D0%B4%D0%B0_%D0%88%D0%B0%D1%81%D0%B0%D0%B2%D0%B8%D1%98%D0%B0_%28%D0%B3%D1%80%D0%B0%D0%B4_%D0%A2%D1%83%D1%80%D0%BA%D0%B5%D1%81%D1%82%D0%B0%D0%BD%2C_%D0%9A%D0%B0%D0%B7%D0%B0%D1%85%D1%81%D1%82%D0%B0%D0%BD%29.jpg',
+      '/images/sights/khoja-ahmed-yasawin-mausoleumi.jpg',
     imageAlt: 'Khoja Ahmed Yasawin mausoleumin turkoosi kupoli Turkistanissa',
     imageAttribution: {
       sourceUrl:
@@ -769,9 +891,18 @@ export const sights: Sight[] = [
     needsCar: false,
     budgetLevel: 'low',
     timeNeededHours: 3,
+    openingHours: 'ti–su 09:00–18:00 (perjantaisin tauko 12–14 jumalanpalvelukseen)',
     costKZT: 1500,
     combinesWith: ['turkistan-old-town'],
-    practicalTips: ['Kesällä paikallisesti hyvin kuuma; käy aamulla.'],
+    historicalContext:
+      'Timur (Tamerlan) tilasi mausoleumin sufi-runoilijan Khoja Ahmed Yasawin (k. 1166) haudan päälle vuonna 1389 — jätettiin osin keskeneräiseksi 1405. UNESCO-listalla 2003. Timuridien arkkitehtuurin alkupiste ja edeltäjä Samarkandin Gur-e Amir -mausoleumille; jättikupoli (38 m) ja 2-osainen kompleksi inspiroivat myöhempää persialaista arkkitehtuuria.',
+    practicalTips: [
+      'Kesällä paikallisesti hyvin kuuma (+40 °C); käy aamulla 9–11 tai illalla 16:n jälkeen.',
+      'Pukukoodi: pitkät housut/hame, naisille huivi sisätiloissa. Kengät pois Kazandyk-salissa.',
+      'Sisäpääsy 1500 KZT/ulkomaalainen — opastettu kierros lisämaksusta englanniksi.',
+      'Yhdistä Turkistanin restauroituun vanhakaupunkiin samalle päivälle (5 min kävely).',
+      'Junalla Astanasta yöjunalla (~13 h) tai lentokoneella Shymkentin kautta + 1,5 h ajo.',
+    ],
     ratings: {
       popularity: 5,
       interest: 4,
@@ -794,6 +925,14 @@ export const sights: Sight[] = [
       'Restauroitu silkkitien kaupunkikokonaisuus mausoleumin ympärillä.',
     description:
       'Uudet karavanseraijat, hammam ja amfiteatteri tuotu eloon 2020-luvulla. Hyvä illansviettopaikka mausoleumi-vierailun jälkeen.',
+    image: '/images/sights/turkistanin-vanhakaupunki.jpg',
+    imageAlt: 'Restauroitu karavanseraji Turkistanin vanhassa kaupungissa',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Turkestan_Karavan_Saray.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Yakov Fedorov',
+      license: 'CC BY-SA 4.0',
+    },
     tags: ['silkkitie', 'restaurointi'],
     bestMonths: [3, 4, 5, 6, 9, 10, 11],
     difficulty: 'easy',
@@ -824,7 +963,7 @@ export const sights: Sight[] = [
     description:
       'Hammaslaitaiset jyrkänteet ja suolatasangot 200 km Aktausta. Yöpyminen jurtassa keskellä aavikkoa on osa kokemusta.',
     image:
-      'https://upload.wikimedia.org/wikipedia/commons/3/3e/Boszhira_tract._Kazakhstan%2C_Mangistau._November_2024.jpg',
+      '/images/sights/bozzhyra.jpg',
     imageAlt: 'Bozzhyran dramaattiset kalkkikivimuodostelmat Mangystaussa',
     imageAttribution: {
       sourceUrl:
@@ -841,17 +980,26 @@ export const sights: Sight[] = [
     budgetLevel: 'high',
     timeNeededHours: 24,
     combinesWith: ['valley-of-balls', 'beket-ata'],
+    historicalContext:
+      'Bozzhyran "purjekalliot" ja amfiteatterimaiset altaat ovat liitukauden ja paleogeenin merisedimenttejä — Tethys-meren vetäydyttyä jäljelle jääneitä liitu- ja piidioksidikerroksia Ustyurt-ylätasangon länsireunalla.',
     practicalTips: [
-      'Vaatii kokeneen kuljettajan ja 4WD-auton — älä lähde itse.',
-      'Reitti yleensä 2–4 päivän kierroksena Aktausta.',
+      'Varaa 4WD ja kokenut kuljettaja Aqtausta — hinta tyypillisesti 30 000–60 000 KZT per päivä per auto, vahvista paikan päällä.',
+      'Lähde leiristä ennen auringonnousua: aamuvalo hehkuttaa itärinteet ja lämpö nousee nopeasti rajaksi puolen päivän jälkeen.',
+      'Kuljeta 4–5 litraa vettä per henkilö per päivä sekä hattu, aurinkolasit ja kasvohuivi hiekkapölyä vastaan — varjoa ei käytännössä ole.',
+      '⚠️ Ei pääse vuokra-autolla — vuokraa 4WD + opas Aqtausta (~110–160 €/päivä, 2-päivän kierros). Useimmat vuokrasopimukset kieltävät sorateillä ajamisen kokonaan, ja ilman 4WD:tä ja paikallistuntemusta jumiintumisriski on korkea.',
+      'Mobiiliverkko puuttuu suurelta osin reitistä — lataa offline-kartat (Organic Maps tai Maps.me) etukäteen ja varaudu erilliseen GPS-laitteeseen.',
+      'Border zone -lupatieto on epävarma — Bozzhyra on tiettävästi vapaasti käytävissä, mutta varmista kuljettajalta ennen lähtöä.',
     ],
     ratings: {
       popularity: 3,
       interest: 5,
       uniqueness: 5,
-      ratedAt: '2026-05-18',
-      rationale: 'Vähemmän tunnettu mutta poikkeuksellinen "Marsi-maisema" — Mangystaun tähti.',
+      ratedAt: '2026-05-21',
+      rationale:
+        'Mangystaun tähti — globaalisti harvinainen liitukivimaisema, mutta etäisyys ja 4WD-vaatimus pitävät kävijämäärät matalina.',
     },
+    researchSlug: 'bozzhyra',
+    lastEnriched: '2026-05-21',
     status: 'verified',
     featured: true,
   },
@@ -866,6 +1014,14 @@ export const sights: Sight[] = [
       'Pyöreitä konkreetiopalloja täynnä oleva aavikko.',
     description:
       'Geologinen kuriositeetti — sedimenttikiven sisälle muodostuneita pyöreitä lohkareita, joista pinnan eroosio on paljastanut tuhansia. Sopii sviitin keskelle Mangystau-kierroksella.',
+    image: '/images/sights/pallolaakso-torysh.jpg',
+    imageAlt: 'Pyöreitä sedimenttikiven konkretioita Torysh-aavikolla Mangystaussa',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:%D0%9A%D0%BE%D0%BD%D0%BA%D1%80%D0%B5%D1%86%D0%B8%D0%B8_%D0%B2_%D0%97%D0%B0%D0%BF%D0%B0%D0%B4%D0%BD%D0%BE%D0%BC_%D0%9A%D0%B0%D0%B7%D0%B0%D1%85%D1%81%D1%82%D0%B0%D0%BD%D0%B5._Concretions._Western_Kazakhstan.JPG',
+      source: 'Wikimedia Commons',
+      author: 'Alexandr Babkin',
+      license: 'CC BY-SA 4.0',
+    },
     tags: ['aavikko', 'geologia', 'erikoisuus'],
     bestMonths: [3, 4, 5, 9, 10],
     difficulty: 'moderate',
@@ -874,6 +1030,11 @@ export const sights: Sight[] = [
     budgetLevel: 'high',
     timeNeededHours: 5,
     combinesWith: ['bozzhyra'],
+    practicalTips: [
+      '⚠️ Sijainti syvällä aavikossa — käytännössä vain 4WD + opas pääsee perille. Yhdistyy useimmiten Bozzhyran 2-päivän kierrokseen.',
+      'Konkreetiopallot voi tunnistaa siitä että ne ovat usein puoliksi maan sisällä — älä vie matkamuistoiksi (suojeltu).',
+      'Aamuvalo ja iltavalo korostavat pallojen muotoja parhaiten.',
+    ],
     ratings: {
       popularity: 3,
       interest: 3,
@@ -893,8 +1054,8 @@ export const sights: Sight[] = [
     shortDescription:
       'Pyhiinvaelluskohde — 1700-luvulla luolaan rakennettu sufimoskeija.',
     description:
-      'Beket Ata oli kazakkien sufitietäjä; hänen hautansa houkuttelee pyhiinvaeltajia ympäri maan. Vierailijat tulevat usein yöksi viettämään hiljaisuutta luolissa.',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/b/bf/Beket-Ata_%28Oglandy%29.jpg',
+      'Beket Ata (1750–1813) oli kazakkien sufitietäjä ja oppinut; hänen hautansa kallioleikatussa moskeijassa houkuttelee pyhiinvaeltajia ympäri maan. Vierailijat tulevat usein yöksi viettämään hiljaisuutta luolissa.',
+    image: '/images/sights/beket-atan-maanalainen-moskeija.jpg',
     imageAlt: 'Beket-Atan maanalainen moskeija kalliossa',
     imageAttribution: {
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:Beket-Ata_(Oglandy).jpg',
@@ -909,13 +1070,343 @@ export const sights: Sight[] = [
     needsGuide: true,
     budgetLevel: 'high',
     timeNeededHours: 6,
-    combinesWith: ['bozzhyra'],
+    openingHours: 'päivittäin auringonnoususta -laskuun (zikr-vierailut yön yli)',
+    costKZT: 'free',
+    combinesWith: ['bozzhyra', 'valley-of-balls'],
+    historicalContext:
+      'Beket Ata (1750–1813) oli kazakkilainen sufitietäjä, oppinut ja taistelija — paikallinen "kansan pyhimys". Hänen oma kalliosta hakattu moskeijansa Oglandyssa on Kazakstanin tärkein pyhiinvaelluskohde; perinne edellyttää käymistä myös Shopan-Atan moskeijalla matkalla.',
+    practicalTips: [
+      'Aqtausta n. 280 km — tie on suurelta osin päällystettyä, vuokra-autolla pääsee Shopan-Atan parkkipaikalle.',
+      'Viimeinen 4 km auton parkkipaikalta moskeijaan käveltävä — pyhiinvaeltajien tapa. Vesi mukaan, kävely puolentoista tuntia.',
+      'Vaikka et ole muslimi, käyttäydy hiljaisesti — kyseessä on aktiivinen pyhiinvaelluskohde. Pukukoodi: pitkät housut, naisille huivi.',
+      'Voi yöpyä paikallisessa zikr-talossa (ilmainen, mutta vapaaehtoinen lahjoitus). Tai vuokraa 4WD + opas joka yhdistää Bozzhyran kanssa.',
+      'Ei pukukauppoja tai opastusta englanniksi — kuljettaja/opas helpottaa paljon.',
+    ],
     ratings: {
       popularity: 3,
       interest: 3,
       uniqueness: 4,
       ratedAt: '2026-05-18',
       rationale: 'Maanalainen sufi-moskeija on harvinaisuus; pyhiinvaelluskohteena merkityksellinen.',
+    },
+    status: 'verified',
+  },
+  {
+    id: 'sherkala',
+    slug: 'sherkala-vuori',
+    name: 'Sherkala-vuori',
+    nameLocal: 'Шеркала',
+    category: 'nature',
+    region: 'mangystau',
+    coords: { lat: 44.2564, lng: 52.0061 },
+    shortDescription:
+      'Yksinäinen jurttamainen kalliovuori autiomaassa, n. 170 km Aqtausta — Mangystaun klassinen maamerkki.',
+    description:
+      'Sherkala ("leijonalinnoitus") kohoaa noin 300 metriä ympäröivän tasangon yläpuolelle aivan Shetpen kylän lähellä. Sileät jyrkänteet ja erottuva muoto tekevät siitä Mangystaun ehkä tunnetuimman maamerkin, ja vuoren juurelta on usein hyvät otokset auringonnousussa tai -laskussa.',
+    image: '/images/sights/sherkala-vuori.jpg',
+    imageAlt: 'Sherkala — yksinäinen jurttamainen kalliovuori Mangystaun aavikolla',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Sherqala.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Ashina',
+      license: 'CC BY-SA 3.0',
+    },
+    tags: ['4wd', 'erämaa', 'maamerkki', 'valokuvaus'],
+    bestMonths: [4, 5, 6, 9, 10],
+    difficulty: 'moderate',
+    needsCar: true,
+    needsGuide: true,
+    budgetLevel: 'high',
+    timeNeededHours: 5,
+    bestSeason: 'kevät tai syksy; kesällä +40 °C ja tuulinen',
+    combinesWith: ['valley-of-balls', 'bozzhyra'],
+    practicalTips: [
+      'Aqtausta n. 170 km — pääosin päällystettyä tietä Shetpe-kylään, viimeiset 10–15 km gravelia. Vuokra-auto pärjää kuivassa säässä JOS vuokrasopimus sallii soratien ajamisen.',
+      'Toinen vaihtoehto: 4WD + opas (kokopäivä n. 40 000–60 000 ₸) — rennompi, kun ei tarvitse keskittyä ajamiseen 350+ km.',
+      'Paras valo aamulla idän puolelta tai illalla lännestä; keskipäivällä kontrasti syö muodot.',
+      'Yli 2 litraa vettä per henkilö, päähine ja tuulta pitävä takki — autiomaassa ei ole varjoa.',
+      'Jos haluat kiivetä vuorelle, anna kuljettajan/oppaan näyttää reitti — virallista polkua ei ole.',
+    ],
+    ratings: {
+      popularity: 3,
+      interest: 3,
+      uniqueness: 4,
+      ratedAt: '2026-05-22',
+      rationale:
+        'Mangystaun ikoninen "leijonalinnoitus" ja alueen tunnetuin maamerkki, mutta käynti on pääosin valokuvauspysäkki.',
+    },
+    status: 'verified',
+  },
+  {
+    id: 'tuzbair',
+    slug: 'tuzbair-suolajarvi',
+    name: 'Tuzbair-suolajärvi',
+    nameLocal: 'Тұзбайыр',
+    category: 'nature',
+    region: 'mangystau',
+    coords: { lat: 44.0466, lng: 53.2247 },
+    shortDescription:
+      'Kuivunut suolajärvi valkoisine pintoineen ja 60 m korkeine kalkkikiviseinämineen Ustyurtin reunavyöhykkeellä.',
+    description:
+      'Tuzbair on Ustyurtin ylätasangon reunalla makaava sor — 15×4 km kuivunut suolajärven pohja, jonka ympärillä yli 60 m korkeat liitukauden kalkkikivijyrkänteet rajaavat lähes kuun maisemaa muistuttavan altaan. Valkoinen suolapinta heijastaa valoa rajusti ja peilaa taivaan keväisinä sadepäivinä.',
+    image: '/images/sights/tuzbair-suolajarvi.jpg',
+    imageAlt: 'Tuzbairin "Lohikäärmeen silmä" -kaaren näkymä suolajärven yli auringonlaskussa',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Sor_Tuzbair,_Mangistau,_Kazakhstan,_November_2024.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Bondar Evgeniy (Astrobond)',
+      license: 'CC BY-SA 4.0',
+    },
+    tags: ['suolajärvi', 'erämaa', 'valokuvaus', '4wd'],
+    bestMonths: [4, 5, 6, 9, 10],
+    difficulty: 'moderate',
+    needsCar: true,
+    needsGuide: true,
+    budgetLevel: 'high',
+    timeNeededHours: 8,
+    bestSeason: 'kevät tai syksy; kesällä yli +40 °C eikä varjoa',
+    combinesWith: ['bozzhyra', 'sherkala'],
+    practicalTips: [
+      '⚠️ Ei pääse vuokra-autolla — viimeiset kymmenet kilometrit pehmeää hiekkaa, vain 4WD ja paikallinen opas. Vuokra-auton sopimus käytännössä kieltää tämän.',
+      'Aqtausta n. 250 km yhteen suuntaan, n. 5 h ajoaika — kokopäivä kuljettajan kanssa (n. 50 000–70 000 ₸).',
+      'Useita näköalapisteitä cliff-reunalla 44.04–44.09 / 53.16–53.26 -alueella — opas tietää parhaat. Tämä piste on yksi suosituimmista keskeisistä viewpoint-klustereista.',
+      'Käy auringonnousun tai -laskun aikaan; keskipäivän valkoinen heijastus tappaa kontrastin valokuvissa.',
+      'Aurinkolasit ja huivi pakollisia, tuuli nostaa suolapölyn silmiin.',
+      'Vesivarat (2–3 l/hlö) ja eväät mukaan — matkalla ei ole kioskeja.',
+    ],
+    ratings: {
+      popularity: 2,
+      interest: 4,
+      uniqueness: 5,
+      ratedAt: '2026-05-22',
+      rationale:
+        'Vähän tunnettu mutta 60 m kalkkikivijyrkänteet kuivuneen suolajärven ympärillä — "Lohikäärmeen silmä" -kaari globaalisti harvinaislaatuinen yhdistelmä.',
+    },
+    status: 'verified',
+  },
+  {
+    id: 'kyzylkup',
+    slug: 'kyzylkup-linnanlaakso',
+    name: 'Kyzylkup ("Linnanlaakso")',
+    nameLocal: 'Қызылкөп',
+    category: 'nature',
+    region: 'mangystau',
+    coords: { lat: 43.4766, lng: 53.8026 },
+    shortDescription:
+      'Punaiset ja keltaiset hiekkakivimuodostelmat muistuttavat ränsistynyttä linnaa keskellä Mangystaun aroa.',
+    description:
+      'Kyzylkup on värikkäästi kerrostuneiden hiekkakivimuodostelmien alue Karakijan piirikunnassa, eteläisessä Mangystaussa. Eroosio on jättänyt jäljelle torneja ja "muureja", joista paikan englanninkielinen nimi Valley of Castles tulee. Muodostelmien punertava ja kermainen sävy korostuu matalassa valossa.',
+    image: '/images/sights/kyzylkup-linnanlaakso.jpg',
+    imageAlt: 'Kyzylkupin värikkäät "Tiramisu-vuoret" — kerrostuneet hiekkakivimuodostelmat eteläisessä Mangystaussa',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Kyzylkup.jpg',
+      source: 'Wikimedia Commons',
+      author: 'IvarT',
+      license: 'CC0 1.0',
+    },
+    tags: ['kanjoni', 'erämaa', 'valokuvaus', 'punainen-kivi'],
+    bestMonths: [4, 5, 6, 9, 10],
+    difficulty: 'moderate',
+    needsCar: true,
+    needsGuide: true,
+    budgetLevel: 'high',
+    timeNeededHours: 6,
+    bestSeason: 'kevät tai syksy; kesä liian kuuma ja autio',
+    combinesWith: ['bozzhyra', 'valley-of-balls'],
+    practicalTips: [
+      '⚠️ Vaatii 4WD:n ja paikallisen oppaan — ei näkyviä polkuja eikä signaalia. Yhdistyy luontevasti Bozzhyran tai Pallolaakson kanssa 2–3 päivän Mangystau-kierrokseen.',
+      'Aqtausta n. 250 km — yhdistyy useimmiten Bozzhyra-kierroksen kanssa (eri lähteissä etäisyys Bozzhyrasta vaihtelee 20–60 km riippuen näköalapisteestä).',
+      'Tunnetaan kazakkien keskuudessa "Tiramisu"-vuorina punaisen, valkoisen ja keltaisen kerrostuman vuoksi (rauta + liitu).',
+      'Paras valo aamulla ja illalla, jolloin punainen ja keltainen kerros erottuvat selvimmin.',
+      'Tukevat kengät — kävely tapahtuu hiekkakiven päällä ja reunoilla, eikä virallisia polkuja ole.',
+      'Ota mukaan oma vesi ja aurinkosuojaa; lähin kylä Zhetybai on yli 50 km päässä.',
+    ],
+    ratings: {
+      popularity: 2,
+      interest: 3,
+      uniqueness: 4,
+      ratedAt: '2026-05-22',
+      rationale:
+        '"Tiramisu-vuoret" — värikerrostumat vaikuttavat (vrt. Zhangye Danxia), mutta laajuus ja drama eivät yllä Bozzhyran tasolle.',
+    },
+    status: 'verified',
+  },
+  {
+    id: 'aqtau-promenade',
+    slug: 'aqtau-rantakatu',
+    name: 'Aqtaun rantakatu (Kaspian-promenadi)',
+    nameLocal: 'Ақтау жағалауы',
+    category: 'culture',
+    region: 'mangystau',
+    city: 'Aqtau',
+    coords: { lat: 43.6460, lng: 51.1466 },
+    shortDescription:
+      'Aqtaun rantakatu — veistospolku, näköalalavat ja Kaspianmeren rannat keskellä kaupunkia.',
+    description:
+      'Skalnaya tropa eli "Kallinpolku" kulkee noin 1,5 km matkalla rosoista rantakallioilta, ja sen varrelle on rakennettu parikymmentä näköalalavaa, taustamusiikki ja iltavalaistus. Veistoksia löytyy ympäri promenadia — tunnetuin on "Kahdeksan rakkauden käskyä" -ryhmä ja "I love Aktau" -kyltti, jotka ovat suosittuja valokuvauspaikkoja.\n\nIlta-aurinko Kaspianmeren yllä on Aqtaun klassinen show: paikalliset tulevat kävelylle, jäätelölle ja katselemaan auringonlaskua. Rantakadun varrella on useita kahviloita ja jäätelöbaareja, ja keskustaan pääsee kävellen tai Yandex Go -taksilla muutamalla satasella tengeellä.',
+    image: '/images/sights/aqtau-rantakatu.jpg',
+    imageAlt: 'Kävelytie Kaspianmeren rantapromenadilla Aqtaussa',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Pedestrian_walkway_along_the_Caspian_Sea_waterfront_promenade_in_Aktau,_Kazakhstan.jpg',
+      source: 'Wikimedia Commons',
+      author: 'IvarT',
+      license: 'CC0 1.0',
+    },
+    tags: ['kaupunki', 'kävely', 'meri', 'auringonlasku'],
+    bestMonths: [4, 5, 6, 7, 8, 9, 10],
+    bestSeason: 'kevät–syksy, kesällä auringonsuoja tarpeen',
+    difficulty: 'easy',
+    needsCar: false,
+    needsGuide: false,
+    budgetLevel: 'low',
+    timeNeededHours: 2,
+    combinesWith: ['saura-canyon', 'cape-zhygylgan'],
+    practicalTips: [
+      'Paras valo auringonlaskussa — kävely kannattaa ajoittaa noin tuntia ennen auringonlaskua.',
+      'Kahviloita ja ravintoloita kävelyetäisyydellä; Akkanlauma-jäätelöbaari on paikallinen klassikko.',
+      'Etsi "Kahdeksan rakkauden käskyä" -veistosryhmä sekä "I love Aktau" -kyltti — molemmat suosittuja kuvauspaikkoja.',
+      'Vältä kesäkuussa iltapäivän kuumimpia tunteja (klo 12–16); aikainen aamu ja ilta ovat miellyttävämpiä.',
+      'Yandex Go toimii Aqtaussa, mutta keskustasta promenadille kävelee helposti.',
+    ],
+    ratings: {
+      popularity: 4,
+      interest: 2,
+      uniqueness: 1,
+      ratedAt: '2026-05-22',
+      rationale:
+        'Lähes jokainen Aqtauhun saapuva kävelee promenadilla, mutta itse kävelykatu auringonlaskuineen on tavallinen rantakaupunkikokemus.',
+    },
+    status: 'verified',
+  },
+  {
+    id: 'cape-zhygylgan',
+    slug: 'cape-zhygylgan',
+    name: 'Cape Zhygylgan ("Maa joka putosi")',
+    nameLocal: 'Жыгылған',
+    category: 'nature',
+    region: 'mangystau',
+    coords: { lat: 44.7666, lng: 50.7168 },
+    shortDescription:
+      'Romahtanut rantakallio — noin 10 km² laaja sortuma-allas, fossiileja ja petroglyyfeja Kaspianmeren reunalla.',
+    description:
+      'Zhygylgan ("kaatunut maa") on Ustyurtin ylätasangon reunalla tapahtunut massiivinen geologinen sortuma, jossa kallioperä romahti satoja vuosia sitten kohti Kaspianmerta. Lopputulos on dramaattinen amfiteatteri, jonka pohjalla makaa massiivisia kalliolohkareita ja jonka reunoilta avautuvat näkymät merelle.\n\nSortumalohkareilta on löydetty fossiileja ja kalliopiirroksia, ja paikka on suosittu valokuvaajien keskuudessa erityisesti auringonlaskussa. Aqtausta matka on noin 150 km pohjoiseen ja vie 2,5–3 tuntia yhteen suuntaan. Reunalla ei ole kaiteita — varovaisuus on paikallaan.',
+    image: '/images/sights/cape-zhygylgan.jpg',
+    imageAlt: 'Zhygylganin "pudonnut maa" — romahtaneita kalliolohkareita Mangystaun Tupkaragan-piirissä',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:%D0%9C%D0%B5%D1%81%D1%82%D0%BD%D0%BE%D1%81%D1%82%D1%8C_%D0%96%D1%8B%D0%B3%D1%8B%D0%BB%D0%B3%D0%B0%D0%BD,_%D0%BD%D0%B5_%D0%B2%D1%81%D0%B5%D0%B3%D0%B4%D0%B0_%D0%BE%D1%82%D0%BA%D1%80%D1%8B%D0%B2%D0%B0%D0%B5%D1%82_%D1%81%D0%B2%D0%BE%D1%8E_%D0%BA%D1%80%D0%B0%D1%81%D0%BE%D1%82%D1%83.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Maratkid',
+      license: 'CC BY-SA 4.0',
+    },
+    tags: ['kallio', 'kanjoni', 'meri', 'fossiilit', 'auringonlasku'],
+    bestMonths: [4, 5, 6, 9, 10],
+    bestSeason: 'kevät tai syksy, kesäkuussa varhaisaamu tai myöhäisilta',
+    difficulty: 'easy',
+    needsCar: true,
+    needsGuide: false,
+    budgetLevel: 'low',
+    timeNeededHours: 6,
+    combinesWith: ['saura-canyon', 'tamshaly-canyon', 'aqtau-promenade'],
+    practicalTips: [
+      'Matka Aqtausta n. 150 km pohjoiseen, ajoaika 2,5–3 h yhteen suuntaan — koko päivän retki.',
+      'Viimeiset kymmenet kilometrit ovat soratietä; korkeampi maavara (SUV) suositeltava. Tarkista vuokraamosta että autosi sopii pölytielle.',
+      'Vesi vähintään 2 l/hlö, päähine ja aurinkovoide — varjoa ei ole.',
+      'Tukevat kengät kallioilla — reunoilla ei ole kaiteita, pidä turvaväli.',
+      'Yhdistyy luontevasti Saura-kanjonin ja Tamshalyn kanssa samana päivänä, jos lähtee aikaisin aamulla.',
+    ],
+    ratings: {
+      popularity: 2,
+      interest: 4,
+      uniqueness: 4,
+      ratedAt: '2026-05-22',
+      rationale:
+        'Tunnetaan lähinnä Mangystau-fanaatikkojen keskuudessa, mutta n. 10 km² laaja meren reunaan romahtanut kalliosortuma fossiileineen on harvinainen geologinen ilmiö.',
+    },
+    status: 'verified',
+  },
+  {
+    id: 'saura-canyon',
+    slug: 'saura-kanjoni',
+    name: 'Saura-kanjoni ja Kilpikonnajärvi',
+    nameLocal: 'Сауыр',
+    category: 'nature',
+    region: 'mangystau',
+    coords: { lat: 44.2301, lng: 50.8070 },
+    shortDescription:
+      'Aavikon vihreä keidas — kanjoni, makean veden lähteistä syntynyt järvi ja kilpikonnia.',
+    description:
+      'Saura on muinaisen kausijoen kaivama kanjoni, jonka pohjalla pulppuaa makean veden lähde. Lähteen ympärille on syntynyt pieni järvi ja vihreä kaislikko — keidas keskellä Mangystaun kuivaa tasankoa. Järvessä elää vesikilpikonnia, jotka ovat lajinsa ainoa elinympäristö Mangystaun maakunnassa.\n\nKanjoniin tehdään päiväretki Aqtausta noin 90–110 km pohjoiseen, ja matkasta valtaosa on hyväkuntoista asfalttia. Viimeiset kymmenet kilometrit ovat soratietä, joten paikallinen kuljettaja ja korkeampi auto helpottavat — kuivassa säässä matala vuokra-auto pärjää, märällä ei. Kanjonin pohjalle laskeudutaan jyrkähköä polkua, ja paras valo on aamupäivällä tai iltaa kohti.',
+    image: '/images/sights/saura-kanjoni.jpg',
+    imageAlt: 'Flamingo lentää Karakol-järven yllä — Saura-alueen makean veden lampi Mangystaussa',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:%D0%A4%D0%BB%D0%B0%D0%BC%D0%B8%D0%BD%D0%B3%D0%BE_%D0%9C%D0%B0%D0%BD%D0%B3%D0%B8%D1%81%D1%82%D0%B0%D1%83.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Ezra Sheyner',
+      license: 'CC BY-SA 4.0',
+    },
+    tags: ['kanjoni', 'järvi', 'oasi', 'kävely', 'fossiilit'],
+    bestMonths: [4, 5, 6, 9, 10],
+    bestSeason: 'kevät tai syksy; kesäkuussa varhainen lähtö',
+    difficulty: 'moderate',
+    needsCar: true,
+    needsGuide: false,
+    budgetLevel: 'low',
+    timeNeededHours: 6,
+    combinesWith: ['cape-zhygylgan', 'tamshaly-canyon', 'aqtau-promenade'],
+    practicalTips: [
+      'Matka Aqtausta n. 100 km pohjoiseen, ajoaika 1,5–2 h yhteen suuntaan; koko päivän retki.',
+      'Viimeinen osuus on soratietä — kuivassa säässä matala vuokra-auto kulkee varovasti, sateella tarvitset SUV:n. Tarkista keli ennen lähtöä.',
+      'Vesi vähintään 3 l/hlö, eväät mukaan — matkalla ei ole kioskeja eikä kanjonissa kahvilaa.',
+      'Älä kosketa kilpikonniin äläkä häiritse niitä — kyseessä on harvinainen populaatio.',
+      'Tukevat kengät: kanjonin pohjalle laskeudutaan polkua jossa on löysää kiveä.',
+      'Yhdistyy hyvin Cape Zhygylganiin samalla suunnalla — pitkä mutta toteutettavissa oleva päivä.',
+    ],
+    ratings: {
+      popularity: 2,
+      interest: 3,
+      uniqueness: 4,
+      ratedAt: '2026-05-22',
+      rationale:
+        'Vähän tunnettu päiväretkikohde, mutta makean veden lähteen keidasjärvi vesikilpikonnineen aavikossa on ekologisesti epätyypillinen yhdistelmä.',
+    },
+    status: 'verified',
+  },
+  {
+    id: 'tamshaly-canyon',
+    slug: 'tamshaly-kanjoni',
+    name: 'Tamshaly-kanjoni',
+    nameLocal: 'Тамшалы',
+    category: 'nature',
+    region: 'mangystau',
+    coords: { lat: 44.5484, lng: 50.6773 },
+    shortDescription:
+      'Pohjoisen Mangystaun salainen kanjoni — vesiputous, lähteitä ja makean veden lampi.',
+    description:
+      'Tamshaly on noin 10–12 km pitkä kanjoni Mangystaun Tupkaragan-niemen pohjoisosassa, noin 30 km Fort-Shevchenkosta itään. Kanjonin pohjalla tipahtelevat lähteet ja pieni vesiputous luovat keidasvyöhykkeen kuivaan kalkkikivimaisemaan; lähde "tamshaly" tarkoittaa kazakiksi tipahtelevaa.\n\nPaikka on hiljaisempi kuin etelän tunnetut kohteet, eikä turistiryhmiä juuri näy. Aqtausta ajo on pitkä — noin 200 km pohjoiseen — joten varhainen lähtö on välttämätön ja yhdistäminen Fort-Shevchenkon vanhaan kalmistoon tai Cape Zhygylganiin kannattaa. Reitti on enimmäkseen asfalttia, viimeiset kilometrit soratietä.',
+    tags: ['kanjoni', 'vesiputous', 'oasi', 'lähde'],
+    bestMonths: [4, 5, 6, 9, 10],
+    bestSeason: 'kevät tai syksy; kesä liian kuuma',
+    difficulty: 'moderate',
+    needsCar: true,
+    needsGuide: false,
+    budgetLevel: 'mid',
+    timeNeededHours: 10,
+    combinesWith: ['cape-zhygylgan', 'saura-canyon'],
+    practicalTips: [
+      'Pitkä päivä Aqtausta: n. 200 km ja 3 h yhteen suuntaan — varhainen lähtö (klo 6–7) välttämätön.',
+      'Yhdistä Fort-Shevchenkon vanhaan kalmistoon tai Cape Zhygylganiin samalla reissulla.',
+      'Viimeinen osuus on soratietä; SUV varma valinta, matala vuokra-auto kuivassa säässä kuljettajan harkinnassa.',
+      'Vesi 3 l/hlö, eväät ja päähine — varjoa kanjonissa on lähteiden lähellä mutta ei matkalla.',
+      'Tukevat kengät: kanjonin pohjalle laskeutuminen on osin liukasta kalkkikiveä.',
+      'Lähistöllä myös pienempi Meretsay-kanjoni (3 km) Tamshalyn sivuhaarana — luonteva yhdistää samaan päivään.',
+    ],
+    ratings: {
+      popularity: 1,
+      interest: 3,
+      uniqueness: 3,
+      ratedAt: '2026-05-22',
+      rationale:
+        '"Salainen kanjoni" Tupkaragan-niemellä — vain paikallisten ja syväsukeltavien matkailijoiden tuntema; vastaavia pieniä kanjonikeitaita on muitakin alueella.',
     },
     status: 'verified',
   },
@@ -934,7 +1425,7 @@ export const sights: Sight[] = [
     description:
       'Vanhempi ja rennompi kuin Almaty — hyvä portti Turkistaniin. Restauroidut linnoituksen muurit ja Megabasaari ovat keskustan kohokohdat.',
     image:
-      'https://upload.wikimedia.org/wikipedia/commons/4/41/Tulip-Fountain-Shymkent-Kazakhstan.jpg',
+      '/images/sights/shymkentin-vanhakaupunki.jpg',
     imageAlt: 'Tulppaanisuihku Shymkentin keskustassa',
     imageAttribution: {
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:Tulip-Fountain-Shymkent-Kazakhstan.jpg',
@@ -970,8 +1461,8 @@ export const sights: Sight[] = [
     shortDescription:
       'Keski-Aasian vanhin luonnonpuisto — vuoria, jokia, lumileopardin elinaluetta.',
     description:
-      'Talas-Alatau-vuoriston etelärinne, 1300–4239 m. Vaatii etukäteisluvan ja oppaan. Lisätään tarkemmin kun reitti varmistuu.',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/2/22/Aksu_Jabagly_2.JPG',
+      'Talas-Alatau-vuoriston etelärinne, 1300–4239 m. Vaatii etukäteisluvan ja oppaan — tämä ei ole walk-in-puisto. Perustettu suojelualueeksi 1926, Keski-Aasian vanhin. Lumileopardit (35–40 yksilöä), karhut ja yli 1700 kasvilajia, joista 47 endeemistä. Käy yleensä 2–4 vrk vaelluksena Zhabagly-kylän tukikohdasta.',
+    image: '/images/sights/aksu-zhabaglyn-luonnonpuisto.jpg',
     imageAlt: 'Aksu-Zhabaglyn luonnonpuiston vuoristomaisema lumihuipuilla',
     imageAttribution: {
       sourceUrl: 'https://commons.wikimedia.org/wiki/File:Aksu_Jabagly_2.JPG',
@@ -994,5 +1485,294 @@ export const sights: Sight[] = [
       rationale: 'Keski-Aasian vanhin luonnonpuisto; vähän käyty, biologisesti rikas.',
     },
     status: 'draft',
+  },
+
+  // ============== ASTANA-LISÄYKSET (kesäkuun 2026 reissua varten) ==============
+  {
+    id: 'nur-alem',
+    slug: 'nur-alem-expo-sfaari',
+    name: 'Nur Alem (EXPO-sfääri)',
+    nameLocal: 'Нұр Әлем',
+    category: 'culture',
+    region: 'astana',
+    city: 'Astana',
+    coords: { lat: 51.0913, lng: 71.4128 },
+    shortDescription:
+      'Maailman suurin pallorakennus — 8 kerrosta uusiutuvan energian museota lasipallon sisällä.',
+    description:
+      'EXPO 2017 -näyttelyn pääpaviljonki, halkaisijaltaan 80 m ja korkeudeltaan 100 m. Sisällä Tulevaisuuden energian museo, jonka kahdeksan kerrosta käyvät vuorollaan läpi avaruuden, auringon, tuulen, biomassan, kineettisen ja veden energiamuodot. Adrian Smith + Gordon Gill -arkkitehtien suunnittelema.\n\nYläkerroksen "Astana of the Future" -visio on parhaiten kuratoitu osio, ja ylimmästä kerroksesta avautuu näköala koko EXPO-alueen yli. Kannattaa varata 2–3 tuntia rauhassa.',
+    image: '/images/sights/nur-alem-expo-sfaari.jpg',
+    imageAlt: 'Nur Alem -pallopaviljonki, EXPO 2017 -keskusrakennus Astanassa',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:%D0%9F%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BE%D0%BD_%D0%9D%D1%83%D1%80_%D0%90%D0%BB%D0%B5%D0%BC.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Шалкер Гам',
+      license: 'CC BY-SA 4.0',
+    },
+    tags: ['arkkitehtuuri', 'ikoni', 'museo', 'tiede', 'futuristinen'],
+    bestMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    travelTimeFromAstanaHours: 0,
+    difficulty: 'easy',
+    needsCar: false,
+    needsGuide: false,
+    budgetLevel: 'mid',
+    timeNeededHours: 3,
+    openingHours: 'ti–su 10:00–20:00',
+    costKZT: 4000,
+    combinesWith: ['atameken-map'],
+    practicalTips: [
+      'Hissit kuljettavat suoraan ylimpään (8.) kerrokseen, sieltä laskeudutaan portaita kerros kerrokselta alas.',
+      'Iltavalo on paras ulkokuoren kuvaukseen — sfääri heijastaa auringonlaskua.',
+      'Sopii sekä lapsille että aikuisille: paljon interaktiivisia näyttelyjä.',
+      'Yandex Go keskustasta noin 15 min, EXPO-alueen sisällä kävellään.',
+      'EXPO-alueen muut paviljongit (Energy Hall, Future Energy Center) voi liittää samaan käyntiin.',
+    ],
+    ratings: {
+      popularity: 4,
+      interest: 4,
+      uniqueness: 5,
+      ratedAt: '2026-05-22',
+      rationale:
+        'Guinness-sertifioitu maailman suurin pallorakennus ja EXPO 2017 -ikoni — Astanan top-3 must-see, 8 kerrosta interaktiivista energiamuseota, arkkitehtuuri geometrialtaan ainutlaatuinen globaalisti.',
+    },
+    status: 'verified',
+    featured: true,
+  },
+  {
+    id: 'national-museum-kz',
+    slug: 'kazakstanin-kansallismuseo',
+    name: 'Kazakstanin kansallismuseo',
+    nameLocal: 'Қазақстан Республикасы Ұлттық музейі',
+    category: 'culture',
+    region: 'astana',
+    city: 'Astana',
+    coords: { lat: 51.1182, lng: 71.4694 },
+    shortDescription:
+      'Keski-Aasian suurimpia museoita — 7 salin matka kivikaudesta moderniin Kazakstaniin.',
+    description:
+      'Vuonna 2014 avattu museo Tauelsizdik-aukiolla on yli 70 000 m²:n kokoinen ja yksi koko Keski-Aasian suurimmista. Salit kattavat arkeologian, antiikin, etnografian, modernin historian ja itsenäisyyden ajan. Tunnetuimpia esineitä on jäljennös Issykin "Kultaisesta miehestä".\n\nMuseo sopii loistavasti sateiselle tai polttavalle päivälle, ja se on kävelyetäisyydellä Hazret Sultan -moskeijasta sekä Rauhan palatsista — voitte yhdistää kaikki yhden iltapäivän aikana.',
+    image: '/images/sights/kazakstanin-kansallismuseo.jpg',
+    imageAlt: 'Suihkulähde Kazakstanin kansallismuseon edessä Astanassa, Independence Square',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:National_Museum_of_Kazakhstan_02.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Davide Mauro',
+      license: 'CC BY-SA 4.0',
+    },
+    tags: ['museo', 'historia', 'arkkitehtuuri', 'arkeologia'],
+    bestMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    travelTimeFromAstanaHours: 0,
+    difficulty: 'easy',
+    needsCar: false,
+    budgetLevel: 'low',
+    timeNeededHours: 3,
+    openingHours: 'ti–su 10:00–19:00',
+    costKZT: 1000,
+    combinesWith: ['hazret-sultan-mosque', 'palace-of-peace'],
+    practicalTips: [
+      'Kuvauslupa pitää ostaa erikseen lippukassalla.',
+      'Englanninkielinen audio-opastus on saatavilla — kannattaa ottaa, opasteet ovat osin vain kazakiksi/venäjäksi.',
+      'Sateella tai 35 asteen helteellä ihanteellinen sisäkohde.',
+      'Museon kahvilassa kevyt lounas; vaihtoehtoisesti kävelymatkan päässä Hazret Sultanin viereiset ravintolat.',
+      'Kultaisen miehen sali on ylimmässä kerroksessa — älkää lähtekö ennen sitä.',
+    ],
+    ratings: {
+      popularity: 3,
+      interest: 4,
+      uniqueness: 2,
+      ratedAt: '2026-05-22',
+      rationale:
+        'Keski-Aasian suurimpiin lukeutuva museo on Astanan vakiokierroksen osa; 7 salia ja Kultainen mies tarjoavat puoli päivää sisältöä, mutta kansallismuseo-konsepti yleinen pääkaupungeissa.',
+    },
+    status: 'verified',
+    featured: true,
+  },
+  {
+    id: 'astana-opera',
+    slug: 'astana-opera',
+    name: 'Astana Opera',
+    category: 'culture',
+    region: 'astana',
+    city: 'Astana',
+    coords: { lat: 51.1356, lng: 71.4107 },
+    shortDescription:
+      'Italian uusklassinen oopperatalo Astanassa — 1250-paikkainen "valkoinen kakku".',
+    description:
+      'Vuonna 2013 avattu oopperatalo on italialaisten arkkitehtien suunnittelema neoklassinen rakennus, jossa on antiikin kreikkalaisia ja kazakkilaisia koristeaiheita. Päänäyttämön sali vetää 1250 katsojaa ja pienempi kamarisali 250.\n\nOhjelmistossa kuullaan sekä länsimaista klassista oopperaa (Verdi, Puccini) että kazakkilaista oopperaa ja balettia. Kesäkuussa kausi on jo päättynyt, joten käyntinne keskittyy todennäköisesti ulkoarkkitehtuuriin ja mahdolliseen opastettuun kierrokseen.',
+    image: '/images/sights/astana-opera.jpg',
+    imageAlt: 'Astana Opera — uusklassinen italianstyle oopperarakennus',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Astana_Opera_02.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Davide Mauro',
+      license: 'CC BY-SA 4.0',
+    },
+    tags: ['arkkitehtuuri', 'kulttuuri', 'ooppera', 'klassinen'],
+    bestMonths: [9, 10, 11, 12, 1, 2, 3, 4, 5],
+    travelTimeFromAstanaHours: 0,
+    difficulty: 'easy',
+    needsCar: false,
+    budgetLevel: 'mid',
+    timeNeededHours: 1,
+    openingHours: 'esityskausi syyskuu–toukokuu; kesä-heinäkuussa pääsääntöisesti suljettu',
+    costKZT: 5000,
+    practicalTips: [
+      'Tarkista ajantasainen ohjelma astanaopera.kz — kesäkuussa harvoin esityksiä.',
+      'Jos kausi on kiinni, ulkoarkkitehtuuri ja portaikko-aukio riittävät 30–45 min käyntiin.',
+      'Esityksiin pukukoodi on smart casual; lippuja saa 3000–25 000 KZT välillä.',
+      'Sijaitsee vasemmalla rannalla, kävelymatkan päässä Khan Shatyrista.',
+    ],
+    ratings: {
+      popularity: 2,
+      interest: 3,
+      uniqueness: 2,
+      ratedAt: '2026-05-22',
+      rationale:
+        'Astanassa tunnettu kulttuurilaitos mutta turistien harvoin vierailema; italialainen uusklassisismi tavanomainen, kesäkuun kausitauko jättää vain ulkoarkkitehtuurin.',
+    },
+    status: 'verified',
+  },
+  {
+    id: 'atameken-map',
+    slug: 'atameken-pienoismalli',
+    name: 'Atameken — Kazakstan-pienoismalli',
+    nameLocal: 'Атамекен',
+    category: 'culture',
+    region: 'astana',
+    city: 'Astana',
+    coords: { lat: 51.1494, lng: 71.4178 },
+    shortDescription:
+      'Avoin pienoismalli koko Kazakstanista — 1,7 hehtaarin maa-asemoitu kartta nähtävyyksineen.',
+    description:
+      'Vuonna 2001 avattu etnografinen ulkomuseo on käytännössä koko Kazakstanin kartta pienoiskoossa: jokainen alueen ikoni — vuoret, mausoleumit, kaupungit, infrastruktuuri — on rakennettu mittakaavassa kahden hehtaarin alueelle. Yli 400 yksityiskohtaa, ja kokoelma kasvaa edelleen.\n\nLoistaa erityisesti reissun alussa: yhdellä kävelyllä saatte kuvan siitä, mitä alueita maassa on ja missä isot kohteet sijaitsevat. Vie noin 1,5–2 tuntia rauhassa.',
+    image: '/images/sights/atameken-pienoismalli.jpg',
+    imageAlt: 'Atameken — Kazakstan-pienoismalli, etnokulttuurillinen puisto Astanassa',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:%D0%AD%D1%82%D0%BD%D0%BE-%D0%BC%D0%B5%D0%BC%D0%BE%D1%80%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81_%C2%AB%D0%9A%D0%B0%D1%80%D1%82%D0%B0_%D0%9A%D0%B0%D0%B7%D0%B0%D1%85%D1%81%D1%82%D0%B0%D0%BD%D0%B0_%D0%90%D1%82%D0%B0%D0%BC%D0%B5%D0%BA%D0%B5%D0%BD%C2%BB.JPG',
+      source: 'Wikimedia Commons',
+      author: 'Toshishiro',
+      license: 'CC BY-SA 3.0',
+    },
+    tags: ['museo', 'pienoismalli', 'kazakstan', 'helppo'],
+    bestMonths: [5, 6, 7, 8, 9],
+    travelTimeFromAstanaHours: 0,
+    difficulty: 'easy',
+    needsCar: false,
+    budgetLevel: 'low',
+    timeNeededHours: 2,
+    openingHours: 'ma–su 10:00–20:00 (kesä)',
+    costKZT: 1500,
+    combinesWith: ['nur-alem'],
+    practicalTips: [
+      'Yhdistä Nur Alemin kanssa — molemmat sijaitsevat vasemmalla rannalla.',
+      'Aurinkohattu ja vesipullo pakko — koko alue on avointa pihaa.',
+      'Opastus pääosin venäjäksi; kävelkää itsenäisesti karttojen kera.',
+      'Sopii hyvin reissun ensimmäiseksi päiväksi maan hahmottamiseen.',
+    ],
+    ratings: {
+      popularity: 2,
+      interest: 3,
+      uniqueness: 4,
+      ratedAt: '2026-05-22',
+      rationale:
+        'Koko maan miniatyyrikartta 1,7 hehtaarilla on harvinainen konsepti (vrt. Brysselin Mini-Europe, Pekingin World Park) mutta turistikuplan ulkopuolella.',
+    },
+    status: 'verified',
+  },
+  {
+    id: 'burabay-park',
+    slug: 'burabay-luonnonpuisto',
+    name: 'Burabay-luonnonpuisto (Borovoe)',
+    nameLocal: 'Бурабай',
+    category: 'nature',
+    region: 'astana',
+    coords: { lat: 53.0872, lng: 70.3000 },
+    shortDescription:
+      'Kazakkien rakas "Pohjoinen Sveitsi" — graniittivuori, kirkasvetinen järvi ja mäntymetsät, 250 km Astanasta.',
+    description:
+      'Stepin keskellä yllättävä luonnonpuisto: 14 järveä, mäntymetsiä ja graniittivuoria. Burabay-järven rannalla sijaitsee suosituin uintipaikka, ja legendaarinen Okzhetpes-vuori sekä Zhumbaktas-kallio nousevat järvestä. Alue on kazakkien rakkain kotimaan lomakohde.\n\nAstanasta on noin 250 km / 3 tuntia ajoa, joten päiväretki vaatii aikaisen lähdön. Vaihtoehtoja: vuokra-auto kuljettajalla, jaettu retki tai marsruutka Schuchinskin kautta. Kesäkuussa järvi on jo uimakelpoinen ja säät yleensä +20–25 °C.',
+    image: '/images/sights/burabay-luonnonpuisto.jpg',
+    imageAlt: 'Okzhetpes-kalliovuori ja Burabay-järvi männikön takana Pohjois-Kazakstanissa',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:%D0%9E%D0%BA%D0%B6%D0%B5%D1%82%D0%BF%D0%B5%D1%81_%D0%91%D0%BE%D1%80%D0%BE%D0%B2%D0%BE%D0%B5.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Dots foto',
+      license: 'CC BY-SA 4.0',
+    },
+    tags: ['kansallispuisto', 'järvi', 'vuori', 'metsä', 'päiväretki'],
+    bestMonths: [5, 6, 7, 8, 9],
+    travelTimeFromAstanaHours: 3,
+    difficulty: 'easy',
+    needsCar: true,
+    budgetLevel: 'mid',
+    timeNeededHours: 12,
+    openingHours: 'kansallispuiston portti päivittäin auringonnoususta -laskuun',
+    costKZT: 1000,
+    historicalContext:
+      'Pohjois-Kazakstanin steppien yllättävä metsä- ja vuoristoenklaavi — Kazakkien khanaatin perustajan Abylai-khaanin (1711–1781) leiripaikka, jossa hän kokosi joukkonsa. Lempinimi "Kazakstanin Sveitsi" sai alkunsa neuvostoaikaisesta turistimainonnasta. Burabay (kazakiksi "kameli") viittaa Burabay-järven muotoon.',
+    practicalTips: [
+      'Lähtekää viimeistään klo 7 — paluu Astanaan ennen pimeää.',
+      'Kansallispuiston pääsymaksu n. 800–1500 KZT/aikuinen — maksetaan portilla käteisellä.',
+      'Yksityinen kuljettaja Astanasta noin 30 000–45 000 KZT/päivä, jaetut retket 35 000–50 000 KZT/hlö.',
+      'Uintimahdollisuus järvessä kesäkuusta elokuun loppuun — ottakaa pyyhe.',
+      'Okzhetpes-vuoren juurelta lyhyt nousu näköalapisteelle; kengät joissa pitoa.',
+      'Lounas tankataan Schuchinskissa tai Burabayn keskustassa — pikkukyliä ja shashlyk-paikkoja.',
+    ],
+    ratings: {
+      popularity: 4,
+      interest: 4,
+      uniqueness: 3,
+      ratedAt: '2026-05-22',
+      rationale:
+        'Pohjois-Kazakstanin tunnetuin lomakohde — järvi, graniittivuori ja mäntymetsä tarjoavat koko päivän aktiviteetit, mutta konsepti vastaa globaalisti Karjalan/Baltian maisemaa.',
+    },
+    status: 'verified',
+    featured: true,
+  },
+  {
+    id: 'astana-old-town',
+    slug: 'astana-vanhakaupunki',
+    name: 'Astanan vanhakaupunki (Saryarka, oikea ranta)',
+    category: 'culture',
+    region: 'astana',
+    city: 'Astana',
+    coords: { lat: 51.1715, lng: 71.4302 },
+    shortDescription:
+      'Esilin oikea ranta — Saryarkan piiri, neuvostokauden Tselinograd ennen pääkaupunkivaihtoa 1997.',
+    description:
+      'Ennen kuin pääkaupunki siirtyi vuonna 1997, tämä oli Akmola — sitä ennen Tselinograd, neuvostoajan agraarikaupunki Virgin Lands -kampanjan keskuksena. Saryarkan piiri Esilin oikealla rannalla on ainoa osa kaupungista jossa on aitoa historiaa: kauppias Matvei Kubrinin 1900-luvun alun asuintalo, Vasili Kubrinin huvila, kaupungin vanhin teatteri (M. Gorkin nimeä kantava draamateatteri) ja Saken Seifullinin (1894–1938, Stalinin tappama kazakkirunoilija) muistomuseo.\n\nAlueen sydän on Town Square ja sen ympäristö Beibitshilik-kadulla — pieni "Arbat-katu" katumuusikkojen ja taiteilijoiden kanssa, kontrastina vasemman rannan futuristiselle akselille. Tämä ei ole syvä museokokemus vaan tunnelmaretki: kävely 1–2 h, pari kahvilaa, neuvostoajan mosaiikkien etsintä.',
+    image: '/images/sights/astana-vanhakaupunki.jpg',
+    imageAlt: 'Neuvostokauden asuinkerrostaloja Astanan Saryarka-piirin vanhassa kaupungissa',
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Houses,_Astana_(P1190737).jpg',
+      source: 'Wikimedia Commons',
+      author: 'Matti Blume',
+      license: 'CC BY-SA 4.0',
+    },
+    tags: ['vanhakaupunki', 'neuvostokausi', 'arkkitehtuuri', 'kontrasti', 'museo'],
+    bestMonths: [5, 6, 7, 8, 9],
+    travelTimeFromAstanaHours: 0,
+    difficulty: 'easy',
+    needsCar: false,
+    budgetLevel: 'low',
+    timeNeededHours: 2,
+    combinesWith: ['bayterek'],
+    practicalTips: [
+      'Lähde Town Squarelta (Auezovin aukio) ja kävele Beibitshilik-katua — paras lokaali kahvi 400–600 KZT (bulevardin hinta ~1500 KZT).',
+      'Saken Seifullinin muistomuseo on yksi kaupungin vanhimmista rakennuksista — pieni mutta historiallisesti merkittävä (1894–1938 runoilija, Stalinin "puhdistusten" uhri).',
+      'Artyom-basaari (~1,5 km pohjoiseen) on samalla puolella — hyvä yhdistää lahjojen ostoon.',
+      'Yandex Go vasemmalta rannalta noin 1500–2500 KZT, kävellen Yhdistyssillan kautta noin 30 min.',
+      'Neuvostoajan mosaiikkeja (avaruus + painotyö -teemoja) etsittävissä Saryarkan vanhoissa kerrostaloissa — paikallinen "urban exploration" -kohde.',
+      'Gorki-draamateatteri ja Rakhmadiev-filharmonia tarjoavat näytöksiä — kausi suljettu kesäkuussa, mutta rakennukset ovat itse merkittäviä.',
+    ],
+    ratings: {
+      popularity: 1,
+      interest: 2,
+      uniqueness: 2,
+      ratedAt: '2026-05-22',
+      rationale:
+        'Saryarkan oikea ranta jää useimmilta turisteilta ohi vasemman rannan futurismin varjossa; neuvostokauden Tselinograd-rakennukset tyypillistä postSov-arkkitehtuuria.',
+    },
+    status: 'verified',
   },
 ];

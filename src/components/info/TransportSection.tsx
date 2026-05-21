@@ -1,3 +1,4 @@
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { transportSections } from '@/data/practical';
 
 export default function TransportSection() {
@@ -12,13 +13,14 @@ export default function TransportSection() {
       <h2 className="text-xl font-semibold">Liikkuminen maan sisällä</h2>
       <div className="grid gap-4 md:grid-cols-2">
         {sections.map((s) => (
-          <div
-            key={s.title}
-            className="rounded-lg border border-(--color-border) bg-(--color-card) p-4"
-          >
-            <h3 className="mb-2 font-semibold">{s.title}</h3>
-            <p className="text-sm text-(--color-fg)">{s.body}</p>
-          </div>
+          <Card key={s.title} size="sm">
+            <CardHeader>
+              <CardTitle className="text-base font-semibold">{s.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-(--color-fg)">{s.body}</p>
+            </CardContent>
+          </Card>
         ))}
       </div>
     </section>

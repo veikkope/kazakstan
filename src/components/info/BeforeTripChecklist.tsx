@@ -1,3 +1,4 @@
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { beforeTripChecklist } from '@/data/checklist';
 import type { ChecklistCategory, ChecklistItem } from '@/lib/types';
 
@@ -35,33 +36,34 @@ export default function BeforeTripChecklist() {
           if (items.length === 0) return null;
           const meta = CATEGORY_META[cat];
           return (
-            <div
-              key={cat}
-              className="rounded-lg border border-(--color-border) bg-(--color-card) p-4"
-            >
-              <h3 className="mb-2 font-semibold">
-                {meta.emoji} {meta.fi}
-              </h3>
-              <ul className="space-y-1.5 text-sm">
-                {items
-                  .sort((a, b) => (b.daysBeforeTrip ?? 0) - (a.daysBeforeTrip ?? 0))
-                  .map((item) => (
-                    <li key={item.id} className="leading-tight">
-                      <span className="text-(--color-fg)">☐ {item.label}</span>
-                      {item.daysBeforeTrip !== undefined && (
-                        <span className="ml-1 text-xs text-(--color-muted)">
-                          (~{item.daysBeforeTrip} pv ennen)
-                        </span>
-                      )}
-                      {item.detail && (
-                        <p className="ml-4 mt-0.5 text-xs text-(--color-muted)">
-                          {item.detail}
-                        </p>
-                      )}
-                    </li>
-                  ))}
-              </ul>
-            </div>
+            <Card key={cat} size="sm">
+              <CardHeader>
+                <CardTitle className="text-base font-semibold">
+                  {meta.emoji} {meta.fi}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-1.5 text-sm">
+                  {items
+                    .sort((a, b) => (b.daysBeforeTrip ?? 0) - (a.daysBeforeTrip ?? 0))
+                    .map((item) => (
+                      <li key={item.id} className="leading-tight">
+                        <span className="text-(--color-fg)">☐ {item.label}</span>
+                        {item.daysBeforeTrip !== undefined && (
+                          <span className="ml-1 text-xs text-(--color-muted)">
+                            (~{item.daysBeforeTrip} pv ennen)
+                          </span>
+                        )}
+                        {item.detail && (
+                          <p className="ml-4 mt-0.5 text-xs text-(--color-muted)">
+                            {item.detail}
+                          </p>
+                        )}
+                      </li>
+                    ))}
+                </ul>
+              </CardContent>
+            </Card>
           );
         })}
       </div>

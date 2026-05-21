@@ -8,8 +8,26 @@ import { findById } from '@/lib/filters';
 import { useShortlist, getStatusLabel } from '@/lib/shortlist';
 import { shareUrl } from '@/lib/share';
 import type { ShortlistStatus } from '@/lib/types';
+import { Heart } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from '@/components/ui/empty';
 
 const STATUS_ORDER: ShortlistStatus[] = ['in', 'considering', 'out'];
+
+const STATUS_VARIANT: Record<ShortlistStatus, 'default' | 'secondary' | 'outline'> = {
+  in: 'default',
+  considering: 'secondary',
+  out: 'outline',
+};
 
 function ShortlistPageInner() {
   const { entries, hydrated, setStatus, remove, clear } = useShortlist();
@@ -33,7 +51,7 @@ function ShortlistPageInner() {
   }
 
   if (!hydrated) {
-    return <p className="text-sm text-(--color-muted)">Ladataan…</p>;
+    return <p className="text-sm text-muted-foreground">Ladataan…</p>;
   }
 
   const grouped = new Map<ShortlistStatus, typeof entries>();
@@ -47,43 +65,61 @@ function ShortlistPageInner() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-2xl font-semibold">Shortlist</h1>
-          <p className="text-sm text-(--color-muted)">
+          <p className="text-sm text-muted-foreground">
             {entries.length} kohdetta. Tallennettu selaimeen ja URL-osoitteeseen — jaa
             linkki kaverille.
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
-          <button
+          <Button
             type="button"
             onClick={share}
-            className="inline-flex min-h-11 items-center rounded-md bg-(--color-steppe) px-4 text-sm text-white hover:bg-(--color-steppe-dark)"
+            size="lg"
+            className="min-h-11 bg-(--color-steppe) text-white hover:bg-(--color-steppe-dark)"
           >
             {shareState === 'copied'
               ? '✓ Linkki kopioitu'
               : shareState === 'error'
                 ? 'Jakaminen epäonnistui'
                 : 'Jaa kavereille'}
-          </button>
+          </Button>
           {entries.length > 0 && (
-            <button
+            <Button
               type="button"
+              variant="outline"
+              size="lg"
               onClick={clear}
-              className="inline-flex min-h-11 items-center rounded-md border border-(--color-border) bg-(--color-card) px-4 text-sm text-(--color-muted) hover:text-(--color-fg)"
+              className="min-h-11"
             >
               Tyhjennä
-            </button>
+            </Button>
           )}
         </div>
       </div>
 
       {entries.length === 0 ? (
-        <div className="rounded-lg border border-(--color-border) bg-(--color-card) p-6 text-center">
-          <p className="text-(--color-muted)">
-            Shortlistilla ei ole vielä mitään. Lisää kohteita{' '}
-            <Link href="/kartta">kartalta</Link> tai{' '}
-            <Link href="/nahtavyydet">nähtävyyslistasta</Link>.
-          </p>
-        </div>
+        <Empty className="border border-dashed">
+          <EmptyHeader>
+            <EmptyMedia variant="icon">
+              <Heart />
+            </EmptyMedia>
+            <EmptyTitle>Shortlist on tyhjä</EmptyTitle>
+            <EmptyDescription>
+              Lisää kohteita listalle Nähtävyydet-sivulta. Voit järjestää ne Mukaan /
+              Harkinnassa / Pois -ryhmiin.
+            </EmptyDescription>
+          </EmptyHeader>
+          <EmptyContent>
+            <div className="flex flex-col gap-2 sm:flex-row">
+              <Button asChild>
+                <Link href="/nahtavyydet">Selaa nähtävyyksiä</Link>
+              </Button>
+              <Button variant="outline" asChild>
+                <Link href="/kartta">Avaa kartta</Link>
+              </Button>
+            </div>
+          </EmptyContent>
+        </Empty>
       ) : (
         <div className="space-y-6">
           {STATUS_ORDER.map((status) => {
@@ -91,7 +127,7 @@ function ShortlistPageInner() {
             if (items.length === 0) return null;
             return (
               <section key={status} className="space-y-2">
-                <h2 className="text-sm font-semibold uppercase tracking-wide text-(--color-muted)">
+                <h2 className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
                   {getStatusLabel(status)} ({items.length})
                 </h2>
                 <ul className="grid gap-3 sm:grid-cols-2">
@@ -100,51 +136,58 @@ function ShortlistPageInner() {
                     if (!sight) return null;
                     const cat = categoryMeta[sight.category];
                     return (
-                      <li
-                        key={entry.sightId}
-                        className="rounded-lg border border-(--color-border) bg-(--color-card) p-4"
-                      >
-                        <div className="flex items-start justify-between gap-2">
-                          <div>
-                            <Link
-                              href={`/nahtavyydet/${sight.slug}`}
-                              className="font-medium text-(--color-fg) hover:no-underline"
-                            >
-                              {sight.name}
-                            </Link>
-                            <p className="text-xs text-(--color-muted)">
-                              {cat.emoji} {cat.fi}
+                      <li key={entry.sightId}>
+                        <Card size="sm">
+                          <CardContent>
+                            <div className="flex items-start justify-between gap-2">
+                              <div>
+                                <Link
+                                  href={`/nahtavyydet/${sight.slug}`}
+                                  className="font-medium text-foreground hover:no-underline"
+                                >
+                                  {sight.name}
+                                </Link>
+                                <p className="text-xs text-muted-foreground">
+                                  {cat.emoji} {cat.fi}
+                                </p>
+                              </div>
+                              <Button
+                                type="button"
+                                variant="ghost"
+                                size="icon-lg"
+                                onClick={() => remove(entry.sightId)}
+                                aria-label="Poista shortlistilta"
+                                className="-mr-2 -mt-2 h-11 w-11 text-muted-foreground hover:text-foreground"
+                              >
+                                ✕
+                              </Button>
+                            </div>
+                            <p className="mt-2 text-sm text-muted-foreground">
+                              {sight.shortDescription}
                             </p>
-                          </div>
-                          <button
-                            type="button"
-                            onClick={() => remove(entry.sightId)}
-                            aria-label="Poista shortlistilta"
-                            className="-mr-2 -mt-2 flex h-11 w-11 shrink-0 items-center justify-center text-(--color-muted) hover:text-(--color-fg)"
-                          >
-                            ✕
-                          </button>
-                        </div>
-                        <p className="mt-2 text-sm text-(--color-muted)">
-                          {sight.shortDescription}
-                        </p>
-                        <div className="mt-3 flex flex-wrap gap-2">
-                          {STATUS_ORDER.map((s) => (
-                            <button
-                              key={s}
-                              type="button"
-                              onClick={() => setStatus(entry.sightId, s)}
-                              aria-pressed={entry.status === s}
-                              className={`inline-flex min-h-11 items-center rounded-full border px-4 text-sm ${
-                                entry.status === s
-                                  ? 'border-(--color-fg) bg-(--color-fg) text-white'
-                                  : 'border-(--color-border) bg-(--color-card) text-(--color-muted) hover:text-(--color-fg)'
-                              }`}
-                            >
-                              {getStatusLabel(s)}
-                            </button>
-                          ))}
-                        </div>
+                            <div className="mt-3 flex flex-wrap gap-2">
+                              {STATUS_ORDER.map((s) => {
+                                const isActive = entry.status === s;
+                                return (
+                                  <button
+                                    key={s}
+                                    type="button"
+                                    onClick={() => setStatus(entry.sightId, s)}
+                                    aria-pressed={isActive}
+                                    className="inline-flex items-center"
+                                  >
+                                    <Badge
+                                      variant={isActive ? STATUS_VARIANT[s] : 'outline'}
+                                      className="min-h-11 cursor-pointer px-4 text-sm"
+                                    >
+                                      {getStatusLabel(s)}
+                                    </Badge>
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          </CardContent>
+                        </Card>
                       </li>
                     );
                   })}
@@ -160,7 +203,7 @@ function ShortlistPageInner() {
 
 export default function ShortlistPage() {
   return (
-    <Suspense fallback={<p className="text-sm text-(--color-muted)">Ladataan…</p>}>
+    <Suspense fallback={<p className="text-sm text-muted-foreground">Ladataan…</p>}>
       <ShortlistPageInner />
     </Suspense>
   );

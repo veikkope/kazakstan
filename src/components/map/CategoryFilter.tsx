@@ -1,5 +1,6 @@
 'use client';
 
+import { Button } from '@/components/ui/button';
 import { allCategories, categoryMeta } from '@/data/categories';
 import type { Category } from '@/lib/types';
 
@@ -33,37 +34,40 @@ export default function CategoryFilter({ value, onChange }: Props) {
   }
 
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      <button
+    // flex-nowrap on mobile keeps the chips on one row so the parent
+    // overflow-x-auto wrapper can scroll them horizontally. Desktop
+    // reverts to wrapping so chips reflow inside the page column.
+    <div className="flex flex-nowrap items-center gap-2 sm:flex-wrap">
+      <Button
         type="button"
+        variant={isAllShown ? 'default' : 'outline'}
+        size="sm"
         onClick={showAll}
         aria-pressed={isAllShown}
-        className={`inline-flex min-h-11 items-center rounded-full border px-4 text-sm ${
-          isAllShown
-            ? 'border-(--color-fg) bg-(--color-fg) text-white'
-            : 'border-(--color-border) bg-(--color-card)'
-        }`}
+        className="min-h-11 shrink-0 rounded-full px-4"
       >
         Kaikki
-      </button>
+      </Button>
       {allCategories.map((cat) => {
         const meta = categoryMeta[cat];
         const isOn = isAllShown || active.has(cat);
         return (
-          <button
+          <Button
             key={cat}
             type="button"
+            variant="outline"
+            size="sm"
             onClick={() => toggle(cat)}
             aria-pressed={isOn}
-            className={`inline-flex min-h-11 items-center rounded-full border px-4 text-sm transition ${
+            className={`min-h-11 shrink-0 rounded-full px-4 ${
               isOn
                 ? 'border-transparent text-white'
-                : 'border-(--color-border) bg-(--color-card) text-(--color-muted)'
+                : 'text-(--color-muted)'
             }`}
             style={isOn ? { backgroundColor: meta.color } : undefined}
           >
             {meta.emoji} {meta.fi}
-          </button>
+          </Button>
         );
       })}
     </div>

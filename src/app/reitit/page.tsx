@@ -6,7 +6,7 @@ export default function ReititPage() {
     <div className="space-y-6">
       <div className="space-y-2">
         <h1 className="text-2xl font-semibold">Valmiit reittirungot</h1>
-        <p className="max-w-2xl text-(--color-muted)">
+        <p className="max-w-2xl text-muted-foreground">
           Kolme erilaista lähtökohtaa: yksi luontoon, yksi kaupunkeihin ja yksi pidempi
           roadtrip. Valitse runko ja muokkaa siitä oma reittisi.
         </p>

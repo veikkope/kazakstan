@@ -1,7 +1,9 @@
+import { Separator } from '@/components/ui/separator';
+
 export default function Footer() {
   return (
-    <footer className="mt-12 border-t border-(--color-border) bg-(--color-card)">
-      <div className="mx-auto max-w-6xl px-4 py-6 text-sm text-(--color-muted)">
+    <footer className="mt-12 border-t border-border bg-card">
+      <div className="mx-auto max-w-6xl px-4 py-6 text-sm text-muted-foreground">
         <p>
           Henkilökohtainen reissusuunnitelma. Karttapohja:{' '}
           <a
@@ -13,7 +15,8 @@ export default function Footer() {
           </a>
           .
         </p>
-        <p className="mt-1">
+        <Separator className="my-3" />
+        <p>
           Tarkista käytännön info aina ennen lähtöä — viisumit, kurssit ja yhteydet voivat
           muuttua.
         </p>

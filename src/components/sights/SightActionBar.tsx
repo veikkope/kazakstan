@@ -1,9 +1,13 @@
 'use client';
 
-import { Suspense, useState } from 'react';
+import { Suspense } from 'react';
+import { Navigation, Heart, Share2 } from 'lucide-react';
+import { toast } from 'sonner';
+import { Button } from '@/components/ui/button';
 import type { Sight } from '@/lib/types';
 import { useShortlist } from '@/lib/shortlist';
 import { shareUrl } from '@/lib/share';
+import { cn } from '@/lib/utils';
 
 interface Props {
   sight: Sight;
@@ -22,7 +26,6 @@ function mapsDirectionUrl(sight: Sight): string {
 function SightActionBarInner({ sight }: Props) {
   const { hydrated, has, toggle } = useShortlist();
   const active = hydrated && has(sight.id);
-  const [shareState, setShareState] = useState<'idle' | 'copied' | 'error'>('idle');
 
   async function onShare() {
     if (typeof window === 'undefined') return;
@@ -32,12 +35,12 @@ function SightActionBarInner({ sight }: Props) {
       text: sight.shortDescription,
     });
     if (result === 'copied') {
-      setShareState('copied');
-      setTimeout(() => setShareState('idle'), 2000);
+      toast.success('Linkki kopioitu', { description: 'Lähetä se kaverille' });
     } else if (result === 'error') {
-      setShareState('error');
-      setTimeout(() => setShareState('idle'), 2000);
+      toast.error('Linkin kopiointi epäonnistui');
     }
+    // 'shared' → native OS share sheet gives its own feedback; stay silent.
+    // 'cancelled' → user dismissed; no toast.
   }
 
   return (
@@ -49,38 +52,43 @@ function SightActionBarInner({ sight }: Props) {
       }}
     >
       <div className="mx-auto flex max-w-6xl items-stretch gap-2 px-3 py-2 sm:bottom-0">
-        <a
-          href={mapsDirectionUrl(sight)}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={`Navigoi ${sight.name}`}
-          className="flex min-h-12 flex-1 items-center justify-center gap-2 rounded-md bg-(--color-steppe) px-4 text-sm font-medium text-white hover:bg-(--color-steppe-dark) hover:no-underline"
+        <Button
+          asChild
+          variant="default"
+          className="min-h-12 flex-1 px-4 text-sm font-medium"
         >
-          <span aria-hidden>🗺️</span>
-          <span>Navigoi</span>
-        </a>
-        <button
+          <a
+            href={mapsDirectionUrl(sight)}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`Navigoi ${sight.name}`}
+          >
+            <Navigation className="size-4" aria-hidden />
+            <span>Navigoi</span>
+          </a>
+        </Button>
+        <Button
           type="button"
+          variant="outline"
+          size="icon"
           onClick={() => toggle(sight.id)}
           disabled={!hydrated}
           aria-pressed={active}
           aria-label={active ? 'Poista shortlistilta' : 'Lisää shortlistille'}
-          className={`inline-flex min-h-12 min-w-12 items-center justify-center rounded-md border text-lg ${
-            active
-              ? 'border-(--color-sand-dark) bg-(--color-sand) text-(--color-fg)'
-              : 'border-(--color-border) bg-(--color-card) text-(--color-muted)'
-          }`}
+          className="min-h-12 min-w-12"
         >
-          {active ? '★' : '☆'}
-        </button>
-        <button
+          <Heart className={cn('size-5', active && 'fill-current text-(--color-sand-dark)')} aria-hidden />
+        </Button>
+        <Button
           type="button"
+          variant="outline"
+          size="icon"
           onClick={onShare}
           aria-label="Jaa"
-          className="inline-flex min-h-12 min-w-12 items-center justify-center rounded-md border border-(--color-border) bg-(--color-card) text-base text-(--color-muted) hover:text-(--color-fg)"
+          className="min-h-12 min-w-12"
         >
-          {shareState === 'copied' ? '✓' : shareState === 'error' ? '!' : '↗'}
-        </button>
+          <Share2 className="size-5" aria-hidden />
+        </Button>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 'use client';
 
+import { Button } from '@/components/ui/button';
 import CategoryFilter from '@/components/map/CategoryFilter';
 import { regionMeta } from '@/data/categories';
 import type { Category, Region } from '@/lib/types';
@@ -20,6 +21,11 @@ interface Props {
   onRegionsChange: (next: Region[]) => void;
 }
 
+/**
+ * Region chips use <Button> (not <Badge>) because they are interactive toggle
+ * controls — clicking changes filter state. Badges are reserved for
+ * non-interactive status decoration in this codebase.
+ */
 export default function FilterBar({
   categories,
   regions,
@@ -30,6 +36,8 @@ export default function FilterBar({
     if (regions.includes(r)) onRegionsChange(regions.filter((x) => x !== r));
     else onRegionsChange([...regions, r]);
   }
+
+  const allSelected = regions.length === 0;
 
   return (
     <div className="space-y-3">
@@ -44,34 +52,30 @@ export default function FilterBar({
           Alueet
         </p>
         <div className="flex flex-wrap gap-2">
-          <button
+          <Button
             type="button"
+            variant={allSelected ? 'default' : 'outline'}
+            size="sm"
             onClick={() => onRegionsChange([])}
-            aria-pressed={regions.length === 0}
-            className={`inline-flex min-h-11 items-center rounded-full border px-4 text-sm ${
-              regions.length === 0
-                ? 'border-(--color-fg) bg-(--color-fg) text-white'
-                : 'border-(--color-border) bg-(--color-card)'
-            }`}
+            aria-pressed={allSelected}
+            className="min-h-11 rounded-full px-4"
           >
             Kaikki
-          </button>
+          </Button>
           {ALL_REGIONS.map((r) => {
             const isOn = regions.includes(r);
             return (
-              <button
+              <Button
                 key={r}
                 type="button"
+                variant={isOn ? 'default' : 'outline'}
+                size="sm"
                 onClick={() => toggleRegion(r)}
                 aria-pressed={isOn}
-                className={`inline-flex min-h-11 items-center rounded-full border px-4 text-sm ${
-                  isOn
-                    ? 'border-(--color-steppe) bg-(--color-steppe) text-white'
-                    : 'border-(--color-border) bg-(--color-card) text-(--color-muted)'
-                }`}
+                className="min-h-11 rounded-full px-4"
               >
                 {regionMeta[r].fi}
-              </button>
+              </Button>
             );
           })}
         </div>
