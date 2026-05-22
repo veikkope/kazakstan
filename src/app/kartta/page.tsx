@@ -42,9 +42,8 @@ function KarttaPageInner() {
   }, []);
 
   const visible = useMemo(() => {
-    const base = state.showDrafts ? sights : excludeDrafts(sights);
-    return filterByCategories(base, state.categories);
-  }, [state.categories, state.showDrafts]);
+    return filterByCategories(excludeDrafts(sights), state.categories);
+  }, [state.categories]);
 
   const handleListSelect = (id: string) => {
     update({ selectedId: id });
@@ -93,13 +92,13 @@ function KarttaPageInner() {
 
       {/*
         Map area.
-        Mobile: full viewport between Header (3.5rem) and BottomNav
-        (~4rem natural + env(safe-area-inset-bottom) for the home
-        indicator on notched phones). Filter chips overlay the top of
-        the canvas. dvh adapts to Safari address-bar autohide.
+        Mobile: full viewport between Header (3rem / 48px compact) and
+        BottomNav (~4rem natural + env(safe-area-inset-bottom) for the
+        home indicator on notched phones). Filter chips overlay the top
+        of the canvas. dvh adapts to Safari address-bar autohide.
         Desktop: classic 70dvh side-by-side with sidebar.
       */}
-      <div className="relative flex h-[calc(100dvh-3.5rem-4rem-env(safe-area-inset-bottom))] sm:h-[70dvh] sm:flex-row sm:gap-3">
+      <div className="relative flex h-[calc(100dvh-3rem-4rem-env(safe-area-inset-bottom))] sm:h-[70dvh] sm:flex-row sm:gap-3">
         {/* Map canvas (always mounted) */}
         <div className="relative h-full flex-1 overflow-hidden sm:overflow-hidden sm:rounded-lg sm:border sm:border-border">
           <MapViewClient

@@ -7,9 +7,17 @@ import type { Category } from '@/lib/types';
 interface Props {
   value: Category[];
   onChange: (next: Category[]) => void;
+  /**
+   * Layout mode for the chip row.
+   * - `scroll` (default): mobile-nowrap inside an `overflow-x-auto` parent
+   *   (used by the kartta map overlay where vertical space is precious).
+   * - `wrap`: chips reflow onto multiple rows. Use inside sheets / generous
+   *   containers where horizontal scroll would be hostile UX.
+   */
+  layout?: 'scroll' | 'wrap';
 }
 
-export default function CategoryFilter({ value, onChange }: Props) {
+export default function CategoryFilter({ value, onChange, layout = 'scroll' }: Props) {
   const active = new Set(value);
   // Empty value means "show all" — render all chips as active for clarity.
   const isAllShown = value.length === 0;
@@ -33,11 +41,13 @@ export default function CategoryFilter({ value, onChange }: Props) {
     onChange([]);
   }
 
+  const layoutClass =
+    layout === 'wrap'
+      ? 'flex flex-wrap items-center gap-2'
+      : 'flex flex-nowrap items-center gap-2 sm:flex-wrap';
+
   return (
-    // flex-nowrap on mobile keeps the chips on one row so the parent
-    // overflow-x-auto wrapper can scroll them horizontally. Desktop
-    // reverts to wrapping so chips reflow inside the page column.
-    <div className="flex flex-nowrap items-center gap-2 sm:flex-wrap">
+    <div className={layoutClass}>
       <Button
         type="button"
         variant={isAllShown ? 'default' : 'outline'}

@@ -1,8 +1,7 @@
 import type { Sight } from '@/lib/types';
 
 // Sisällön lähde — yksi entry per kohde, tyypitetty TypeScriptillä.
-// 'verified' näkyy kaikkialla; 'draft' vain etusivun "Myöhemmin lisättävät" -osiossa
-// ja /nahtavyydet?showDrafts=1 -näkymässä.
+// 'verified' näkyy kaikkialla; 'draft' vain etusivun "Myöhemmin lisättävät" -osiossa.
 //
 // Uudet kohteet lisätään 'sight-adder' -agentilla. Ratings ovat baseline-arvioita
 // (2026-05-18) — voivat tarkentua kun ajaat `deep-researcher` → `place-rater` →

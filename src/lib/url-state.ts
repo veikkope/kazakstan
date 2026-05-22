@@ -11,7 +11,6 @@ const PARAM = {
   REGION: 'region',
   ID: 'id',
   SL: 'sl',
-  SHOW_DRAFTS: 'showDrafts',
   SORT: 'sort',
 } as const;
 
@@ -43,7 +42,6 @@ export interface UrlState {
   regions: Region[];
   selectedId: string | null;
   shortlist: string[];
-  showDrafts: boolean;
   sort: SortDimension;
 }
 
@@ -54,7 +52,6 @@ export function readUrlState(params: URLSearchParams): UrlState {
     regions: parseCsv(params.get(PARAM.REGION), ALL_REGIONS),
     selectedId: params.get(PARAM.ID),
     shortlist: params.get(PARAM.SL)?.split(',').filter(Boolean) ?? [],
-    showDrafts: params.get(PARAM.SHOW_DRAFTS) === '1',
     sort: isSortDimension(rawSort) ? rawSort : 'default',
   };
 }
@@ -89,9 +86,6 @@ export function useUrlState() {
       }
       if ('shortlist' in patch && patch.shortlist) {
         apply(PARAM.SL, csvOrNull(patch.shortlist));
-      }
-      if ('showDrafts' in patch) {
-        apply(PARAM.SHOW_DRAFTS, patch.showDrafts ? '1' : null);
       }
       if ('sort' in patch && patch.sort !== undefined) {
         apply(PARAM.SORT, patch.sort === 'default' ? null : patch.sort);
