@@ -48,7 +48,7 @@ export const userItinerary: ItineraryDay[] = [
       { time: 'iltapäivä', kind: 'drive', label: 'Vuokra-auton pickup — Avis/Europcar/Hertz', urgency: 'now' },
     ],
     primaryPlan:
-      'Nukkua aamupäivä kuntoon. Iltapäivällä vuokra-auton pickup keskustasta tai lentokentältä (varaa etukäteen, hinta n. 30–60 €/päivä). Iltakävely Kaspian-rannalle (aqtau-promenadi, "I love Aktau" -merkki) ja paikallinen ravintola illalliseksi. Vaihda käteistä lähimmästä Halyk Bank / Kaspi Bank ATM:stä.',
+      'Nukkua aamupäivä kuntoon. Iltapäivällä vuokra-auton pickup keskustasta tai lentokentältä (varaa etukäteen, hinta n. 30–60 €/päivä). Iltakävely Kaspian-rannalle (aqtau-promenadi, "I love Aktau" -merkki) ja paikallinen ravintola illalliseksi. **Nosta käteistä Mangystau-retkeä varten: 150 000 KZT/2 hlöä** (ATM-raja 100 000 KZT/nosto — tee kahdessa nostossa) Halyk- tai Kaspi-pankin ATM:stä. Tarkista WhatsApp-viestit Mangystau-operaattorilta — vahvista pickup-aika huomista varten.',
     alternatives: [
       {
         title: 'Aktiivinen päivä',
@@ -72,7 +72,7 @@ export const userItinerary: ItineraryDay[] = [
     driverNeeded: false,
     earlyWakeRisk: false,
     notes:
-      'Käyttäjä-vinkki: Aqtau-saapuminen ennen klo 06 voi tarkoittaa hotellin yhden yön lisämaksua (early check-in). Kysele booking-vahvistuksessa.',
+      'Käyttäjä-vinkki: Aqtau-saapuminen ennen klo 06 voi tarkoittaa hotellin yhden yön lisämaksua (early check-in). Kysele booking-vahvistuksessa. — Mangystau-operaattorin pitää olla varattu jo Helsingistä käsin (deadline 22.5., ks. päivän 3 notes).',
   },
 
   // ============== PÄIVÄ 3 — Mangystau day 1 ==============
@@ -86,11 +86,11 @@ export const userItinerary: ItineraryDay[] = [
       '4WD + opas -retki (ERILLINEN vuokra-autosta — vuokra-auto jää hotellille). Sherkalan kalliovuori, sitten Torysh-pallolaakso. Yö jurttassa tähtitaivaan alla.',
     sightIds: ['sherkala', 'valley-of-balls'],
     anchors: [
-      { time: '07:00', kind: 'tour', label: '4WD-kuljettaja noutaa hotellilta — sovi etukäteen', urgency: 'on-arrival' },
-      { time: 'ilta', kind: 'checkin', label: 'Jurttamajoitus tai guesthouse Shetpessä' },
+      { time: '07:00', kind: 'tour', label: '4WD-kuljettaja noutaa hotellilta (vahvista WhatsApp-pickup edellisenä iltana)', urgency: 'now' },
+      { time: 'ilta', kind: 'checkin', label: 'Jurttamajoitus tai guesthouse Shetpessä — operaattori järjestää' },
     ],
     primaryPlan:
-      '⚠️ TÄMÄ ON 4WD + OPAS -RETKI, ei vuokra-auto. Vuokra-auto jää hotellille. Sherkalassa kävelykierros n. 1 h, Pallolaaksossa valokuvauspysähdys. Vesi (8L/hlö), aurinkovoide, päähine pakollisia — kesäkuussa +30–35°C.',
+      '⚠️ TÄMÄ ON 4WD + OPAS -RETKI, ei vuokra-auto. Vuokra-auto jää hotellille. Sherkalassa kävelykierros n. 1 h, Pallolaaksossa valokuvauspysähdys. Vesi (8L/hlö), aurinkovoide, päähine pakollisia — kesäkuussa +30–35°C. Vahvista kuljettajan nimi WhatsAppissa — jos eri henkilö saapuu hakemaan, soita operaattorille ennen lähtöä.',
     alternatives: [
       {
         title: '1-päivän express (paluu Aqtauhun illalla)',
@@ -116,7 +116,7 @@ export const userItinerary: ItineraryDay[] = [
     offlineNote:
       'Mangystaussa signaalia ei usein ole. Lataa 2GIS + Organic Maps offline. WhatsApp/Telegram-yhteys kuljettajaan lähtöpäivänä etukäteen.',
     notes:
-      '4WD-opaskuljettajan hinta-arvio: 110–160 €/päivä (4WD + ajo). Maksu KÄTEISENÄ, KZT. Sovi etukäteen mitä sisältyy: vesi, lounas, jurta. Vuokra-auto jää hotellin parkkipaikalle — kysele turvallisuutta etukäteen.',
+      'OPERAATTORI varattu etukäteen (ks. logistics.ts → mangystauOperators). TOP-3-suositus: Mangystau Tour 999 (WhatsApp +7 700 909 9986, $900/auto/2pv), RedMaya Travel (WhatsApp +7 771 286 9516, pyydä opas Nurdiyar/Saken), Travel to Mangistau (WhatsApp +7 702 466 3322). Strategia: lähetä sama briefi kolmelle rinnan **viim. 22.5.**, varaa nopeimmin vastaava 20 % Wise-ennakolla, loput käteisellä KZT. Vuokra-auto jää hotellin parkkipaikalle — kysele turvallisuutta etukäteen.',
   },
 
   // ============== PÄIVÄ 4 — Mangystau day 2 ==============
@@ -134,7 +134,7 @@ export const userItinerary: ItineraryDay[] = [
       { time: '~18:00', kind: 'arrival', label: 'Paluu Aqtauhun + vuokra-auto haku hotellilta' },
     ],
     primaryPlan:
-      '⚠️ EDELLEEN 4WD + OPAS. Bozzhyra parhaiten aamuvalossa — 1–2 h kuvauspisteillä. Paluumatkalla pysähdys Tuzbairin näköalapisteellä. Suihku Aqtauhun, illallinen rantaravintolassa. Bozzhyra ja Tuzbair eivät ole vuokra-autoreittejä.',
+      '⚠️ EDELLEEN 4WD + OPAS. Bozzhyra parhaiten aamuvalossa — 1–2 h kuvauspisteillä. Paluumatkalla pysähdys Tuzbairin näköalapisteellä. Suihku Aqtauhun, illallinen rantaravintolassa. Bozzhyra ja Tuzbair eivät ole vuokra-autoreittejä. Loppumaksu kuljettajalle paluun yhteydessä — käteinen KZT, lisäksi tippi 10–15 % ($50–80) kuski + opas.',
     backupPlan:
       'Jos Bozzhyran tie on huonossa kunnossa (sade tms.), kuljettaja vaihtaa reitin Tuzbairin tai Karyniaragin kautta. Älä paina kuljettajaa kun hän sanoo "ei mene".',
     lodgingHint: {

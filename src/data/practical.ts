@@ -6,7 +6,7 @@ export const visaInfo: VisaInfo = {
   visaFreeDays: 30,
   notes:
     'Suomen kansalaiset voivat matkustaa Kazakstaniin viisumivapaasti enintään 30 päiväksi. Passin tulee olla voimassa vähintään 6 kk yli paluupäivän. Tarkista aina tilanne ennen lähtöä — säännöt voivat muuttua.',
-  lastVerified: '2026-05-18',
+  lastVerified: '2026-05-21',
   sourceUrl: 'https://um.fi/matkustustiedotteet/-/c/KZ',
 };
 
@@ -27,7 +27,7 @@ export const languageBasics = {
 
 export const safetyNotes = [
   'Kazakstan on yleisesti rauhallinen matkakohde. Yleisin riski on pikkurikollisuus tungoksessa — pidä lompakko etutaskussa.',
-  'Iso Almatyn järvi sijaitsee rajavyöhykkeellä — tarkista lupavaatimukset ennen retkeä, käytäntö muuttuu ajoittain.',
+  'Iso Almatyn järvi (BAO) sijaitsee rajavyöhykkeellä — virallista permittiä ei nykyään yleensä vaadita itse järvelle, mutta tiellä on sotilastarkastuspisteitä. Pidä passi mukana ja varmista paikalliselta oppaalta nykytilanne ennen retkeä.',
   'Liikenne kaupungissa on vilkasta — käytä Yandex Go -taksiappia hinnoitelluille matkoille.',
   'Käteistä (KZT) kannattaa pitää mukana maaseudulla; kortit toimivat kaupungeissa hyvin.',
   'Mangystaussa ja muilla syrjäisillä alueilla älkää lähtekö ilman kokenutta kuljettajaa ja 4WD-autoa — eksyminen on todellinen riski.',

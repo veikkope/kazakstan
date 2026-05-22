@@ -141,7 +141,7 @@ export const transportLegs: TransportLegInfo[] = [
       {
         mode: 'train',
         operator: 'Kazakhstan Railways — Talgo (nopea yöjuna)',
-        duration: '13 h (Talgo) — 18 h (tavallinen)',
+        duration: '11–13 h (Talgo) — 18 h (tavallinen)',
         priceRangeEUR: [25, 60],
         pros: [
           'Säästää hotelliyön',
@@ -238,6 +238,100 @@ export const mangystauDriverOptions: DriverTripOption[] = [
     pros: ['Näkee kaikki pääikoonit', 'Levollisempi rytmi', 'Halvempi EUR/päivä isossa ryhmässä'],
     cons: ['Vie 3 päivää 14 päivän reissusta', 'Vaatii hyvän kunnon ja unen joustavuuden', 'Kuumassa kesäkuussa rasittava'],
   },
+];
+
+/** Mangystau-alueen 4WD-operaattori, vahvistettu yhteystiedoilla ja hintaesimerkillä. */
+export interface MangystauOperator {
+  /** Operaattorin nimi sellaisena kuin se mainostaa itseään. */
+  name: string;
+  /** Tärkein virallinen sivu. */
+  website?: string;
+  /** WhatsApp-numero kansainvälisellä prefix-muotoilulla — priorisoi tämä koska toimii Kazakstanissa. */
+  whatsapp?: string;
+  /** Telegram, jos eri kuin WhatsApp. */
+  telegram?: string;
+  email?: string;
+  /** Aktauin fyysinen toimisto-osoite jos walk-in on mahdollinen. */
+  officeAddress?: string;
+  /** 2 päivän retken hinta — vapaa tekstiarvio, jotta voi sisältää "per auto" / "per henki" -nuanssin. */
+  twoDayPrice: string;
+  /** Mitä paketti tyypillisesti sisältää. */
+  includes: string[];
+  /** Kielitaito kuljettajalla / oppaalla. */
+  languages: string[];
+  /** Maksuehdot tiivistettynä — mikä on ennakko, mikä maksetaan paikan päällä. */
+  payment: string;
+  /** Maine yhdellä lauseella + tärkein lähde (TripAdvisor / blogi / Caravanistan). */
+  reputation: string;
+  /** Erityishuomiot tai varoitukset (esim. "pyydä Nurdiyar nimeltä"). */
+  caveat?: string;
+}
+
+/**
+ * Konkreettiset operaattorit Mangystaun 4WD-retkelle.
+ * Strategia: lähetä TOP-3:lle sama WhatsApp-briefi rinnan, varaa nopeimmin vastaava.
+ * Lähde: src/research/_mangystau-operators.md (2026-05-21).
+ */
+export const mangystauOperators: MangystauOperator[] = [
+  {
+    name: 'Mangystau Tour 999',
+    website: 'https://mangystautour999.kz/en/2-day',
+    whatsapp: '+7 700 909 9986',
+    telegram: '+7 708 513 6071',
+    email: 'mangystautour999@gmail.com',
+    twoDayPrice: '$900 / 4WD (auto) / 2 päivää — kahdelle $450/hlö. Englanninkielinen opas +$120 (suositus alle 6 hengen ryhmässä).',
+    includes: ['4WD + kuljettaja', 'jurtta + makuupussit', 'liikkuva suihku & WC', 'käytännössä full board', 'sisäänpääsymaksut'],
+    languages: ['kazakki', 'venäjä', 'englanti (erillinen opas)'],
+    payment: 'Sovittavissa WhatsAppissa — tyypillisesti pieni ennakko (Wise/USD), loput käteisellä KZT.',
+    reputation: 'TripAdvisor 4.9/5 (7 arvostelua 2025–2026). Reitti kattaa Torysh, Sherkala, Airakty, Bozzhyra 2-spots, Kyzylkup — pääsuositus.',
+    caveat: 'Kuski Baurin englanti on rajallinen — käytä kääntäjäsovellusta tai tilaa erillinen EN-opas.',
+  },
+  {
+    name: 'RedMaya Travel',
+    website: 'https://redmaya-travel.kz/eng/tours/private/2days',
+    whatsapp: '+7 771 286 9516',
+    email: 'mangystau@redmaya-travel.kz',
+    officeAddress: 'Urban Business Center, Office 416, 4th Floor, Aktau',
+    twoDayPrice: '$152–$580/hlö (4 hengen ryhmäreferenssi). 2 hengelle korkeampi — pyydä tarjous WhatsAppissa. Englanti vain Plus/Comfort Plus -tasoilla.',
+    includes: ['4WD + AC', '3 ateriaa/päivä', 'leiriytymisvarusteet', 'vakuutus', 'pullovesi'],
+    languages: ['venäjä', 'kazakki', 'englanti (Plus-tasolta)'],
+    payment: '20 % ennakkomaksu varaa paikan (dokumentoitu). Loput paikan päällä. Bank transfer / Stripe.',
+    reputation: 'Lisensoitu yritys, virallinen toimisto. Useita 5★-arvosteluja mutta loka 2025 kolme reklamaatiota (ryhmäkoko, opas-laatu).',
+    caveat: 'Pyydä eksplisiittisesti opas **Nurdiyar** tai **Saken** — laatu riippuu nimetystä oppaasta. Älä varaa Econom-pakettia jos haluat englantia.',
+  },
+  {
+    name: 'Travel to Mangistau (Eduard Chuishbaev)',
+    website: 'https://traveltomangistau.kz/',
+    whatsapp: '+7 702 466 3322',
+    email: 'traveltomangistau@gmail.com',
+    officeAddress: 'Aktau, 11 microdistrict, building 5, office 58',
+    twoDayPrice: 'Alkaen $90/hlö. Vahvista pakettisisältö 2 hengelle — täysi Bozzhyra+Tuzbair+Beket-Ata reitti vaatii todennäköisesti ylätason paketin.',
+    includes: ['ateriat', 'leiriytyminen ("warm tents, hot fresh food")', 'kuljetus'],
+    languages: ['englanti', 'venäjä', 'italia'],
+    payment: 'Neuvoteltavissa WhatsAppissa. Pyydä Wise/bank transfer -kuitti kuluttajansuojaksi.',
+    reputation: 'Pieni vakaa toimija, halvin selkeästi hinnoiteltu vaihtoehto. Vähemmän reviewejä kuin TOP-2:lla.',
+  },
+  {
+    name: 'Indy Guide -alusta (Askhat / Gaukhar / Sergey)',
+    website: 'https://indyguide.com/mangystau',
+    twoDayPrice: 'Vaihtelee — alustan kautta vahvistettu hinta. Askhat Tairov ★4.9 (25 arv.), Gaukhar Yessirkepova ★5.0 (16), Sergey Khachatryan ★5.0.',
+    includes: ['Riippuu kuljettajasta — vahvista chatissa ennen maksua'],
+    languages: ['englanti useimmilla'],
+    payment: 'Alustan kautta = escrow-suoja. Paras kuluttajansuoja näistä vaihtoehdoista.',
+    reputation: 'Sveitsiläinen marketplace-alusta. Korkeat tähdet useilla Mangystau-hosteilla.',
+    caveat: 'Käytä jos kuluttajansuoja on tärkein — hinta voi olla hieman korkeampi alustan provision takia.',
+  },
+];
+
+/**
+ * Ehdotettu Plan B jos varaus epäonnistuu Helsingistä käsin — saavu Aktauiin ilman varausta.
+ * Lähde: src/research/_mangystau-operators.md
+ */
+export const mangystauFallbackPlan = [
+  'Aqtau Airport Hotelin / Holiday Inn / Tengri Hotelin reception (24h, EN) järjestää saman päivän tour-varauksen 2–3 operaattorin kautta.',
+  'Walk-in Aktaun keskustassa: Tourist LLP (mangystau-tourist.com), RedMayan toimisto, Travel to Mangistau (osoitteet logisticsissa).',
+  'Indy Guide:n 24/7-chat välittää viime hetken kuljettajan alustan kautta.',
+  'Älä vuokraa 4WD:tä ilman kuljettajaa Mangystaussa — reitit eivät ole Google Mapsissa, sähköttä alueella, hätätilanne hengenvaara.',
 ];
 
 export const logisticsLastVerified = '2026-05-21';

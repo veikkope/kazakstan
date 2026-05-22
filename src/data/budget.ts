@@ -1,7 +1,8 @@
 import type { BudgetByRegion } from '@/lib/types';
 
 // Staattinen valuuttakurssi — tarkista ennen reissua. Live-fetch voidaan lisätä myöhemmin.
-export const STATIC_KZT_PER_EUR = 600;
+// Päivitetty 2026-05-21 (~547 KZT/EUR vahvistettu, pyöristys ylöspäin budjetin turvavaraksi).
+export const STATIC_KZT_PER_EUR = 550;
 
 export const budgetByRegion: BudgetByRegion[] = [
   {

@@ -7,7 +7,7 @@
  *   - OSM map tiles: cache-first with LRU trim (bounded storage)
  */
 
-const VERSION = 'v2';
+const VERSION = 'v3';
 const SHELL_CACHE = `shell-${VERSION}`;
 const PAGES_CACHE = `pages-${VERSION}`;
 const STATIC_CACHE = `static-${VERSION}`;
@@ -18,6 +18,7 @@ const REMOTE_IMG_MAX_ENTRIES = 200;
 
 const SHELL_URLS = [
   '/',
+  '/tanaan',
   '/kartta',
   '/nahtavyydet',
   '/reitit',

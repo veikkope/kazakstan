@@ -151,8 +151,8 @@ export const beforeTripChecklist: ChecklistItem[] = [
   {
     id: 'border-permit',
     category: 'logistics',
-    label: 'Rajavyöhykelupa BAO:lle (jos reitillä)',
-    detail: 'Sääntö muuttuu — tarkista nykyinen tilanne.',
-    daysBeforeTrip: 30,
+    label: 'Varmista BAO-pääsy paikalliselta oppaalta (jos reitillä)',
+    detail: 'Virallista lupaa ei yleensä enää vaadita itse järvelle, mutta tiellä on sotilastarkastuspisteitä. Passi mukaan, kuljettaja tietää nykytilanteen.',
+    daysBeforeTrip: 7,
   },
 ];
