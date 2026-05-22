@@ -3,7 +3,19 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { Menu } from 'lucide-react';
+import {
+  Sun,
+  Map as MapIcon,
+  CalendarDays,
+  Star,
+  Menu,
+  Home,
+  MapPin,
+  Compass,
+  Info,
+  Wallet,
+  type LucideIcon,
+} from 'lucide-react';
 import {
   Sheet,
   SheetClose,
@@ -12,13 +24,14 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface Tab {
   href: string;
   label: string;
-  icon: string;
-  /** Matchers used to detect active state. The tab is also active for any sub-route. */
+  Icon: LucideIcon;
+  /** When true, the icon renders filled (Star, Heart-style) while active. */
+  fillWhenActive?: boolean;
+  /** The tab is also active for any sub-route. */
   match: (path: string) => boolean;
 }
 
@@ -26,93 +39,127 @@ const PRIMARY_TABS: Tab[] = [
   {
     href: '/tanaan',
     label: 'Tänään',
-    icon: '☀️',
+    Icon: Sun,
     match: (p) => p.startsWith('/tanaan'),
   },
   {
     href: '/kartta',
     label: 'Kartta',
-    icon: '🗺️',
+    Icon: MapIcon,
     match: (p) => p.startsWith('/kartta'),
   },
   {
     href: '/reittisuunnitelma',
     label: 'Päivät',
-    icon: '📅',
+    Icon: CalendarDays,
     match: (p) => p.startsWith('/reittisuunnitelma'),
   },
   {
     href: '/shortlist',
     label: 'Shortlist',
-    icon: '★',
+    Icon: Star,
+    fillWhenActive: true,
     match: (p) => p.startsWith('/shortlist'),
   },
 ];
 
-const MORE_LINKS = [
-  { href: '/', label: 'Etusivu', icon: '🏠' },
-  { href: '/nahtavyydet', label: 'Nähtävyydet', icon: '📍' },
-  { href: '/reitit', label: 'Valmiit reitit', icon: '🧭' },
-  { href: '/info', label: 'Käytännön info', icon: 'ℹ️' },
-  { href: '/budjetti', label: 'Budjetti', icon: '💸' },
+interface MoreLink {
+  href: string;
+  label: string;
+  Icon: LucideIcon;
+}
+
+const MORE_LINKS: MoreLink[] = [
+  { href: '/', label: 'Etusivu', Icon: Home },
+  { href: '/nahtavyydet', label: 'Nähtävyydet', Icon: MapPin },
+  { href: '/reitit', label: 'Valmiit reitit', Icon: Compass },
+  { href: '/info', label: 'Käytännön info', Icon: Info },
+  { href: '/budjetti', label: 'Budjetti', Icon: Wallet },
 ];
 
-const MORE_PATHS = MORE_LINKS.map((l) => l.href);
+function isMorePathActive(href: string, pathname: string): boolean {
+  // Home only matches the exact root, otherwise '/' would match every path.
+  return href === '/' ? pathname === '/' : pathname.startsWith(href);
+}
 
 export default function BottomNav() {
   const pathname = usePathname() ?? '/';
   const [open, setOpen] = useState(false);
 
-  const moreActive = MORE_PATHS.some((p) => pathname.startsWith(p));
+  const onPrimaryTab = PRIMARY_TABS.some((t) => t.match(pathname));
+  const onMorePage = MORE_LINKS.some((l) => isMorePathActive(l.href, pathname));
+  const moreActive = !onPrimaryTab && onMorePage;
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <nav
         aria-label="Pääsivut"
-        className="fixed inset-x-0 bottom-0 z-30 border-t border-border bg-card pb-[env(safe-area-inset-bottom)] sm:hidden"
+        // z-40 + isolate: rises above any in-page sticky/elevated elements
+        // (DayCard accordions, sight cards) so it's never visually obscured.
+        // bg-card/95 stays nearly opaque even if backdrop-filter is disabled
+        // by the browser or by a transformed ancestor (Safari quirk).
+        className="fixed inset-x-0 bottom-0 z-40 isolate border-t border-border/60 bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80 pb-[env(safe-area-inset-bottom)] sm:hidden"
       >
         <ul className="mx-auto grid max-w-6xl grid-cols-5">
           {PRIMARY_TABS.map((tab) => {
             const active = tab.match(pathname);
+            const Icon = tab.Icon;
             return (
               <li key={tab.href} className="contents">
                 <Link
                   href={tab.href}
                   aria-current={active ? 'page' : undefined}
-                  className={`flex min-h-14 flex-col items-center justify-center gap-0.5 px-1 py-1.5 text-[11px] hover:no-underline ${
-                    active
-                      ? 'font-semibold text-primary'
-                      : 'text-muted-foreground'
+                  className={`group relative flex min-h-16 flex-col items-center justify-center gap-1 px-1 pt-2 pb-1.5 text-[11px] leading-none tracking-tight no-underline outline-none select-none transition-colors hover:no-underline focus-visible:[&_.nav-pill]:ring-2 focus-visible:[&_.nav-pill]:ring-ring focus-visible:[&_.nav-pill]:ring-offset-2 focus-visible:[&_.nav-pill]:ring-offset-card ${
+                    active ? 'text-primary' : 'text-muted-foreground'
                   }`}
                 >
-                  <span className="text-lg leading-none" aria-hidden>
-                    {tab.icon}
+                  <span
+                    className={`nav-pill flex h-8 w-16 items-center justify-center rounded-full transition-[background-color,transform] duration-150 group-active:scale-95 ${
+                      active
+                        ? 'bg-primary/15'
+                        : 'bg-transparent group-active:bg-muted'
+                    }`}
+                  >
+                    <Icon
+                      className="size-[22px]"
+                      strokeWidth={active ? 2.25 : 2}
+                      fill={active && tab.fillWhenActive ? 'currentColor' : 'none'}
+                      aria-hidden
+                    />
                   </span>
-                  <span className="leading-tight">{tab.label}</span>
+                  <span className={active ? 'font-semibold' : ''}>{tab.label}</span>
                 </Link>
               </li>
             );
           })}
           <li className="contents">
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <SheetTrigger asChild>
-                  <button
-                    type="button"
-                    aria-label="Lisää linkkejä"
-                    className={`flex min-h-14 flex-col items-center justify-center gap-0.5 px-1 py-1.5 text-[11px] ${
-                      moreActive && !open
-                        ? 'font-semibold text-primary'
-                        : 'text-muted-foreground'
-                    }`}
-                  >
-                    <Menu className="size-5" aria-hidden />
-                    <span className="leading-tight">Lisää</span>
-                  </button>
-                </SheetTrigger>
-              </TooltipTrigger>
-              <TooltipContent side="top">Lisää linkkejä</TooltipContent>
-            </Tooltip>
+            <SheetTrigger asChild>
+              <button
+                type="button"
+                aria-label="Lisää linkkejä"
+                aria-expanded={open}
+                className={`group relative flex min-h-16 flex-col items-center justify-center gap-1 px-1 pt-2 pb-1.5 text-[11px] leading-none tracking-tight outline-none select-none transition-colors focus-visible:[&_.nav-pill]:ring-2 focus-visible:[&_.nav-pill]:ring-ring focus-visible:[&_.nav-pill]:ring-offset-2 focus-visible:[&_.nav-pill]:ring-offset-card ${
+                  moreActive && !open ? 'text-primary' : 'text-muted-foreground'
+                }`}
+              >
+                <span
+                  className={`nav-pill flex h-8 w-16 items-center justify-center rounded-full transition-[background-color,transform] duration-150 group-active:scale-95 ${
+                    moreActive && !open
+                      ? 'bg-primary/15'
+                      : 'bg-transparent group-active:bg-muted'
+                  }`}
+                >
+                  <Menu
+                    className="size-[22px]"
+                    strokeWidth={moreActive && !open ? 2.25 : 2}
+                    aria-hidden
+                  />
+                </span>
+                <span className={moreActive && !open ? 'font-semibold' : ''}>
+                  Lisää
+                </span>
+              </button>
+            </SheetTrigger>
           </li>
         </ul>
       </nav>
@@ -124,25 +171,33 @@ export default function BottomNav() {
         <SheetHeader>
           <SheetTitle>Lisää</SheetTitle>
         </SheetHeader>
-        <div className="mx-auto w-full max-w-6xl px-4 pb-4">
-          <ul className="grid grid-cols-2 gap-2">
+        <div className="mx-auto w-full max-w-6xl px-4 pb-6">
+          <ul className="grid grid-cols-2 gap-2.5">
             {MORE_LINKS.map((l) => {
-              const active = pathname.startsWith(l.href);
+              const Icon = l.Icon;
+              const active = isMorePathActive(l.href, pathname);
               return (
                 <li key={l.href}>
                   <SheetClose asChild>
                     <Link
                       href={l.href}
-                      className={`flex min-h-14 items-center gap-3 rounded-lg border px-3 py-2 text-sm hover:no-underline ${
+                      aria-current={active ? 'page' : undefined}
+                      className={`flex min-h-14 items-center gap-3 rounded-xl border px-3 py-3 text-sm no-underline transition-colors hover:no-underline ${
                         active
-                          ? 'border-primary bg-primary/10 text-foreground'
-                          : 'border-border bg-card text-foreground'
+                          ? 'border-primary/30 bg-primary/10 text-foreground'
+                          : 'border-border bg-card text-foreground hover:bg-muted/40'
                       }`}
                     >
-                      <span className="text-xl" aria-hidden>
-                        {l.icon}
+                      <span
+                        className={`flex size-9 shrink-0 items-center justify-center rounded-lg ${
+                          active
+                            ? 'bg-primary/15 text-primary'
+                            : 'bg-muted text-muted-foreground'
+                        }`}
+                      >
+                        <Icon className="size-5" aria-hidden />
                       </span>
-                      <span>{l.label}</span>
+                      <span className="font-medium">{l.label}</span>
                     </Link>
                   </SheetClose>
                 </li>
