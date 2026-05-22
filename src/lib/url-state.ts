@@ -20,7 +20,7 @@ const ALL_REGIONS: Region[] = [
   'astana',
   'turkistan',
   'shymkent',
-  'mangystau',
+  'aktau',
   'other',
 ];
 

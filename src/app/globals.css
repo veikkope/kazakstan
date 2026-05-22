@@ -137,19 +137,29 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-body {
-  background: var(--color-bg);
-  color: var(--color-fg);
-  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
-  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
-}
+/*
+ * Base element resets — wrapped in @layer base so Tailwind utility
+ * classes (placed in @layer utilities by Tailwind v4) can still
+ * override them via the cascade. Without the layer wrapper these
+ * unlayered rules outranked every utility regardless of specificity,
+ * which made `<Button asChild>` wrapping a `<Link>` render its label
+ * in link-blue on the primary-blue background (invisible).
+ */
+@layer base {
+  body {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
 
-a {
-  color: var(--color-steppe);
-}
-a:hover {
-  color: var(--color-steppe-dark);
-  text-decoration: underline;
+  a {
+    color: var(--color-steppe);
+  }
+  a:hover {
+    color: var(--color-steppe-dark);
+    text-decoration: underline;
+  }
 }
 
 /*

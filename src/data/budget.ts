@@ -133,8 +133,8 @@ export const budgetByRegion: BudgetByRegion[] = [
     ],
   },
   {
-    region: 'mangystau',
-    label: 'Mangystau (4WD-kierros)',
+    region: 'aktau',
+    label: 'Aktau / Mangystau (4WD-kierros)',
     perDayEUR: { low: 120, mid: 180, high: 280 },
     items: [
       {

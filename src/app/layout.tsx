@@ -9,6 +9,7 @@ import ServiceWorkerRegistration from '@/components/layout/ServiceWorkerRegistra
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Toaster } from '@/components/ui/sonner';
 import MotionProvider from '@/components/layout/MotionProvider';
+import ShortlistUrlSync from '@/components/shortlist/ShortlistUrlSync';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -59,6 +60,7 @@ export default function RootLayout({
         <TooltipProvider delayDuration={150}>
           <MotionProvider>
             <ServiceWorkerRegistration />
+            <ShortlistUrlSync />
             <Header />
             <OfflineBanner />
             <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 pb-24 sm:pb-6">

@@ -1,0 +1,824 @@
+﻿<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kazakstan â€” kohde-ehdokkaat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://upload.wikimedia.org" />
+  <style>
+    :root {
+      --bg: #fbfaf6;
+      --fg: #1e293b;
+      --muted: #475569;
+      --card: #ffffff;
+      --border: #cbd5e1;
+      --steppe: #2563eb;
+      --sand: #d4b483;
+      --sand-dark: #a98654;
+      --emerald-500: #10b981;
+      --emerald-600: #059669;
+      --amber-500: #f59e0b;
+      --amber-400: #fbbf24;
+      --violet-500: #8b5cf6;
+      --slate-400: #94a3b8;
+    }
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--fg);
+      font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    }
+    /*
+     * Hero image strip. Each card has a colored gradient as background
+     * (the ph-* class) so a slow or failing Wikipedia image still
+     * renders the right "feel". When the <img> loads it covers the
+     * gradient via object-fit: cover. Dream-tier cards override the
+     * height via the .h-32 utility class kept inline for clarity.
+     */
+    .placeholder {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: rgba(255,255,255,0.95);
+      text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+      position: relative;
+      overflow: hidden;
+    }
+    .placeholder img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 400ms ease, opacity 200ms ease;
+    }
+    .placeholder img[data-loaded="false"] { opacity: 0; }
+    .card:hover .placeholder img { transform: scale(1.03); }
+    .placeholder::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.45));
+      pointer-events: none;
+      z-index: 2;
+    }
+    .placeholder .credit {
+      position: absolute;
+      bottom: 6px;
+      right: 8px;
+      z-index: 3;
+      font-size: 10px;
+      color: rgba(255,255,255,0.85);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+      text-decoration: none;
+    }
+    .placeholder .credit:hover { color: #fff; text-decoration: underline; }
+    .ph-nature  { background: linear-gradient(135deg, #16a34a, #065f46); }
+    .ph-culture { background: linear-gradient(135deg, #2563eb, #1e3a8a); }
+    .ph-food    { background: linear-gradient(135deg, #ea580c, #7c2d12); }
+    .ph-mixed   { background: linear-gradient(135deg, #d4b483, #a98654); }
+    /* Filled rating dots */
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 9999px;
+      background: var(--slate-400);
+      opacity: 0.25;
+      display: inline-block;
+    }
+    .dot.on { opacity: 1; }
+    /* Tier accents */
+    .tier-must    { --accent: var(--emerald-600); --accent-bg: #ecfdf5; }
+    .tier-consider{ --accent: var(--amber-500);   --accent-bg: #fffbeb; }
+    .tier-dream   { --accent: var(--violet-500);  --accent-bg: #f5f3ff; }
+    .tier-skip    { --accent: var(--slate-400);   --accent-bg: #f1f5f9; }
+    .tier-badge {
+      background: var(--accent-bg);
+      color: var(--accent);
+      border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.875rem;
+      overflow: hidden;
+      transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px -8px rgba(15, 23, 42, 0.18);
+      border-color: var(--accent, var(--border));
+    }
+    details {
+      border-top: 1px dashed var(--border);
+    }
+    details summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 0.625rem 1rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background-color 150ms;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary:hover { background-color: rgba(0,0,0,0.025); }
+    details summary::after {
+      content: 'â†“';
+      transition: transform 150ms;
+      opacity: 0.6;
+    }
+    details[open] summary::after { transform: rotate(180deg); }
+    details > div {
+      padding: 0 1rem 0.875rem;
+      font-size: 0.8125rem;
+      color: var(--fg);
+      line-height: 1.55;
+    }
+    /* Sticky tier nav */
+    .tier-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background-color: rgba(251, 250, 246, 0.92);
+      border-bottom: 1px solid var(--border);
+    }
+    @media (prefers-color-scheme: dark) {
+      /* Light-mode only by choice â€” leaves layout consistent on outdoor screens */
+    }
+    @media print {
+      body { background: white; }
+      .card { break-inside: avoid; box-shadow: none; }
+      .tier-nav, .scroll-top { display: none; }
+      .placeholder { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- =========== HERO HEADER =========== -->
+<header class="relative overflow-hidden">
+  <div class="absolute inset-0" style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);"></div>
+  <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 20% 30%, #f59e0b 0%, transparent 35%), radial-gradient(circle at 80% 70%, #2563eb 0%, transparent 40%);"></div>
+  <div class="relative mx-auto max-w-6xl px-5 py-12 sm:py-16 text-white">
+    <p class="text-xs uppercase tracking-widest opacity-70">Kazakstanin reissun suunnittelu Â· agenttien tuottama kartoitus</p>
+    <h1 class="mt-2 text-3xl sm:text-5xl font-semibold tracking-tight">Kohde-ehdokkaat</h1>
+    <p class="mt-3 max-w-2xl text-base sm:text-lg opacity-90">
+      5 agenttia tutki alueittain ja teemoittain. <strong class="font-semibold">~50 paikkaa</strong>, joista kuratoitu <strong class="font-semibold">20</strong> tÃ¤hÃ¤n raporttiin. Lue, harkitse, valitse.
+    </p>
+    <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl">
+      <a href="#must" class="rounded-lg bg-white/10 backdrop-blur px-4 py-3 hover:bg-white/15 transition">
+        <div class="text-xs uppercase tracking-wide opacity-70">Pakolliset</div>
+        <div class="text-2xl font-semibold mt-0.5">4</div>
+      </a>
+      <a href="#consider" class="rounded-lg bg-white/10 backdrop-blur px-4 py-3 hover:bg-white/15 transition">
+        <div class="text-xs uppercase tracking-wide opacity-70">Harkittavat</div>
+        <div class="text-2xl font-semibold mt-0.5">8</div>
+      </a>
+      <a href="#dream" class="rounded-lg bg-white/10 backdrop-blur px-4 py-3 hover:bg-white/15 transition">
+        <div class="text-xs uppercase tracking-wide opacity-70">Unelmat</div>
+        <div class="text-2xl font-semibold mt-0.5">8</div>
+      </a>
+      <a href="#skip" class="rounded-lg bg-white/10 backdrop-blur px-4 py-3 hover:bg-white/15 transition">
+        <div class="text-xs uppercase tracking-wide opacity-70">Ohitettavat</div>
+        <div class="text-2xl font-semibold mt-0.5">10</div>
+      </a>
+    </div>
+    <p class="mt-6 text-sm opacity-75">
+      NykyisellÃ¤ reissulla on jo <strong>39 kohdetta</strong>. TÃ¤mÃ¤ on lisÃ¤ysharkinnan tyÃ¶pÃ¶ytÃ¤ â€” ei kaikkia tarvitse lisÃ¤tÃ¤.
+    </p>
+  </div>
+</header>
+
+<!-- =========== TIER NAV =========== -->
+<nav class="tier-nav">
+  <div class="mx-auto max-w-6xl px-5 py-3 flex flex-wrap gap-2 text-sm">
+    <a href="#must"     class="rounded-full px-3 py-1.5 font-medium tier-must tier-badge hover:opacity-80">âœ… Pakolliset</a>
+    <a href="#consider" class="rounded-full px-3 py-1.5 font-medium tier-consider tier-badge hover:opacity-80">âš ï¸ Harkittavat</a>
+    <a href="#dream"    class="rounded-full px-3 py-1.5 font-medium tier-dream tier-badge hover:opacity-80">ðŸ’­ Unelmat</a>
+    <a href="#skip"     class="rounded-full px-3 py-1.5 font-medium tier-skip tier-badge hover:opacity-80">âŒ Ohitettavat</a>
+    <span class="ml-auto text-xs text-slate-500 self-center hidden sm:block">Klikkaa otsikkoa avataksesi lisÃ¤tiedot</span>
+  </div>
+</nav>
+
+<main class="mx-auto max-w-6xl px-5 pb-16">
+
+<!-- =========== TIER 1: PAKOLLISET =========== -->
+<section id="must" class="pt-10 sm:pt-14">
+  <div class="flex items-baseline gap-3 mb-2">
+    <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">âœ… Pakolliset lisÃ¤ttÃ¤vÃ¤t</h2>
+    <span class="text-sm text-slate-500">4 kohdetta</span>
+  </div>
+  <p class="text-slate-600 max-w-3xl mb-6">
+    YhdistyvÃ¤t jo katettuihin reissupÃ¤iviin â€” vÃ¤hÃ¤inen lisÃ¤kulu, suuri sisÃ¤llÃ¶llinen lisÃ¤ys. LisÃ¤isin nÃ¤mÃ¤ neljÃ¤ ennen kuin koskenkaan mihinkÃ¤Ã¤n muuhun.
+  </p>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-4">
+
+    <!-- 1. Issyk -->
+    <article class="card tier-must">
+      <div class="placeholder ph-culture">
+        <span>ðŸº</span>
+        <img loading="lazy" decoding="async" alt="Issyk-kurganin hautakumpu Esikin lÃ¤hellÃ¤" src="https://upload.wikimedia.org/wikipedia/commons/5/5c/A_kurgan_at_Issyk.JPG" onerror="this.remove()" />
+        <a class="credit" href="https://commons.wikimedia.org/wiki/File:A_kurgan_at_Issyk.JPG" target="_blank" rel="noopener">Â© Wikimedia</a>
+      </div>
+      <div class="px-4 pt-3 pb-2">
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-[11px] uppercase tracking-wide font-medium tier-badge tier-must rounded-full px-2 py-0.5">Pakollinen</span>
+          <span class="text-[11px] uppercase tracking-wide text-slate-500">Almatyn alue Â· ~50 km</span>
+        </div>
+        <h3 class="mt-2 text-lg font-semibold tracking-tight">Issyk-kurganit & Kultaisen Miehen museo</h3>
+        <div class="mt-1 flex flex-wrap gap-1.5">
+          <span class="text-[11px] rounded-full bg-blue-100 text-blue-700 px-2 py-0.5">ðŸ›ï¸ kulttuuri</span>
+          <span class="text-[11px] rounded-full bg-slate-100 text-slate-600 px-2 py-0.5">Charynin pÃ¤ivÃ¤n jatke</span>
+        </div>
+        <div class="mt-3 space-y-1.5 text-xs">
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Tunnettuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Mielenkiinto</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Ainutlaatuisuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span></div>
+        </div>
+        <p class="mt-3 text-sm text-slate-700">
+          422 ha arkeologinen reservi, jonne 1969 lÃ¶ytyi saka-skythialainen "Kultainen Mies" â€” Kazakstanin tunnetuin arkeologinen lÃ¶ytÃ¶ ja kansallissymboli. Yli 40 hautakumpua arolla.
+        </p>
+      </div>
+      <details>
+        <summary>Miksi kÃ¤ydÃ¤?</summary>
+        <div>Astanan kansallismuseossa esillÃ¤ oleva "Altyn Adam" -kultaesinekokoelma on tÃ¤mÃ¤n lÃ¶ytÃ¶paikan tuote. Kun kÃ¤ytte museossa, alkupisteen nÃ¤keminen tekee kierroksesta kokonaisen. Sopii erityisesti historianystÃ¤ville.</div>
+      </details>
+      <details>
+        <summary>KÃ¤ytÃ¤ntÃ¶</summary>
+        <div>Auto Almatysta 1 h. Avoinna tiâ€“su (ma kiinni). Englanninkielinen opastus suositeltava. YhdistÃ¤ Turgenin vesiputouksiin samalle pÃ¤ivÃ¤lle.</div>
+      </details>
+      <a class="block px-4 py-2.5 text-xs border-t border-slate-200 text-blue-700 hover:bg-blue-50 transition" href="https://en.wikipedia.org/wiki/Issyk_kurgan" target="_blank" rel="noopener">ðŸ“– Wikipedia â†’</a>
+    </article>
+
+    <!-- 2. Korgalzhyn -->
+    <article class="card tier-must">
+      <div class="placeholder ph-nature">
+        <span>ðŸ¦©</span>
+        <img loading="lazy" decoding="async" alt="Korgalzhynin luonnonsuojelualue" src="https://upload.wikimedia.org/wikipedia/commons/3/33/Korgalzhinskiy_Nature_Reserve.JPG" onerror="this.remove()" />
+        <a class="credit" href="https://commons.wikimedia.org/wiki/File:Korgalzhinskiy_Nature_Reserve.JPG" target="_blank" rel="noopener">Â© Wikimedia</a>
+      </div>
+      <div class="px-4 pt-3 pb-2">
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-[11px] uppercase tracking-wide font-medium tier-badge tier-must rounded-full px-2 py-0.5">Pakollinen</span>
+          <span class="text-[11px] uppercase tracking-wide text-slate-500">Astana Â· ~130 km</span>
+        </div>
+        <h3 class="mt-2 text-lg font-semibold tracking-tight">Korgalzhyn & Tengiz-jÃ¤rvi</h3>
+        <div class="mt-1 flex flex-wrap gap-1.5">
+          <span class="text-[11px] rounded-full bg-green-100 text-green-700 px-2 py-0.5">ðŸŒ¿ luonto</span>
+          <span class="text-[11px] rounded-full bg-purple-100 text-purple-700 px-2 py-0.5">UNESCO</span>
+          <span class="text-[11px] rounded-full bg-amber-100 text-amber-700 px-2 py-0.5">toukoâ€“lokakuu</span>
+        </div>
+        <div class="mt-3 space-y-1.5 text-xs">
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Tunnettuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Mielenkiinto</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Ainutlaatuisuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></span></div>
+        </div>
+        <p class="mt-3 text-sm text-slate-700">
+          UNESCO-maailmanperintÃ¶kohde "Saryarka". Hyper-alkaalinen suolajÃ¤rvi joka isÃ¤nnÃ¶i <strong>maailman pohjoisinta flamingoyhdyskuntaa</strong>. 300 lintulajia, saigoja.
+        </p>
+      </div>
+      <details>
+        <summary>Miksi kÃ¤ydÃ¤?</summary>
+        <div>Astanan ainoa "luonto-must" pÃ¤ivÃ¤reissun sÃ¤teellÃ¤. Ei vastaavaa flamingopopulaatiota tÃ¤llÃ¤ leveysasteella missÃ¤Ã¤n muualla maailmassa. Lintubongareille ja luonnonystÃ¤ville pakollinen.</div>
+      </details>
+      <details>
+        <summary>KÃ¤ytÃ¤ntÃ¶</summary>
+        <div>Pakollinen rekisterÃ¶inti reservin toimistoon + opas Tengizille. Auto tai jÃ¤rjestetty retki (Astana Horizons / Advantour). PitkÃ¤ linssi / kiikarit â€” flamingot eivÃ¤t salli lÃ¤helle. Vain toukoâ€“lokakuu.</div>
+      </details>
+      <a class="block px-4 py-2.5 text-xs border-t border-slate-200 text-blue-700 hover:bg-blue-50 transition" href="https://en.wikipedia.org/wiki/Korgalzhyn_Nature_Reserve" target="_blank" rel="noopener">ðŸ“– Wikipedia â†’</a>
+    </article>
+
+    <!-- 3. ALZHIR -->
+    <article class="card tier-must">
+      <div class="placeholder ph-culture">
+        <span>ðŸ•¯ï¸</span>
+        <img loading="lazy" decoding="async" alt="ALÅ½IR â€” naisten gulagin muistomerkki" src="https://upload.wikimedia.org/wikipedia/commons/c/c8/%D0%90%D0%9B%D0%96%D0%98%D0%A0%2C_%D0%90%D0%BA%D0%BC%D0%BE%D0%BB%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D0%BB%D0%B0%D0%B3%D0%B5%D1%80%D1%8C_%D0%B6%D1%91%D0%BD_%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2_%D0%A0%D0%BE%D0%B4%D0%B8%D0%BD%D1%8B.jpg" onerror="this.remove()" />
+        <a class="credit" href="https://en.wikipedia.org/wiki/ALZhIR" target="_blank" rel="noopener">Â© Wikimedia</a>
+      </div>
+      <div class="px-4 pt-3 pb-2">
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-[11px] uppercase tracking-wide font-medium tier-badge tier-must rounded-full px-2 py-0.5">Pakollinen</span>
+          <span class="text-[11px] uppercase tracking-wide text-slate-500">Astana Â· ~40 km</span>
+        </div>
+        <h3 class="mt-2 text-lg font-semibold tracking-tight">ALÅ½IR-muistomerkki</h3>
+        <div class="mt-1 flex flex-wrap gap-1.5">
+          <span class="text-[11px] rounded-full bg-blue-100 text-blue-700 px-2 py-0.5">ðŸ›ï¸ kulttuuri</span>
+          <span class="text-[11px] rounded-full bg-slate-100 text-slate-600 px-2 py-0.5">dark tourism</span>
+          <span class="text-[11px] rounded-full bg-slate-100 text-slate-600 px-2 py-0.5">puoli pÃ¤ivÃ¤Ã¤</span>
+        </div>
+        <div class="mt-3 space-y-1.5 text-xs">
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Tunnettuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Mielenkiinto</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Ainutlaatuisuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span></div>
+        </div>
+        <p class="mt-3 text-sm text-slate-700">
+          Museo entisellÃ¤ Stalinin leirin paikalla, jonne 1938â€“53 lÃ¤hetettiin lÃ¤hes 18 000 naista â€” "isÃ¤nmaan pettureiden vaimoja". <strong>Maailman ainoa naisille suunnattu gulag-museo.</strong>
+        </p>
+      </div>
+      <details>
+        <summary>Miksi kÃ¤ydÃ¤?</summary>
+        <div>Kazakstanin tÃ¤rkein neuvostorepression muistopaikka. Lyhyt pÃ¤ivÃ¤retki Astanasta, hyvin tuotettu ja koskettava. Erityisen merkityksellinen pohjoismaalaisille â€” Stalinin terrori on opettavainen sukulaistarina.</div>
+      </details>
+      <details>
+        <summary>KÃ¤ytÃ¤ntÃ¶</summary>
+        <div>Avoinna tiâ€“su (ma kiinni). Marshrutka tai taksi Astanan keskustasta ~30 min. YhdistettÃ¤vissÃ¤ Astana-pÃ¤ivÃ¤n puolikkaaksi. Englanninkielinen kierros suositeltava. Pankaa varaa raskaaseen tunnelmaan.</div>
+      </details>
+      <a class="block px-4 py-2.5 text-xs border-t border-slate-200 text-blue-700 hover:bg-blue-50 transition" href="https://en.wikipedia.org/wiki/ALZhIR" target="_blank" rel="noopener">ðŸ“– Wikipedia â†’</a>
+    </article>
+
+    <!-- 4. Sauran -->
+    <article class="card tier-must">
+      <div class="placeholder ph-culture">
+        <span>ðŸ›ï¸</span>
+        <img loading="lazy" decoding="async" alt="Sauranin muurit, silkkitien kaupunginrauniot" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Sawran%2C_Kazakhstan_03.jpg" onerror="this.remove()" />
+        <a class="credit" href="https://commons.wikimedia.org/wiki/File:Sawran,_Kazakhstan_03.jpg" target="_blank" rel="noopener">Â© Wikimedia</a>
+      </div>
+      <div class="px-4 pt-3 pb-2">
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-[11px] uppercase tracking-wide font-medium tier-badge tier-must rounded-full px-2 py-0.5">Pakollinen</span>
+          <span class="text-[11px] uppercase tracking-wide text-slate-500">Turkistan Â· ~43 km</span>
+        </div>
+        <h3 class="mt-2 text-lg font-semibold tracking-tight">Sauranin rauniot</h3>
+        <div class="mt-1 flex flex-wrap gap-1.5">
+          <span class="text-[11px] rounded-full bg-blue-100 text-blue-700 px-2 py-0.5">ðŸ›ï¸ kulttuuri</span>
+          <span class="text-[11px] rounded-full bg-amber-100 text-amber-700 px-2 py-0.5">silkkitie</span>
+          <span class="text-[11px] rounded-full bg-slate-100 text-slate-600 px-2 py-0.5">ei turisteja</span>
+        </div>
+        <div class="mt-3 space-y-1.5 text-xs">
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Tunnettuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Mielenkiinto</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Ainutlaatuisuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></span></div>
+        </div>
+        <p class="mt-3 text-sm text-slate-700">
+          Silkkitien <strong>parhaiten sÃ¤ilyneet kaupunginrauniot</strong> Syrdarjan laaksossa. 6 m tiilimuurit, bastionit, ainutlaatuinen <em>kyariz</em>-vedensiirtojÃ¤rjestelmÃ¤. UNESCO-alustavalla listalla.
+        </p>
+      </div>
+      <details>
+        <summary>Miksi kÃ¤ydÃ¤?</summary>
+        <div>Hiljaisempi ja autenttisempi vaihtoehto Turkistanin pyhiinvaelluskeskuksen rinnalle. KÃ¤ytÃ¤nnÃ¶ssÃ¤ ei muita turisteja. Toimii silkkitie-pÃ¤ivÃ¤n pohjana â€” yhdistÃ¤ Otrar + Arystan Bab samalle pÃ¤ivÃ¤lle.</div>
+      </details>
+      <details>
+        <summary>KÃ¤ytÃ¤ntÃ¶</summary>
+        <div>Taksi Turkistanista ~10 000 KZT edestakaisin. Ei sisÃ¤Ã¤npÃ¤Ã¤symaksua, ei opasta paikalla â€” lue tausta etukÃ¤teen. Aurinkohattu ja juoma pakolliset.</div>
+      </details>
+      <a class="block px-4 py-2.5 text-xs border-t border-slate-200 text-blue-700 hover:bg-blue-50 transition" href="https://www.atlasobscura.com/places/ruins-of-sauran" target="_blank" rel="noopener">ðŸ“– Atlas Obscura â†’</a>
+    </article>
+
+  </div>
+</section>
+
+<!-- =========== TIER 2: HARKITTAVAT =========== -->
+<section id="consider" class="pt-14">
+  <div class="flex items-baseline gap-3 mb-2">
+    <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">âš ï¸ Vahvasti harkittavat</h2>
+    <span class="text-sm text-slate-500">8 kohdetta</span>
+  </div>
+  <p class="text-slate-600 max-w-3xl mb-6">
+    LisÃ¤Ã¤ syvyyttÃ¤ ilman dramaattisia uusia pÃ¤iviÃ¤. Valitse 2â€“4 sen mukaan mitkÃ¤ yhdistyvÃ¤t reittisi kanssa luonnollisimmin.
+  </p>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+    <!-- Otrar -->
+    <article class="card tier-consider">
+      <div class="placeholder ph-culture">
+        <span>ðŸ•Œ</span>
+        <img loading="lazy" decoding="async" alt="Otrarin rauniot ilmasta kuvattuna" src="https://upload.wikimedia.org/wikipedia/commons/9/90/%D0%93%D0%BE%D1%80%D0%BE%D0%B4%D0%B8%D1%89%D0%B5_%D0%9E%D1%82%D1%8B%D1%80%D0%B0%D1%80_%D1%81_%D0%B2%D0%BE%D0%B7%D0%B4%D1%83%D1%85%D0%B0.jpg" onerror="this.remove()" />
+        <a class="credit" href="https://en.wikipedia.org/wiki/Otrar" target="_blank" rel="noopener">Â© Wikimedia</a>
+      </div>
+      <div class="px-4 pt-3 pb-2">
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-[11px] uppercase tracking-wide font-medium tier-badge tier-consider rounded-full px-2 py-0.5">Harkittava</span>
+          <span class="text-[11px] uppercase tracking-wide text-slate-500">Turkistan Â· ~50 km</span>
+        </div>
+        <h3 class="mt-2 text-base font-semibold">Otrar + Arystan Bab</h3>
+        <div class="mt-1 flex flex-wrap gap-1.5">
+          <span class="text-[11px] rounded-full bg-blue-100 text-blue-700 px-2 py-0.5">kulttuuri</span>
+          <span class="text-[11px] rounded-full bg-amber-100 text-amber-700 px-2 py-0.5">silkkitie</span>
+        </div>
+        <div class="mt-3 space-y-1.5 text-xs">
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Tunnettuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Mielenkiinto</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Ainutlaatuisuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span></div>
+        </div>
+        <p class="mt-3 text-sm text-slate-700">TÅ¡ingis-kaanin LÃ¤hi-itÃ¤-hyÃ¶kkÃ¤yksen alkupiste (1219). Al-Farabin syntymÃ¤kaupunki. Arystan Bab = perinteinen pyhiinvaelluksen ensiaskel.</p>
+      </div>
+      <details>
+        <summary>KÃ¤ytÃ¤ntÃ¶</summary>
+        <div>YhdistÃ¤ Sauraniin samalle pÃ¤ivÃ¤lle â€” kolmen kohteen silkkitiepÃ¤ivÃ¤ Turkistanin pohjana. Otrarin arkeologinen museo Shaulderissa kannattaa katsoa ensin.</div>
+      </details>
+      <a class="block px-4 py-2.5 text-xs border-t border-slate-200 text-blue-700 hover:bg-blue-50 transition" href="https://en.wikipedia.org/wiki/Otrar" target="_blank" rel="noopener">ðŸ“– Wikipedia â†’</a>
+    </article>
+
+    <!-- Tamgaly Tas -->
+    <article class="card tier-consider">
+      <div class="placeholder ph-culture">
+        <span>â˜¸ï¸</span>
+        <img loading="lazy" decoding="async" alt="Tanbaly â€” Almatyn alueen kalliokaiverruksia" src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Tanbaly.jpg" onerror="this.remove()" />
+        <a class="credit" href="https://commons.wikimedia.org/wiki/File:Tanbaly.jpg" target="_blank" rel="noopener">Â© Wikimedia</a>
+      </div>
+      <div class="px-4 pt-3 pb-2">
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-[11px] uppercase tracking-wide font-medium tier-badge tier-consider rounded-full px-2 py-0.5">Harkittava</span>
+          <span class="text-[11px] uppercase tracking-wide text-slate-500">Almaty Â· ~170 km</span>
+        </div>
+        <h3 class="mt-2 text-base font-semibold">Tamgaly Tas â€” petroglyfit + buddhalaisreliefit</h3>
+        <div class="mt-1 flex flex-wrap gap-1.5">
+          <span class="text-[11px] rounded-full bg-blue-100 text-blue-700 px-2 py-0.5">kulttuuri</span>
+        </div>
+        <div class="mt-3 space-y-1.5 text-xs">
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Tunnettuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Mielenkiinto</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Ainutlaatuisuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></span></div>
+        </div>
+        <p class="mt-3 text-sm text-slate-700">5 000+ pronssikautista kalliokaiverrusta + 12. vuosisadan tiibetilÃ¤isten munkkien buddhalaisreliefit. <strong>Ei muualla tÃ¤llaista yhdistelmÃ¤Ã¤.</strong></p>
+      </div>
+      <details>
+        <summary>KÃ¤ytÃ¤ntÃ¶</summary>
+        <div>3â€“4 h auto Almatysta. <strong>HUOM:</strong> TÃ¤mÃ¤ on Ili-joen Tamgaly Tas â€” EI sama kuin UNESCO-Tanbaly (70 km kauempana). YhdistÃ¤ Kapchagain jÃ¤rveen.</div>
+      </details>
+      <a class="block px-4 py-2.5 text-xs border-t border-slate-200 text-blue-700 hover:bg-blue-50 transition" href="https://en.wikipedia.org/wiki/Tamgaly-Tas_Petroglyphs_(Ili_Kapshagai)" target="_blank" rel="noopener">ðŸ“– Wikipedia â†’</a>
+    </article>
+
+    <!-- Charynin Saaren-lehto -->
+    <article class="card tier-consider">
+      <div class="placeholder ph-nature">
+        <span>ðŸŒ³</span>
+        <img loading="lazy" decoding="async" alt="Charynin kanjoni ja sen lÃ¤himetsÃ¤" src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Charyn_Canyon_-_3.jpg" onerror="this.remove()" />
+        <a class="credit" href="https://en.wikipedia.org/wiki/Charyn_National_Park" target="_blank" rel="noopener">Â© Wikimedia</a>
+      </div>
+      <div class="px-4 pt-3 pb-2">
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-[11px] uppercase tracking-wide font-medium tier-badge tier-consider rounded-full px-2 py-0.5">Harkittava</span>
+          <span class="text-[11px] uppercase tracking-wide text-slate-500">Charynin NP Â· pohjoisosa</span>
+        </div>
+        <h3 class="mt-2 text-base font-semibold">Charynin Saaren-lehto (Sarytogai)</h3>
+        <div class="mt-1 flex flex-wrap gap-1.5">
+          <span class="text-[11px] rounded-full bg-green-100 text-green-700 px-2 py-0.5">luonto</span>
+          <span class="text-[11px] rounded-full bg-emerald-100 text-emerald-700 px-2 py-0.5">15 min Charyniin</span>
+        </div>
+        <div class="mt-3 space-y-1.5 text-xs">
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Tunnettuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Mielenkiinto</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Ainutlaatuisuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></span></div>
+        </div>
+        <p class="mt-3 text-sm text-slate-700">Reliktinen sogdiansaarni-metsÃ¤ â€” jÃ¤Ã¤nteenÃ¤ 25 milj. vuoden takaisesta lÃ¤mpimÃ¤mmÃ¤stÃ¤ Kazakstanista. Puut yli 300 v vanhoja, 30 m korkeita. <strong>Paleobotaaninen maailmanharvinaisuus.</strong></p>
+      </div>
+      <details>
+        <summary>KÃ¤ytÃ¤ntÃ¶</summary>
+        <div>Sama Charynin puiston pÃ¤Ã¤sylippu, vain 15â€“20 min lisÃ¤Ã¤ autolla. No-brainer-lisÃ¤ys Charyn-pÃ¤ivÃ¤Ã¤n.</div>
+      </details>
+      <a class="block px-4 py-2.5 text-xs border-t border-slate-200 text-blue-700 hover:bg-blue-50 transition" href="https://wildticketasia.com/661-charyn-ash-grove-in-charyn-park-almaty-region-kazakhstan.html" target="_blank" rel="noopener">ðŸ“– Wild Ticket â†’</a>
+    </article>
+
+    <!-- Sunkar -->
+    <article class="card tier-consider">
+      <div class="placeholder ph-culture">
+        <span>ðŸ¦…</span>
+        <img loading="lazy" decoding="async" alt="Falconry â€” petolinnut kazakhilaisessa kotkametsÃ¤styksessÃ¤" src="https://upload.wikimedia.org/wikipedia/commons/0/0b/GoshawkFalconry.jpg" onerror="this.remove()" />
+        <a class="credit" href="https://en.wikipedia.org/wiki/Falconry" target="_blank" rel="noopener">Â© Wikimedia</a>
+      </div>
+      <div class="px-4 pt-3 pb-2">
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-[11px] uppercase tracking-wide font-medium tier-badge tier-consider rounded-full px-2 py-0.5">Harkittava</span>
+          <span class="text-[11px] uppercase tracking-wide text-slate-500">Almaty Â· 10 km</span>
+        </div>
+        <h3 class="mt-2 text-base font-semibold">Sunkar â€” falconry-show</h3>
+        <div class="mt-1 flex flex-wrap gap-1.5">
+          <span class="text-[11px] rounded-full bg-blue-100 text-blue-700 px-2 py-0.5">kulttuuri</span>
+          <span class="text-[11px] rounded-full bg-emerald-100 text-emerald-700 px-2 py-0.5">BAO-pÃ¤ivÃ¤n jatke</span>
+        </div>
+        <div class="mt-3 space-y-1.5 text-xs">
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Tunnettuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Mielenkiinto</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Ainutlaatuisuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span></div>
+        </div>
+        <p class="mt-3 text-sm text-slate-700">UNESCO-suojeltua aineetonta perintÃ¶Ã¤ (kazakhilainen kotkametsÃ¤stys) elÃ¤vÃ¤ksi nÃ¤htynÃ¤. Kultakotkat ja sakri-haukat 320 km/h. PÃ¤ivittÃ¤inen show 17:00 (ei ma).</p>
+      </div>
+      <details>
+        <summary>KÃ¤ytÃ¤ntÃ¶</summary>
+        <div>Lippu ~3 500 KZT, show 30 min. Sama tie kuin Isolle Almatyn jÃ¤rvelle â€” pysÃ¤hdys matkalla.</div>
+      </details>
+      <a class="block px-4 py-2.5 text-xs border-t border-slate-200 text-blue-700 hover:bg-blue-50 transition" href="https://caravanistan.com/kazakhstan/almaty/sunkar-bird-refuge/" target="_blank" rel="noopener">ðŸ“– Caravanistan â†’</a>
+    </article>
+
+    <!-- Karaganda + Karlag -->
+    <article class="card tier-consider">
+      <div class="placeholder ph-culture">
+        <span>âš’ï¸</span>
+        <img loading="lazy" decoding="async" alt="Karlag â€” Karagandan gulag-keskus" src="https://upload.wikimedia.org/wikipedia/commons/4/44/Karlag.png" onerror="this.remove()" />
+        <a class="credit" href="https://en.wikipedia.org/wiki/Karlag" target="_blank" rel="noopener">Â© Wikimedia</a>
+      </div>
+      <div class="px-4 pt-3 pb-2">
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-[11px] uppercase tracking-wide font-medium tier-badge tier-consider rounded-full px-2 py-0.5">Harkittava</span>
+          <span class="text-[11px] uppercase tracking-wide text-slate-500">Astana Â· juna 3 h</span>
+        </div>
+        <h3 class="mt-2 text-base font-semibold">Karaganda + Karlag (Dolinka) + Spassk</h3>
+        <div class="mt-1 flex flex-wrap gap-1.5">
+          <span class="text-[11px] rounded-full bg-blue-100 text-blue-700 px-2 py-0.5">kulttuuri</span>
+          <span class="text-[11px] rounded-full bg-rose-100 text-rose-700 px-2 py-0.5">ðŸ‡«ðŸ‡® suomalaismuistomerkki</span>
+        </div>
+        <div class="mt-3 space-y-1.5 text-xs">
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Tunnettuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Mielenkiinto</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Ainutlaatuisuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span></div>
+        </div>
+        <p class="mt-3 text-sm text-slate-700">Karlag oli Neuvostoliiton <strong>suurin gulag</strong> (~1 milj. vankia). Spasskissa Suomen muistomerkki jatkosotavangille. Karaganda = neuvostoarkkitehtuuri.</p>
+      </div>
+      <details>
+        <summary>Vaihtoehto ALÅ½IRille</summary>
+        <div>Valitse vain toinen, ei molempia. ALÅ½IR = kompaktimpi puolikas pÃ¤ivÃ¤ Astanasta. Karlag = syvempi sukellus, vaatii 1 yÃ¶n Karagandassa. <strong>Suomalaisille emotionaalisesti vahva</strong> Spasskin muistomerkin takia.</div>
+      </details>
+      <a class="block px-4 py-2.5 text-xs border-t border-slate-200 text-blue-700 hover:bg-blue-50 transition" href="https://en.wikipedia.org/wiki/Karlag" target="_blank" rel="noopener">ðŸ“– Wikipedia â†’</a>
+    </article>
+
+    <!-- Atyrau -->
+    <article class="card tier-consider">
+      <div class="placeholder ph-food">
+        <span>ðŸŸ</span>
+        <img loading="lazy" decoding="async" alt="Ural-joki Atyraussa, Eurooppaâ€“Aasia-raja" src="https://upload.wikimedia.org/wikipedia/commons/6/68/%D0%A3%D1%80%D0%B0%D0%BB_%D1%80%D0%B5%D0%BA%D0%B0.jpg" onerror="this.remove()" />
+        <a class="credit" href="https://en.wikipedia.org/wiki/Atyrau" target="_blank" rel="noopener">Â© Wikimedia</a>
+      </div>
+      <div class="px-4 pt-3 pb-2">
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-[11px] uppercase tracking-wide font-medium tier-badge tier-consider rounded-full px-2 py-0.5">Harkittava</span>
+          <span class="text-[11px] uppercase tracking-wide text-slate-500">Aktau Â· lento 45 min</span>
+        </div>
+        <h3 class="mt-2 text-base font-semibold">Atyrau â€” Eurooppa/Aasia + kaviaari</h3>
+        <div class="mt-1 flex flex-wrap gap-1.5">
+          <span class="text-[11px] rounded-full bg-blue-100 text-blue-700 px-2 py-0.5">kulttuuri</span>
+          <span class="text-[11px] rounded-full bg-orange-100 text-orange-700 px-2 py-0.5">food</span>
+        </div>
+        <div class="mt-3 space-y-1.5 text-xs">
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Tunnettuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Mielenkiinto</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Ainutlaatuisuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span></div>
+        </div>
+        <p class="mt-3 text-sm text-slate-700">Kazakstanin Ã¶ljyhuippukaupunki Ural-joen suussa. 551 m Eurooppaâ€“Aasia-jalankulkusilta keskellÃ¤ kaupunkia. Sammenkala ja kaviaari.</p>
+      </div>
+      <details>
+        <summary>KÃ¤ytÃ¤ntÃ¶</summary>
+        <div>Lento Aktausta ~20 â‚¬, 45 min. 1â€“2 yÃ¶tÃ¤ riittÃ¤Ã¤. Imangali-moskeija, paikallismuseo, Ural-promenadi. Kaviaaria saa mutta vientimaksut tiukat.</div>
+      </details>
+      <a class="block px-4 py-2.5 text-xs border-t border-slate-200 text-blue-700 hover:bg-blue-50 transition" href="https://www.kazakh.travel/en/blog/atyrau-travel-guide-caspian-gateway" target="_blank" rel="noopener">ðŸ“– Kazakh Travel â†’</a>
+    </article>
+
+    <!-- Akyrtas -->
+    <article class="card tier-consider">
+      <div class="placeholder ph-culture"><span>ðŸª¨</span></div>
+      <div class="px-4 pt-3 pb-2">
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-[11px] uppercase tracking-wide font-medium tier-badge tier-consider rounded-full px-2 py-0.5">Harkittava</span>
+          <span class="text-[11px] uppercase tracking-wide text-slate-500">Taraz Â· 45 km</span>
+        </div>
+        <h3 class="mt-2 text-base font-semibold">Akyrtas-palatsi (UNESCO)</h3>
+        <div class="mt-1 flex flex-wrap gap-1.5">
+          <span class="text-[11px] rounded-full bg-blue-100 text-blue-700 px-2 py-0.5">kulttuuri</span>
+          <span class="text-[11px] rounded-full bg-purple-100 text-purple-700 px-2 py-0.5">UNESCO</span>
+        </div>
+        <div class="mt-3 space-y-1.5 text-xs">
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Tunnettuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Mielenkiinto</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Ainutlaatuisuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></span></div>
+        </div>
+        <p class="mt-3 text-sm text-slate-700">8.â€“12. vuosisadan <strong>keskenerÃ¤inen palatsi</strong> punaisesta hiekkakivestÃ¤ â€” yksittÃ¤iset lohkareet useita tonneja. "Stonehengen tunnelma" keskellÃ¤ aroa.</p>
+      </div>
+      <details>
+        <summary>KÃ¤ytÃ¤ntÃ¶</summary>
+        <div>Vain jos ajatte Almatysta Shymkentiin maanteitse â€” A-2 valtatien varrella. PysÃ¤hdys 1â€“2 h. YhdistÃ¤ Aisha-Bibiin samaan pÃ¤ivÃ¤Ã¤n.</div>
+      </details>
+      <a class="block px-4 py-2.5 text-xs border-t border-slate-200 text-blue-700 hover:bg-blue-50 transition" href="https://www.tripadvisor.com/Attraction_Review-g1638447-d4954572-Reviews-Akyrtas_Palace_Complex-Taraz_Jambyl_Province.html" target="_blank" rel="noopener">ðŸ“– TripAdvisor â†’</a>
+    </article>
+
+    <!-- Aisha-Bibi -->
+    <article class="card tier-consider">
+      <div class="placeholder ph-culture">
+        <span>ðŸ’</span>
+        <img loading="lazy" decoding="async" alt="Aisha-Bibi mausoleumi Tarazin lÃ¤hellÃ¤" src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Aisha_bibi.png" onerror="this.remove()" />
+        <a class="credit" href="https://en.wikipedia.org/wiki/Aisha_Bibi" target="_blank" rel="noopener">Â© Wikimedia</a>
+      </div>
+      <div class="px-4 pt-3 pb-2">
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-[11px] uppercase tracking-wide font-medium tier-badge tier-consider rounded-full px-2 py-0.5">Harkittava</span>
+          <span class="text-[11px] uppercase tracking-wide text-slate-500">Taraz Â· 18 km</span>
+        </div>
+        <h3 class="mt-2 text-base font-semibold">Aisha-Bibi -mausoleumi</h3>
+        <div class="mt-1 flex flex-wrap gap-1.5">
+          <span class="text-[11px] rounded-full bg-blue-100 text-blue-700 px-2 py-0.5">kulttuuri</span>
+        </div>
+        <div class="mt-3 space-y-1.5 text-xs">
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Tunnettuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Mielenkiinto</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span></div>
+          <div class="flex items-center gap-2"><span class="w-24 text-slate-500">Ainutlaatuisuus</span><span class="flex gap-0.5"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span></div>
+        </div>
+        <p class="mt-3 text-sm text-slate-700">"Kazakstanin Taj Mahal" â€” Karakhanid-dynastian (1100-l.) <strong>60 terrakottakuvioista koristettu</strong> mausoleumi rakkaustarinalle.</p>
+      </div>
+      <details>
+        <summary>KÃ¤ytÃ¤ntÃ¶</summary>
+        <div>25 min autolla Tarazista. YhdistÃ¤ Akyrtasiin samaan Taraz-pysÃ¤hdykseen. 1 h paikalla. Ilmainen / pieni maksu.</div>
+      </details>
+      <a class="block px-4 py-2.5 text-xs border-t border-slate-200 text-blue-700 hover:bg-blue-50 transition" href="https://en.wikipedia.org/wiki/Aisha_Bibi" target="_blank" rel="noopener">ðŸ“– Wikipedia â†’</a>
+    </article>
+
+  </div>
+</section>
+
+<!-- =========== TIER 3: UNELMAT =========== -->
+<section id="dream" class="pt-14">
+  <div class="flex items-baseline gap-3 mb-2">
+    <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">ðŸ’­ Unelmakohteet</h2>
+    <span class="text-sm text-slate-500">8 kohdetta</span>
+  </div>
+  <p class="text-slate-600 max-w-3xl mb-6">
+    Vahvoja kohteita, mutta vaativat oman sub-reissun tai erikoisluvan. <strong>EivÃ¤t realistisia 10â€“14 pÃ¤ivÃ¤n reissulle</strong> nykyisen reitin pÃ¤Ã¤lle. TiedÃ¤ ettÃ¤ ovat olemassa, palaa tulevaisuudessa.
+  </p>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+
+    <article class="card tier-dream">
+      <div class="placeholder ph-nature h-32" style="font-size: 3rem;">
+        <span>ðŸ”ï¸</span>
+        <img loading="lazy" decoding="async" alt="Kazakstanin Altai-vuoret" src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Kazakhstan_Altay.jpg" onerror="this.remove()" />
+        <a class="credit" href="https://en.wikipedia.org/wiki/Katon-Karagay_National_Park" target="_blank" rel="noopener">Â© Wikimedia</a>
+      </div>
+      <div class="px-3 pt-2 pb-3">
+        <h4 class="text-sm font-semibold">Altai-alue</h4>
+        <p class="text-[11px] text-slate-500 mt-0.5">Katon-Karagay Â· Berel Â· Yazevoye Â· Rakhmanov</p>
+        <p class="text-xs text-slate-700 mt-2">Vaatii 4â€“7 pÃ¤ivÃ¤n sub-reissun + rajavyÃ¶hykeluvan (2 kk kÃ¤sittely) + lennon Ã–skemeniin. Belukha-nÃ¤kymÃ¤, sekyytti-kurganit (UNESCO).</p>
+      </div>
+    </article>
+
+    <article class="card tier-dream">
+      <div class="placeholder ph-culture h-32" style="font-size: 3rem;">
+        <span>ðŸš€</span>
+        <img loading="lazy" decoding="async" alt="Baikonur-kosmodromin Soyuz-laukaisualusta" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Baikonur_Cosmodrome_Soyuz_launch_pad.jpg" onerror="this.remove()" />
+        <a class="credit" href="https://en.wikipedia.org/wiki/Baikonur_Cosmodrome" target="_blank" rel="noopener">Â© Wikimedia</a>
+      </div>
+      <div class="px-3 pt-2 pb-3">
+        <h4 class="text-sm font-semibold">Baikonur-kosmodromi</h4>
+        <p class="text-[11px] text-slate-500 mt-0.5">Kyzylorda</p>
+        <p class="text-xs text-slate-700 mt-2">5 pÃ¤ivÃ¤Ã¤ + ~3 400 â‚¬/hlÃ¶, luvat 60 vrk etukÃ¤teen. <strong>2026 = "vierailuvuosi"</strong>, tarkista juuri ennen reissua.</p>
+      </div>
+    </article>
+
+    <article class="card tier-dream">
+      <div class="placeholder ph-nature h-32" style="font-size: 3rem;">
+        <span>ðŸš¢</span>
+        <img loading="lazy" decoding="async" alt="Aral-meren kutistuminen 1989 vs 2014" src="https://upload.wikimedia.org/wikipedia/commons/7/75/AralSea1989_2014.jpg" onerror="this.remove()" />
+        <a class="credit" href="https://en.wikipedia.org/wiki/Aral_Sea" target="_blank" rel="noopener">Â© Wikimedia</a>
+      </div>
+      <div class="px-3 pt-2 pb-3">
+        <h4 class="text-sm font-semibold">Aral-meri / Zhalanash</h4>
+        <p class="text-[11px] text-slate-500 mt-0.5">Aralsk</p>
+        <p class="text-xs text-slate-700 mt-2">4â€“5 lisÃ¤pÃ¤ivÃ¤Ã¤, yÃ¶juna 27 h. <strong>VAROITUS:</strong> laivat viety pÃ¤Ã¤osin romumetalliksi 2019 jÃ¤lkeen â€” tarkista nykytilanne.</p>
+      </div>
+    </article>
+
+    <article class="card tier-dream">
+      <div class="placeholder ph-culture h-32" style="font-size: 3rem;">
+        <span>ðŸ“š</span>
+        <img loading="lazy" decoding="async" alt="Semey â€” kaksiminareettinen moskeija" src="https://upload.wikimedia.org/wikipedia/commons/8/81/2-minaret_mosque_in_Semey.jpg" onerror="this.remove()" />
+        <a class="credit" href="https://en.wikipedia.org/wiki/Semey" target="_blank" rel="noopener">Â© Wikimedia</a>
+      </div>
+      <div class="px-3 pt-2 pb-3">
+        <h4 class="text-sm font-semibold">Semey + Polygon</h4>
+        <p class="text-[11px] text-slate-500 mt-0.5">ItÃ¤-Kazakstan</p>
+        <p class="text-xs text-slate-700 mt-2">Dostojevski-museo + ydinkoekenttÃ¤. Polygon raportoitu suljetuksi ulkomaalaisilta â€” vahvista ennen.</p>
+      </div>
+    </article>
+
+    <article class="card tier-dream">
+      <div class="placeholder ph-nature h-32" style="font-size: 3rem;">
+        <span>ðŸŒŠ</span>
+        <img loading="lazy" decoding="async" alt="Markakol â€” alppijÃ¤rvi ItÃ¤-Kazakstanissa" src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Markakol_1.jpg" onerror="this.remove()" />
+        <a class="credit" href="https://en.wikipedia.org/wiki/Markakol" target="_blank" rel="noopener">Â© Wikimedia</a>
+      </div>
+      <div class="px-3 pt-2 pb-3">
+        <h4 class="text-sm font-semibold">Markakol-jÃ¤rvi</h4>
+        <p class="text-[11px] text-slate-500 mt-0.5">ItÃ¤-Kazakstan</p>
+        <p class="text-xs text-slate-700 mt-2">SyrjÃ¤isin alppijÃ¤rvi, 3 pÃ¤ivÃ¤n 4WD-reissu Ã–skemenistÃ¤. Vain Altai-fokus-reissulle.</p>
+      </div>
+    </article>
+
+    <article class="card tier-dream">
+      <div class="placeholder ph-nature h-32" style="font-size: 3rem;"><span>ðŸ—»</span></div>
+      <div class="px-3 pt-2 pb-3">
+        <h4 class="text-sm font-semibold">Aktolagay-liitukalliot</h4>
+        <p class="text-[11px] text-slate-500 mt-0.5">Atyrau</p>
+        <p class="text-xs text-slate-700 mt-2">90 km valkoisia kalkkikivisaarekkeita. Mangystaun "kopio" pohjoiseen â€” toistoa katetuille kohteille.</p>
+      </div>
+    </article>
+
+    <article class="card tier-dream">
+      <div class="placeholder ph-culture h-32" style="font-size: 3rem;">
+        <span>ðŸ°</span>
+        <img loading="lazy" decoding="async" alt="Jochi-khaanin mausoleumi Ulytaussa" src="https://upload.wikimedia.org/wikipedia/commons/7/70/Juchi_Khan_%28cropped%29.JPG" onerror="this.remove()" />
+        <a class="credit" href="https://en.wikipedia.org/wiki/Jochi" target="_blank" rel="noopener">Â© Wikimedia</a>
+      </div>
+      <div class="px-3 pt-2 pb-3">
+        <h4 class="text-sm font-semibold">Ulytau + Jochi-khaan</h4>
+        <p class="text-[11px] text-slate-500 mt-0.5">Keski-Kazakstan</p>
+        <p class="text-xs text-slate-700 mt-2">600 km Astanasta, 2â€“3 pÃ¤ivÃ¤Ã¤. TÅ¡ingisin vanhimman pojan hauta keskellÃ¤ Kazakstania.</p>
+      </div>
+    </article>
+
+    <article class="card tier-dream">
+      <div class="placeholder ph-nature h-32" style="font-size: 3rem;"><span>ðŸœï¸</span></div>
+      <div class="px-3 pt-2 pb-3">
+        <h4 class="text-sm font-semibold">Kiin-Kerish "Henkien kaupunki"</h4>
+        <p class="text-[11px] text-slate-500 mt-0.5">ItÃ¤-Kazakstan</p>
+        <p class="text-xs text-slate-700 mt-2">Punaiset Mars-maisemat. Sopii vain Altai-sub-reissun yhteyteen.</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- =========== TIER 4: OHITETTAVAT =========== -->
+<section id="skip" class="pt-14">
+  <div class="flex items-baseline gap-3 mb-2">
+    <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight">âŒ Ohitettavat</h2>
+    <span class="text-sm text-slate-500">10 kohdetta</span>
+  </div>
+  <p class="text-slate-600 max-w-3xl mb-6">
+    Tutkittiin mutta pÃ¤Ã¤dyttiin ettÃ¤ ei kannata lisÃ¤tÃ¤ â€” joko pÃ¤Ã¤llekkÃ¤isyyttÃ¤ jo katetulle, vaikea saavutettavuus tai liian niche.
+  </p>
+
+  <div class="rounded-xl border border-slate-200 bg-slate-50/60 overflow-hidden">
+    <table class="w-full text-sm">
+      <thead class="bg-slate-100/80 text-slate-600 text-xs uppercase tracking-wide">
+        <tr>
+          <th class="text-left px-4 py-2.5 font-medium">Kohde</th>
+          <th class="text-left px-4 py-2.5 font-medium hidden sm:table-cell">Miksi ohittaa</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-slate-200">
+        <tr><td class="px-4 py-2.5 font-medium">Burabay-NP</td><td class="px-4 py-2.5 text-slate-600">Jo katettu.</td></tr>
+        <tr><td class="px-4 py-2.5 font-medium">Bayanaul + Karkaraly</td><td class="px-4 py-2.5 text-slate-600">Burabayn pÃ¤Ã¤llekkÃ¤isyys (sama "metsÃ¤ + jÃ¤rvet + kalliot" -kokemus, kauempana).</td></tr>
+        <tr><td class="px-4 py-2.5 font-medium">Uralsk (Oral) ja Aktobe</td><td class="px-4 py-2.5 text-slate-600">Kulttuurisesti vivahteikkaat mutta kaukana kaikesta, ei dramaattisia maisemia.</td></tr>
+        <tr><td class="px-4 py-2.5 font-medium">Pavlodar</td><td class="px-4 py-2.5 text-slate-600">"Logistiikka-hub", ei kohde itsessÃ¤Ã¤n.</td></tr>
+        <tr><td class="px-4 py-2.5 font-medium">Inder-jÃ¤rvi</td><td class="px-4 py-2.5 text-slate-600">Kuolleenmeren-tyyppinen kelluntajÃ¤rvi â€” Mangystauta jo katettu.</td></tr>
+        <tr><td class="px-4 py-2.5 font-medium">Botay-arkeologinen alue</td><td class="px-4 py-2.5 text-slate-600">Kohteen pÃ¤Ã¤llÃ¤ vain kaivausalue, ei nÃ¤htÃ¤vÃ¤Ã¤. Petropavlin museo sivussa reitiltÃ¤.</td></tr>
+        <tr><td class="px-4 py-2.5 font-medium">Bozok (Astana)</td><td class="px-4 py-2.5 text-slate-600">Open-air-museo edelleen suunnitteluvaiheessa â€” tarkista valmistuminen ennen reissua.</td></tr>
+        <tr><td class="px-4 py-2.5 font-medium">Saryagashin kuumat lÃ¤hteet</td><td class="px-4 py-2.5 text-slate-600">Kotimaan terveyskylpylÃ¤luonne â€” ei kansainvÃ¤lisille turisteille.</td></tr>
+        <tr><td class="px-4 py-2.5 font-medium">Kapchagai-tekojÃ¤rvi</td><td class="px-4 py-2.5 text-slate-600">Almatylaisten uimajÃ¤rvi â€” Suomessa on jÃ¤rviÃ¤, ei lisÃ¤arvoa.</td></tr>
+        <tr><td class="px-4 py-2.5 font-medium">Ust-Kamenogorsk (Ã–skemen)</td><td class="px-4 py-2.5 text-slate-600">Transit-kaupunki itÃ¤Ã¤n, ei kohde.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- =========== SESONKI =========== -->
+<section class="pt-14">
+  <h2 class="text-2xl font-semibold tracking-tight mb-4">ðŸ“… Sesonkimuistutus</h2>
+  <div class="grid sm:grid-cols-2 gap-3 text-sm">
+    <div class="rounded-lg border border-slate-200 bg-white p-4">
+      <h4 class="font-medium text-emerald-700">Toukoâ€“lokakuu</h4>
+      <ul class="mt-2 space-y-1 text-slate-700">
+        <li>â€¢ <strong>Korgalzhyn-flamingot</strong> â€” lintukausi</li>
+        <li>â€¢ <strong>Assyn ylÃ¤tasanko + Altai-kohteet</strong> â€” tiet kiinni talvella</li>
+      </ul>
+    </div>
+    <div class="rounded-lg border border-slate-200 bg-white p-4">
+      <h4 class="font-medium text-amber-700">Tarkat pÃ¤ivÃ¤t</h4>
+      <ul class="mt-2 space-y-1 text-slate-700">
+        <li>â€¢ <strong>Nauryz-festivaali</strong>: vain 21.â€“22.3.</li>
+        <li>â€¢ <strong>Astana Day</strong>: vain 5.â€“6.7.</li>
+        <li>â€¢ <strong>KotkametsÃ¤stys (autenttinen)</strong>: marraskuuâ€“helmikuu</li>
+      </ul>
+    </div>
+    <div class="rounded-lg border border-slate-200 bg-white p-4 sm:col-span-2">
+      <h4 class="font-medium text-rose-700">âš ï¸ Ã„lÃ¤ lisÃ¤Ã¤</h4>
+      <ul class="mt-2 space-y-1 text-slate-700">
+        <li>â€¢ <strong>World Nomad Games 2026</strong>: pidetÃ¤Ã¤n <strong>Kyrgyzstanissa</strong> (ei Kazakstanissa).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="border-t border-slate-200 bg-slate-50/50 py-6 mt-6">
+  <div class="mx-auto max-w-6xl px-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-slate-500">
+    <p>Tutkimusraportti Â· agentit ajettiin 2026-05-22 Â· pohjadata: <code class="bg-slate-100 px-1 py-0.5 rounded">src/research/_candidates.md</code></p>
+    <p>LisÃ¤ys sights-dataan: kÃ¤ytÃ¤ <code class="bg-slate-100 px-1 py-0.5 rounded">sight-adder</code>-agenttia.</p>
+  </div>
+</footer>
+
+<a href="#" class="scroll-top fixed bottom-5 right-5 rounded-full bg-slate-900 text-white p-3 shadow-lg opacity-80 hover:opacity-100 transition" aria-label="YlÃ¶s">â†‘</a>
+
+</body>
+</html>

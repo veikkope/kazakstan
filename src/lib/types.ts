@@ -6,7 +6,7 @@ export type Region =
   | 'astana'
   | 'turkistan'
   | 'shymkent'
-  | 'mangystau'
+  | 'aktau'
   | 'other';
 
 export type Difficulty = 'easy' | 'moderate' | 'hard';
@@ -251,9 +251,18 @@ export interface ChecklistItem {
   daysBeforeTrip?: number;
 }
 
-export type ShortlistStatus = 'considering' | 'in' | 'out';
-
 export interface ShortlistEntry {
   sightId: string;
-  status: ShortlistStatus;
+  /**
+   * Top-pick / "suosikki" flag. The shortlist itself is the "saved" bucket;
+   * this lifts a sight to a tighter "must do" subset (a handful per trip).
+   * `undefined` / `false` = regular shortlist entry.
+   */
+  priority?: boolean;
+  /**
+   * ISO-8601 date when the sight was marked as visited.
+   * `undefined` means not visited. Stored in localStorage only — kept out
+   * of the share URL so visit progress stays private to the device.
+   */
+  visitedAt?: string;
 }

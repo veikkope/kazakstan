@@ -12,6 +12,12 @@ interface Props {
   aspect?: string;
   /** Extra classes appended to the wrapper. */
   className?: string;
+  /**
+   * Show the CC-BY attribution chip when the sight has imageAttribution.
+   * Defaults to true. Disable for thumbnails wrapped in a Link (avoids
+   * nested-anchor HTML) — the detail page surfaces the credit instead.
+   */
+  showAttribution?: boolean;
 }
 
 /**
@@ -28,6 +34,7 @@ export default function SightImage({
   priority,
   aspect = 'aspect-[4/3]',
   className = '',
+  showAttribution = true,
 }: Props) {
   const meta = categoryMeta[sight.category];
   const wrapperClass = `relative ${aspect} w-full overflow-hidden ${className}`;
@@ -43,7 +50,9 @@ export default function SightImage({
           priority={priority}
           className="object-cover"
         />
-        {sight.imageAttribution && <AttributionChip attribution={sight.imageAttribution} />}
+        {showAttribution && sight.imageAttribution && (
+          <AttributionChip attribution={sight.imageAttribution} />
+        )}
       </div>
     );
   }

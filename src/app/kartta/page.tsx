@@ -9,6 +9,8 @@ import { Button } from '@/components/ui/button';
 import { sights } from '@/data/sights';
 import { excludeDrafts, filterByCategories } from '@/lib/filters';
 import { useUrlState } from '@/lib/url-state';
+import { useShortlist } from '@/lib/shortlist';
+import { cn } from '@/lib/utils';
 import { Card } from '@/components/ui/card';
 import {
   Tooltip,
@@ -20,6 +22,29 @@ type ViewMode = 'map' | 'list';
 
 function KarttaPageInner() {
   const { state, update } = useUrlState();
+  const { entries: shortlistEntries } = useShortlist();
+  // Sets are memoised on the entries array — keeps the marker
+  // popup/icon-sync effects from re-running on unrelated re-renders.
+  // priorityIds and visitedIds are both subsets of shortlistIds (you
+  // can only mark on-list entries as suosikki/käyty).
+  const shortlistIds = useMemo(
+    () => new Set(shortlistEntries.map((e) => e.sightId)),
+    [shortlistEntries],
+  );
+  const priorityIds = useMemo(
+    () =>
+      new Set(
+        shortlistEntries.filter((e) => e.priority).map((e) => e.sightId),
+      ),
+    [shortlistEntries],
+  );
+  const visitedIds = useMemo(
+    () =>
+      new Set(
+        shortlistEntries.filter((e) => e.visitedAt).map((e) => e.sightId),
+      ),
+    [shortlistEntries],
+  );
   // Mobile-only canvas toggle. Desktop uses side-by-side layout and
   // ignores this — state is intentionally not in URL since it's purely
   // ephemeral mobile chrome.
@@ -105,6 +130,9 @@ function KarttaPageInner() {
             sights={visible}
             selectedId={state.selectedId}
             onSelect={(id) => update({ selectedId: id })}
+            shortlistIds={shortlistIds}
+            priorityIds={priorityIds}
+            visitedIds={visitedIds}
           />
 
           {/*
@@ -126,20 +154,26 @@ function KarttaPageInner() {
             Mobile list overlay — covers map when viewMode==='list'.
             pt-14 clears the filter overlay above; the filter stays
             tappable in list mode (filter z=1015 > list z=1010).
+            Kept mounted (toggled via `hidden`) so collapsible-section
+            state inside <SightList> survives map↔list view toggles.
           */}
-          {viewMode === 'list' && (
-            <div
-              role="region"
-              aria-label="Kohteet listana"
-              className="absolute inset-0 z-[1010] overflow-y-auto overscroll-contain bg-background pt-14 sm:hidden"
-            >
-              <SightList
-                sights={visible}
-                selectedId={state.selectedId}
-                onSelect={handleListSelect}
-              />
-            </div>
-          )}
+          <div
+            role="region"
+            aria-label="Kohteet listana"
+            aria-hidden={viewMode !== 'list'}
+            className={cn(
+              'absolute inset-0 z-[1010] overflow-y-auto overscroll-contain bg-background pt-14 sm:hidden',
+              viewMode !== 'list' && 'hidden',
+            )}
+          >
+            <SightList
+              sights={visible}
+              selectedId={state.selectedId}
+              onSelect={handleListSelect}
+              priorityIds={priorityIds}
+              visitedIds={visitedIds}
+            />
+          </div>
 
           {/*
             View toggle FAB — centered along the bottom, above both
@@ -192,6 +226,8 @@ function KarttaPageInner() {
                 onSelect={(id) =>
                   update({ selectedId: id === state.selectedId ? null : id })
                 }
+                priorityIds={priorityIds}
+                visitedIds={visitedIds}
               />
             </div>
           </Card>

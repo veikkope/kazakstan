@@ -38,6 +38,6 @@ export const regionMeta: Record<Region, { fi: string; subtitle?: string }> = {
   'astana': { fi: 'Astana', subtitle: 'Pääkaupunki, moderni arkkitehtuuri' },
   'turkistan': { fi: 'Turkistan', subtitle: 'UNESCO-kohde, silkkitie' },
   'shymkent': { fi: 'Shymkent', subtitle: 'Etelä-Kazakstan' },
-  'mangystau': { fi: 'Mangystau', subtitle: 'Kaspianmeren rannikko, surreaali maisema' },
+  'aktau': { fi: 'Aktau', subtitle: 'Kaspianmeri ja Mangystaun aavikon kohteet' },
   'other': { fi: 'Muu', subtitle: '' },
 };
