@@ -1,8 +1,8 @@
 'use client';
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { Link, usePathname } from '@/i18n/navigation';
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import {
   Sun,
   Map as MapIcon,
@@ -27,7 +27,7 @@ import {
 
 interface Tab {
   href: string;
-  label: string;
+  labelKey: string;
   Icon: LucideIcon;
   /** When true, the icon renders filled (Star, Heart-style) while active. */
   fillWhenActive?: boolean;
@@ -37,26 +37,26 @@ interface Tab {
 
 const PRIMARY_TABS: Tab[] = [
   {
-    href: '/tanaan',
-    label: 'Tänään',
+    href: '/today',
+    labelKey: 'nav.today',
     Icon: Sun,
-    match: (p) => p.startsWith('/tanaan'),
+    match: (p) => p.startsWith('/today'),
   },
   {
-    href: '/kartta',
-    label: 'Kartta',
+    href: '/map',
+    labelKey: 'nav.map',
     Icon: MapIcon,
-    match: (p) => p.startsWith('/kartta'),
+    match: (p) => p.startsWith('/map'),
   },
   {
-    href: '/reittisuunnitelma',
-    label: 'Päivät',
+    href: '/itinerary',
+    labelKey: 'nav.days',
     Icon: CalendarDays,
-    match: (p) => p.startsWith('/reittisuunnitelma'),
+    match: (p) => p.startsWith('/itinerary'),
   },
   {
     href: '/shortlist',
-    label: 'Shortlist',
+    labelKey: 'nav.shortlist',
     Icon: Star,
     fillWhenActive: true,
     match: (p) => p.startsWith('/shortlist'),
@@ -65,16 +65,16 @@ const PRIMARY_TABS: Tab[] = [
 
 interface MoreLink {
   href: string;
-  label: string;
+  labelKey: string;
   Icon: LucideIcon;
 }
 
 const MORE_LINKS: MoreLink[] = [
-  { href: '/', label: 'Etusivu', Icon: Home },
-  { href: '/nahtavyydet', label: 'Nähtävyydet', Icon: MapPin },
-  { href: '/reitit', label: 'Valmiit reitit', Icon: Compass },
-  { href: '/info', label: 'Käytännön info', Icon: Info },
-  { href: '/budjetti', label: 'Budjetti', Icon: Wallet },
+  { href: '/', labelKey: 'nav.home', Icon: Home },
+  { href: '/sights', labelKey: 'nav.sights', Icon: MapPin },
+  { href: '/routes', labelKey: 'nav.routes', Icon: Compass },
+  { href: '/info', labelKey: 'nav.infoLong', Icon: Info },
+  { href: '/budget', labelKey: 'nav.budget', Icon: Wallet },
 ];
 
 function isMorePathActive(href: string, pathname: string): boolean {
@@ -83,17 +83,18 @@ function isMorePathActive(href: string, pathname: string): boolean {
 }
 
 export default function BottomNav() {
+  const t = useTranslations();
   const pathname = usePathname() ?? '/';
   const [open, setOpen] = useState(false);
 
-  const onPrimaryTab = PRIMARY_TABS.some((t) => t.match(pathname));
+  const onPrimaryTab = PRIMARY_TABS.some((tab) => tab.match(pathname));
   const onMorePage = MORE_LINKS.some((l) => isMorePathActive(l.href, pathname));
   const moreActive = !onPrimaryTab && onMorePage;
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <nav
-        aria-label="Pääsivut"
+        aria-label={t('nav.ariaBottom')}
         // z-40 + isolate: rises above any in-page sticky/elevated elements
         // (DayCard accordions, sight cards) so it's never visually obscured.
         // bg-card/95 stays nearly opaque even if backdrop-filter is disabled
@@ -127,7 +128,7 @@ export default function BottomNav() {
                       aria-hidden
                     />
                   </span>
-                  <span className={active ? 'font-semibold' : ''}>{tab.label}</span>
+                  <span className={active ? 'font-semibold' : ''}>{t(tab.labelKey)}</span>
                 </Link>
               </li>
             );
@@ -136,7 +137,7 @@ export default function BottomNav() {
             <SheetTrigger asChild>
               <button
                 type="button"
-                aria-label="Lisää linkkejä"
+                aria-label={t('nav.ariaMore')}
                 aria-expanded={open}
                 className={`group relative flex min-h-16 flex-col items-center justify-center gap-1 px-1 pt-2 pb-1.5 text-[11px] leading-none tracking-tight outline-none select-none transition-colors focus-visible:[&_.nav-pill]:ring-2 focus-visible:[&_.nav-pill]:ring-ring focus-visible:[&_.nav-pill]:ring-offset-2 focus-visible:[&_.nav-pill]:ring-offset-card ${
                   moreActive && !open ? 'text-primary' : 'text-muted-foreground'
@@ -156,7 +157,7 @@ export default function BottomNav() {
                   />
                 </span>
                 <span className={moreActive && !open ? 'font-semibold' : ''}>
-                  Lisää
+                  {t('components.bottomNav.more')}
                 </span>
               </button>
             </SheetTrigger>
@@ -169,7 +170,7 @@ export default function BottomNav() {
         className="rounded-t-2xl bg-card pb-[env(safe-area-inset-bottom)] sm:hidden"
       >
         <SheetHeader>
-          <SheetTitle>Lisää</SheetTitle>
+          <SheetTitle>{t('components.bottomNav.more')}</SheetTitle>
         </SheetHeader>
         <div className="mx-auto w-full max-w-6xl px-4 pb-6">
           <ul className="grid grid-cols-2 gap-2.5">
@@ -197,7 +198,7 @@ export default function BottomNav() {
                       >
                         <Icon className="size-5" aria-hidden />
                       </span>
-                      <span className="font-medium">{l.label}</span>
+                      <span className="font-medium">{t(l.labelKey)}</span>
                     </Link>
                   </SheetClose>
                 </li>

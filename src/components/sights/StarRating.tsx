@@ -1,17 +1,15 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
 import type { SightRatings } from '@/lib/types';
 
 type Dimension = keyof Pick<SightRatings, 'popularity' | 'interest' | 'uniqueness'>;
 
-const LABEL: Record<Dimension, string> = {
-  popularity: 'Suosio',
-  interest: 'Mielenkiinto',
-  uniqueness: 'Erikoisuus',
-};
-
 function Stars({ value }: { value: number }) {
+  const t = useTranslations();
   const clamped = Math.max(0, Math.min(5, Math.round(value)));
   return (
-    <span aria-label={`${clamped} / 5`} className="inline-flex items-center gap-0.5">
+    <span aria-label={t('components.starRating.starsAria', { value: clamped })} className="inline-flex items-center gap-0.5">
       {[1, 2, 3, 4, 5].map((i) => (
         <span
           key={i}
@@ -34,14 +32,21 @@ export function StarRow({
   value: number;
   compact?: boolean;
 }) {
+  const t = useTranslations();
+  const label =
+    dimension === 'popularity'
+      ? t('components.starRating.popularity')
+      : dimension === 'interest'
+        ? t('components.starRating.interest')
+        : t('components.starRating.uniqueness');
   return (
     <div
       className={`flex items-center justify-between gap-2 ${compact ? 'text-xs' : 'text-sm'}`}
     >
-      <span className="text-(--color-muted)">{LABEL[dimension]}</span>
+      <span className="text-(--color-muted)">{label}</span>
       <span className="inline-flex items-center gap-1">
         <Stars value={value} />
-        <span className="text-(--color-muted)">{value}/5</span>
+        <span className="text-(--color-muted)">{t('components.starRating.valueOutOfFive', { value })}</span>
       </span>
     </div>
   );
@@ -67,10 +72,12 @@ export default function StarRating({
 }
 
 export function RatingPlaceholder({ compact = false }: { compact?: boolean }) {
+  const t = useTranslations();
   return (
     <p className={`text-(--color-muted) ${compact ? 'text-xs' : 'text-sm'}`}>
-      ⓘ Ei vielä arvosteltu — aja{' '}
-      <code>place-rater</code> -agentti.
+      {t.rich('components.starRating.placeholder', {
+        code: (chunks) => <code>{chunks}</code>,
+      })}
     </p>
   );
 }

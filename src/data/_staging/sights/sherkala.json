@@ -1,0 +1,63 @@
+{
+  "id": "sherkala",
+  "name": {
+    "fi": "Sherkala-vuori",
+    "en": "Mount Sherkala",
+    "ru": "Гора Шеркала",
+    "kk": "Шеркала тауы"
+  },
+  "shortDescription": {
+    "fi": "Yksinäinen jurttamainen kalliovuori autiomaassa, n. 170 km Aqtausta — Mangystaun klassinen maamerkki.",
+    "en": "A solitary yurt-shaped rock mountain in the desert, about 170 km from Aktau — a classic Mangystau landmark.",
+    "ru": "Одинокая скала в форме юрты посреди пустыни, около 170 км от Актау — классический ориентир Мангистау.",
+    "kk": "Шөлдің ортасында жалғыз тұрған киіз үй пішіндес жартас тауы, Ақтаудан шамамен 170 км — Маңғыстаудың классикалық белгісі."
+  },
+  "description": {
+    "fi": "Sherkala (\"leijonalinnoitus\") kohoaa noin 300 metriä ympäröivän tasangon yläpuolelle aivan Shetpen kylän lähellä. Sileät jyrkänteet ja erottuva muoto tekevät siitä Mangystaun ehkä tunnetuimman maamerkin, ja vuoren juurelta on usein hyvät otokset auringonnousussa tai -laskussa.",
+    "en": "Sherkala (\"lion fortress\") rises about 300 metres above the surrounding plain right next to the village of Shetpe. Its smooth cliffs and distinctive shape make it perhaps the best-known landmark in Mangystau, and the foot of the mountain offers great photos at sunrise or sunset.",
+    "ru": "Шеркала («львиная крепость») поднимается примерно на 300 метров над окружающей равниной у самого посёлка Шетпе. Гладкие отвесы и характерная форма делают её, пожалуй, самым известным ориентиром Мангистау, а у подножия горы получаются отличные кадры на рассвете или закате.",
+    "kk": "Шеркала («арыстан қамалы») қоршаған жазықтан шамамен 300 метрге көтеріліп, Шетпе ауылының жанында тұр. Тегіс жартастары мен ерекше пішіні оны Маңғыстаудың, бәлкім, ең танымал белгісіне айналдырған, ал таудың етегінде күн шығу немесе күн бату кезінде керемет суреттер шығады."
+  },
+  "imageAlt": {
+    "fi": "Sherkala — yksinäinen jurttamainen kalliovuori Mangystaun aavikolla",
+    "en": "Sherkala — a solitary yurt-shaped rock mountain in the Mangystau desert",
+    "ru": "Шеркала — одинокая скала в форме юрты в пустыне Мангистау",
+    "kk": "Шеркала — Маңғыстау шөліндегі жалғыз тұрған киіз үй пішіндес жартас тауы"
+  },
+  "bestSeason": {
+    "fi": "kevät tai syksy; kesällä +40 °C ja tuulinen",
+    "en": "spring or autumn; summer brings +40 °C and strong wind",
+    "ru": "весна или осень; летом +40 °C и сильный ветер",
+    "kk": "көктем немесе күз; жазда +40 °C және қатты жел"
+  },
+  "practicalTips": {
+    "fi": [
+      "Aqtausta n. 170 km — pääosin päällystettyä tietä Shetpe-kylään, viimeiset 10–15 km gravelia. Vuokra-auto pärjää kuivassa säässä JOS vuokrasopimus sallii soratien ajamisen.",
+      "Toinen vaihtoehto: 4WD + opas (kokopäivä n. 40 000–60 000 ₸) — rennompi, kun ei tarvitse keskittyä ajamiseen 350+ km.",
+      "Paras valo aamulla idän puolelta tai illalla lännestä; keskipäivällä kontrasti syö muodot.",
+      "Yli 2 litraa vettä per henkilö, päähine ja tuulta pitävä takki — autiomaassa ei ole varjoa.",
+      "Jos haluat kiivetä vuorelle, anna kuljettajan/oppaan näyttää reitti — virallista polkua ei ole."
+    ],
+    "en": [
+      "About 170 km from Aktau — mostly paved road to Shetpe village, the last 10–15 km on gravel. A rental car will manage in dry weather IF your contract allows gravel roads.",
+      "Alternative: a 4WD with guide (full day around 40,000–60,000 ₸) — more relaxed, no need to focus on driving 350+ km yourself.",
+      "Best light is in the morning from the east or in the evening from the west; midday flattens the contrast.",
+      "Bring more than 2 litres of water per person, a sun hat and a windproof jacket — there is no shade in the desert.",
+      "If you want to climb the mountain, let your driver or guide show the way — there is no official trail."
+    ],
+    "ru": [
+      "Около 170 км от Актау — в основном асфальт до посёлка Шетпе, последние 10–15 км — гравийная дорога. Арендованная машина справится в сухую погоду, ЕСЛИ договор разрешает движение по гравию.",
+      "Альтернатива: внедорожник с гидом (целый день около 40 000–60 000 ₸) — комфортнее, не придётся самим вести машину больше 350 км.",
+      "Лучший свет — утром с востока или вечером с запада; в полдень контраст «съедает» формы.",
+      "Берите больше 2 литров воды на человека, головной убор и ветровку — тени в пустыне нет.",
+      "Если хотите подняться на гору, доверьтесь водителю или гиду — официальной тропы нет."
+    ],
+    "kk": [
+      "Ақтаудан шамамен 170 км — Шетпе ауылына дейін негізінен асфальт жол, соңғы 10–15 км — қиыршық тас. Жалға алған көлік құрғақ ауа райында, жалдау шарты қиыршық таспен жүруге РҰҚСАТ берсе, өтеді.",
+      "Балама нұсқа: жол бастаушысы бар 4WD көлік (толық күн шамамен 40 000–60 000 ₸) — 350+ км жолды өзің жүргізіп шаршамайсың.",
+      "Ең жақсы жарық таңертең шығыс жақтан немесе кешке батыс жақтан түседі; түсте контраст пішіндерді жояды.",
+      "Адам басына 2 литрден астам су, бас киім және желден қорғайтын күрте ала жүріңіз — шөлде көлеңке жоқ.",
+      "Тауға шыққыңыз келсе, жолды жүргізуші немесе гид көрсетсін — ресми соқпақ жоқ."
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "bayterek",
+  "name": {
+    "fi": "Baiterek-torni",
+    "en": "Bayterek Tower",
+    "ru": "Монумент Байтерек",
+    "kk": "Бәйтерек монументі"
+  },
+  "shortDescription": {
+    "fi": "Astanan ikoni — 97 m korkea torni, näköalataso 86 metrissä.",
+    "en": "Astana's icon — a 97 m tower with an observation deck at 86 metres.",
+    "ru": "Символ Астаны — 97-метровая башня со смотровой площадкой на высоте 86 метров.",
+    "kk": "Астананың нышаны — биіктігі 97 м мұнара, 86 метрде шолу алаңы орналасқан."
+  },
+  "description": {
+    "fi": "Symboli kazakkimyytistä, jossa Samruk-lintu munii kultaisen munan. Tornin huipulta avautuu näkymä koko modernin pääkaupungin ylle.",
+    "en": "A symbol of the Kazakh myth in which the Samruk bird lays a golden egg. From the top, the entire modern capital opens up below you.",
+    "ru": "Символ казахского мифа, в котором птица Самрук откладывает золотое яйцо. С вершины открывается вид на всю современную столицу.",
+    "kk": "Самұрық құсы алтын жұмыртқа салатын қазақ мифінің символы. Мұнараның басынан бүкіл заманауи астана көрінеді."
+  },
+  "imageAlt": {
+    "fi": "Bayterek-tornin koristeellinen sisätila Astanassa",
+    "en": "The ornate interior of Bayterek Tower in Astana",
+    "ru": "Богато украшенный интерьер монумента Байтерек в Астане",
+    "kk": "Астанадағы Бәйтерек монументінің әшекейлі ішкі бөлмесі"
+  },
+  "city": {
+    "fi": "Astana",
+    "en": "Astana",
+    "ru": "Астана",
+    "kk": "Астана"
+  },
+  "openingHours": {
+    "fi": "päivittäin 10:00–22:00",
+    "en": "daily 10:00–22:00",
+    "ru": "ежедневно 10:00–22:00",
+    "kk": "күн сайын 10:00–22:00"
+  },
+  "historicalContext": {
+    "fi": "Symboli kazakkien Samruk-lintumyytistä: lintu munii kultaisen munan Tree-of-Life’iin, jota Baiterek edustaa. Arkkitehti Akmurza Rustembekov (EI Norman Foster, joka suunnitteli viereisen Khan Shatyrin), valmistunut 2002, samana vuonna kun Astanasta tuli pääkaupunki.",
+    "en": "A symbol of the Kazakh Samruk bird myth: the bird lays a golden egg in the Tree of Life, which Bayterek represents. Designed by architect Akmurza Rustembekov (NOT Norman Foster, who designed the neighbouring Khan Shatyr), it was completed in 2002 — the same year Astana became the capital.",
+    "ru": "Символ казахского мифа о птице Самрук: птица откладывает золотое яйцо в Древо жизни, которое и олицетворяет Байтерек. Архитектор — Акмурза Рустембеков (НЕ Норман Фостер, спроектировавший соседний Хан Шатыр); построен в 2002 году, в год, когда Астана стала столицей.",
+    "kk": "Қазақтың Самұрық құсы туралы аңызының символы: құс Бәйтерек бейнелейтін Өмір ағашына алтын жұмыртқа салады. Сәулетшісі — Ақмұрза Рүстембеков (іргелес Хан шатырын жобалаған Норман Фостер ЕМЕС), 2002 жылы, Астана астана болған жылы салынды."
+  },
+  "practicalTips": [
+    {
+      "fi": "Aukio ympärillä ilmainen vierailla — Nurzhol-bulevardilta upea näkymä.",
+      "en": "The plaza around it is free to visit — there's a great view from Nurzhol Boulevard.",
+      "ru": "Площадь вокруг можно посетить бесплатно — отличный вид открывается с бульвара Нуржол.",
+      "kk": "Айналасындағы алаң тегін — Нұржол бульварынан керемет көрініс ашылады."
+    },
+    {
+      "fi": "Aikuisten lippu n. 2500 KZT, lapset alennuksella.",
+      "en": "Adult ticket is around 2,500 KZT, with discounts for children.",
+      "ru": "Взрослый билет около 2500 тенге, для детей предусмотрены скидки.",
+      "kk": "Ересек билеті шамамен 2500 теңге, балаларға жеңілдік бар."
+    },
+    {
+      "fi": "Yläkerroksessa Nazarbajevin kämmenen muotoinen muotti — paikallinen toiverituaali.",
+      "en": "Upstairs there's a mould of Nazarbayev's handprint — a local wish-making ritual.",
+      "ru": "На верхнем этаже расположен слепок ладони Назарбаева — местный ритуал загадывания желания.",
+      "kk": "Жоғарғы қабатта Назарбаевтың алақан қалыбы бар — жергілікті тілек тілеу рәсімі."
+    },
+    {
+      "fi": "Auringonlasku iltapäivällä = paras kuvauspaikka ympärillä.",
+      "en": "Sunset in the late afternoon is the best time to photograph the surroundings.",
+      "ru": "Закат во второй половине дня — лучшее время для съёмки окрестностей.",
+      "kk": "Күн батар алдындағы кешкі уақыт — айналаны суретке түсіруге ең қолайлы кез."
+    },
+    {
+      "fi": "Yhdistä Khan Shatyrin kanssa kävellen (~1 km Nurzhol-bulevardia).",
+      "en": "Combine with Khan Shatyr on foot (about 1 km along Nurzhol Boulevard).",
+      "ru": "Совместите с Хан Шатыром пешком (около 1 км по бульвару Нуржол).",
+      "kk": "Хан шатырымен жаяу серуенмен бірге барыңыз (Нұржол бульвары бойымен ~1 км)."
+    }
+  ]
+}

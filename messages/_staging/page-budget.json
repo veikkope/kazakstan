@@ -1,0 +1,10 @@
+{
+  "page": "budget",
+  "namespace": "pages.budget",
+  "additions": {
+    "fi": {},
+    "en": {},
+    "ru": {},
+    "kk": {}
+  }
+}

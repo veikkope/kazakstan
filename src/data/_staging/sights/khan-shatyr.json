@@ -1,0 +1,89 @@
+{
+  "id": "khan-shatyr",
+  "name": {
+    "fi": "Khan Shatyr",
+    "en": "Khan Shatyr",
+    "ru": "Хан Шатыр",
+    "kk": "Хан шатыры"
+  },
+  "shortDescription": {
+    "fi": "Maailman suurin telttarakennelma — Foster + Partnersin suunnittelema kauppakeskus.",
+    "en": "The world's largest tent structure — a shopping centre designed by Foster + Partners.",
+    "ru": "Крупнейшее в мире шатровое сооружение — торговый центр по проекту Foster + Partners.",
+    "kk": "Әлемдегі ең үлкен шатыр құрылысы — Foster + Partners жобалаған сауда орталығы."
+  },
+  "description": {
+    "fi": "150 m korkea läpinäkyvä \"jurtta\" kestää –35 °C:n pakkasen ja luo sisälleen kesän. Sisältä löytyy ostosalueita, kahviloita ja jopa hiekkaranta.",
+    "en": "A 150 m transparent \"yurt\" that withstands −35 °C frost and creates an indoor summer. Inside you'll find shopping areas, cafés and even a sandy beach.",
+    "ru": "150-метровая прозрачная «юрта» выдерживает мороз до −35 °C и создаёт внутри лето. Внутри — магазины, кафе и даже песчаный пляж.",
+    "kk": "150 м биіктіктегі мөлдір «киіз үй» −35 °C аязға төтеп беріп, ішінде жаз жасайды. Ішінде сауда аймақтары, кафелер және тіпті құмды жағажай бар."
+  },
+  "imageAlt": {
+    "fi": "Khan Shatyr -teltta Astanan keskustassa",
+    "en": "The Khan Shatyr tent in central Astana",
+    "ru": "Шатёр Хан Шатыр в центре Астаны",
+    "kk": "Астана орталығындағы Хан шатыры"
+  },
+  "city": {
+    "fi": "Astana",
+    "en": "Astana",
+    "ru": "Астана",
+    "kk": "Астана"
+  },
+  "openingHours": {
+    "fi": "ma–su 10:00–22:00 (vahvista virallisesta sivusta)",
+    "en": "Mon–Sun 10:00–22:00 (confirm on the official site)",
+    "ru": "пн–вс 10:00–22:00 (уточняйте на официальном сайте)",
+    "kk": "дүйсенбі–жексенбі 10:00–22:00 (ресми сайттан тексеріңіз)"
+  },
+  "historicalContext": {
+    "fi": "Sir Norman Fosterin ja Foster + Partnersin suunnittelema, valmistunut 2010. Moderni uudelleentulkinta kazakkilaisesta jurtasta — ETFE-kalvotekniikka kestää −35 °C talvet ja kesän kuumuuden, mikä luo sisälleen pysyvät kesäolosuhteet steppien keskelle.",
+    "en": "Designed by Sir Norman Foster and Foster + Partners, completed in 2010. A modern reinterpretation of the Kazakh yurt — ETFE membrane technology handles −35 °C winters and summer heat alike, creating permanent summer conditions inside in the middle of the steppe.",
+    "ru": "Спроектирован сэром Норманом Фостером и Foster + Partners, открыт в 2010 году. Современное переосмысление казахской юрты — мембрана ETFE выдерживает зимы при −35 °C и летнюю жару, создавая внутри постоянное лето посреди степи.",
+    "kk": "Сэр Норман Фостер мен Foster + Partners жобалаған, 2010 жылы пайдалануға берілген. Қазақ киіз үйінің заманауи қайта ойластырылуы — ETFE мембрана технологиясы −35 °C қыс пен жаз ыстығына төтеп беріп, дала ортасында тұрақты жаз жағдайын қалыптастырады."
+  },
+  "practicalTips": [
+    {
+      "fi": "Sisäänkäynti ostoskeskukseen on ilmainen — maksat vain käyttämistäsi attraktioista ja ruoasta.",
+      "en": "Entry to the shopping centre is free — you only pay for the attractions and food you use.",
+      "ru": "Вход в торговый центр бесплатный — платите только за используемые аттракционы и еду.",
+      "kk": "Сауда орталығына кіру тегін — тек пайдаланған аттракциондар мен тағамға ғана төлейсіз."
+    },
+    {
+      "fi": "Sky Beach -hiekkaranta yläkerrassa on erikseen maksullinen; kesäkuussa vähemmän käytetty kuin talvella (alkup. talven kesäloma-konsepti).",
+      "en": "The Sky Beach sandy beach on the upper floor has a separate fee; it's less crowded in June than in winter (the original concept was a winter summer holiday).",
+      "ru": "Песчаный пляж Sky Beach на верхнем этаже оплачивается отдельно; в июне он менее посещаем, чем зимой (изначально задумывался как зимний «летний отдых»).",
+      "kk": "Жоғарғы қабаттағы Sky Beach құмды жағажайы бөлек ақылы; маусымда қыспен салыстырғанда азырақ адам болады (бастапқы тұжырымдама — қыстағы жазғы демалыс)."
+    },
+    {
+      "fi": "Sky Beachin hintahaitari 12 000–50 000 KZT lähteittäin — vahvista paikan päällä, viikonloput selvästi kalliimpia.",
+      "en": "Sky Beach prices range from 12,000–50,000 KZT depending on the source — confirm on site; weekends are notably more expensive.",
+      "ru": "Цены на Sky Beach варьируются от 12 000 до 50 000 тенге по разным данным — уточняйте на месте, выходные заметно дороже.",
+      "kk": "Sky Beach бағасы дереккөздерге қарай 12 000–50 000 теңге аралығында — орнында нақтылаңыз, демалыс күндері айтарлықтай қымбатырақ."
+    },
+    {
+      "fi": "Monorail-kierros sisällä noin 1 000 KZT, drop tower ja dinopark erikseen.",
+      "en": "The indoor monorail ride costs around 1,000 KZT; the drop tower and dinopark are extra.",
+      "ru": "Внутренний монорельс стоит около 1000 тенге; башня свободного падения и динопарк оплачиваются отдельно.",
+      "kk": "Іштегі монорельс серуені шамамен 1000 теңге, drop tower мен динопарк бөлек."
+    },
+    {
+      "fi": "Iltavalo on paras ulkokuoren kuvaukseen — läpinäkyvyys hehkuttaa värivaloissa.",
+      "en": "Evening light is best for photographing the exterior — the translucent shell glows under coloured lighting.",
+      "ru": "Вечерний свет лучше всего подходит для съёмки внешней оболочки — она светится в цветной подсветке.",
+      "kk": "Сыртқы қабықты суретке түсіруге кешкі жарық ең қолайлы — мөлдір қабық түрлі-түсті жарықпен жарқырайды."
+    },
+    {
+      "fi": "Yhdistä Baiterekin kanssa kävellen Nurzhol-bulevardia (~1 km).",
+      "en": "Combine with Bayterek on foot along Nurzhol Boulevard (~1 km).",
+      "ru": "Совместите с Байтереком пешком по бульвару Нуржол (~1 км).",
+      "kk": "Нұржол бульвары бойымен жаяу Бәйтерекпен бірге барыңыз (~1 км)."
+    },
+    {
+      "fi": "Aukioloajat n. 10:00–22:00 — vahvista Khan Shatyrin viralliselta sivulta.",
+      "en": "Opening hours are roughly 10:00–22:00 — confirm on the official Khan Shatyr website.",
+      "ru": "Часы работы примерно 10:00–22:00 — уточняйте на официальном сайте Хан Шатыр.",
+      "kk": "Жұмыс уақыты шамамен 10:00–22:00 — Хан шатырының ресми сайтынан тексеріңіз."
+    }
+  ]
+}

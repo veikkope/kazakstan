@@ -1,7 +1,9 @@
 'use client';
 
+import { useLocale, useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { allCategories, categoryMeta } from '@/data/categories';
+import { asLocale, localised } from '@/lib/i18n-helpers';
 import type { Category } from '@/lib/types';
 
 interface Props {
@@ -18,6 +20,8 @@ interface Props {
 }
 
 export default function CategoryFilter({ value, onChange, layout = 'scroll' }: Props) {
+  const t = useTranslations();
+  const loc = asLocale(useLocale());
   const active = new Set(value);
   // Empty value means "show all" — render all chips as active for clarity.
   const isAllShown = value.length === 0;
@@ -56,7 +60,7 @@ export default function CategoryFilter({ value, onChange, layout = 'scroll' }: P
         aria-pressed={isAllShown}
         className="min-h-11 shrink-0 rounded-full px-4"
       >
-        Kaikki
+        {t('components.categoryFilter.all')}
       </Button>
       {allCategories.map((cat) => {
         const meta = categoryMeta[cat];
@@ -76,7 +80,7 @@ export default function CategoryFilter({ value, onChange, layout = 'scroll' }: P
             }`}
             style={isOn ? { backgroundColor: meta.color } : undefined}
           >
-            {meta.emoji} {meta.fi}
+            {meta.emoji} {localised(meta.label, loc)}
           </Button>
         );
       })}

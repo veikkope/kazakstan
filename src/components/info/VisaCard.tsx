@@ -1,8 +1,11 @@
+import { getLocale } from 'next-intl/server';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { visaInfo } from '@/data/practical';
+import { asLocale, localised } from '@/lib/i18n-helpers';
 
-export default function VisaCard() {
+export default async function VisaCard() {
+  const loc = asLocale(await getLocale());
   return (
     <Card className="border-2 border-(--color-steppe) py-6">
       <CardContent>
@@ -20,7 +23,7 @@ export default function VisaCard() {
             OK
           </Badge>
         </div>
-        <p className="mt-3 text-(--color-fg)">{visaInfo.notes}</p>
+        <p className="mt-3 text-(--color-fg)">{localised(visaInfo.notes, loc)}</p>
         <div className="mt-4 flex flex-wrap items-center gap-3 text-sm">
           <span className="text-(--color-muted)">
             Viimeksi tarkistettu: <strong>{visaInfo.lastVerified}</strong>

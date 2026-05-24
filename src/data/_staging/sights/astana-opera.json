@@ -1,0 +1,65 @@
+{
+  "id": "astana-opera",
+  "name": {
+    "fi": "Astana Opera",
+    "en": "Astana Opera",
+    "ru": "Астана Опера",
+    "kk": "Астана Опера"
+  },
+  "shortDescription": {
+    "fi": "Italian uusklassinen oopperatalo Astanassa — 1250-paikkainen \"valkoinen kakku\".",
+    "en": "An Italian neoclassical opera house in Astana — a 1,250-seat \"white cake\".",
+    "ru": "Итальянский неоклассический оперный театр в Астане — \"белый торт\" на 1250 мест.",
+    "kk": "Астанадағы итальяндық неоклассикалық опера театры — 1250 орындық \"ақ торт\"."
+  },
+  "description": {
+    "fi": "Vuonna 2013 avattu oopperatalo on italialaisten arkkitehtien suunnittelema neoklassinen rakennus, jossa on antiikin kreikkalaisia ja kazakkilaisia koristeaiheita. Päänäyttämön sali vetää 1250 katsojaa ja pienempi kamarisali 250.\n\nOhjelmistossa kuullaan sekä länsimaista klassista oopperaa (Verdi, Puccini) että kazakkilaista oopperaa ja balettia. Kesäkuussa kausi on jo päättynyt, joten käyntinne keskittyy todennäköisesti ulkoarkkitehtuuriin ja mahdolliseen opastettuun kierrokseen.",
+    "en": "Opened in 2013, this opera house was designed by Italian architects in a neoclassical style, with motifs drawn from both ancient Greek and Kazakh ornamentation. The main auditorium seats 1,250 and the smaller chamber hall 250.\n\nThe repertoire features Western classical opera (Verdi, Puccini) alongside Kazakh opera and ballet. By June the season has already finished, so your visit will most likely focus on the exterior architecture and possibly a guided tour.",
+    "ru": "Открытый в 2013 году оперный театр спроектирован итальянскими архитекторами в неоклассическом стиле с античными греческими и казахскими орнаментальными мотивами. Главный зал вмещает 1250 зрителей, малый камерный — 250.\n\nВ репертуаре — западная классическая опера (Верди, Пуччини), а также казахская опера и балет. К июню сезон уже завершён, поэтому ваше посещение скорее всего будет посвящено внешней архитектуре и возможной экскурсии.",
+    "kk": "2013 жылы ашылған опера театрын итальяндық сәулетшілер ежелгі грек және қазақ ою-өрнектерін біріктіріп, неоклассикалық стильде жобалаған. Басты залға 1250 көрермен, кіші камералық залға 250 көрермен сыяды.\n\nРепертуарда батыс классикалық операсы (Верди, Пуччини) сондай-ақ қазақ операсы мен балеті орын алған. Маусымда маусым аяқталған болады, сондықтан сапарыңыз негізінен сыртқы сәулет пен мүмкін экскурсияға арналады."
+  },
+  "imageAlt": {
+    "fi": "Astana Opera — uusklassinen italianstyle oopperarakennus",
+    "en": "Astana Opera — a neoclassical Italian-style opera building",
+    "ru": "Астана Опера — неоклассическое оперное здание в итальянском стиле",
+    "kk": "Астана Опера — итальяндық стильдегі неоклассикалық опера ғимараты"
+  },
+  "city": {
+    "fi": "Astana",
+    "en": "Astana",
+    "ru": "Астана",
+    "kk": "Астана"
+  },
+  "openingHours": {
+    "fi": "esityskausi syyskuu–toukokuu; kesä-heinäkuussa pääsääntöisesti suljettu",
+    "en": "performance season September–May; generally closed in June–July",
+    "ru": "сезон спектаклей сентябрь–май; в июне–июле, как правило, закрыт",
+    "kk": "қойылым маусымы қыркүйек–мамыр; маусым–шілдеде әдетте жабық"
+  },
+  "practicalTips": [
+    {
+      "fi": "Tarkista ajantasainen ohjelma astanaopera.kz — kesäkuussa harvoin esityksiä.",
+      "en": "Check the current programme at astanaopera.kz — performances are rare in June.",
+      "ru": "Сверьтесь с актуальной афишей на astanaopera.kz — в июне спектакли проходят редко.",
+      "kk": "Ағымдағы бағдарламаны astanaopera.kz сайтынан тексеріңіз — маусымда қойылымдар сирек."
+    },
+    {
+      "fi": "Jos kausi on kiinni, ulkoarkkitehtuuri ja portaikko-aukio riittävät 30–45 min käyntiin.",
+      "en": "If the season is closed, the exterior architecture and the stepped plaza are enough for a 30–45 minute visit.",
+      "ru": "Если сезон закрыт, внешней архитектуры и площади с лестницей хватит на визит в 30–45 минут.",
+      "kk": "Маусым жабық болса, сыртқы сәулеті мен баспалдақты алаң 30–45 минуттық сапарға жетеді."
+    },
+    {
+      "fi": "Esityksiin pukukoodi on smart casual; lippuja saa 3000–25 000 KZT välillä.",
+      "en": "The dress code for performances is smart casual; tickets range from 3,000 to 25,000 KZT.",
+      "ru": "Дресс-код на спектакли — smart casual; билеты от 3 000 до 25 000 тенге.",
+      "kk": "Қойылымдарға киім үлгісі — smart casual; билет бағасы 3 000–25 000 теңге аралығында."
+    },
+    {
+      "fi": "Sijaitsee vasemmalla rannalla, kävelymatkan päässä Khan Shatyrista.",
+      "en": "Located on the left bank, within walking distance of Khan Shatyr.",
+      "ru": "Расположен на левом берегу, в пешей доступности от Хан Шатыра.",
+      "kk": "Сол жағалауда орналасқан, Хан Шатырдан жаяу жүретін қашықтықта."
+    }
+  ]
+}

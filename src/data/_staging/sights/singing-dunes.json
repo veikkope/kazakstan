@@ -1,0 +1,65 @@
+{
+  "id": "singing-dunes",
+  "name": {
+    "fi": "Laulavat dyynit (Altyn-Emel)",
+    "en": "Singing Dunes (Altyn-Emel)",
+    "ru": "Поющие барханы (Алтын-Эмель)",
+    "kk": "Әнші құм (Алтынемел)"
+  },
+  "shortDescription": {
+    "fi": "150 m korkea hiekkadyyni, joka \"laulaa\" kuivassa säässä.",
+    "en": "A 150 m sand dune that \"sings\" in dry weather.",
+    "ru": "Песчаный бархан высотой 150 м, который «поёт» в сухую погоду.",
+    "kk": "Құрғақ ауа райында «ән салатын» биіктігі 150 м құм бархан."
+  },
+  "description": {
+    "fi": "Altyn-Emelin kansallispuiston tähti — kuivan tuulen liikuttaman hiekan ääni muistuttaa kaukaista urkujen huokausta. Tarvitaan puiston pääsylippu ja kuljettaja.",
+    "en": "The star of Altyn-Emel National Park — sand moved by the dry wind produces a sound like a distant organ. You'll need a park entry permit and a driver.",
+    "ru": "Главная достопримечательность национального парка Алтын-Эмель — звук песка, который перемещает сухой ветер, напоминает далёкое звучание органа. Нужен входной билет в парк и водитель.",
+    "kk": "Алтынемел ұлттық паркінің жұлдызы — құрғақ жел қозғалтқан құмның дауысы алыстағы органның үнін еске салады. Парк билеті мен жүргізуші қажет."
+  },
+  "imageAlt": {
+    "fi": "Laulavat hiekkadyynit Altyn-Emelin laaksossa",
+    "en": "Singing sand dunes in the Altyn-Emel valley",
+    "ru": "Поющие песчаные барханы в долине Алтын-Эмель",
+    "kk": "Алтынемел аңғарындағы әнші құм бархандар"
+  },
+  "practicalTips": [
+    {
+      "fi": "Altyn-Emelin kansallispuiston pääsylippu n. 1500–2500 KZT/hlö + ajoneuvomaksu — maksetaan portilla.",
+      "en": "Altyn-Emel National Park entry is around 1,500–2,500 KZT per person plus a vehicle fee — paid at the gate.",
+      "ru": "Входной билет в национальный парк Алтын-Эмель около 1500–2500 тенге с человека плюс плата за машину — оплачивается на въезде.",
+      "kk": "Алтынемел ұлттық паркіне кіру билеті адам басына шамамен 1500–2500 теңге + көлік ақысы — қақпада төленеді."
+    },
+    {
+      "fi": "Sisäänpääsy vaatii erillisen luvan: hae viranomaisilta (Saryozek) tai operaattorilta etukäteen — voi viedä päivän.",
+      "en": "Entry requires a separate permit: apply via the authorities in Saryozek or through an operator in advance — it can take a day.",
+      "ru": "Для въезда нужно отдельное разрешение: оформите его заранее у властей в Сарыозеке или через оператора — это может занять день.",
+      "kk": "Кіру үшін бөлек рұқсат қажет: Сарыөзек әкімдігінен немесе оператордан алдын ала алыңыз — бір күн алуы мүмкін."
+    },
+    {
+      "fi": "Etäisyys Almatysta n. 300 km — yhden päivän retki tiukka, suositus 2 päivää + yöpyminen Basshissa.",
+      "en": "About 300 km from Almaty — a day trip is tight; better to plan 2 days with an overnight in Basshi.",
+      "ru": "Около 300 км от Алматы — однодневная поездка слишком напряжённая, лучше планировать 2 дня с ночёвкой в Басши.",
+      "kk": "Алматыдан шамамен 300 км — бір күндік сапар тым тығыз, Басшыда түнеп 2 күн жоспарлаған дұрыс."
+    },
+    {
+      "fi": "Aurinkosuoja, päähine ja 3 l vettä/hlö — varjoa ei ole, kesällä +40 °C.",
+      "en": "Sunscreen, a hat and 3 litres of water per person — there's no shade, and summers reach +40 °C.",
+      "ru": "Солнцезащитный крем, головной убор и 3 литра воды на человека — тени нет, летом до +40 °C.",
+      "kk": "Күннен қорғану кремі, бас киім және адам басына 3 литр су — көлеңке жоқ, жазда +40 °C дейін көтеріледі."
+    },
+    {
+      "fi": "Paras aika dyyneille on aamu tai ilta — keskipäivän kuumassa hiekka voi olla liian kuumaa kävellä.",
+      "en": "The best time on the dunes is morning or evening — in midday heat the sand can be too hot to walk on.",
+      "ru": "Лучшее время на барханах — утро или вечер: в полуденную жару песок может быть слишком горячим для ходьбы.",
+      "kk": "Бархандарда жүрудің ең жақсы уақыты — таңертең немесе кешке, түскі ыстықта құм тым ыстық болуы мүмкін."
+    },
+    {
+      "fi": "Kuljettaja + 4WD Almatysta n. 200–300 €/päivä — jaettu retki halvempi.",
+      "en": "Driver plus 4WD from Almaty runs about €200–300 per day — a shared trip is cheaper.",
+      "ru": "Водитель плюс внедорожник из Алматы — около 200–300 € в день, групповая поездка обойдётся дешевле.",
+      "kk": "Жүргізуші мен 4WD көлік Алматыдан күніне шамамен 200–300 € — топтық сапар арзанырақ."
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 # Kazakstan-reissun suunnittelusivusto
 
-Henkilökohtainen, suomenkielinen matkasuunnittelusivu Kazakstaniin. Kahden ihmisen päätöstyökalu — ei pelkkä nähtävyyskatalogi. Julkinen URL, ei autentikointia, ei tietokantaa, ei i18n:ää.
+Henkilökohtainen monikielinen matkasuunnittelusivu Kazakstaniin. Kahden ihmisen päätöstyökalu — ei pelkkä nähtävyyskatalogi. Julkinen URL, ei autentikointia, ei tietokantaa.
 
 ## Stack
 
@@ -12,17 +12,35 @@ Henkilökohtainen, suomenkielinen matkasuunnittelusivu Kazakstaniin. Kahden ihmi
 - Sisältö **typed TS-moduuleina** `src/data/`:ssa — ei JSON, ei DB, ei CMS
 - Deploy **Vercel**
 
-## Kielikäytäntö
+## Kielikäytäntö (i18n)
 
-- UI-tekstit, sisältö ja URL-slugit **suomeksi** (`/kartta`, `/nahtavyydet`, `/reitit`, `/reittisuunnitelma`, `/shortlist`, `/info`, `/budjetti`)
-- Koodi-identifierit ja kommentit **englanniksi**
+- **Tuetut kielet**: `fi` (suomi, canonical), `en` (English), `ru` (русский), `kk` (қазақша)
+- **Default**: `fi`. Fallback käännöksen puuttuessa: `fi`.
+- **Locale-prefix pakollinen joka URL:lle**: `/fi/...`, `/en/...`, `/ru/...`, `/kk/...`. Root `/` redirectaa parhaaseen kieleen (Accept-Language + cookie).
+- **Page-paths englanniksi** kaikille kielille (kansainvälinen URL-konventio):
+  - `/<locale>/map`, `/<locale>/sights`, `/<locale>/sights/[slug]`, `/<locale>/routes`, `/<locale>/itinerary`, `/<locale>/shortlist`, `/<locale>/info`, `/<locale>/budget`, `/<locale>/today`, `/<locale>/car-rental`
+- **Sight-slugit pysyvät Latin-pohjaisina** ja yhteisinä kaikille kielille (esim. `/ru/sights/charyn-canyon`).
+- **Koodi-identifierit ja kommentit englanniksi.**
+- **Kirjasto**: `next-intl` — server-component-yhteensopiva, type-safe message keys.
+
+### Käännösprosessi (drift-hallinta)
+
+- **Canonical = `fi`**. Sisältö kirjoitetaan ensin suomeksi.
+- Localisoidut Sight-stringit ovat inline-objekteja: `name: { fi, en, ru, kk }`. TypeScript pakottaa kaikki kielet → drift mahdoton compile-aikana.
+- **`lastTranslated`** per locale per entry. Jos `lastEdited > lastTranslated.<locale>`, käännös on stale.
+- UI-stringit `messages/<locale>.json`-tiedostoissa, hierarkkiset avaimet (esim. `sights.empty.title`).
+- AI-käännökset Claude-agentilla, natiivi-tarkistus mahdollisuuksien mukaan (erityisesti kazakki).
+- **Älä commitaa puutteellisia käännöksiä** ilman fallbackia. Pre-commit-tarkistus tunnistaa puuttuvat avaimet.
 
 ## Tiedostokartta
 
-- `src/app/<finnish-slug>/page.tsx` — App Router -sivut
-- `src/components/<feature>/` — feature-grouped (map, sights, itinerary, presets, info, budget, layout)
-- `src/data/` — sisältö (sights, presets, itinerary, practical, checklist, budget, categories)
-- `src/lib/` — types, filters, distance, url-state, shortlist, currency
+- `src/app/[locale]/<english-path>/page.tsx` — App Router -sivut, locale-prefixin alla
+- `src/middleware.ts` — locale detection + redirect
+- `src/i18n/` — next-intl config (locales, request, navigation)
+- `messages/<locale>.json` — UI-stringit per locale
+- `src/components/<feature>/` — feature-grouped (map, sights, itinerary, presets, info, budget, layout, navigation)
+- `src/data/` — sisältö (sights, presets, itinerary, practical, checklist, budget, categories, logistics)
+- `src/lib/` — types, filters, distance, url-state, shortlist, currency, search, route
 - `public/leaflet/` — itse-hostatut marker-iconit
 - `public/images/sights/` — kohteiden kuvat (`<slug>.jpg`)
 
@@ -44,7 +62,7 @@ Henkilökohtainen, suomenkielinen matkasuunnittelusivu Kazakstaniin. Kahden ihmi
 
 ### Lukitut säännöt (kaikkialla samalla tavalla)
 
-1. **Yksi yhtenäinen URL-parametriskeema:** `cat` (kategoriat CSV), `region` (alueet CSV), `id` (valittu yksi), `sl` (shortlist CSV). Sama parsija `src/lib/url-state.ts`:ssä.
+1. **Yksi yhtenäinen URL-parametriskeema:** `cat` (kategoriat CSV), `region` (alueet CSV), `id` (valittu yksi), `sl` (shortlist CSV), `sort` (sortDimension), `q` (haku-string). Sama parsija `src/lib/url-state.ts`:ssä. Locale ei ole query-param vaan path-prefix.
 2. **URL-päivitykset aina `router.replace`** — ei `router.push`, muuten historian stack paisuu.
 3. **Shortlist on SSR-turvallinen:** ei `localStorage`-lukua renderissä; vain `useEffect`issä. URL voittaa localStoragen mountissa.
 4. **`status: 'draft'`-kohteet eivät näy oletuksena:** EI kartalla, EI preseteissä, EI nearby-listassa. Vain etusivun "Myöhemmin lisättävät"-osiossa ja `/nahtavyydet?showDrafts=1`. Käytä `excludeDrafts(sights)` `filters.ts`:stä oletuksena.
@@ -58,7 +76,9 @@ Henkilökohtainen, suomenkielinen matkasuunnittelusivu Kazakstaniin. Kahden ihmi
 
 ### Mitä EI saa tehdä
 - Ei tietokantaa, ei autentikointia, ei CMS:ää.
-- Ei i18n-koneistoa — suomi only.
+- Ei i18n-kielten lisäämistä ilman tyypitettyä `Locale`-unionin päivitystä — kaikki 4 kieltä joko täysi tuki tai ei mitään (drift estetty).
+- Ei locale-spesifejä page-pathseja (`/en/sights` ja `/ru/sights` ovat samat). Käännös on UI-stringeissä ja sisältödatassa, ei URL:ssä.
+- Ei kovakoodattuja suomi-stringejä komponenteissa — kaikki käännetty `useTranslations()`-kutsulla tai `messages/<locale>.json`:ista.
 - Ei Google Maps -korvausta Leafletille (lisenssi + maksu).
 - Ei server-only API:ja client-komponentteihin.
 

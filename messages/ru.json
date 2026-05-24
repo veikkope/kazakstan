@@ -1,0 +1,528 @@
+{
+  "_meta": {
+    "language": "Русский",
+    "lastTranslated": "2026-05-24",
+    "canonical": false,
+    "translatedFrom": "fi",
+    "conventions": "Namespace pattern: pages.<route>.<element>, components.<feature>.<element>, common.<element>, errors.<context>. Keys camelCase, values native Russian. Pluralization uses ICU MessageFormat with Russian categories: {count, plural, one {объект} few {объекта} many {объектов} other {объекта}}."
+  },
+  "common": {
+    "loading": "Загрузка…",
+    "cancel": "Отмена",
+    "close": "Закрыть",
+    "clear": "Очистить",
+    "save": "Сохранить",
+    "back": "Назад",
+    "more": "Ещё",
+    "open": "Открыть",
+    "search": "Поиск",
+    "yes": "Да",
+    "no": "Нет"
+  },
+  "languageSwitcher": {
+    "label": "Сменить язык",
+    "current": "Текущий язык: {language}"
+  },
+  "brand": {
+    "name": "Казахстан",
+    "tagline": "Планирование поездки в Казахстан"
+  },
+  "nav": {
+    "home": "Главная",
+    "today": "Сегодня",
+    "map": "Карта",
+    "sights": "Достопримечательности",
+    "routes": "Готовые маршруты",
+    "itinerary": "План маршрута",
+    "shortlist": "Шорт-лист",
+    "info": "Инфо",
+    "budget": "Бюджет",
+    "days": "Дни",
+    "infoLong": "Практическая информация",
+    "carRental": "Прокат авто (Актау)",
+    "ariaPrimary": "Основная навигация",
+    "ariaBottom": "Основные страницы",
+    "ariaMore": "Дополнительные ссылки"
+  },
+  "errors": {
+    "notFound": {
+      "title": "404 — Не найдено",
+      "description": "Этой страницы не существует. Возможно, вы имели в виду:",
+      "linkMap": "Карта",
+      "linkSights": "Достопримечательности",
+      "linkRoutes": "Готовые маршруты",
+      "cta": "На главную"
+    }
+  },
+  "pages": {
+    "home": {
+      "eyebrow": "Путеводитель для себя и друга",
+      "title": "Планируем поездку в Казахстан.",
+      "intro": "Это инструмент для принятия решений — изучайте места на карте, сравнивайте готовые маршруты и сохраняйте избранное в шорт-лист. Поделитесь текущим видом с другом по ссылке.",
+      "pathMapTitle": "Смотреть на карте",
+      "pathMapDescription": "Интерактивная карта и фильтры. Нажимайте на объекты и добавляйте в шорт-лист.",
+      "pathRoutesTitle": "Готовые маршрутные основы",
+      "pathRoutesDescription": "3 разные основы: на 5, 7 и 10 дней. Хорошая отправная точка.",
+      "pathInfoTitle": "Практическая информация",
+      "pathInfoDescription": "Виза, валюта, транспорт, чек-лист перед отъездом.",
+      "featuredHeading": "Классические места",
+      "draftsHeading": "Будут добавлены позже / ждут подтверждения",
+      "draftsDescription": "Эти объекты ещё не отображаются на карте — ждут подтверждения."
+    },
+    "map": {
+      "title": "Карта",
+      "resultCount": "{count, plural, one {# объект} few {# объекта} many {# объектов} other {# объекта}}.",
+      "tipAriaLabel": "Подсказка по карте",
+      "tipTooltip": "Нажмите на маркер или строку списка, чтобы приблизить.",
+      "listRegionAriaLabel": "Объекты списком",
+      "switchToListAriaLabel": "Переключить в список — {count, plural, one {# объект} few {# объекта} many {# объектов} other {# объекта}}",
+      "switchToMapAriaLabel": "Переключить на карту",
+      "list": "Список",
+      "map": "Карта",
+      "rentalPin": {
+        "subtitle": "Выдача и возврат арендованного авто в Актау.",
+        "pickup": "Выдача: {date}",
+        "return": "Возврат: {date}",
+        "address": "Адрес: {address}",
+        "hours": "Часы работы: {hours}",
+        "hrefLabel": "Подробные инструкции"
+      }
+    },
+    "sights": {
+      "title": "Достопримечательности",
+      "subtitle": "<bold>{count, plural, one {# объект} few {# объекта} many {# объектов} other {# объекта}}</bold>. Используйте фильтры, чтобы сузить выбор.",
+      "resultsCountMobile": "<bold>{count, plural, one {# объект} few {# объекта} many {# объектов} other {# объекта}}</bold>",
+      "filterButton": "Фильтр",
+      "filterButtonAria": "Фильтры",
+      "filterButtonActiveAria": "Фильтры — {count} активно",
+      "filterSheetTitle": "Фильтры",
+      "categoriesHeading": "Категории",
+      "regionsHeading": "Регионы",
+      "allRegions": "Все",
+      "sortLabel": "Сортировка:",
+      "sortHeading": "Сортировка",
+      "sortDefault": "По умолчанию (по регионам)",
+      "sortPopular": "Самые популярные",
+      "sortInteresting": "Самые интересные",
+      "sortUnique": "Самые необычные",
+      "clear": "Очистить",
+      "clearSearch": "Очистить поиск",
+      "clearAll": "Очистить всё",
+      "showResults": "Показать {count, plural, one {# объект} few {# объекта} many {# объектов} other {# объекта}}",
+      "emptyTitleQuery": "Нет результатов по запросу \"{query}\"",
+      "emptyTitleFilters": "Нет объектов с такими фильтрами",
+      "emptyDescBoth": "Попробуйте убрать фильтры или изменить запрос.",
+      "emptyDescQuery": "Проверьте написание или попробуйте другой запрос.",
+      "emptyDescFilters": "Попробуйте убрать фильтры по категории или региону."
+    },
+    "sightDetail": {
+      "notFoundTitle": "Объект не найден",
+      "metaTitle": "{name} — Поездка в Казахстан",
+      "draftBadge": "Черновик — ждёт подтверждения",
+      "navigator": "Навигатор",
+      "descriptionHeading": "Описание",
+      "historyHeading": "История",
+      "tipsHeading": "Практические советы",
+      "nearbyHeading": "Рядом",
+      "ratingsHeading": "Оценки",
+      "ratedOn": "Оценено {date}",
+      "quickFactsHeading": "Краткие факты",
+      "city": "Город",
+      "timeNeeded": "Время посещения",
+      "hours": "{hours} ч",
+      "approxHours": "~{hours} ч",
+      "difficulty": "Сложность",
+      "difficultyEasy": "лёгкая",
+      "difficultyModerate": "средняя",
+      "difficultyHard": "сложная",
+      "budgetLevel": "Уровень цен",
+      "budgetLow": "недорого",
+      "budgetMid": "средне",
+      "budgetHigh": "дорого",
+      "cost": "Вход",
+      "free": "Бесплатно",
+      "openingHours": "Часы работы",
+      "needsCar": "Нужен автомобиль",
+      "needsGuide": "Рекомендуется гид",
+      "travelFromAlmaty": "Дорога из Алматы",
+      "travelFromAstana": "Дорога из Астаны",
+      "bestTime": "Лучшее время",
+      "locationHeading": "Расположение",
+      "openOnMap": "Открыть на карте →",
+      "monthJan": "янв",
+      "monthFeb": "фев",
+      "monthMar": "мар",
+      "monthApr": "апр",
+      "monthMay": "май",
+      "monthJun": "июн",
+      "monthJul": "июл",
+      "monthAug": "авг",
+      "monthSep": "сен",
+      "monthOct": "окт",
+      "monthNov": "ноя",
+      "monthDec": "дек"
+    },
+    "routes": {
+      "title": "Готовые маршрутные основы",
+      "intro": "Три разные отправные точки: одна про природу, одна про города и одна — длинный роудтрип. Выберите основу и подгоните под себя."
+    },
+    "routeDetail": {
+      "metaNotFound": "Маршрут не найден",
+      "metaTitle": "{title} — Поездка в Казахстан",
+      "backLink": "← Готовые маршрутные основы",
+      "tileWhoFor": "Кому подойдёт",
+      "tileDuration": "Длительность",
+      "tileBudget": "Оценка бюджета / чел.",
+      "durationValue": "{count, plural, one {# день} few {# дня} many {# дней} other {# дня}}",
+      "highlightsHeading": "Главное",
+      "dayByDayHeading": "День за днём",
+      "useAsTemplateTitle": "Используйте как шаблон для своего маршрута",
+      "useAsTemplateBody": "Скопируйте <code>preset.days</code> из этого файла с идентификатором <code>{id}</code> и перенесите их в массив <code>userItinerary</code> файла <code>src/data/itinerary.ts</code>. После этого редактируйте свободно."
+    },
+    "itinerary": {
+      "title": "Свой план маршрута",
+      "intro": "Это ваша собственная основа маршрута. Сначала пусто — заполняйте дни по мере того, как маршрут фиксируется, или скопируйте основу из <routes>готовых маршрутов</routes>."
+    },
+    "shortlist": {
+      "loading": "Загрузка…",
+      "title": "Шорт-лист",
+      "intro": "{count, plural, one {# объект} few {# объекта} many {# объектов} other {# объекта}}. Выбирайте по регионам, что посмотрите — получите готовый маршрут в Google Maps, Yandex или 2GIS.",
+      "shareButton": "Поделиться с друзьями",
+      "shareCopied": "✓ Ссылка скопирована",
+      "shareError": "Не удалось поделиться",
+      "shareTitle": "Шорт-лист поездки в Казахстан",
+      "shareText": "Вот мой шорт-лист по Казахстану — что думаешь?",
+      "clearButton": "Очистить",
+      "clearDialogTitle": "Очистить шорт-лист?",
+      "clearDialogDescription": "Удалим все <strong>{count, plural, one {# объект} few {# объекта} many {# объектов} other {# объекта}}</strong> из списка — включая избранное и отметки о посещении. В течение короткого времени действие можно отменить через уведомление.",
+      "cancel": "Отмена",
+      "confirmClear": "Да, очистить",
+      "removedToast": "Удалено: {name}",
+      "undo": "Отменить",
+      "clearedToast": "Шорт-лист очищен",
+      "clearedToastDescription": "Удалено {count, plural, one {# объект} few {# объекта} many {# объектов} other {# объекта}}",
+      "emptyTitle": "Шорт-лист пуст",
+      "emptyDescription": "Добавляйте объекты в список со страницы Достопримечательности. Можно выделить топ-выбор как избранное ★, отметить посещённые ✓ во время поездки и собирать маршруты по регионам в Google Maps, Yandex или 2GIS.",
+      "emptyBrowseSights": "Смотреть достопримечательности",
+      "emptyOpenMap": "Открыть карту",
+      "usageHint": "Отметьте галочкой те объекты, что посетите сегодня — затем нажмите <strong>Открыть маршрут</strong> и выберите навигатор (Google Maps, Yandex, 2GIS или Apple Maps). Маршрут откроется в готовой последовательности, точкой отправления станет ваше текущее местоположение.",
+      "progressComplete": "🎉 Поездка завершена!",
+      "progressInProgress": "Прогресс поездки",
+      "progressVisitedLabel": "посещено",
+      "progressPriorityLabel": "в избранном",
+      "progressAria": "Прогресс поездки: {visited} / {total} посещено ({percent} %)",
+      "selectAll": "Выбрать все",
+      "clearSelection": "Снять выделение",
+      "routeButtonEmpty": "Выберите для маршрута",
+      "routeButtonWithCount": "Открыть маршрут ({count})",
+      "overLimitWarning": "Навигаторы поддерживают максимум {max} точек в маршруте — снимите выделение, чтобы продолжить.",
+      "aktauWarning": "<strong>Внимание:</strong> пустынные маршруты Мангистау не полностью покрыты Google Maps. Ссылка показывает направление, но используйте также офлайн-карту (например, Maps.me) и местного водителя.",
+      "selectAria": "Выбрать {name} в маршрут",
+      "deselectAria": "Убрать {name} из маршрута",
+      "removeAria": "Удалить из шорт-листа",
+      "visitedOn": "Посещено {date}",
+      "priorityLabel": "Избранное",
+      "visitedLabel": "Посещено"
+    },
+    "today": {
+      "metaTitle": "Сегодня — Казахстан",
+      "metaDescription": "План на сегодня, опорные точки, экстренная карточка и быстрые ссылки во время поездки.",
+      "title": "Сегодня",
+      "intro": "План дня, опорные точки, наличные и экстренная карточка — одним взглядом."
+    },
+    "budget": {
+      "title": "Бюджет",
+      "intro": "Оценки по регионам и категориям. Цены на человека, если не указано иное. В ценах по Мангистау предполагается, что в машине 2–4 человека.",
+      "estimatesHeading": "Оценка бюджета по регионам",
+      "perDayLabel": "В день:",
+      "tiersLabel": "(недорого / средне / дорого)",
+      "tableItem": "Статья",
+      "tableEstimate": "Оценка",
+      "categoryFlights": "Перелёты",
+      "categoryLodging": "Проживание",
+      "categoryFood": "Еда",
+      "categoryTransport": "Транспорт",
+      "categoryActivities": "Активности",
+      "categoryMisc": "Прочее"
+    },
+    "info": {
+      "title": "Практическая информация",
+      "intro": "Виза, чек-лист перед отъездом, транспорт, язык и безопасность.",
+      "languageHeading": "Язык",
+      "languageColFi": "Финский",
+      "languageColKk": "Казахский",
+      "languageColRu": "Русский",
+      "safetyHeading": "Безопасность — что это значит на практике"
+    },
+    "carRental": {
+      "metaTitle": "{operator} — Прокат авто в Актау",
+      "metaDescription": "{operator} ({pickup}) — выдача авто {pickupDate}, возврат {returnDate}.",
+      "backToMap": "Назад к карте",
+      "badge": "🚗 Прокат авто",
+      "pickupTitle": "Место выдачи и возврата",
+      "pickupDates": "Сюда приезжаем {pickup} и возвращаемся {return}.",
+      "postalCode": "Индекс",
+      "openNavigator": "Открыть навигатор",
+      "navigatorHint": "Откройте Google Maps, 2GIS, Yandex или Apple Maps — маршрут от вашего текущего местоположения до этой точки.",
+      "contactsTitle": "Контакты",
+      "phone": "Телефон",
+      "whatsapp": "WhatsApp",
+      "openChat": "Открыть чат →",
+      "instagram": "Instagram",
+      "bookingTitle": "Основные данные брони",
+      "pickupLabel": "Выдача",
+      "returnLabel": "Возврат",
+      "hoursLabel": "Часы работы",
+      "officeTitle": "Официальный офис (отличается от места выдачи)",
+      "officeDescription": "Адрес по листингу компании на 2GIS. <strong>Не приезжайте сюда</strong> — авто выдают и принимают в ЖК Оазис, указанном выше.",
+      "notesTitle": "Примечания",
+      "externalLinksTitle": "Внешние ссылки",
+      "lastVerified": "Данные последний раз проверены {date}."
+    }
+  },
+  "components": {
+    "header": {
+      "searchButton": "Поиск",
+      "searchAriaLabel": "Искать объекты"
+    },
+    "footer": {
+      "intro": "Личный план поездки. Картографическая основа:",
+      "disclaimer": "Всегда проверяйте практическую информацию перед отъездом — визы, курсы и расписания могут меняться."
+    },
+    "bottomNav": {
+      "more": "Ещё"
+    },
+    "commandPalette": {
+      "title": "Палитра команд",
+      "description": "Ищите достопримечательности и переходите между страницами",
+      "placeholder": "Ищите достопримечательности, страницы, маршруты...",
+      "noResults": "Нет результатов по запросу \u201c{query}\u201d.",
+      "pagesHeading": "Страницы",
+      "sightsHeading": "Достопримечательности"
+    },
+    "offlineBanner": {
+      "message": "Офлайн-режим — показывается сохранённый контент. Карта и изображения могут быть ограничены."
+    },
+    "navigateMenu": {
+      "openNavigator": "Открыть навигатор",
+      "googleSubtitle": "Универсальный — работает на всех устройствах",
+      "twoGisSubtitle": "Лучший в Казахстане — точные адреса и отзывы",
+      "yandexSubtitle": "Хорош в Центральной Азии — пробки в реальном времени",
+      "appleSubtitle": "iPhone и Mac — открывается нативно",
+      "firstStopOnly": "Откроет только 1-ю точку маршрута — не поддерживает несколько остановок",
+      "headerTitleMulti": "Маршрут на {count, plural, one {# остановку} few {# остановки} many {# остановок} other {# остановки}}",
+      "headerDescriptionMulti": "Точка отправления — ваше текущее местоположение. Точки упорядочены по кратчайшему расстоянию.",
+      "headerDescriptionSingleWithLabel": "Маршрут от вашего текущего местоположения до объекта {label}.",
+      "headerDescriptionSingle": "Маршрут от вашего текущего местоположения.",
+      "desktopLabelMulti": "Маршрут через {count, plural, one {# объект} few {# объекта} many {# объектов} other {# объекта}}",
+      "desktopLabelSingle": "Маршрут от вашего текущего местоположения"
+    },
+    "sightCard": {
+      "draft": "Черновик",
+      "hours": "{count} ч",
+      "difficultyEasy": "лёгкая",
+      "difficultyModerate": "средняя",
+      "difficultyHard": "сложная",
+      "budgetLow": "недорого",
+      "budgetMid": "средне",
+      "budgetHigh": "дорого",
+      "car": "авто",
+      "guide": "гид"
+    },
+    "searchInput": {
+      "label": "Искать достопримечательность",
+      "placeholder": "Ищите объект, город, категорию...",
+      "clearAria": "Очистить поиск",
+      "resultsAnnouncement": "{count, plural, one {# результат} few {# результата} many {# результатов} other {# результата}} по запросу {query}",
+      "noResultsAnnouncement": "Нет результатов по запросу {query}",
+      "totalAnnouncement": "{count, plural, one {# объект} few {# объекта} many {# объектов} other {# объекта}} всего"
+    },
+    "sightImage": {
+      "placeholderAria": "Категория {category} — изображение отсутствует",
+      "attributionAria": "Источник изображения: {source}",
+      "attributionAriaWithCredit": "Источник изображения: {source} — {credit}"
+    },
+    "nearbyList": {
+      "distanceKm": "{km} км"
+    },
+    "starRating": {
+      "popularity": "Популярность",
+      "interest": "Интерес",
+      "uniqueness": "Уникальность",
+      "starsAria": "{value} / 5",
+      "valueOutOfFive": "{value}/5",
+      "placeholder": "ⓘ Ещё не оценено — запустите агент <code>place-rater</code>."
+    },
+    "overallStars": {
+      "averageAria": "Среднее {value} из пяти",
+      "outOfFive": "/ 5",
+      "popular": "Популярный",
+      "rich": "Насыщенный",
+      "unique": "Уникальный",
+      "standoutTitle": "{label} — лучший показатель 5/5"
+    },
+    "shortlistButton": {
+      "add": "Добавить в шорт-лист",
+      "onShortlist": "В шорт-листе",
+      "addAria": "Добавить в шорт-лист",
+      "removeAria": "Удалить из шорт-листа",
+      "addedToast": "Добавлено в список",
+      "removedToast": "Удалено из списка",
+      "softMaxTitle": "Шорт-лист уже большой ({count, plural, one {# объект} few {# объекта} many {# объектов} other {# объекта}})",
+      "softMaxDescription": "Ссылка для шаринга может быть тяжёлой — некоторые мессенджеры обрезают длинные URL. Подумайте о сокращении списка."
+    },
+    "sightActionBar": {
+      "navigate": "Навигация",
+      "shareAria": "Поделиться",
+      "shareTitle": "{name} — Поездка в Казахстан",
+      "linkCopiedTitle": "Ссылка скопирована",
+      "linkCopiedDescription": "Отправьте её другу",
+      "linkCopyError": "Не удалось скопировать ссылку",
+      "addShortlistAria": "Добавить в шорт-лист",
+      "removeShortlistAria": "Удалить из шорт-листа"
+    },
+    "sightList": {
+      "empty": "Нет объектов с такими фильтрами.",
+      "regionAria": "{region} — {count, plural, one {# объект} few {# объекта} many {# объектов} other {# объекта}}",
+      "visitedAria": "Посещено",
+      "favoriteAria": "Избранное"
+    },
+    "categoryFilter": {
+      "all": "Все"
+    },
+    "mapView": {
+      "readMore": "Подробнее",
+      "visited": "Посещено",
+      "favorite": "Избранное",
+      "tripPin": {
+        "rentalCar": "Прокат авто",
+        "airport": "Аэропорт",
+        "hotel": "Проживание",
+        "meetingPoint": "Место встречи"
+      }
+    },
+    "locateControl": {
+      "show": "Показать моё местоположение",
+      "hide": "Скрыть местоположение",
+      "locating": "Определяем местоположение…",
+      "errorPermission": "Разрешите браузеру использовать геолокацию в настройках",
+      "errorTimeout": "Время ожидания геолокации истекло — попробуйте ещё раз",
+      "errorUnavailable": "Местоположение недоступно"
+    },
+    "dayCard": {
+      "dayLabel": "День {day}",
+      "todayBadge": "Сегодня",
+      "earlyWake": "Ранний подъём",
+      "driverNeeded": "Нужен водитель",
+      "offlineNote": "Офлайн-замечание",
+      "anchors": "Опорные точки",
+      "primaryPlan": "Основной план",
+      "alternatives": "Альтернативы ({count})",
+      "planB": "План Б",
+      "sights": "Объекты",
+      "unknownSight": "⚠️ неизвестный: {id}",
+      "transportSection": "Передвижение",
+      "cashBadge": "💰 Наличных ~{amount}",
+      "sleepBadge": "🛏️ Ночь: {city}",
+      "lodgingHint": "Совет по проживанию",
+      "lodgingPrice": "€{min}–{max} / ночь",
+      "lodgingBook": "Бронь: {apps}",
+      "accommodation": "Проживание",
+      "transport": {
+        "plane": "Самолёт",
+        "train": "Поезд",
+        "car": "Авто",
+        "bus": "Автобус",
+        "taxi": "Такси",
+        "walk": "Пешком"
+      },
+      "urgency": {
+        "now": "Бронируйте сразу",
+        "week-before": "Бронируйте за неделю",
+        "on-arrival": "Бронируйте на месте",
+        "walk-in": "Walk-in OK"
+      }
+    },
+    "dayTimeline": {
+      "emptyTitle": "План маршрута пуст",
+      "emptyDescription": "Ещё нет дней — скопируйте основу из готовых маршрутов или добавьте вручную в файл <code>src/data/itinerary.ts</code>.",
+      "browseRoutes": "Смотреть готовые маршруты",
+      "jumpToToday": "↓ Сегодня — день {day}: {title}"
+    },
+    "todayDashboard": {
+      "emptyState": "Нет плана маршрута. Добавьте дни в <link>план маршрута</link>.",
+      "countdownLabel": "До отъезда",
+      "daysLeft": "{count, plural, one {# день} few {# дня} many {# дней} other {# дня}}",
+      "daysLeftSoon": "скоро",
+      "tripStarts": "Поездка начинается {date} — {total, plural, one {# день} few {# дня} many {# дней} other {# дня}}",
+      "tripStartsNoDate": "Поездка начинается скоро — {total, plural, one {# день} few {# дня} many {# дней} other {# дня}}",
+      "firstDayPreview": "Предпросмотр дня отъезда",
+      "tripEnded": "Поездка завершена",
+      "lastTripDate": "Последний день поездки был {date}.",
+      "browseBack": "Листать дни назад",
+      "todayLabel": "Сегодня",
+      "nextDayLabel": "Следующий день",
+      "dayCount": "День {day} / {total}",
+      "previewStarts": "Предпросмотр — день начинается {date}",
+      "tomorrow": "Завтра",
+      "earlyWake": "Ранний подъём",
+      "prevDayNav": "← День {day}: {title}",
+      "nextDayNav": "День {day}: {title} →",
+      "quickLinks": {
+        "map": "Карта",
+        "allDays": "Все дни",
+        "info": "Инфо",
+        "budget": "Бюджет"
+      },
+      "currencyLabel": "Валюта",
+      "currencyRate": "1 € ≈ {rate} ₸",
+      "currencyHint": "статичный — проверьте перед отъездом",
+      "emergency": {
+        "openCard": "🆘 Экстренная карточка — открыть",
+        "numbers": "Экстренные номера",
+        "embassy": "Посольство Финляндии",
+        "phrases": "Экстренные фразы",
+        "allPhrasesLink": "Все фразы на странице инфо →"
+      }
+    },
+    "presetCard": {
+      "themeNature": "🏔️ Природа",
+      "themeCulture": "🕌 Культура",
+      "themeRoadtrip": "🚗 Роудтрип",
+      "durationDays": "{count, plural, one {# день} few {# дня} many {# дней} other {# дня}}",
+      "whoForLabel": "Кому:",
+      "budgetLabel": "Оценка бюджета:",
+      "perPerson": "/ чел."
+    },
+    "currencyConverter": {
+      "title": "Конвертер валют",
+      "rateInfo": "Статичный курс: 1 € ≈ {rate} ₸. Перед поездкой проверьте текущий курс.",
+      "directionAria": "Направление конвертации",
+      "kztToEur": "KZT → EUR",
+      "eurToKzt": "EUR → KZT",
+      "amountKztAria": "Сумма в тенге",
+      "amountEurAria": "Сумма в евро"
+    },
+    "shortlistUrlSync": {
+      "prunedToast": "{count, plural, one {# объект удалён из списка} few {# объекта удалены из списка} many {# объектов удалены из списка} other {# объекта удалены из списка}}",
+      "prunedToastDescription": "Эти объекты больше недоступны. Добавляйте новые на странице /nahtavyydet.",
+      "unknownInLinkToast": "{count, plural, one {# ID из общей ссылки не соответствует текущим объектам} few {# ID из общей ссылки не соответствуют текущим объектам} many {# ID из общей ссылки не соответствуют текущим объектам} other {# ID из общей ссылки не соответствуют текущим объектам}}",
+      "unknownInLinkDescription": "Объекты могли быть удалены или их ID изменились.",
+      "droppedUnknownToast": "Из общей ссылки отброшено {count} неизвестных объектов",
+      "saveFailedToast": "Не удалось сохранить шорт-лист",
+      "saveFailedDescription": "Хранилище браузера переполнено или заблокировано. Список останется на эту сессию, но может пропасть после обновления.",
+      "dialogTitle": "Импортировать общий шорт-лист?",
+      "dialogDescription": "Ссылка содержит <strong>{urlCount, plural, one {# объект} few {# объекта} many {# объектов} other {# объекта}}</strong>. У вас уже есть <strong>{localCount, plural, one {# свой объект} few {# своих объекта} many {# своих объектов} other {# своих объекта}}</strong> в списке.",
+      "statShared": "Общих",
+      "statNew": "Новых",
+      "statOnlyYours": "Только у вас",
+      "unknownDroppedNote": "Из ссылки отброшено <strong>{count, plural, one {# неизвестный объект} few {# неизвестных объекта} many {# неизвестных объектов} other {# неизвестных объекта}}</strong> — они могли быть удалены или их ID изменились.",
+      "previewLabel": "По ссылке:",
+      "previewMore": "+ ещё {count}",
+      "explanation": "<strong>Объединить</strong> добавит новые объекты из ссылки в ваш список — вы ничего своего не потеряете. <strong>Заменить свои</strong> оставит только содержимое ссылки и <destructive>удалит {localOnlyCount} ваших объектов</destructive>.",
+      "cancel": "Отмена",
+      "replace": "Заменить свои",
+      "merge": "Объединить"
+    }
+  }
+}

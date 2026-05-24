@@ -1,5 +1,6 @@
-import Link from 'next/link';
 import { CalendarRange } from 'lucide-react';
+import { getLocale, getTranslations } from 'next-intl/server';
+import { Link } from '@/i18n/navigation';
 import DayCard from './DayCard';
 import { Button } from '@/components/ui/button';
 import {
@@ -10,6 +11,7 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from '@/components/ui/empty';
+import { asLocale, localised } from '@/lib/i18n-helpers';
 import type { ItineraryDay } from '@/lib/types';
 
 /** Local YYYY-MM-DD — avoids UTC drift around midnight in CET/CEST. */
@@ -21,7 +23,9 @@ function todayLocalISO(): string {
   return `${y}-${m}-${day}`;
 }
 
-export default function DayTimeline({ days }: { days: ItineraryDay[] }) {
+export default async function DayTimeline({ days }: { days: ItineraryDay[] }) {
+  const t = await getTranslations();
+  const loc = asLocale(await getLocale());
   if (days.length === 0) {
     return (
       <Empty className="border border-dashed">
@@ -29,15 +33,16 @@ export default function DayTimeline({ days }: { days: ItineraryDay[] }) {
           <EmptyMedia variant="icon">
             <CalendarRange />
           </EmptyMedia>
-          <EmptyTitle>Reittisuunnitelma on tyhjä</EmptyTitle>
+          <EmptyTitle>{t('components.dayTimeline.emptyTitle')}</EmptyTitle>
           <EmptyDescription>
-            Ei vielä päiviä — kopioi runko valmiista reiteistä tai lisää käsin
-            tiedostoon <code>src/data/itinerary.ts</code>.
+            {t.rich('components.dayTimeline.emptyDescription', {
+              code: (chunks) => <code>{chunks}</code>,
+            })}
           </EmptyDescription>
         </EmptyHeader>
         <EmptyContent>
           <Button asChild>
-            <Link href="/reitit">Selaa valmiita reittejä</Link>
+            <Link href="/routes">{t('components.dayTimeline.browseRoutes')}</Link>
           </Button>
         </EmptyContent>
       </Empty>
@@ -55,7 +60,10 @@ export default function DayTimeline({ days }: { days: ItineraryDay[] }) {
           href={`#day-${todayDay.day}`}
           className="inline-flex min-h-11 items-center gap-2 rounded-full border border-(--color-steppe) bg-(--color-steppe)/10 px-4 text-sm font-medium text-(--color-steppe) hover:bg-(--color-steppe)/20 hover:no-underline"
         >
-          ↓ Tänään — päivä {todayDay.day}: {todayDay.title}
+          {t('components.dayTimeline.jumpToToday', {
+            day: todayDay.day,
+            title: localised(todayDay.title, loc),
+          })}
         </a>
       )}
 

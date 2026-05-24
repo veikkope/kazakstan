@@ -39,12 +39,18 @@ function CommandDialog({
   children,
   className,
   showCloseButton = false,
+  shouldFilter,
+  filter,
   ...props
 }: React.ComponentProps<typeof Dialog> & {
   title?: string
   description?: string
   className?: string
   showCloseButton?: boolean
+  /** Forwarded to cmdk's Command — defaults to true (built-in substring filter). */
+  shouldFilter?: boolean
+  /** Custom matching function — see cmdk docs. Ignored when shouldFilter=false. */
+  filter?: (value: string, search: string, keywords?: string[]) => number
 }) {
   return (
     <Dialog {...props}>
@@ -59,7 +65,7 @@ function CommandDialog({
         )}
         showCloseButton={showCloseButton}
       >
-        <Command>{children}</Command>
+        <Command shouldFilter={shouldFilter} filter={filter}>{children}</Command>
       </DialogContent>
     </Dialog>
   )

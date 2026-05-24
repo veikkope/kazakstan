@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import {
@@ -16,6 +17,7 @@ import { eurToKzt, kztToEur, formatEUR, formatKZT } from '@/lib/currency';
 type Direction = 'kzt-to-eur' | 'eur-to-kzt';
 
 export default function CurrencyConverter() {
+  const t = useTranslations();
   const [direction, setDirection] = useState<Direction>('kzt-to-eur');
   const [input, setInput] = useState('10000');
 
@@ -28,12 +30,15 @@ export default function CurrencyConverter() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-base font-semibold">Valuuttamuunnin</CardTitle>
+        <CardTitle className="text-base font-semibold">
+          {t('components.currencyConverter.title')}
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <p className="mb-3 text-xs text-(--color-muted)">
-          Staattinen kurssi: 1 € ≈ {STATIC_KZT_PER_EUR.toLocaleString('fi-FI')} ₸. Tarkista
-          päiväkurssi ennen reissua.
+          {t('components.currencyConverter.rateInfo', {
+            rate: STATIC_KZT_PER_EUR.toLocaleString('fi-FI'),
+          })}
         </p>
         <div className="flex flex-wrap items-center gap-3">
           <Select
@@ -43,13 +48,17 @@ export default function CurrencyConverter() {
             <SelectTrigger
               size="default"
               className="min-h-11"
-              aria-label="Muunnoksen suunta"
+              aria-label={t('components.currencyConverter.directionAria')}
             >
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="kzt-to-eur">KZT → EUR</SelectItem>
-              <SelectItem value="eur-to-kzt">EUR → KZT</SelectItem>
+              <SelectItem value="kzt-to-eur">
+                {t('components.currencyConverter.kztToEur')}
+              </SelectItem>
+              <SelectItem value="eur-to-kzt">
+                {t('components.currencyConverter.eurToKzt')}
+              </SelectItem>
             </SelectContent>
           </Select>
           <Input
@@ -59,7 +68,9 @@ export default function CurrencyConverter() {
             onChange={(e) => setInput(e.target.value)}
             className="w-40 min-h-11"
             aria-label={
-              direction === 'kzt-to-eur' ? 'Summa tengeinä' : 'Summa euroina'
+              direction === 'kzt-to-eur'
+                ? t('components.currencyConverter.amountKztAria')
+                : t('components.currencyConverter.amountEurAria')
             }
           />
           <span className="text-sm">

@@ -1,0 +1,140 @@
+{
+  "files": ["messages/kk.json", "src/data/categories.ts"],
+  "changes": [
+    {
+      "context": "messages key 'pages.sightDetail.timeNeeded'",
+      "before": "Бару уақыты",
+      "after": "Қажетті уақыт",
+      "reason": "'Бару уақыты' literally means 'time of arrival/visit'. The field describes how long a visit takes (Finnish 'Vierailuaika' = time needed), so 'Қажетті уақыт' (required time) is more accurate."
+    },
+    {
+      "context": "messages key 'pages.sightDetail.difficulty'",
+      "before": "Күрделілік",
+      "after": "Қиындық",
+      "reason": "'Күрделілік' means 'complexity'. Standard Kazakh for hiking/visit difficulty is 'Қиындық'."
+    },
+    {
+      "context": "messages key 'pages.sightDetail.budgetLevel'",
+      "before": "Бағасы",
+      "after": "Баға деңгейі",
+      "reason": "'Бағасы' = 'its price'. The field is a tier label (low/mid/high), so 'Баға деңгейі' (price level) is more accurate."
+    },
+    {
+      "context": "messages keys 'pages.sightDetail.draftBadge' and 'components.sightCard.draft'",
+      "before": "Жоба / Жоба — растауды күтуде",
+      "after": "Қаралама / Қаралама — растауды күтуде",
+      "reason": "'Жоба' more commonly means 'project'. 'Қаралама' is the standard Kazakh term for 'draft' (unfinished document/entry)."
+    },
+    {
+      "context": "messages key 'pages.budget.categoryFlights'",
+      "before": "Ұшулар",
+      "after": "Әуе билеттері",
+      "reason": "'Ұшулар' = 'flights' as actions. In a budget context the category is air tickets — 'Әуе билеттері' is the standard budgeting term."
+    },
+    {
+      "context": "messages key 'pages.budget.categoryLodging'",
+      "before": "Тұру",
+      "after": "Тұрғын-жай",
+      "reason": "'Тұру' = 'staying/living' (verbal noun). For a budget category label, 'Тұрғын-жай' (accommodation) is the conventional noun."
+    },
+    {
+      "context": "messages key 'components.mapView.tripPin.hotel'",
+      "before": "Тұрғын үй",
+      "after": "Қонақ үй",
+      "reason": "'Тұрғын үй' means 'residential housing'. A trip-pin labeled 'hotel' should be 'Қонақ үй' (hotel/guesthouse)."
+    },
+    {
+      "context": "messages key 'components.dayCard.transportSection'",
+      "before": "Жүру",
+      "after": "Жол жүру",
+      "reason": "'Жүру' alone means 'to walk/go' and is ambiguous as a section header. 'Жол жүру' (travelling/transport) reads as a proper section title in itinerary."
+    },
+    {
+      "context": "messages key 'components.dayCard.lodgingHint'",
+      "before": "Тұру кеңесі",
+      "after": "Тұрғын-жай кеңесі",
+      "reason": "Consistency with budget.categoryLodging change; 'lodging tip' is more naturally 'Тұрғын-жай кеңесі'."
+    },
+    {
+      "context": "messages key 'components.dayCard.transport.plane'",
+      "before": "Ұшу",
+      "after": "Ұшақ",
+      "reason": "Other transport modes in this block are nouns (Пойыз/Көлік/Автобус/Такси). 'Ұшу' is the verb 'to fly'; switched to the noun 'Ұшақ' (airplane) for consistency."
+    },
+    {
+      "context": "messages key 'components.dayCard.urgency.on-arrival'",
+      "before": "Жерінде брондаңыз",
+      "after": "Жеткен соң брондаңыз",
+      "reason": "'Жерінде' (= 'in its place') is an awkward calque from Russian 'на месте'. 'Жеткен соң' (after arriving) is clearer Kazakh for Finnish 'paikan päällä' / 'on arrival'."
+    },
+    {
+      "context": "messages key 'components.locateControl.locating'",
+      "before": "Орынды анықтауда…",
+      "after": "Орын анықталуда…",
+      "reason": "The original puts 'орын' in accusative without a clear subject; passive 'Орын анықталуда' (the location is being determined) is grammatically clean."
+    },
+    {
+      "context": "messages key 'components.locateControl.errorTimeout'",
+      "before": "Орынды анықтау уақыты өтті — қайталап көріңіз",
+      "after": "Орын анықтау уақыты өтіп кетті — қайталап көріңіз",
+      "reason": "Removed unnecessary accusative on 'орын' (gerund noun phrase doesn't need it) and used 'өтіп кетті' which reads more naturally for a timeout event."
+    },
+    {
+      "context": "messages key 'components.shortlistButton.softMaxTitle'",
+      "before": "Шорт-лист әбден үлкен ({count} нысан)",
+      "after": "Шорт-лист едәуір үлкен ({count} нысан)",
+      "reason": "'Әбден' means 'completely/utterly' and reads as final/exaggerated. 'Едәуір' (considerably/quite) matches Finnish 'jo iso' (already big) more accurately."
+    },
+    {
+      "context": "messages key 'pages.shortlist.clearDialogTitle'",
+      "before": "Шорт-листі тазартасыз ба?",
+      "after": "Шорт-листті тазартасыз ба?",
+      "reason": "Accusative case fix — direct object of 'тазарту' takes the accusative ending '-тті', not '-і'."
+    },
+    {
+      "context": "messages key 'components.sightActionBar.navigate'",
+      "before": "Бағыттау",
+      "after": "Бағыт",
+      "reason": "Button labels prefer concise nouns. 'Бағыттау' = 'to direct/orient' is verbose for a navigation button; the noun 'Бағыт' (direction/route) reads tighter."
+    },
+    {
+      "context": "messages key 'components.shortlistUrlSync.prunedToastDescription'",
+      "before": "Бұл нысандар енді қолжетімсіз. /көрнекті жерлер бетінен жаңасын қосуға болады.",
+      "after": "Бұл нысандар енді қолжетімсіз. Көрнекті жерлер бетінен жаңасын қосуға болады.",
+      "reason": "The original referenced '/көрнекті жерлер' as a slug, but per project policy URL slugs are Finnish ('/nahtavyydet'). Removed the leading slash so the text reads as a page name rather than an invalid URL."
+    },
+    {
+      "context": "src/data/categories.ts — regionMeta.astana.subtitle.kk",
+      "before": "Астана, заманауи сәулет",
+      "after": "Елорда, заманауи сәулет",
+      "reason": "Subtitle was tautological (repeating the region name 'Астана'). Other locales say 'capital' (Pääkaupunki / The capital / Столица). 'Елорда' is the standard Kazakh word for 'capital city'."
+    }
+  ],
+  "uncertain": [
+    {
+      "context": "messages key 'components.commandPalette.title'",
+      "value": "Команда палитрасы",
+      "note": "Russian/English calque ('command palette'). A purer Kazakh phrasing would be 'Бұйрық тақтасы' but the borrowed term is widely understood in tech UI contexts; left as-is."
+    },
+    {
+      "context": "messages key 'components.dayCard.transport.walk'",
+      "value": "Жаяу",
+      "note": "Used adverbially ('on foot') alongside noun transport modes (Ұшақ/Пойыз/Көлік). Could be 'Жаяулап' but 'Жаяу' is the standard short label and reads naturally."
+    },
+    {
+      "context": "messages key 'pages.shortlist.shareText'",
+      "value": "Мынау — менің Қазақстанға шорт-лист, не дейсіңдер?",
+      "note": "Casual second-person-plural informal register matching Finnish 'mitä mieltä'. Grammatically the construction 'Қазақстанға шорт-лист' is slightly elliptical (lit. 'shortlist to Kazakhstan'). Could be 'Қазақстанға арналған шорт-лист' but the casual brevity matches the Finnish tone; left as-is."
+    },
+    {
+      "context": "messages key 'components.navigateMenu.appleSubtitle'",
+      "value": "iPhone және Mac — нативті ашылады",
+      "note": "'Нативті' is a borrowed adjective from English/Russian. Could be replaced with 'тікелей' (directly) but the technical register matches usage in the rest of the file."
+    },
+    {
+      "context": "messages key 'pages.sightDetail.openingHours' / 'pages.carRental.hoursLabel'",
+      "value": "Жұмыс уақыты",
+      "note": "Standard for working hours. Acceptable across both sight detail and car rental contexts."
+    }
+  ]
+}

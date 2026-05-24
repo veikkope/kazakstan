@@ -1,6 +1,7 @@
 'use client';
 
-import { useRouter, useSearchParams, usePathname } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
+import { useRouter, usePathname } from '@/i18n/navigation';
 import { useCallback, useMemo } from 'react';
 import type { Category, Region, SortDimension } from './types';
 import { allCategories } from '@/data/categories';
@@ -12,6 +13,7 @@ const PARAM = {
   ID: 'id',
   SL: 'sl',
   SORT: 'sort',
+  Q: 'q',
 } as const;
 
 const ALL_REGIONS: Region[] = [
@@ -43,6 +45,8 @@ export interface UrlState {
   selectedId: string | null;
   shortlist: string[];
   sort: SortDimension;
+  /** Free-text search query. Empty string when unset (mirrors absent param). */
+  q: string;
 }
 
 export function readUrlState(params: URLSearchParams): UrlState {
@@ -53,6 +57,7 @@ export function readUrlState(params: URLSearchParams): UrlState {
     selectedId: params.get(PARAM.ID),
     shortlist: params.get(PARAM.SL)?.split(',').filter(Boolean) ?? [],
     sort: isSortDimension(rawSort) ? rawSort : 'default',
+    q: params.get(PARAM.Q) ?? '',
   };
 }
 
@@ -89,6 +94,12 @@ export function useUrlState() {
       }
       if ('sort' in patch && patch.sort !== undefined) {
         apply(PARAM.SORT, patch.sort === 'default' ? null : patch.sort);
+      }
+      if ('q' in patch && patch.q !== undefined) {
+        // Trim before persisting — keeps URL clean and prevents
+        // " " (single space) from being treated as an active filter.
+        const trimmed = patch.q.trim();
+        apply(PARAM.Q, trimmed === '' ? null : trimmed);
       }
 
       const query = params.toString();

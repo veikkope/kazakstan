@@ -1,0 +1,59 @@
+{
+  "id": "issyk-kurganit",
+  "name": {
+    "fi": "Issyk-kurganit ja Kultaisen Miehen museo",
+    "en": "Issyk kurgans and the Golden Man Museum",
+    "ru": "Иссыкские курганы и музей Золотого человека",
+    "kk": "Есік қорғандары және Алтын адам мұражайы"
+  },
+  "shortDescription": {
+    "fi": "Kazakstanin kansallissymbolin \"Kultaisen Miehen\" löytöpaikka — saka-skythialainen kurganikenttä.",
+    "en": "The find site of Kazakhstan's national symbol, the \"Golden Man\" — a Saka-Scythian kurgan field.",
+    "ru": "Место находки национального символа Казахстана — \"Золотого человека\" — сако-скифское курганное поле.",
+    "kk": "Қазақстанның ұлттық рәмізі — \"Алтын адамның\" табылған жері — сақ-скиф қорғандарының алаңы."
+  },
+  "description": {
+    "fi": "422 hehtaarin arkeologinen reservi-museo, jolta löytyi 1969 saka-skythialaisen ruhtinaan hauta noin 2 500 vuoden takaa. \"Altyn Adamin\" 4 000 kultaesinettä ovat Kazakstanin tunnetuin arkeologinen löytö ja kansallisidentiteetin ydintä.\n\nAlkuperäinen kultapuku on Astanan kansallismuseossa, mutta Esikin paikallismuseossa on tarkka kopio sekä autenttiset alueen löydökset. Yli 40 kurgania reunustaa aroa.",
+    "en": "A 422-hectare archaeological reserve-museum where the tomb of a Saka-Scythian prince from around 2,500 years ago was discovered in 1969. The 4,000 gold objects of \"Altyn Adam\" (the Golden Man) are Kazakhstan's best-known archaeological find and core to its national identity.\n\nThe original gold suit is in the National Museum in Astana, but the local museum in Esik has an exact replica together with authentic finds from the site. More than 40 kurgans line the steppe.",
+    "ru": "Археологический заповедник-музей площадью 422 га, где в 1969 году была найдена гробница сако-скифского князя возрастом около 2500 лет. 4000 золотых предметов \"Алтын адама\" — самая известная археологическая находка Казахстана и основа национальной идентичности.\n\nОригинальный золотой костюм хранится в Национальном музее в Астане, а в местном музее в Есике — точная копия и подлинные находки этой территории. Более 40 курганов тянутся по степи.",
+    "kk": "Ауданы 422 гектар археологиялық қорық-мұражай, мұнда 1969 жылы шамамен 2500 жыл бұрынғы сақ-скиф ханзадасының қабірі табылды. \"Алтын адамның\" 4 000 алтын бұйымы — Қазақстанның ең танымал археологиялық олжасы әрі ұлттық бірегейлігінің өзегі.\n\nТүпнұсқа алтын киім Астанадағы Ұлттық мұражайда сақтаулы, ал Есіктегі жергілікті мұражайда дәл көшірмесі мен осы аумақтан табылған түпнұсқа жәдігерлер тұр. Дала бойында 40-тан астам қорған тізбектеле орналасқан."
+  },
+  "imageAlt": {
+    "fi": "Saka-skythialainen kurgani Issykin (Esik) arkeologisella alueella",
+    "en": "A Saka-Scythian kurgan at the Issyk (Esik) archaeological site",
+    "ru": "Сако-скифский курган на археологическом участке Иссыка (Есика)",
+    "kk": "Есік археологиялық алаңындағы сақ-скиф қорғаны"
+  },
+  "city": {
+    "fi": "Esik",
+    "en": "Esik",
+    "ru": "Есик",
+    "kk": "Есік"
+  },
+  "practicalTips": [
+    {
+      "fi": "Tunti autolla Almatysta itään; Bolt-taksilla noin 6 000 KZT yhteen suuntaan.",
+      "en": "An hour's drive east of Almaty; a Bolt taxi runs about 6,000 KZT one way.",
+      "ru": "Час езды на восток от Алматы; такси Bolt — около 6000 тенге в одну сторону.",
+      "kk": "Алматыдан шығысқа қарай бір сағаттық жол; Bolt таксиімен бір бағытқа шамамен 6 000 теңге."
+    },
+    {
+      "fi": "Museo avoinna ti–su (ma kiinni); englanninkielinen opastus suositeltava (tilaa etukäteen).",
+      "en": "The museum is open Tue–Sun (closed Mon); an English-language tour is recommended (book in advance).",
+      "ru": "Музей работает вт–вс (пн выходной); английская экскурсия рекомендуется (бронируйте заранее).",
+      "kk": "Мұражай сс–жс жұмыс істейді (дс демалыс); ағылшын тіліндегі экскурсияны алдын ала тапсырыс берген жөн."
+    },
+    {
+      "fi": "Yhdistä Turgenin vesiputouksiin tai Charynin kanjoniin samaan päivään.",
+      "en": "Combine it with the Turgen waterfalls or the Charyn Canyon on the same day.",
+      "ru": "Совместите с водопадами Тургеня или каньоном Чарын в один день.",
+      "kk": "Тұрген сарқырамаларына немесе Шарын каньонына бір күнде біріктіріп қойыңыз."
+    },
+    {
+      "fi": "Alkuperäinen kultapuku on Astanan kansallismuseossa — täällä alueen löydökset ja kopio.",
+      "en": "The original gold suit is in the National Museum in Astana — here you see the site's finds and a replica.",
+      "ru": "Оригинальный золотой костюм находится в Национальном музее в Астане — здесь представлены находки участка и копия.",
+      "kk": "Түпнұсқа алтын киім Астанадағы Ұлттық мұражайда — мұнда осы аумақтың жәдігерлері мен көшірмесі көрсетілген."
+    }
+  ]
+}

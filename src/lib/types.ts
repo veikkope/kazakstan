@@ -13,6 +13,43 @@ export type Difficulty = 'easy' | 'moderate' | 'hard';
 export type BudgetLevel = 'low' | 'mid' | 'high';
 export type SightStatus = 'verified' | 'draft';
 
+/* ============================================================
+ * i18n primitives
+ * ------------------------------------------------------------
+ * `Locale` is the canonical list of supported app locales. Every public
+ * URL is prefixed with one of these (`/fi`, `/en`, `/ru`, `/kk`).
+ *
+ * `LocalizedString` represents a content string available in every locale.
+ * All four keys are REQUIRED so TypeScript prevents translation drift at
+ * compile time — if a contributor adds a sight in Finnish only, the build
+ * fails until they add the other three locales.
+ *
+ * `TranslatableString` is a transition alias used during the migration
+ * from plain Finnish strings to localized objects. Once `src/data/*` is
+ * fully migrated, narrow content fields to `LocalizedString` only and
+ * delete this alias.
+ * ============================================================ */
+
+export type Locale = 'fi' | 'en' | 'ru' | 'kk';
+
+export const SUPPORTED_LOCALES: readonly Locale[] = ['fi', 'en', 'ru', 'kk'];
+
+export interface LocalizedString {
+  fi: string;
+  en: string;
+  ru: string;
+  kk: string;
+}
+
+/**
+ * Either a plain Finnish string (legacy, will be migrated) or a full
+ * `LocalizedString`. Always read these through `localised()` from
+ * `src/lib/i18n-helpers.ts` so callers don't need to handle both shapes.
+ *
+ * TODO: After full migration, replace usages with `LocalizedString`.
+ */
+export type TranslatableString = LocalizedString | string;
+
 /** 0–5 star rating dimensions used by the place-rater agent. */
 export interface SightRatings {
   /** Kuinka tunnettu/käyty kohde on. 5 = pakollinen klassikko. */
@@ -49,17 +86,22 @@ export interface ImageAttribution {
 export interface Sight {
   id: string;
   slug: string;
-  name: string;
+  /** Localised name. Read via `localised(sight.name, locale)`. */
+  name: TranslatableString;
+  /** Optional native-language form (e.g. Kazakh/Russian original). Locale-agnostic. */
   nameLocal?: string;
   category: Category;
   region: Region;
-  city?: string;
+  /** City name. Often a place name that's locale-stable (Almaty, Astana). */
+  city?: TranslatableString;
   tags?: string[];
   coords: Coords;
-  shortDescription: string;
-  description: string;
+  /** Localised short description (~140 chars). Used in popups and list rows. */
+  shortDescription: TranslatableString;
+  /** Localised long description (1–3 paragraphs). */
+  description: TranslatableString;
   image?: string;
-  imageAlt?: string;
+  imageAlt?: TranslatableString;
   imageAttribution?: ImageAttribution;
   bestMonths?: number[];
   travelTimeFromAlmatyHours?: number;
@@ -70,12 +112,13 @@ export interface Sight {
   budgetLevel?: BudgetLevel;
   timeNeededHours?: number;
   combinesWith?: string[];
-  openingHours?: string;
+  openingHours?: TranslatableString;
   costKZT?: number | 'free';
-  practicalTips?: string[];
-  bestSeason?: string;
+  /** Localised practical tips. Each tip is independently translated. */
+  practicalTips?: TranslatableString[];
+  bestSeason?: TranslatableString;
   /** Lyhyt 1–2 lauseen historiallinen tausta — `sight-enricher` täyttää. */
-  historicalContext?: string;
+  historicalContext?: TranslatableString;
   /** 0–5 tähtiarvosanat kolmella ulottuvuudella — `place-rater` täyttää. */
   ratings?: SightRatings;
   /** Polku tutkimusraporttiin: `src/research/<researchSlug>.md`. Oletus: sight.slug. */
@@ -86,19 +129,41 @@ export interface Sight {
   featured?: boolean;
 }
 
+/**
+ * Logistiikkapiste kartalla — vuokra-auto, lentokenttä, hotelli yms.
+ * Ei nähtävyys, ei näy listoissa/preseteissä — vain karttamerkki joka pysyy
+ * näkyvissä kategoriasuotimien yli.
+ */
+export type TripPinKind = 'rental-car' | 'airport' | 'hotel' | 'meeting-point';
+
+export interface TripPin {
+  id: string;
+  kind: TripPinKind;
+  title: TranslatableString;
+  /** Optional 1–2 lauseen kuvaus popupissa. */
+  subtitle?: TranslatableString;
+  coords: Coords;
+  /** Vapaa lista käytännön kenttiä popupiin (esim. "Pickup 31.5", "Address: …"). */
+  details?: TranslatableString[];
+  /** Linkki yksityiskohtaiselle sivulle (esim. "/vuokra-auto"). */
+  href?: string;
+  /** Linkin näkyvä teksti — oletus "Lue lisää". */
+  hrefLabel?: TranslatableString;
+}
+
 export type TransportMode = 'plane' | 'train' | 'car' | 'bus' | 'taxi' | 'walk';
 
 export interface TransportLeg {
   mode: TransportMode;
-  from?: string;
-  to?: string;
-  note?: string;
+  from?: TranslatableString;
+  to?: TranslatableString;
+  note?: TranslatableString;
 }
 
 export interface Accommodation {
-  name?: string;
-  city: string;
-  note?: string;
+  name?: TranslatableString;
+  city: TranslatableString;
+  note?: TranslatableString;
 }
 
 /**
@@ -119,10 +184,10 @@ export type BookingUrgency = 'now' | 'week-before' | 'on-arrival' | 'walk-in';
 
 export interface AnchorEvent {
   /** "03:00", "aamu", "iltapäivä" — vapaa tekstikenttä */
-  time?: string;
+  time?: TranslatableString;
   kind: AnchorKind;
   /** Lyhyt kuvaus, esim "Lento Helsinki → Aqtau" tai "Pickup kuljettajalta" */
-  label: string;
+  label: TranslatableString;
   /** Booking-kiireellisyys — auttaa /tanaan-näkymää näyttämään mitä on pakko varata nyt */
   urgency?: BookingUrgency;
 }
@@ -132,10 +197,10 @@ export interface AnchorEvent {
  * Reissua varten kun ei haluta lukita asioita etukäteen.
  */
 export interface DayAlternative {
-  title: string;
-  summary: string;
+  title: TranslatableString;
+  summary: TranslatableString;
   /** Trade-off lyhyesti, esim "+ syvempi kokemus / − vie ekstrayö" */
-  tradeoff?: string;
+  tradeoff?: TranslatableString;
   sightIds?: string[];
 }
 
@@ -144,39 +209,39 @@ export interface DayAlternative {
  */
 export interface LodgingHint {
   /** Suositeltu alue/kaupunginosa, esim "Aqtau Mikrorajon-3 keskustassa" */
-  area: string;
+  area: TranslatableString;
   /** [min, max] EUR per yö per huone (kahden hengen) */
   priceRangeEUR: [number, number];
   /** Mistä varata, esim ['Booking.com', 'Ostrovok', 'paikallinen guesthouse'] */
   bookingApps: string[];
   /** Vinkki, esim "Kysele aikaista check-iniä — saapuminen yöllä" */
-  note?: string;
+  note?: TranslatableString;
 }
 
 export interface ItineraryDay {
   day: number;
   date?: string;
-  title: string;
-  summary: string;
+  title: TranslatableString;
+  summary: TranslatableString;
   sightIds: string[];
   transport?: TransportLeg[];
   /** Vanha kenttä — preseteissä yhä käytössä. Uusissa entryissä suositaan `lodgingHint` + `sleepCity`. */
   accommodation?: Accommodation;
-  notes?: string;
+  notes?: TranslatableString;
 
   // === Operatiiviset kentät (käytä userItineraryssä) ===
   /** Missä kaupungissa ollaan päivän aikana */
-  city?: string;
+  city?: TranslatableString;
   /** Missä kaupungissa nukutaan tämän päivän iltana */
-  sleepCity?: string;
+  sleepCity?: TranslatableString;
   /** Lukitut tapahtumat (lennot, kuljettaja-pickupit, check-in/out) */
   anchors?: AnchorEvent[];
   /** Pääsuunnitelma yhdellä lauseella */
-  primaryPlan?: string;
+  primaryPlan?: TranslatableString;
   /** Vaihtoehtoiset planit joita voi puntaroida päivän mittaan */
   alternatives?: DayAlternative[];
   /** Plan B jos pääsuunnitelma kaatuu (sää, kuljettaja, terveys) */
-  backupPlan?: string;
+  backupPlan?: TranslatableString;
   /** Majoitusvihje — ei varaus */
   lodgingHint?: LodgingHint;
   /** Arvio käteisen tarpeesta päivän aikana, KZT */
@@ -186,22 +251,22 @@ export interface ItineraryDay {
   /** Aikainen herätys huomenna (esim. yölento tai aamuretki) */
   earlyWakeRisk?: boolean;
   /** Offline-huomio: lataa kartat etukäteen, signaalia ei välttämättä ole */
-  offlineNote?: string;
+  offlineNote?: TranslatableString;
 }
 
 export type PresetTheme = 'nature' | 'culture' | 'epic-roadtrip';
 
 export interface Preset {
   id: string;
-  title: string;
+  title: TranslatableString;
   theme: PresetTheme;
   durationDays: number;
-  shortDescription: string;
-  whoFor: string;
-  highlights: string[];
+  shortDescription: TranslatableString;
+  whoFor: TranslatableString;
+  highlights: TranslatableString[];
   days: ItineraryDay[];
   estimatedBudgetEUR: { low: number; mid: number };
-  notes?: string;
+  notes?: TranslatableString;
 }
 
 export type BudgetCategory =
@@ -214,23 +279,23 @@ export type BudgetCategory =
 
 export interface BudgetItem {
   category: BudgetCategory;
-  label: string;
+  label: TranslatableString;
   estimateEUR: number;
-  note?: string;
+  note?: TranslatableString;
 }
 
 export interface BudgetByRegion {
   region: Region | 'general';
-  label: string;
+  label: TranslatableString;
   perDayEUR: { low: number; mid: number; high: number };
   items: BudgetItem[];
 }
 
 export interface VisaInfo {
-  countryOfCitizen: string;
+  countryOfCitizen: TranslatableString;
   visaFree: boolean;
   visaFreeDays?: number;
-  notes: string;
+  notes: TranslatableString;
   lastVerified: string;
   sourceUrl?: string;
 }
@@ -246,8 +311,8 @@ export type ChecklistCategory =
 export interface ChecklistItem {
   id: string;
   category: ChecklistCategory;
-  label: string;
-  detail?: string;
+  label: TranslatableString;
+  detail?: TranslatableString;
   daysBeforeTrip?: number;
 }
 

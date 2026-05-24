@@ -1,0 +1,33 @@
+{
+  "id": "turkistan-old-town",
+  "name": {
+    "fi": "Turkistanin vanhakaupunki",
+    "en": "Turkistan Old Town",
+    "ru": "Старый город Туркестана",
+    "kk": "Түркістанның ескі қаласы"
+  },
+  "shortDescription": {
+    "fi": "Restauroitu silkkitien kaupunkikokonaisuus mausoleumin ympärillä.",
+    "en": "A restored Silk Road town complex around the mausoleum.",
+    "ru": "Восстановленный комплекс города Шёлкового пути вокруг мавзолея.",
+    "kk": "Кесененің айналасына салынған, қайта жаңғыртылған Жібек жолы қалалық кешені."
+  },
+  "description": {
+    "fi": "Uudet karavanseraijat, hammam ja amfiteatteri tuotu eloon 2020-luvulla. Hyvä illansviettopaikka mausoleumi-vierailun jälkeen.",
+    "en": "New caravanserais, a hammam and an amphitheatre brought to life in the 2020s. A good place to spend the evening after visiting the mausoleum.",
+    "ru": "Новые караван-сараи, хаммам и амфитеатр оживили это место в 2020-х годах. Хорошее место провести вечер после посещения мавзолея.",
+    "kk": "2020-жылдары өмірге келген жаңа керуенсарайлар, моншасы (хаммам) және амфитеатр. Кесенеге барғаннан кейін кешті өткізуге қолайлы орын."
+  },
+  "imageAlt": {
+    "fi": "Restauroitu karavanseraji Turkistanin vanhassa kaupungissa",
+    "en": "Restored caravanserai in Turkistan's old town",
+    "ru": "Восстановленный караван-сарай в старом городе Туркестана",
+    "kk": "Түркістанның ескі қаласындағы қайта жаңғыртылған керуенсарай"
+  },
+  "city": {
+    "fi": "Turkistan",
+    "en": "Turkistan",
+    "ru": "Туркестан",
+    "kk": "Түркістан"
+  }
+}

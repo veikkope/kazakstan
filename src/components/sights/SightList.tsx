@@ -2,7 +2,9 @@
 
 import { useMemo, useState } from 'react';
 import { Check, ChevronDown, Star } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
 import { categoryMeta, regionMeta } from '@/data/categories';
+import { asLocale, localised } from '@/lib/i18n-helpers';
 import type { Region, Sight } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import OverallStars from './OverallStars';
@@ -44,6 +46,8 @@ export default function SightList({
   priorityIds,
   visitedIds,
 }: Props) {
+  const t = useTranslations();
+  const loc = asLocale(useLocale());
   const grouped = useMemo(() => {
     const m = new Map<Region, Sight[]>();
     for (const s of sights) {
@@ -82,7 +86,7 @@ export default function SightList({
   if (sights.length === 0) {
     return (
       <p className="py-6 text-center text-sm text-(--color-muted)">
-        Ei kohteita näillä suodattimilla.
+        {t('components.sightList.empty')}
       </p>
     );
   }
@@ -94,6 +98,8 @@ export default function SightList({
         if (!items || items.length === 0) return null;
         const isOpen = openRegion === region;
         const meta = regionMeta[region];
+        const regionLabel = localised(meta.label, loc);
+        const regionSubtitle = meta.subtitle ? localised(meta.subtitle, loc) : undefined;
         return (
           <details
             key={region}
@@ -109,7 +115,7 @@ export default function SightList({
             className="group/region"
           >
             <summary
-              aria-label={`${meta.fi} — ${items.length} kohdetta`}
+              aria-label={t('components.sightList.regionAria', { region: regionLabel, count: items.length })}
               className={cn(
                 'flex min-h-12 cursor-pointer list-none select-none items-center gap-3 px-3 py-3 transition-colors',
                 'hover:bg-(--color-bg) active:bg-(--color-bg)',
@@ -123,11 +129,11 @@ export default function SightList({
               />
               <span className="min-w-0 flex-1">
                 <span className="block truncate font-medium text-(--color-fg)">
-                  {meta.fi}
+                  {regionLabel}
                 </span>
-                {meta.subtitle && !isOpen && (
+                {regionSubtitle && !isOpen && (
                   <span className="block truncate text-xs text-(--color-muted)">
-                    {meta.subtitle}
+                    {regionSubtitle}
                   </span>
                 )}
               </span>
@@ -160,21 +166,21 @@ export default function SightList({
                             <Check
                               className="size-3.5 shrink-0 text-emerald-500"
                               strokeWidth={3}
-                              aria-label="Käyty"
+                              aria-label={t('components.sightList.visitedAria')}
                             />
                           ) : isPriority ? (
                             <Star
                               className="size-3.5 shrink-0 fill-amber-400 text-amber-400"
-                              aria-label="Suosikki"
+                              aria-label={t('components.sightList.favoriteAria')}
                             />
                           ) : null}
-                          <span className="truncate">{s.name}</span>
+                          <span className="truncate">{localised(s.name, loc)}</span>
                         </span>
                         <span
                           className="shrink-0 rounded-full px-2 py-0.5 text-[10px] text-white"
                           style={{ backgroundColor: catMeta.color }}
                         >
-                          {catMeta.fi}
+                          {localised(catMeta.label, loc)}
                         </span>
                       </div>
                       {s.ratings && (
@@ -186,7 +192,7 @@ export default function SightList({
                         </div>
                       )}
                       <p className="mt-1 line-clamp-2 text-xs text-(--color-muted)">
-                        {s.shortDescription}
+                        {localised(s.shortDescription, loc)}
                       </p>
                     </button>
                   </li>

@@ -1,0 +1,115 @@
+{
+  "file": "src/data/itinerary.ts",
+  "reviewer": "kk-quality-review",
+  "date": "2026-05-24",
+  "totalEdits": 11,
+  "estimatedStrings": 250,
+  "editPercent": 4.4,
+  "edits": [
+    {
+      "day": 1,
+      "path": "anchors[1].time.kk",
+      "before": "түн",
+      "after": "түнде",
+      "reason": "Time label inconsistent with style guide; locative case (-де) matches 'kешке/түстен кейін' used elsewhere as time markers."
+    },
+    {
+      "day": 2,
+      "path": "primaryPlan.kk",
+      "before": "Ақтау промен ад ы",
+      "after": "Ақтау променады",
+      "reason": "Typographical error — word broken with spurious spaces. Now reads as single word 'Aktau promenade' with possessive."
+    },
+    {
+      "day": 2,
+      "path": "notes.kk",
+      "before": "Хельсинкиден жатып брондау керек",
+      "after": "Хельсинкиде жатып брондау керек",
+      "reason": "Idiomatic '-де жатып' = 'while still in (place)'. Ablative '-ден' would mean 'lying from Helsinki', which is wrong; locative matches fi 'Helsingistä käsin' meaning while still in Helsinki."
+    },
+    {
+      "day": 3,
+      "path": "anchors[1].time.kk",
+      "before": "кеш",
+      "after": "кешке",
+      "reason": "Style guide specifies 'кешке' (in the evening) for time markers."
+    },
+    {
+      "day": 3,
+      "path": "anchors[1].label.kk",
+      "before": "операторы ұйымдастырады",
+      "after": "оператор ұйымдастырады",
+      "reason": "Possessive '-ы' makes it 'its operator arranges' (referring to nothing). fi/en/ru subject is plain 'operator'."
+    },
+    {
+      "day": 7,
+      "path": "alternatives[0].summary.kk",
+      "before": "БАК-қа күндізгі сапар — шекара аймағына рұқсат пен такси қажет",
+      "after": "БАК-қа бір күндік сапар — шекаралық аймаққа рұқсат пен такси қажет",
+      "reason": "'күндізгі сапар' = daytime trip; correct term for 'day trip' is 'бір күндік сапар' (used consistently elsewhere in file). Also style guide: 'border zone' = 'шекаралық аймақ', not 'шекара аймағы'."
+    },
+    {
+      "day": 10,
+      "path": "lodgingHint.area.kk",
+      "before": "отырар алдында жуынып алыңыз",
+      "after": "мінер алдында жуынып алыңыз",
+      "reason": "For boarding a train Kazakh idiom uses 'мінер алдында' (before boarding); 'отырар алдында' (before sitting) doesn't convey the boarding sense."
+    },
+    {
+      "day": 11,
+      "path": "lodgingHint.note.kk",
+      "before": "Ескі қалаға (Сарыарқа) тоқтамаңыз",
+      "after": "Ескі қаладан (Сарыарқа) аулақ болыңыз",
+      "reason": "fi/en/ru say 'avoid the Old Town'. 'тоқтамаңыз' (don't stop) doesn't match 'avoid'; idiomatic 'X-дан аулақ болу' = stay away from X."
+    },
+    {
+      "day": 13,
+      "path": "summary.kk",
+      "before": "қазақтың 'Солтүстік Швейцариясы'",
+      "after": "қазақтардың 'Солтүстік Швейцариясы'",
+      "reason": "fi 'kazakkien' = plural genitive (the Kazakhs'). Singular 'қазақтың' is awkward when referring to the people as a whole; plural 'қазақтардың' is correct."
+    },
+    {
+      "day": 12,
+      "path": "alternatives[0].summary.kk",
+      "before": "Күндізгі сапар, 1 адамға ~70–100 €",
+      "after": "Бір күндік сапар, 1 адамға ~70–100 €",
+      "reason": "Consistent terminology — 'day trip' = 'бір күндік сапар'."
+    },
+    {
+      "day": 14,
+      "path": "anchors[3].time.kk",
+      "before": "түн",
+      "after": "түнде",
+      "reason": "Same as day 1: locative case for time markers per style guide."
+    },
+    {
+      "day": 14,
+      "path": "primaryPlan.kk",
+      "before": "үйге сақтаңыз",
+      "after": "үйге апаруға сақтап қойыңыз",
+      "reason": "'үйге сақтау' (save to home, allative) is a calque from fi 'kotia varten säästä'. Natural Kazakh uses 'үйге апаруға сақтап қою' (save to take home)."
+    },
+    {
+      "day": 14,
+      "path": "offlineNote.kk",
+      "before": "Поштаға жүктеңіз",
+      "after": "Электрондық поштаға сақтап қойыңыз",
+      "reason": "'Поштаға жүктеу' (download to mail) is awkward and ambiguous (could mean physical post). Explicit 'electronic mail' + 'save' verb matches intent."
+    }
+  ],
+  "uncertainties": [
+    "Day 13 (line 1345/1484): 'маусымда маусым жабық' has double 'маусым' (June + season). It reads slightly awkwardly but is technically correct; left as-is to preserve translator's phrasing.",
+    "Day 5 (line 568): 'Yandex Go немесе жергілікті жүргізушіні Саура шатқалына шақырыңыз' — accusative only on second object is mildly awkward but parses OK.",
+    "Day 7 (line 762): kept transliteration 'БАК' for BAO (Big Almaty Lake). Could alternatively use 'БАО' matching Russian, but 'БАК' is the Kazakh-native acronym (Үлкен Алматы Көлі).",
+    "Day 12 alternatives day-13 (`Артем базары`) — kept Russian spelling without 'ё'; some sources use 'Артём'. Left as-is.",
+    "Did not unify 'қонақ үй' vs 'қонақүй' spelling — both forms appear; this is a stylistic choice, not an error."
+  ],
+  "notTouched": [
+    "fi/en/ru values — untouched per instructions",
+    "Day numbers, sightIds, structural fields",
+    "Brand names (Yandex Go, FlyArystan, Air Astana, Talgo, Booking.com, WhatsApp, Telegram, Caspi autorent)",
+    "Established Russian loanwords (купе, гид, такси, сауна, пирамида, культурлық etc.)",
+    "Brief day labels intentionally kept short"
+  ]
+}

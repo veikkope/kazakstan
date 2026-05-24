@@ -1,0 +1,53 @@
+{
+  "id": "markakol",
+  "name": {
+    "fi": "Markakol-järvi",
+    "en": "Lake Markakol",
+    "ru": "Озеро Маркаколь",
+    "kk": "Марқакөл көлі"
+  },
+  "shortDescription": {
+    "fi": "Kazakstanin syrjäisin alppijärvi — taiga, vuoristoniityt ja lumileopardin elinalue.",
+    "en": "Kazakhstan's most remote alpine lake — taiga, mountain meadows and snow leopard habitat.",
+    "ru": "Самое отдалённое высокогорное озеро Казахстана — тайга, горные луга и место обитания снежного барса.",
+    "kk": "Қазақстанның ең шалғай биік таулы көлі — тайга, тау шалғындары және қар барысының мекені."
+  },
+  "description": {
+    "fi": "38 × 19 km alppijärvi 1 447 m korkeudella taigan, niittyjen ja lumihuippujen ympäröimänä. Suojelualue 71 300 ha — 258 lintulajia, lumileopardi, hirvi, karhu. Talvi −55 °C, kesä jopa +29 °C.\n\nKazakstanin syrjäisin \"alppijärvi\" — ei turistirakenteita, vain pari kylää ja kalastusasemia. Soveltuu vain reissuun, jossa Altai-alue on pääfokus.",
+    "en": "An alpine lake measuring 38 × 19 km at 1,447 m elevation, surrounded by taiga, meadows and snowy peaks. The 71,300 ha nature reserve hosts 258 bird species, snow leopards, elk and bears. Winters drop to −55 °C, summers reach +29 °C.\n\nKazakhstan's most remote \"alpine lake\" — no tourist infrastructure, just a few villages and fishing stations. Worth visiting only on a trip where the Altai region is the main focus.",
+    "ru": "Высокогорное озеро 38 × 19 км на высоте 1 447 м, окружённое тайгой, лугами и снежными вершинами. Заповедник площадью 71 300 га — 258 видов птиц, снежный барс, лось, медведь. Зимой до −55 °C, летом до +29 °C.\n\nСамое отдалённое \"высокогорное озеро\" Казахстана — никакой туристической инфраструктуры, только пара деревень и рыболовецкие станции. Подходит только для поездки, где главный фокус — Алтайский регион.",
+    "kk": "1 447 м биіктікте орналасқан, тайга, шалғын мен қарлы шыңдармен қоршалған 38 × 19 км биік таулы көл. 71 300 га қорық — 258 құс түрі, қар барысы, бұғы, аю. Қыста −55 °C, жазда +29 °C-қа дейін.\n\nҚазақстанның ең шалғай «биік таулы көлі» — туристік инфрақұрылым жоқ, бірнеше ауыл мен балық аулау станциялары ғана бар. Тек Алтай аймағы негізгі бағыт болған сапарға қолайлы."
+  },
+  "imageAlt": {
+    "fi": "Markakol-järvi — alppijärvi Itä-Kazakstanin taigassa",
+    "en": "Lake Markakol — an alpine lake in the East Kazakhstan taiga",
+    "ru": "Озеро Маркаколь — высокогорное озеро в тайге Восточного Казахстана",
+    "kk": "Марқакөл көлі — Шығыс Қазақстан тайгасындағы биік таулы көл"
+  },
+  "practicalTips": [
+    {
+      "fi": "Vain kesä — passit lumiset muulloin. Vaatii vahvan 4WD:n.",
+      "en": "Summer only — the passes are snowed in the rest of the year. A capable 4WD is essential.",
+      "ru": "Только лето — в остальное время перевалы под снегом. Нужен надёжный полноприводный автомобиль.",
+      "kk": "Тек жазда — басқа уақытта асулар қар астында. Сенімді 4WD қажет."
+    },
+    {
+      "fi": "Yöpyminen lähikylissä Urunkhaika tai Uryl — perustaso.",
+      "en": "Stay in the nearby villages of Urunkhaika or Uryl — basic standard.",
+      "ru": "Ночуйте в ближайших сёлах Урунхайка или Урыль — уровень базовый.",
+      "kk": "Жақын маңдағы Үрінқайқа немесе Үріл ауылдарында түнеңіз — деңгейі қарапайым."
+    },
+    {
+      "fi": "Yhdistä Vanhaan Itävallan tiehen (4WD-roadtrip Katon-Karagayn ja Markakolin välillä).",
+      "en": "Combine with the Old Austrian Road (a 4WD road trip between Katon-Karagay and Markakol).",
+      "ru": "Совместите со Старой Австрийской дорогой (4WD-маршрут между Катон-Карагаем и Маркаколем).",
+      "kk": "Ескі Австрия жолымен ұштастырыңыз (Қатонқарағай мен Марқакөл арасындағы 4WD сапары)."
+    },
+    {
+      "fi": "Vaatii rajavyöhykeluvan.",
+      "en": "A border-zone permit is required.",
+      "ru": "Требуется пропуск в пограничную зону.",
+      "kk": "Шекаралық аймаққа кіру рұқсаты қажет."
+    }
+  ]
+}

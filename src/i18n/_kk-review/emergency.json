@@ -1,0 +1,47 @@
+{
+  "file": "src/data/emergency.ts",
+  "reviewedAt": "2026-05-24",
+  "totalKkStrings": 64,
+  "editsCount": 2,
+  "edits": [
+    {
+      "context": "emergencyPhrases — \"En voi hyvin\" / \"I don't feel well\"",
+      "before": "Мен өзімді жаман сезінемін",
+      "after": "Өзімді нашар сезініп тұрмын",
+      "reason": "Direct Russian calque from 'Я плохо себя чувствую'. 'жаман сезіну' is colloquial and Russian-influenced; native Kazakh prefers 'нашар сезіну'. Progressive form 'сезініп тұрмын' is more natural for describing a current state to a stranger (e.g. doctor). Pronoun 'мен' is implicit in conjugation and can be dropped for naturalness in a short distress phrase."
+    },
+    {
+      "context": "recommendedApps — inDriver use description",
+      "before": "Такси — жүргізушіге өз бағаңды ұсынуға болады",
+      "after": "Такси — жүргізушіге өз бағаңызды ұсынуға болады",
+      "reason": "Register inconsistency: 'бағаңды' uses 2nd person singular informal possessive, but every other app description and the emergency phrases use the formal 2nd person ('-ңыз' suffix, e.g. 'сақтаңыз', 'жүктеп алыңыз'). Changed to formal 'бағаңызды'."
+    }
+  ],
+  "considered_but_kept": [
+    {
+      "string": "Жалпы төтенше нөмір",
+      "note": "'төтенше' is the official term used in 'Төтенше жағдайлар министрлігі'. 'Бірыңғай шұғыл нөмір' would be slightly more idiomatic for 112 but current form is acceptable and clear."
+    },
+    {
+      "string": "Жедел жәрдем шақырыңыз",
+      "note": "Could take accusative ('Жедел жәрдемді шақырыңыз') but indefinite nominative is idiomatic in Kazakh imperative for generic emergency services. Both forms are used."
+    },
+    {
+      "string": "Мен орысша білмеймін",
+      "note": "Literally 'I don't know Russian' but this is the standard idiomatic way Kazakh speakers say 'I don't speak Russian'. 'Сөйлемеймін' would be more literal but less natural."
+    },
+    {
+      "string": "Мен адасып қалдым",
+      "note": "Style guide mentions 'жоғалдым' but 'адасып қалдым' is the more natural phrase for getting lost while traveling. Kept as-is."
+    },
+    {
+      "string": "Мен финмін",
+      "note": "Correct copular form. Could also be 'Мен фин азаматымын' (I'm a Finnish citizen) but short form fits the emergency-phrase style."
+    }
+  ],
+  "uncertainties": [
+    "Whether to formalize 'Жалпы төтенше нөмір' to 'Бірыңғай шұғыл нөмір' — left conservative.",
+    "Whether 'Жедел жәрдем шақырыңыз' should take accusative case — both forms exist in usage."
+  ],
+  "typecheck": "passed"
+}

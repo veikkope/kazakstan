@@ -1,0 +1,27 @@
+{
+  "id": "aksu-zhabagly",
+  "name": {
+    "fi": "Aksu-Zhabaglyn luonnonpuisto",
+    "en": "Aksu-Zhabagly Nature Reserve",
+    "ru": "Аксу-Жабаглинский природный заповедник",
+    "kk": "Ақсу-Жабағылы табиғи қорығы"
+  },
+  "shortDescription": {
+    "fi": "Keski-Aasian vanhin luonnonpuisto — vuoria, jokia, lumileopardin elinaluetta.",
+    "en": "Central Asia's oldest nature reserve — mountains, rivers and snow leopard habitat.",
+    "ru": "Старейший природный заповедник Центральной Азии — горы, реки и места обитания снежного барса.",
+    "kk": "Орталық Азиядағы ең көне табиғи қорық — таулар, өзендер және қар барысының мекені."
+  },
+  "description": {
+    "fi": "Talas-Alatau-vuoriston etelärinne, 1300–4239 m. Vaatii etukäteisluvan ja oppaan — tämä ei ole walk-in-puisto. Perustettu suojelualueeksi 1926, Keski-Aasian vanhin. Lumileopardit (35–40 yksilöä), karhut ja yli 1700 kasvilajia, joista 47 endeemistä. Käy yleensä 2–4 vrk vaelluksena Zhabagly-kylän tukikohdasta.",
+    "en": "The southern slope of the Talas Alatau range, 1,300–4,239 m. Requires an advance permit and a guide — this is not a walk-in park. Established as a protected area in 1926, Central Asia's oldest. Home to snow leopards (35–40 individuals), bears and over 1,700 plant species, 47 of them endemic. Usually visited as a 2–4 day trek from a base in Zhabagly village.",
+    "ru": "Южный склон хребта Таласский Алатау, 1300–4239 м. Требуется заранее оформленный пропуск и гид — это не парк, в который можно просто прийти. Создан как охраняемая территория в 1926 году — старейший в Центральной Азии. Снежные барсы (35–40 особей), медведи и более 1700 видов растений, 47 из которых эндемики. Обычно посещают как поход на 2–4 дня с базой в селе Жабаглы.",
+    "kk": "Талас Алатауы жотасының оңтүстік беткейі, 1300–4239 м. Алдын ала рұқсат пен гид қажет — бұл еркін кіруге арналған саябақ емес. 1926 жылы қорғалатын аумақ ретінде құрылған, Орталық Азиядағы ең көнесі. Қар барысы (35–40 дара), аюлар және 1700-ден астам өсімдік түрі бар, оның 47-сі эндемик. Әдетте Жабағылы ауылындағы базадан 2–4 күндік жорық ретінде барады."
+  },
+  "imageAlt": {
+    "fi": "Aksu-Zhabaglyn luonnonpuiston vuoristomaisema lumihuipuilla",
+    "en": "Mountain landscape of Aksu-Zhabagly Nature Reserve with snow-capped peaks",
+    "ru": "Горный пейзаж Аксу-Жабаглинского заповедника с заснеженными вершинами",
+    "kk": "Ақсу-Жабағылы қорығының қарлы шыңдары бар таулы көрінісі"
+  }
+}

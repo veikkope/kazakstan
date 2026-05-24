@@ -1,0 +1,125 @@
+{
+  "file": "src/data/logistics.ts",
+  "total_kk_strings": 180,
+  "edits_applied": 13,
+  "edit_percent": "~7%",
+  "edits": [
+    {
+      "context": "helsinki-aqtau / Turkish Airlines / pros[2]",
+      "before": "Финша сөйлейтін қызметкерлер жиі қолжетімді",
+      "after": "Фин тілінде сөйлейтін қызметкерлер жиі қолжетімді",
+      "reason": "'Финша' is not a standard Kazakh form for 'in Finnish'; language is properly expressed as 'фин тілінде' or 'финше'. Also Kazakh language names are lowercase. Original looked like a Russian calque."
+    },
+    {
+      "context": "aqtau-almaty / context",
+      "before": "Маусымда бағалар шарықтау шегінде.",
+      "after": "Маусымда бағалар шарықтау шегіне жетеді.",
+      "reason": "Verb required for a complete predication; 'шарықтау шегіне жету' is the idiomatic 'to peak/reach the peak'."
+    },
+    {
+      "context": "aqtau-almaty / FlyArystan / cons[1]",
+      "before": "Air Astana еншілес компаниясы, бірақ лоукост моделі",
+      "after": "Air Astana-ның еншілес компаниясы, бірақ лоукост моделі",
+      "reason": "Izafet (possessive) construction requires the -ның genitive on the possessor."
+    },
+    {
+      "context": "aqtau-almaty / SCAT Airlines / cons[1]",
+      "before": "Кесте әрқашан сақталмайды",
+      "after": "Кесте әрқашан сақтала бермейді",
+      "reason": "'Әрқашан сақталмайды' literally reads as 'always is not respected'. The intended sense ('not always respected') is rendered by the analytic negation 'сақтала бермейді'."
+    },
+    {
+      "context": "almaty-astana / Talgo / cons[2]",
+      "before": "Жүк сөрелерде",
+      "after": "Жүк үстіңгі сөрелерде",
+      "reason": "Adds 'үстіңгі' (overhead) to disambiguate from generic shelves — matches the fi/en/ru meaning 'overhead racks' rather than just 'on shelves'."
+    },
+    {
+      "context": "almaty-astana / recommendation",
+      "before": "Астанаға таңертең келеді",
+      "after": "Астанаға таңертең жетеді",
+      "reason": "'Жету' (to reach/arrive) is the standard verb for transport arrivals; 'келу' (to come) is acceptable but less precise in this context."
+    },
+    {
+      "context": "astana-helsinki / recommendation",
+      "before": "сонда бір рейс кешіксе шағым қорғауыңыз болады",
+      "after": "сонда бір рейс кешіксе шағым ете аласыз",
+      "reason": "'Шағым қорғауы' is a literal calque of English 'claim protection' with no idiomatic meaning in Kazakh. 'Шағым ете аласыз' ('you can file a claim') conveys the operational meaning."
+    },
+    {
+      "context": "mangystauDriverOptions (durationDays 1) / cons[2]",
+      "before": "Шөл атмосферасына енбейді",
+      "after": "Шөл атмосферасын сезіне алмайсыз",
+      "reason": "'Атмосфераға ену' is a Finnish/English calque ('sukeltaa atmosfääriin'/'immerse in atmosphere'). 'Сезіне алмайсыз' ('you cannot sense/feel') is the natural Kazakh equivalent and matches the formal 'Сіз' register."
+    },
+    {
+      "context": "Place name consistency: Бозжыра (5 occurrences)",
+      "before": "Боззыра",
+      "after": "Бозжыра",
+      "reason": "Cyrillic spelling unified with src/data/sights.ts and the Russian variant in the same entries. 'Боззыра' was not used anywhere else in the codebase."
+    },
+    {
+      "context": "Mangystau Tour 999 / includes[1]",
+      "before": "киіз үй + ұйықтайтын қаптар",
+      "after": "киіз үй + ұйқы қаптары",
+      "reason": "'Ұйқы қабы' (lit. 'sleeping bag') is the established Kazakh compound. 'Ұйықтайтын қаптар' is a literal participle-based calque."
+    },
+    {
+      "context": "Indy Guide / languages",
+      "before": "көпшілігінде ағылшынша",
+      "after": "көпшілігі ағылшынша сөйлейді",
+      "reason": "Original is a fragment with a locative case that lacks a predicate ('in the majority, English'). Repaired into a complete clause."
+    },
+    {
+      "context": "Indy Guide / reputation",
+      "before": "Маңғыстаудың бірнеше хосттарында жоғары жұлдыздар",
+      "after": "Маңғыстаудағы бірнеше хосттың рейтингі жоғары",
+      "reason": "'Жоғары жұлдыздар' (high stars) is a calque; 'рейтингі жоғары' is the standard Kazakh tourist-register expression. Also restructured case (locative → genitive izafet)."
+    },
+    {
+      "context": "almaty-astana / Talgo / pros[3]",
+      "before": "Маусымда кондиционерленген",
+      "after": "Маусымда кондиционерлі",
+      "reason": "'Кондиционерленген' uses a verbal participle on a non-verb root, which is non-standard. '-лі' is the productive adjectival suffix ('air-conditioned' = 'with AC')."
+    },
+    {
+      "context": "almaty-astana / Talgo / cons[1]",
+      "before": "(орталыққа жеткізу бөлек)",
+      "after": "(орталыққа жету бөлек)",
+      "reason": "'Жеткізу' means 'to deliver (someone/something)' — wrong valence here. 'Жету' ('to reach/get to') matches the fi/en/ru sense of 'transfer to centre is separate'."
+    }
+  ],
+  "considered_but_not_edited": [
+    {
+      "context": "helsinki-aqtau / Lufthansa / pros[1]",
+      "current": "Кейде Turkish-тен арзан",
+      "note": "The ablative -тен could be argued as back-vowel mismatch with 'Turkish', but the Latin brand name interface allows either; not a clear improvement."
+    },
+    {
+      "context": "Multiple / 'плацкарт', 'купе', 'шаттл', 'эскроу', 'маркетплейс', 'хост'",
+      "note": "Established Russian/English loanwords commonly used in Kazakh tourism vocabulary. Per style guide, left untouched."
+    },
+    {
+      "context": "Place name 'Шерқала' (Sherkala) and 'Тұзбайыр' (Tuzbair)",
+      "note": "Already use the standard Kazakh Cyrillic forms; preserved as-is."
+    },
+    {
+      "context": "Mangystau Tour 999 / caveat",
+      "current": "Жүргізуші Баурдың ағылшыншасы шектеулі",
+      "note": "'Ағылшыншасы' (his English) is a colloquial nominalisation; could be 'ағылшын тілі шектеулі' but the current form reads naturally."
+    },
+    {
+      "context": "Multiple / 'ауысу' for transfer/layover",
+      "note": "Used consistently across all flight-leg options — matches the style guide."
+    },
+    {
+      "context": "carRental / hours, address fields",
+      "note": "Russian-Cyrillic local addresses (15-й микрорайон, Прокат автотранспорта) are deliberately preserved because Kazakh locals use them; not a translation error."
+    }
+  ],
+  "uncertainties": [
+    "Whether 'хост' or 'үй иесі' is the preferred term in Kazakh for marketplace tour hosts. Left as 'хост' (loanword) for consistency with marketplace-platform context.",
+    "Whether 'Бағыт' (line 1026) for 'route' is preferable to 'Маршрут' (loanword from Russian). Original 'Бағыт' is correct Kazakh; preserved.",
+    "Some long sentences mix nominal and verbal predicates in a way that could be smoothed; held to ≤15% heuristic and only fixed clear grammar/calque issues."
+  ]
+}

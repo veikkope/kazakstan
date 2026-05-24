@@ -1,0 +1,527 @@
+{
+  "_meta": {
+    "language": "Suomi",
+    "lastUpdated": "2026-05-24",
+    "canonical": true,
+    "conventions": "Namespace pattern: pages.<route>.<element>, components.<feature>.<element>, common.<element>, errors.<context>. Keys camelCase, values native Finnish. Pluralization uses ICU MessageFormat: {count, plural, one {kohde} other {kohdetta}}."
+  },
+  "common": {
+    "loading": "Ladataan…",
+    "cancel": "Peruuta",
+    "close": "Sulje",
+    "clear": "Tyhjennä",
+    "save": "Tallenna",
+    "back": "Takaisin",
+    "more": "Lisää",
+    "open": "Avaa",
+    "search": "Hae",
+    "yes": "Kyllä",
+    "no": "Ei"
+  },
+  "languageSwitcher": {
+    "label": "Vaihda kieli",
+    "current": "Nykyinen kieli: {language}"
+  },
+  "brand": {
+    "name": "Kazakstan",
+    "tagline": "Kazakstan-reissun suunnittelu"
+  },
+  "nav": {
+    "home": "Etusivu",
+    "today": "Tänään",
+    "map": "Kartta",
+    "sights": "Nähtävyydet",
+    "routes": "Valmiit reitit",
+    "itinerary": "Reittisuunnitelma",
+    "shortlist": "Shortlist",
+    "info": "Info",
+    "budget": "Budjetti",
+    "days": "Päivät",
+    "infoLong": "Käytännön info",
+    "carRental": "Vuokra-auto (Aktau)",
+    "ariaPrimary": "Päänavigaatio",
+    "ariaBottom": "Pääsivut",
+    "ariaMore": "Lisää linkkejä"
+  },
+  "errors": {
+    "notFound": {
+      "title": "404 — Ei löytynyt",
+      "description": "Tätä sivua ei ole olemassa. Ehkä tarkoitit:",
+      "linkMap": "Kartta",
+      "linkSights": "Nähtävyydet",
+      "linkRoutes": "Valmiit reitit",
+      "cta": "Etusivulle"
+    }
+  },
+  "pages": {
+    "home": {
+      "eyebrow": "Reissuopas itsellesi ja kaverille",
+      "title": "Suunnitellaan reissu Kazakstaniin.",
+      "intro": "Tämä on päätöstyökalu — selaa kohteita kartalla, vertaa valmiita reittejä, ja tallenna suosikit shortlistille. Jaa nykyinen näkymä kaverille linkillä.",
+      "pathMapTitle": "Selaa kartalla",
+      "pathMapDescription": "Interaktiivinen kartta + filtterit. Klikkaa kohteita ja lisää shortlistille.",
+      "pathRoutesTitle": "Valmiit reittirungot",
+      "pathRoutesDescription": "3 erilaista pohjaa: 5, 7 ja 10 päivän versiot. Hyvä lähtökohta.",
+      "pathInfoTitle": "Käytännön info",
+      "pathInfoDescription": "Viisumi, valuutta, kuljetukset, ennen lähtöä -checklist.",
+      "featuredHeading": "Klassikkokohteet",
+      "draftsHeading": "Myöhemmin lisättävät / vahvistettavat",
+      "draftsDescription": "Nämä eivät vielä näy kartalla — odottavat varmistusta."
+    },
+    "map": {
+      "title": "Kartta",
+      "resultCount": "{count} kohdetta.",
+      "tipAriaLabel": "Karttavinkki",
+      "tipTooltip": "Klikkaa pini tai listariviä kun haluat zoomata.",
+      "listRegionAriaLabel": "Kohteet listana",
+      "switchToListAriaLabel": "Vaihda listanäkymään — {count} kohdetta",
+      "switchToMapAriaLabel": "Vaihda karttanäkymään",
+      "list": "Lista",
+      "map": "Kartta",
+      "rentalPin": {
+        "subtitle": "Vuokra-auton nouto ja palautus Aktaussa.",
+        "pickup": "Pickup: {date}",
+        "return": "Return: {date}",
+        "address": "Osoite: {address}",
+        "hours": "Aukiolo: {hours}",
+        "hrefLabel": "Tarkemmat ohjeet"
+      }
+    },
+    "sights": {
+      "title": "Nähtävyydet",
+      "subtitle": "<bold>{count}</bold> kohdetta. Käytä suodattimia rajataksesi vaihtoehtoja.",
+      "resultsCountMobile": "<bold>{count}</bold> kohdetta",
+      "filterButton": "Suodata",
+      "filterButtonAria": "Suodattimet",
+      "filterButtonActiveAria": "Suodattimet — {count} aktiivinen",
+      "filterSheetTitle": "Suodattimet",
+      "categoriesHeading": "Kategoriat",
+      "regionsHeading": "Alueet",
+      "allRegions": "Kaikki",
+      "sortLabel": "Järjestys:",
+      "sortHeading": "Järjestys",
+      "sortDefault": "Oletus (alueittain)",
+      "sortPopular": "Suosituimmat",
+      "sortInteresting": "Mielenkiintoisimmat",
+      "sortUnique": "Erikoisimmat",
+      "clear": "Tyhjennä",
+      "clearSearch": "Tyhjennä haku",
+      "clearAll": "Tyhjennä kaikki",
+      "showResults": "Näytä {count} kohdetta",
+      "emptyTitleQuery": "Ei tuloksia hakusanalle \"{query}\"",
+      "emptyTitleFilters": "Ei kohteita näillä suodattimilla",
+      "emptyDescBoth": "Kokeile poistaa filttereitä tai vaihtaa hakusanaa.",
+      "emptyDescQuery": "Tarkista kirjoitusasu tai kokeile toista hakusanaa.",
+      "emptyDescFilters": "Kokeile poistaa kategoria- tai alue-suodattimia."
+    },
+    "sightDetail": {
+      "notFoundTitle": "Kohdetta ei löytynyt",
+      "metaTitle": "{name} — Kazakstan-reissu",
+      "draftBadge": "Luonnos — odottaa vahvistusta",
+      "navigator": "Navigaattori",
+      "descriptionHeading": "Kuvaus",
+      "historyHeading": "Historia",
+      "tipsHeading": "Käytännön vinkit",
+      "nearbyHeading": "Lähellä tätä",
+      "ratingsHeading": "Arvosanat",
+      "ratedOn": "Arvioitu {date}",
+      "quickFactsHeading": "Pikatiedot",
+      "city": "Kaupunki",
+      "timeNeeded": "Vierailuaika",
+      "hours": "{hours} h",
+      "approxHours": "~{hours} h",
+      "difficulty": "Vaativuus",
+      "difficultyEasy": "helppo",
+      "difficultyModerate": "keskitaso",
+      "difficultyHard": "vaativa",
+      "budgetLevel": "Hintataso",
+      "budgetLow": "edullinen",
+      "budgetMid": "keskitaso",
+      "budgetHigh": "kallis",
+      "cost": "Sisäänpääsy",
+      "free": "Maksuton",
+      "openingHours": "Aukiolo",
+      "needsCar": "Vaatii auton",
+      "needsGuide": "Suositellaan opasta",
+      "travelFromAlmaty": "Matka Almatysta",
+      "travelFromAstana": "Matka Astanasta",
+      "bestTime": "Paras aika",
+      "locationHeading": "Sijainti",
+      "openOnMap": "Avaa kartalla →",
+      "monthJan": "tam",
+      "monthFeb": "hel",
+      "monthMar": "maa",
+      "monthApr": "huh",
+      "monthMay": "tou",
+      "monthJun": "kes",
+      "monthJul": "hei",
+      "monthAug": "elo",
+      "monthSep": "syy",
+      "monthOct": "lok",
+      "monthNov": "mar",
+      "monthDec": "jou"
+    },
+    "routes": {
+      "title": "Valmiit reittirungot",
+      "intro": "Kolme erilaista lähtökohtaa: yksi luontoon, yksi kaupunkeihin ja yksi pidempi roadtrip. Valitse runko ja muokkaa siitä oma reittisi."
+    },
+    "routeDetail": {
+      "metaNotFound": "Reittiä ei löytynyt",
+      "metaTitle": "{title} — Kazakstan-reissu",
+      "backLink": "← Valmiit reittirungot",
+      "tileWhoFor": "Kenelle",
+      "tileDuration": "Kesto",
+      "tileBudget": "Budjettiarvio / hlö",
+      "durationValue": "{count} päivää",
+      "highlightsHeading": "Kohokohdat",
+      "dayByDayHeading": "Päivä päivältä",
+      "useAsTemplateTitle": "Käytä pohjana omassa reittisuunnitelmassa",
+      "useAsTemplateBody": "Kopioi <code>preset.days</code> tämän tiedoston tunnisteella <code>{id}</code> ja vie ne <code>src/data/itinerary.ts</code>:n <code>userItinerary</code> -taulukkoon. Sen jälkeen muokkaa vapaasti."
+    },
+    "itinerary": {
+      "title": "Oma reittisuunnitelma",
+      "intro": "Tämä on teidän oma reittirungonne. Aluksi tyhjä — täytä päivät kun reitti lukittuu, tai kopioi runko <routes>valmiista reiteistä</routes>."
+    },
+    "shortlist": {
+      "loading": "Ladataan…",
+      "title": "Shortlist",
+      "intro": "{count} kohdetta. Valitse alueittain mitä lähdette katsomaan — saat valmiin reitin Google Mapsiin, Yandexiin tai 2GIS:iin.",
+      "shareButton": "Jaa kavereille",
+      "shareCopied": "✓ Linkki kopioitu",
+      "shareError": "Jakaminen epäonnistui",
+      "shareTitle": "Kazakstan-reissun shortlist",
+      "shareText": "Tässä mun shortlist Kazakstaniin — mitä mieltä?",
+      "clearButton": "Tyhjennä",
+      "clearDialogTitle": "Tyhjennä shortlist?",
+      "clearDialogDescription": "Poistetaan kaikki <strong>{count} kohdetta</strong> listalta — mukaan lukien suosikit ja käyty-merkinnät. Voit perua toiminnon hetken ajan ilmoituksen kautta.",
+      "cancel": "Peruuta",
+      "confirmClear": "Kyllä, tyhjennä",
+      "removedToast": "Poistettu: {name}",
+      "undo": "Kumoa",
+      "clearedToast": "Shortlist tyhjennetty",
+      "clearedToastDescription": "Poistettu {count} kohdetta",
+      "emptyTitle": "Shortlist on tyhjä",
+      "emptyDescription": "Lisää kohteita listalle Nähtävyydet-sivulta. Voit nostaa kärkivalinnat suosikeiksi ★, merkitä käydyt ✓ reissun aikana ja koota alueittain reittejä Google Mapsiin, Yandexiin tai 2GIS:iin.",
+      "emptyBrowseSights": "Selaa nähtävyyksiä",
+      "emptyOpenMap": "Avaa kartta",
+      "usageHint": "Rastita ne kohteet, jotka käytte tänään — paina sitten <strong>Avaa reitti</strong> ja valitse navigaattori (Google Maps, Yandex, 2GIS tai Apple Maps). Reitti avautuu valmiiksi järjestettynä, lähtöpaikaksi tulee oma sijaintisi.",
+      "progressComplete": "🎉 Reissu valmis!",
+      "progressInProgress": "Reissun eteneminen",
+      "progressVisitedLabel": "käyty",
+      "progressPriorityLabel": "suosikkia",
+      "progressAria": "Reissun eteneminen: {visited} / {total} käyty ({percent} %)",
+      "selectAll": "Valitse kaikki",
+      "clearSelection": "Tyhjennä valinta",
+      "routeButtonEmpty": "Valitse reittiin",
+      "routeButtonWithCount": "Avaa reitti ({count})",
+      "overLimitWarning": "Navigaattorit tukevat enintään {max} pistettä reitillä — poista valintoja jatkaaksesi.",
+      "aktauWarning": "<strong>Huom:</strong> Mangystaun aavikkoreitit eivät ole täysin Google Mapsissa. Reittilinkki näyttää suunnan, mutta käytä myös offline-karttaa (esim. Maps.me) ja paikallista kuljettajaa.",
+      "selectAria": "Valitse {name} reittiin",
+      "deselectAria": "Poista {name} reittivalinnasta",
+      "removeAria": "Poista shortlistilta",
+      "visitedOn": "Käyty {date}",
+      "priorityLabel": "Suosikki",
+      "visitedLabel": "Käyty"
+    },
+    "today": {
+      "metaTitle": "Tänään — Kazakstan",
+      "metaDescription": "Tämän päivän plan, ankkurit, hätäkortti ja pikalinkit reissun aikana.",
+      "title": "Tänään",
+      "intro": "Päivän plan, ankkurit, käteinen ja hätäkortti — yhdellä silmäyksellä."
+    },
+    "budget": {
+      "title": "Budjetti",
+      "intro": "Arviot per alue ja kategoria. Hinnat henkilöä kohden ellei toisin mainittu. Mangystaun hinnoissa oletetaan että autossa on 2–4 hlöä.",
+      "estimatesHeading": "Budjettiarvio per alue",
+      "perDayLabel": "Per päivä:",
+      "tiersLabel": "(edullinen / keskitaso / kallis)",
+      "tableItem": "Erä",
+      "tableEstimate": "Arvio",
+      "categoryFlights": "Lennot",
+      "categoryLodging": "Majoitus",
+      "categoryFood": "Ruoka",
+      "categoryTransport": "Kuljetus",
+      "categoryActivities": "Aktiviteetit",
+      "categoryMisc": "Muut"
+    },
+    "info": {
+      "title": "Käytännön info",
+      "intro": "Viisumi, ennen lähtöä -checklist, kuljetukset, kieli ja turvallisuus.",
+      "languageHeading": "Kieli",
+      "languageColFi": "Suomi",
+      "languageColKk": "Kazakki",
+      "languageColRu": "Venäjä",
+      "safetyHeading": "Turvallisuus — mitä se tarkoittaa käytännössä"
+    },
+    "carRental": {
+      "metaTitle": "{operator} — Vuokra-auto Aktaussa",
+      "metaDescription": "{operator} ({pickup}) — auton nouto {pickupDate}, palautus {returnDate}.",
+      "backToMap": "Takaisin kartalle",
+      "badge": "🚗 Vuokra-auto",
+      "pickupTitle": "Nouto- ja palautuspaikka",
+      "pickupDates": "Tähän tullaan {pickup} ja palataan {return}.",
+      "postalCode": "Postinro",
+      "openNavigator": "Avaa navigaattori",
+      "navigatorHint": "Avaa Google Maps, 2GIS, Yandex tai Apple Maps — reitti nykyisestä sijainnistasi tähän pisteeseen.",
+      "contactsTitle": "Yhteystiedot",
+      "phone": "Puhelin",
+      "whatsapp": "WhatsApp",
+      "openChat": "Avaa chat →",
+      "instagram": "Instagram",
+      "bookingTitle": "Varauksen perustiedot",
+      "pickupLabel": "Pickup",
+      "returnLabel": "Return",
+      "hoursLabel": "Aukiolo",
+      "officeTitle": "Virallinen toimisto (eri kuin pickup)",
+      "officeDescription": "Yrityksen 2GIS-listauksen mukainen osoite. <strong>Älä mene tänne</strong> — auto noudetaan ja palautetaan ЖК Оазikseen yllä.",
+      "notesTitle": "Huomiot",
+      "externalLinksTitle": "Ulkoiset linkit",
+      "lastVerified": "Tiedot tarkistettu viimeksi {date}."
+    }
+  },
+  "components": {
+    "header": {
+      "searchButton": "Hae",
+      "searchAriaLabel": "Hae kohteita"
+    },
+    "footer": {
+      "intro": "Henkilökohtainen reissusuunnitelma. Karttapohja:",
+      "disclaimer": "Tarkista käytännön info aina ennen lähtöä — viisumit, kurssit ja yhteydet voivat muuttua."
+    },
+    "bottomNav": {
+      "more": "Lisää"
+    },
+    "commandPalette": {
+      "title": "Komentopaletti",
+      "description": "Etsi nähtävyyksiä ja navigoi sivulta toiselle",
+      "placeholder": "Etsi nähtävyyksiä, sivuja, reittejä...",
+      "noResults": "Ei tuloksia hakusanalle \u201c{query}\u201d.",
+      "pagesHeading": "Sivut",
+      "sightsHeading": "Nähtävyydet"
+    },
+    "offlineBanner": {
+      "message": "Offline-tila — näytetään tallennettua sisältöä. Kartta ja kuvat voivat olla rajalliset."
+    },
+    "navigateMenu": {
+      "openNavigator": "Avaa navigaattori",
+      "googleSubtitle": "Universaali — toimii kaikilla laitteilla",
+      "twoGisSubtitle": "Paras Kazakstanissa — tarkat osoitteet ja arvostelut",
+      "yandexSubtitle": "Hyvä Keski-Aasiassa — liikenne reaaliajassa",
+      "appleSubtitle": "iPhone ja Mac — avautuu natiivina",
+      "firstStopOnly": "Avaa vain reitin 1. kohteen — ei tue useita pysähdyksiä",
+      "headerTitleMulti": "{count} pysähdyksen reitti",
+      "headerDescriptionMulti": "Lähtöpaikka on nykyinen sijaintisi. Pisteet on järjestetty lyhyimmän etäisyyden mukaan.",
+      "headerDescriptionSingleWithLabel": "Reitti nykyisestä sijainnistasi kohteeseen {label}.",
+      "headerDescriptionSingle": "Reitti nykyisestä sijainnistasi.",
+      "desktopLabelMulti": "Reitti {count} kohteen kautta",
+      "desktopLabelSingle": "Reitti nykyisestä sijainnistasi"
+    },
+    "sightCard": {
+      "draft": "Luonnos",
+      "hours": "{count} h",
+      "difficultyEasy": "helppo",
+      "difficultyModerate": "keskitaso",
+      "difficultyHard": "vaativa",
+      "budgetLow": "edullinen",
+      "budgetMid": "keskitaso",
+      "budgetHigh": "kallis",
+      "car": "auto",
+      "guide": "opas"
+    },
+    "searchInput": {
+      "label": "Hae nähtävyyttä",
+      "placeholder": "Hae kohdetta, kaupunkia, kategoriaa...",
+      "clearAria": "Tyhjennä haku",
+      "resultsAnnouncement": "{count} tulosta hakusanalle {query}",
+      "noResultsAnnouncement": "Ei tuloksia hakusanalle {query}",
+      "totalAnnouncement": "{count} kohdetta yhteensä"
+    },
+    "sightImage": {
+      "placeholderAria": "{category}-kategoria — kuva puuttuu",
+      "attributionAria": "Kuvan lähde: {source}",
+      "attributionAriaWithCredit": "Kuvan lähde: {source} — {credit}"
+    },
+    "nearbyList": {
+      "distanceKm": "{km} km"
+    },
+    "starRating": {
+      "popularity": "Suosio",
+      "interest": "Mielenkiinto",
+      "uniqueness": "Erikoisuus",
+      "starsAria": "{value} / 5",
+      "valueOutOfFive": "{value}/5",
+      "placeholder": "ⓘ Ei vielä arvosteltu — aja <code>place-rater</code> -agentti."
+    },
+    "overallStars": {
+      "averageAria": "Keskiarvo {value} viidestä",
+      "outOfFive": "/ 5",
+      "popular": "Suosittu",
+      "rich": "Sisältörikas",
+      "unique": "Erikoinen",
+      "standoutTitle": "{label} — paras ulottuvuus 5/5"
+    },
+    "shortlistButton": {
+      "add": "Lisää shortlistille",
+      "onShortlist": "Shortlistilla",
+      "addAria": "Lisää shortlistille",
+      "removeAria": "Poista shortlistilta",
+      "addedToast": "Lisätty Mukaan-listalle",
+      "removedToast": "Poistettu listalta",
+      "softMaxTitle": "Shortlist on jo iso ({count} kohdetta)",
+      "softMaxDescription": "Jakolinkki saattaa olla raskas — jotkin chat-sovellukset katkaisevat pitkät URL:t. Harkitse karsintaa."
+    },
+    "sightActionBar": {
+      "navigate": "Navigoi",
+      "shareAria": "Jaa",
+      "shareTitle": "{name} — Kazakstan-reissu",
+      "linkCopiedTitle": "Linkki kopioitu",
+      "linkCopiedDescription": "Lähetä se kaverille",
+      "linkCopyError": "Linkin kopiointi epäonnistui",
+      "addShortlistAria": "Lisää shortlistille",
+      "removeShortlistAria": "Poista shortlistilta"
+    },
+    "sightList": {
+      "empty": "Ei kohteita näillä suodattimilla.",
+      "regionAria": "{region} — {count} kohdetta",
+      "visitedAria": "Käyty",
+      "favoriteAria": "Suosikki"
+    },
+    "categoryFilter": {
+      "all": "Kaikki"
+    },
+    "mapView": {
+      "readMore": "Lue lisää",
+      "visited": "Käyty",
+      "favorite": "Suosikki",
+      "tripPin": {
+        "rentalCar": "Vuokra-auto",
+        "airport": "Lentokenttä",
+        "hotel": "Majoitus",
+        "meetingPoint": "Tapaamispiste"
+      }
+    },
+    "locateControl": {
+      "show": "Näytä sijaintini",
+      "hide": "Piilota sijainti",
+      "locating": "Hakee sijaintia…",
+      "errorPermission": "Anna selaimen käyttää sijaintia asetuksista",
+      "errorTimeout": "Sijainnin haku aikakatkaisi — kokeile uudelleen",
+      "errorUnavailable": "Sijaintia ei saatavilla"
+    },
+    "dayCard": {
+      "dayLabel": "Päivä {day}",
+      "todayBadge": "Tänään",
+      "earlyWake": "Aikainen herätys",
+      "driverNeeded": "Kuljettaja tarvitaan",
+      "offlineNote": "Offline-huomio",
+      "anchors": "Ankkurit",
+      "primaryPlan": "Pää-suunnitelma",
+      "alternatives": "Vaihtoehdot ({count})",
+      "planB": "Plan B",
+      "sights": "Kohteet",
+      "unknownSight": "⚠️ tuntematon: {id}",
+      "transportSection": "Liikkuminen",
+      "cashBadge": "💰 Käteistä ~{amount}",
+      "sleepBadge": "🛏️ Yö: {city}",
+      "lodgingHint": "Majoitusvinkki",
+      "lodgingPrice": "€{min}–{max} / yö",
+      "lodgingBook": "Varaa: {apps}",
+      "accommodation": "Yöpyminen",
+      "transport": {
+        "plane": "Lento",
+        "train": "Juna",
+        "car": "Auto",
+        "bus": "Bussi",
+        "taxi": "Taksi",
+        "walk": "Kävely"
+      },
+      "urgency": {
+        "now": "Varaa heti",
+        "week-before": "Varaa viikkoa ennen",
+        "on-arrival": "Varaa paikan päällä",
+        "walk-in": "Walk-in OK"
+      }
+    },
+    "dayTimeline": {
+      "emptyTitle": "Reittisuunnitelma on tyhjä",
+      "emptyDescription": "Ei vielä päiviä — kopioi runko valmiista reiteistä tai lisää käsin tiedostoon <code>src/data/itinerary.ts</code>.",
+      "browseRoutes": "Selaa valmiita reittejä",
+      "jumpToToday": "↓ Tänään — päivä {day}: {title}"
+    },
+    "todayDashboard": {
+      "emptyState": "Ei reittisuunnitelmaa. Lisää päiviä <link>reittisuunnitelmaan</link>.",
+      "countdownLabel": "Lähtöön",
+      "daysLeft": "{count, plural, one {# päivä} other {# päivää}}",
+      "daysLeftSoon": "pian",
+      "tripStarts": "Reissu alkaa {date} — {total} päivän kokonaisuus",
+      "tripStartsNoDate": "Reissu alkaa pian — {total} päivän kokonaisuus",
+      "firstDayPreview": "Lähtöpäivän esikatselu",
+      "tripEnded": "Reissu päättyi",
+      "lastTripDate": "Viimeinen matkapäivä oli {date}.",
+      "browseBack": "Selaa päiviä takaisin",
+      "todayLabel": "Tänään",
+      "nextDayLabel": "Seuraava päivä",
+      "dayCount": "Päivä {day} / {total}",
+      "previewStarts": "Esikatselu — päivä alkaa {date}",
+      "tomorrow": "Huomenna",
+      "earlyWake": "Aikainen herätys",
+      "prevDayNav": "← Päivä {day}: {title}",
+      "nextDayNav": "Päivä {day}: {title} →",
+      "quickLinks": {
+        "map": "Kartta",
+        "allDays": "Kaikki päivät",
+        "info": "Info",
+        "budget": "Budjetti"
+      },
+      "currencyLabel": "Valuutta",
+      "currencyRate": "1 € ≈ {rate} ₸",
+      "currencyHint": "staattinen — tarkista ennen lähtöä",
+      "emergency": {
+        "openCard": "🆘 Hätäkortti — avaa",
+        "numbers": "Hätänumerot",
+        "embassy": "Suomen edustusto",
+        "phrases": "Hätäfraasit",
+        "allPhrasesLink": "Kaikki fraasit info-sivulla →"
+      }
+    },
+    "presetCard": {
+      "themeNature": "🏔️ Luonto",
+      "themeCulture": "🕌 Kulttuuri",
+      "themeRoadtrip": "🚗 Roadtrip",
+      "durationDays": "{count} päivää",
+      "whoForLabel": "Kenelle:",
+      "budgetLabel": "Budjettiarvio:",
+      "perPerson": "/ hlö"
+    },
+    "currencyConverter": {
+      "title": "Valuuttamuunnin",
+      "rateInfo": "Staattinen kurssi: 1 € ≈ {rate} ₸. Tarkista päiväkurssi ennen reissua.",
+      "directionAria": "Muunnoksen suunta",
+      "kztToEur": "KZT → EUR",
+      "eurToKzt": "EUR → KZT",
+      "amountKztAria": "Summa tengeinä",
+      "amountEurAria": "Summa euroina"
+    },
+    "shortlistUrlSync": {
+      "prunedToast": "{count, plural, one {1 kohde poistettu listalta} other {# kohdetta poistettu listalta}}",
+      "prunedToastDescription": "Nämä kohteet eivät ole enää saatavilla. Voit lisätä uusia /nähtävyydet-sivulta.",
+      "unknownInLinkToast": "{count, plural, one {Jaetun linkin 1 ID ei vastaa nykyisiä kohteita} other {Jaetun linkin # ID:tä ei vastaa nykyisiä kohteita}}",
+      "unknownInLinkDescription": "Kohteet on saatettu poistaa tai ID:t ovat muuttuneet.",
+      "droppedUnknownToast": "Jaetusta linkistä hylättiin {count} tuntematonta kohdetta",
+      "saveFailedToast": "Shortlistin tallennus epäonnistui",
+      "saveFailedDescription": "Selaimen tallennustila on täynnä tai estetty. Lista pysyy tämän istunnon ajan, mutta voi kadota refreshissä.",
+      "dialogTitle": "Tuotko jaetun shortlistin?",
+      "dialogDescription": "Linkki sisältää <strong>{urlCount} kohdetta</strong>. Sinulla on jo <strong>{localCount} omaa kohdetta</strong> listalla.",
+      "statShared": "Yhteisiä",
+      "statNew": "Uusia",
+      "statOnlyYours": "Vain sinulla",
+      "unknownDroppedNote": "Linkistä hylättiin <strong>{count} tuntematonta kohdetta</strong> — ne on saatettu poistaa tai ID:t ovat muuttuneet.",
+      "previewLabel": "Linkillä:",
+      "previewMore": "+ {count} muuta",
+      "explanation": "<strong>Yhdistä</strong> lisää linkin uudet kohteet listallesi — et menetä omiasi. <strong>Korvaa omat</strong> pitää vain linkin sisällön ja <destructive>poistaa {localOnlyCount} omaasi</destructive>.",
+      "cancel": "Peruuta",
+      "replace": "Korvaa omat",
+      "merge": "Yhdistä"
+    }
+  }
+}

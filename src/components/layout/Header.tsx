@@ -1,24 +1,29 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import { Search } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Kbd, KbdGroup } from '@/components/ui/kbd';
+import { Link } from '@/i18n/navigation';
 import CommandPalette from './CommandPalette';
+import LanguageSwitcher from './LanguageSwitcher';
 
-const nav = [
-  { href: '/tanaan', label: 'Tänään' },
-  { href: '/kartta', label: 'Kartta' },
-  { href: '/nahtavyydet', label: 'Nähtävyydet' },
-  { href: '/reitit', label: 'Valmiit reitit' },
-  { href: '/reittisuunnitelma', label: 'Reittisuunnitelma' },
-  { href: '/shortlist', label: 'Shortlist' },
-  { href: '/info', label: 'Info' },
-  { href: '/budjetti', label: 'Budjetti' },
-];
+// Keep route paths separate from labels — labels are translated via
+// `t(navKey)`, while paths are constant English slugs across locales.
+const NAV_ITEMS = [
+  { href: '/today', navKey: 'today' },
+  { href: '/map', navKey: 'map' },
+  { href: '/sights', navKey: 'sights' },
+  { href: '/routes', navKey: 'routes' },
+  { href: '/itinerary', navKey: 'itinerary' },
+  { href: '/shortlist', navKey: 'shortlist' },
+  { href: '/info', navKey: 'info' },
+  { href: '/budget', navKey: 'budget' },
+] as const;
 
 export default function Header() {
+  const t = useTranslations();
   const [paletteOpen, setPaletteOpen] = useState(false);
 
   return (
@@ -28,19 +33,19 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-3">
         <Link
           href="/"
-          aria-label="Etusivu"
+          aria-label={t('nav.home')}
           className="flex h-9 items-center gap-1.5 rounded-lg px-2 text-[15px] font-semibold text-foreground no-underline hover:bg-muted hover:no-underline sm:h-8 sm:text-base"
         >
           <span aria-hidden className="text-base">🇰🇿</span>
-          <span>Kazakstan</span>
+          <span>{t('brand.name')}</span>
         </Link>
 
         {/* Desktop nav — hidden on mobile (BottomNav handles primary nav there). */}
         <nav
-          aria-label="Päänavigaatio"
+          aria-label={t('nav.ariaPrimary')}
           className="hidden flex-wrap items-center gap-1 text-sm sm:flex"
         >
-          {nav.map((item) => (
+          {NAV_ITEMS.map((item) => (
             <Button
               key={item.href}
               asChild
@@ -48,27 +53,30 @@ export default function Header() {
               size="sm"
               className="hover:text-primary"
             >
-              <Link href={item.href}>{item.label}</Link>
+              <Link href={item.href}>{t(`nav.${item.navKey}`)}</Link>
             </Button>
           ))}
         </nav>
 
-        {/* Search/command palette. Icon-only square on mobile, full label
-            + ⌘K kbd on desktop. The icon-only mobile target is 36px (h-9
-            w-9) — a clear secondary action; the BottomNav covers primary. */}
-        <Button
-          variant="outline"
-          onClick={() => setPaletteOpen(true)}
-          aria-label="Hae kohteita"
-          className="ml-auto size-9 px-0 sm:h-8 sm:w-auto sm:gap-2 sm:px-2.5"
-        >
-          <Search className="size-4" aria-hidden />
-          <span className="hidden sm:inline">Hae</span>
-          <KbdGroup className="hidden sm:flex">
-            <Kbd>⌘</Kbd>
-            <Kbd>K</Kbd>
-          </KbdGroup>
-        </Button>
+        {/* Right-aligned action cluster: search first (primary), language
+            switcher second (occasional). `ml-auto` on the wrapper keeps
+            them anchored to the right while the nav flexes on the left. */}
+        <div className="ml-auto flex items-center gap-1.5">
+          <Button
+            variant="outline"
+            onClick={() => setPaletteOpen(true)}
+            aria-label={t('components.header.searchAriaLabel')}
+            className="size-9 px-0 sm:h-8 sm:w-auto sm:gap-2 sm:px-2.5"
+          >
+            <Search className="size-4" aria-hidden />
+            <span className="hidden sm:inline">{t('components.header.searchButton')}</span>
+            <KbdGroup className="hidden sm:flex">
+              <Kbd>⌘</Kbd>
+              <Kbd>K</Kbd>
+            </KbdGroup>
+          </Button>
+          <LanguageSwitcher />
+        </div>
       </div>
       <CommandPalette open={paletteOpen} onOpenChange={setPaletteOpen} />
     </header>

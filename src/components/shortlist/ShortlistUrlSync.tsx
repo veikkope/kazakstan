@@ -2,10 +2,13 @@
 
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import { toast } from 'sonner';
 import {
   replaceShortlist,
   snapshotShortlist,
   subscribeToShortlist,
+  subscribeToShortlistWriteError,
 } from '@/lib/shortlist';
 import { Button } from '@/components/ui/button';
 import {
@@ -23,12 +26,24 @@ import type { ShortlistEntry } from '@/lib/types';
 const PARAM_SL = 'sl';
 
 /**
+ * Debounce window for store → URL writes. Coalesces bursts of clicks (e.g.,
+ * bulk-toggling on the listing page) into a single `router.replace`, which
+ * is cheap but not free. 60ms is just under one frame at 16ms so individual
+ * clicks still feel immediate while sequential clicks within a tap-tap
+ * cadence get batched.
+ */
+const URL_WRITE_DEBOUNCE_MS = 60;
+
+/**
  * Owns the URL ↔ shortlist sync. Mounted exactly once in RootLayout so
  * only a single subscriber writes `?sl=...`. The previous design ran the
  * sync inside every `useShortlist()` instance, which on the listing page
  * meant ~50 copies fighting over the URL (see comments in shortlist.ts).
  *
  * Flow on mount:
+ *   - Validate both sides against current sights dataset. Unknown ids are
+ *     pruned silently from local storage (with a toast) and surfaced as a
+ *     count to the user in the import dialog.
  *   - URL empty, local has items     → push local to URL (shareable)
  *   - URL has items, local empty     → silent seed (friend opens a link)
  *   - URL ⊇ local (superset / equal) → silent seed (no items lost)
@@ -46,6 +61,7 @@ const PARAM_SL = 'sl';
 function ShortlistUrlSyncInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const t = useTranslations();
   const [importPayload, setImportPayload] = useState<ImportPayload | null>(
     null,
   );
@@ -58,9 +74,33 @@ function ShortlistUrlSyncInner() {
     if (didMountRef.current) return;
     didMountRef.current = true;
 
+    // Lazy-built each mount (cheap — single iteration over ~100 sights).
+    // Putting this outside the component would freeze the dataset at module
+    // import time, which fights HMR during development.
+    const knownIds = new Set(sights.map((s) => s.id));
+
     const sl = searchParams.get(PARAM_SL) ?? '';
-    const urlIds = sl ? sl.split(',').filter(Boolean) : [];
-    const localEntries = snapshotShortlist();
+    const rawUrlIds = sl ? sl.split(',').filter(Boolean) : [];
+    const urlIds = rawUrlIds.filter((id) => knownIds.has(id));
+    const unknownUrlCount = rawUrlIds.length - urlIds.length;
+
+    const rawLocalEntries = snapshotShortlist();
+    const localEntries = rawLocalEntries.filter((e) => knownIds.has(e.sightId));
+    const prunedLocalCount = rawLocalEntries.length - localEntries.length;
+
+    // Persist the local pruning so the user's storage doesn't keep ghost
+    // ids forever (they'd silently filter on every render). Toast lets them
+    // know what happened — silent data loss erodes trust.
+    if (prunedLocalCount > 0) {
+      replaceShortlist(localEntries);
+      toast.info(
+        t('components.shortlistUrlSync.prunedToast', { count: prunedLocalCount }),
+        {
+          description: t('components.shortlistUrlSync.prunedToastDescription'),
+        },
+      );
+    }
+
     const localIds = localEntries.map((e) => e.sightId);
 
     // Case A — no URL data. Push current local list into the URL so the
@@ -69,12 +109,35 @@ function ShortlistUrlSyncInner() {
       if (localIds.length > 0) {
         writeShortlistToUrl(router, localIds);
       }
+      // If the URL had only unknown ids, rewrite to drop them.
+      else if (unknownUrlCount > 0) {
+        writeShortlistToUrl(router, []);
+      }
+      if (unknownUrlCount > 0) {
+        toast.warning(
+          t('components.shortlistUrlSync.unknownInLinkToast', {
+            count: unknownUrlCount,
+          }),
+          {
+            description: t(
+              'components.shortlistUrlSync.unknownInLinkDescription',
+            ),
+          },
+        );
+      }
       return;
     }
 
     // Case B — URL has data, local is empty. Silent seed; nothing to lose.
     if (localIds.length === 0) {
       seedFromUrl(urlIds, localEntries);
+      if (unknownUrlCount > 0) {
+        toast.warning(
+          t('components.shortlistUrlSync.droppedUnknownToast', {
+            count: unknownUrlCount,
+          }),
+        );
+      }
       return;
     }
 
@@ -86,6 +149,13 @@ function ShortlistUrlSyncInner() {
 
     if (localOnly.length === 0) {
       seedFromUrl(urlIds, localEntries);
+      if (unknownUrlCount > 0) {
+        toast.warning(
+          t('components.shortlistUrlSync.droppedUnknownToast', {
+            count: unknownUrlCount,
+          }),
+        );
+      }
       return;
     }
 
@@ -99,6 +169,7 @@ function ShortlistUrlSyncInner() {
       overlapCount: overlap,
       newCount: urlIds.length - overlap,
       localOnlyCount: localOnly.length,
+      unknownCount: unknownUrlCount,
     });
     // Mount-once on purpose. searchParams captured here is the initial
     // URL we want to honour; later URL writes are ours via subscribe.
@@ -107,14 +178,39 @@ function ShortlistUrlSyncInner() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Store → URL with debounce. Bursts of clicks (e.g., bulk select-all in
+  // a region section) coalesce into a single router.replace call.
   useEffect(() => {
-    return subscribeToShortlist(() => {
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    const flush = () => {
+      timer = null;
       writeShortlistToUrl(
         router,
         snapshotShortlist().map((e) => e.sightId),
       );
+    };
+    const unsubscribe = subscribeToShortlist(() => {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(flush, URL_WRITE_DEBOUNCE_MS);
     });
+    return () => {
+      if (timer) clearTimeout(timer);
+      unsubscribe();
+    };
   }, [router]);
+
+  // Surface localStorage write failures (quota, private mode, blocked
+  // extension) so the user knows their picks won't survive a refresh —
+  // silent data loss is the worst possible failure mode here.
+  useEffect(() => {
+    return subscribeToShortlistWriteError(() => {
+      toast.error(t('components.shortlistUrlSync.saveFailedToast'), {
+        description: t('components.shortlistUrlSync.saveFailedDescription'),
+        // Long duration — this is consequential, not transient.
+        duration: 10000,
+      });
+    });
+  }, [t]);
 
   function handleMerge() {
     if (!importPayload) return;
@@ -164,6 +260,8 @@ interface ImportPayload {
   overlapCount: number;
   newCount: number;
   localOnlyCount: number;
+  /** Count of ids in the original URL that no longer match any sight. */
+  unknownCount: number;
 }
 
 function ImportShortlistDialog({
@@ -177,6 +275,7 @@ function ImportShortlistDialog({
   onReplace: () => void;
   onCancel: () => void;
 }) {
+  const t = useTranslations();
   // Resolve the first few sight names of the URL ids so the user has a
   // visual cue of what they're importing. Cap at 6 for layout sanity.
   const preview = useMemo(() => {
@@ -201,17 +300,17 @@ function ImportShortlistDialog({
       {payload && (
         <DialogContent className="max-w-md">
           <DialogHeader>
-            <DialogTitle>Tuotko jaetun shortlistin?</DialogTitle>
+            <DialogTitle>
+              {t('components.shortlistUrlSync.dialogTitle')}
+            </DialogTitle>
             <DialogDescription>
-              Linkki sisältää{' '}
-              <strong className="text-foreground">
-                {payload.urlIds.length} kohdetta
-              </strong>
-              . Sinulla on jo{' '}
-              <strong className="text-foreground">
-                {payload.localCount} omaa kohdetta
-              </strong>{' '}
-              listalla.
+              {t.rich('components.shortlistUrlSync.dialogDescription', {
+                urlCount: payload.urlIds.length,
+                localCount: payload.localCount,
+                strong: (chunks) => (
+                  <strong className="text-foreground">{chunks}</strong>
+                ),
+              })}
             </DialogDescription>
           </DialogHeader>
 
@@ -219,41 +318,54 @@ function ImportShortlistDialog({
               picture of what merge vs replace would actually do. */}
           <dl className="grid grid-cols-3 gap-2 text-center text-sm">
             <Stat
-              label="Yhteisiä"
+              label={t('components.shortlistUrlSync.statShared')}
               value={payload.overlapCount}
               tone="neutral"
             />
             <Stat
-              label="Uusia"
+              label={t('components.shortlistUrlSync.statNew')}
               value={`+${payload.newCount}`}
               tone="positive"
             />
             <Stat
-              label="Vain sinulla"
+              label={t('components.shortlistUrlSync.statOnlyYours')}
               value={payload.localOnlyCount}
               tone="risk"
             />
           </dl>
 
+          {payload.unknownCount > 0 && (
+            <p className="rounded-md border border-amber-300 bg-amber-50 px-3 py-2 text-xs text-amber-900 dark:border-amber-700 dark:bg-amber-950 dark:text-amber-200">
+              {t.rich('components.shortlistUrlSync.unknownDroppedNote', {
+                count: payload.unknownCount,
+                strong: (chunks) => <strong>{chunks}</strong>,
+              })}
+            </p>
+          )}
+
           {/* Preview the sender's picks so the user knows what they're
               accepting. Truncated to keep the dialog compact. */}
           {preview.names.length > 0 && (
             <div className="rounded-md bg-muted/50 px-3 py-2 text-xs text-muted-foreground">
-              <span className="font-medium text-foreground">Linkillä:</span>{' '}
+              <span className="font-medium text-foreground">
+                {t('components.shortlistUrlSync.previewLabel')}
+              </span>{' '}
               {preview.names.join(', ')}
-              {preview.more > 0 && ` + ${preview.more} muuta`}
+              {preview.more > 0 &&
+                ` ${t('components.shortlistUrlSync.previewMore', { count: preview.more })}`}
             </div>
           )}
 
           <p className="text-xs text-muted-foreground">
-            <strong className="text-foreground">Yhdistä</strong> lisää
-            linkin uudet kohteet listallesi — et menetä omiasi.{' '}
-            <strong className="text-foreground">Korvaa omat</strong> pitää
-            vain linkin sisällön ja{' '}
-            <span className="text-destructive">
-              poistaa {payload.localOnlyCount} omaasi
-            </span>
-            .
+            {t.rich('components.shortlistUrlSync.explanation', {
+              localOnlyCount: payload.localOnlyCount,
+              strong: (chunks) => (
+                <strong className="text-foreground">{chunks}</strong>
+              ),
+              destructive: (chunks) => (
+                <span className="text-destructive">{chunks}</span>
+              ),
+            })}
           </p>
 
           <DialogFooter>
@@ -263,7 +375,7 @@ function ImportShortlistDialog({
               onClick={onCancel}
               className="min-h-11"
             >
-              Peruuta
+              {t('components.shortlistUrlSync.cancel')}
             </Button>
             <Button
               type="button"
@@ -271,14 +383,14 @@ function ImportShortlistDialog({
               onClick={onReplace}
               className="min-h-11 border-destructive/40 text-destructive hover:bg-destructive/10 hover:text-destructive"
             >
-              Korvaa omat
+              {t('components.shortlistUrlSync.replace')}
             </Button>
             <Button
               type="button"
               onClick={onMerge}
               className="min-h-11"
             >
-              Yhdistä
+              {t('components.shortlistUrlSync.merge')}
             </Button>
           </DialogFooter>
         </DialogContent>

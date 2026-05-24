@@ -1,0 +1,47 @@
+{
+  "id": "kiin-kerish",
+  "name": {
+    "fi": "Kiin-Kerish — \"Henkien kaupunki\"",
+    "en": "Kiin-Kerish — the \"City of Spirits\"",
+    "ru": "Киин-Кериш — \"город духов\"",
+    "kk": "Кіин-Керіш — «Рухтар қаласы»"
+  },
+  "shortDescription": {
+    "fi": "Punaiset Mars-maisemat Itä-Kazakstanissa — tuulen ja sateen muovaamia liuskemuodostelmia.",
+    "en": "Red Mars-like landscapes in East Kazakhstan — clay formations shaped by wind and rain.",
+    "ru": "Красные \"марсианские\" пейзажи в Восточном Казахстане — глинистые формы, вылепленные ветром и дождём.",
+    "kk": "Шығыс Қазақстандағы қызыл «Марс» пейзаждары — желмен және жаңбырмен қашалған саздақ пішіндер."
+  },
+  "description": {
+    "fi": "Punaisten, oranssien ja keltaisten saviliuskeiden \"Mars-maisema\" Kurchumin piirissä, 300 km Öskemenistä. Tuulen ja sateen muovaamia tornen ja linnoituksia muistuttavia muodostelmia. Paleontologisia löytöjä: krokotiilien luita, palmunsiitepölyä.\n\nVisuaalisesti dramaattisin Itä-Kazakstanin maisema — Bozzhyran ja Tuzbairin sukulainen mutta täysin eri värimaailmassa.",
+    "en": "A \"Martian landscape\" of red, orange and yellow clay shales in Kurchum district, 300 km from Öskemen. Wind and rain have carved tower- and fortress-like formations. Palaeontologists have unearthed crocodile bones and palm pollen here.\n\nVisually the most dramatic landscape in East Kazakhstan — a cousin of Bozzhyra and Tuzbair, but in a completely different colour palette.",
+    "ru": "\"Марсианский\" ландшафт из красных, оранжевых и жёлтых глинистых сланцев в Курчумском районе, в 300 км от Усть-Каменогорска. Ветер и дождь выточили формы, напоминающие башни и крепости. Палеонтологические находки — кости крокодилов, пыльца пальм.\n\nСамый драматичный по виду пейзаж Восточного Казахстана — родственник Бозжыры и Тузбаира, но в совершенно ином цветовом ключе.",
+    "kk": "Күршім ауданында, Өскеменнен 300 км жерде орналасқан қызыл, қызғылт сары және сары түсті саз тақтатастарының «Марс пейзажы». Жел мен жаңбыр мұнаралар мен қамалдарға ұқсас пішіндерді қашаған. Палеонтологиялық олжалар: қолтырауын сүйектері, пальма тозаңы.\n\nШығыс Қазақстанның көркемдік жағынан ең әсерлі пейзажы — Бозжыра мен Тұзбайырдың туысы, бірақ мүлдем басқа түс палитрасында."
+  },
+  "imageAlt": {
+    "fi": "Kiin-Kerish — punainen Mars-maisema Itä-Kazakstanissa",
+    "en": "Kiin-Kerish — the red Mars-like landscape in East Kazakhstan",
+    "ru": "Киин-Кериш — красный \"марсианский\" пейзаж в Восточном Казахстане",
+    "kk": "Кіин-Керіш — Шығыс Қазақстандағы қызыл «Марс» пейзажы"
+  },
+  "practicalTips": [
+    {
+      "fi": "Vaatii 4WD-päiväretken Öskemenistä tai yöpymisen Kurchumissa.",
+      "en": "Requires a 4WD day trip from Öskemen or an overnight stay in Kurchum.",
+      "ru": "Нужна однодневная поездка на джипе из Усть-Каменогорска или ночёвка в Курчуме.",
+      "kk": "Өскеменнен 4WD-күндік сапар немесе Күршімде түнеу қажет."
+    },
+    {
+      "fi": "Päiväretki Öskemenistä on raskas (yli 12 h kokonaan) — parempi yhdistää Markakol-kierrokseen.",
+      "en": "A day trip from Öskemen is heavy going (12 h+ total) — better combined with a Markakol loop.",
+      "ru": "Однодневная поездка из Усть-Каменогорска утомительна (всего более 12 часов) — лучше совместить с маршрутом через Маркаколь.",
+      "kk": "Өскеменнен бір күндік сапар ауыр (барлығы 12 сағаттан астам) — Марқакөл бағытымен ұштастырған жөн."
+    },
+    {
+      "fi": "Kesäaika. Operaattori käytännössä pakollinen.",
+      "en": "Summer season only. A tour operator is in practice essential.",
+      "ru": "Только летний сезон. Туроператор практически обязателен.",
+      "kk": "Тек жазғы маусым. Тәжірибе жүзінде туроператор қажет."
+    }
+  ]
+}

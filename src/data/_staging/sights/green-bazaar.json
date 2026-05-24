@@ -1,0 +1,39 @@
+{
+  "id": "green-bazaar",
+  "name": {
+    "fi": "Vihreä basaari (Zelyony Bazar)",
+    "en": "Green Bazaar (Zelyony Bazar)",
+    "ru": "Зелёный базар",
+    "kk": "Көк базар"
+  },
+  "shortDescription": {
+    "fi": "Almatyn klassinen ruokahalli — hevosenliha, kuivatut hedelmät ja mausteet.",
+    "en": "Almaty's classic food hall — horse meat, dried fruits and spices.",
+    "ru": "Классический продуктовый рынок Алматы — конина, сухофрукты и специи.",
+    "kk": "Алматының классикалық азық-түлік базары — жылқы еті, кептірілген жемістер мен дәмдеуіштер."
+  },
+  "description": {
+    "fi": "Paras paikka maistaa kazi-makkaraa, kymyziä (käynyt tammavä) ja kuivattuja meloneita. Toimii samalla yhden lounaan ravintolakatuna — yläkerran nuudelikojut ovat halpoja ja hyviä.",
+    "en": "The best place to try kazy sausage, kumis (fermented mare's milk) and dried melon. It also doubles as a lunch destination — the noodle stalls upstairs are cheap and good.",
+    "ru": "Лучшее место, чтобы попробовать казы, кумыс (сброженное кобылье молоко) и сушёную дыню. Заодно тут можно и пообедать — лапшичные на втором этаже дешёвые и вкусные.",
+    "kk": "Қазы, қымыз (ашытылған бие сүті) және кептірілген қауын дәмін татудың ең тамаша орны. Сонымен бірге түскі ас ішетін орынға айналады — жоғарғы қабаттағы кеспе сатылатын дүңгіршектер арзан әрі дәмді."
+  },
+  "imageAlt": {
+    "fi": "Vihreän basaarin värikkäät kojurivit ja kävijät",
+    "en": "Colourful stall rows and visitors at the Green Bazaar",
+    "ru": "Яркие торговые ряды и посетители Зелёного базара",
+    "kk": "Көк базардағы алуан түсті сауда қатарлары мен келушілер"
+  },
+  "city": {
+    "fi": "Almaty",
+    "en": "Almaty",
+    "ru": "Алматы",
+    "kk": "Алматы"
+  },
+  "openingHours": {
+    "fi": "ma–su 08:00–18:00",
+    "en": "Mon–Sun 08:00–18:00",
+    "ru": "пн–вс 08:00–18:00",
+    "kk": "дс–жс 08:00–18:00"
+  }
+}

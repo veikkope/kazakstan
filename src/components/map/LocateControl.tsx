@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom';
 import { useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { toast } from 'sonner';
+import { useTranslations } from 'next-intl';
 import { LocateFixed, LocateOff, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -33,6 +34,7 @@ const PULSE_ICON_HTML = `
  */
 export default function LocateControl() {
   const map = useMap();
+  const t = useTranslations();
   const [container, setContainer] = useState<HTMLDivElement | null>(null);
   const [status, setStatus] = useState<LocateStatus>('idle');
   const markerRef = useRef<L.Marker | null>(null);
@@ -109,10 +111,10 @@ export default function LocateControl() {
       const code = (e as L.ErrorEvent & { code?: number }).code;
       const message =
         code === 1
-          ? 'Anna selaimen käyttää sijaintia asetuksista'
+          ? t('components.locateControl.errorPermission')
           : code === 3
-            ? 'Sijainnin haku aikakatkaisi — kokeile uudelleen'
-            : 'Sijaintia ei saatavilla';
+            ? t('components.locateControl.errorTimeout')
+            : t('components.locateControl.errorUnavailable');
       toast.error(message);
       setStatus('error');
     };
@@ -126,7 +128,7 @@ export default function LocateControl() {
       map.stopLocate();
       cleanupLayers();
     };
-  }, [map]);
+  }, [map, t]);
 
   const handleClick = () => {
     if (status === 'locating') return;
@@ -160,10 +162,10 @@ export default function LocateControl() {
 
   const label =
     status === 'located'
-      ? 'Piilota sijainti'
+      ? t('components.locateControl.hide')
       : status === 'locating'
-        ? 'Hakee sijaintia…'
-        : 'Näytä sijaintini';
+        ? t('components.locateControl.locating')
+        : t('components.locateControl.show');
 
   const Icon =
     status === 'locating'

@@ -5,9 +5,13 @@ import type { ShortlistEntry } from './types';
 
 const STORAGE_KEY = 'kz-shortlist-v1';
 
-interface StoredShortlist {
-  entries: ShortlistEntry[];
-}
+/**
+ * Soft cap surfaced in the UI as a one-time warning. Not enforced — the
+ * data layer accepts unlimited entries; this is a heuristic threshold past
+ * which a share URL gets long enough that mobile messengers (WhatsApp,
+ * Telegram) sometimes truncate it. Realistic trip lists are well below.
+ */
+export const SHORTLIST_SOFT_MAX = 50;
 
 /* ============================================================
  * Module-level store
@@ -33,9 +37,34 @@ const EMPTY_ENTRIES: readonly ShortlistEntry[] = Object.freeze([]);
 let storeEntries: ShortlistEntry[] = [];
 let storeHydrated = false;
 const listeners = new Set<() => void>();
+const writeErrorListeners = new Set<(error: unknown) => void>();
 
 function emit(): void {
   for (const listener of listeners) listener();
+}
+
+/**
+ * Type-narrow a raw JSON value to a well-formed `ShortlistEntry`. Used to
+ * defend against schema drift (manual tampering, an old version with a
+ * different shape, partial writes from a previous crash). Entries that fail
+ * the check are silently dropped so a single corrupted item doesn't take
+ * the whole list with it.
+ */
+function isValidEntry(value: unknown): value is ShortlistEntry {
+  if (!value || typeof value !== 'object') return false;
+  const e = value as Record<string, unknown>;
+  if (typeof e.sightId !== 'string' || e.sightId.length === 0) return false;
+  if ('priority' in e && e.priority !== undefined && typeof e.priority !== 'boolean') {
+    return false;
+  }
+  if (
+    'visitedAt' in e &&
+    e.visitedAt !== undefined &&
+    typeof e.visitedAt !== 'string'
+  ) {
+    return false;
+  }
+  return true;
 }
 
 function readLocalStorage(): ShortlistEntry[] {
@@ -43,8 +72,11 @@ function readLocalStorage(): ShortlistEntry[] {
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) return [];
-    const parsed = JSON.parse(raw) as StoredShortlist;
-    return Array.isArray(parsed.entries) ? parsed.entries : [];
+    const parsed: unknown = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object') return [];
+    const entries = (parsed as { entries?: unknown }).entries;
+    if (!Array.isArray(entries)) return [];
+    return entries.filter(isValidEntry);
   } catch {
     return [];
   }
@@ -54,8 +86,11 @@ function writeLocalStorage(entries: ShortlistEntry[]): void {
   if (typeof window === 'undefined') return;
   try {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ entries }));
-  } catch {
-    // quota / private mode — non-fatal
+  } catch (err) {
+    // Quota exceeded, private mode, or another browser-imposed block.
+    // Notify subscribers so the UI can show a toast — silently swallowing
+    // means the user's "saved" state ghost-evaporates on next refresh.
+    for (const listener of writeErrorListeners) listener(err);
   }
 }
 
@@ -81,11 +116,53 @@ function getServerSnapshot(): readonly ShortlistEntry[] {
   return EMPTY_ENTRIES;
 }
 
+/**
+ * Defensive dedupe — public mutators are well-behaved, but
+ * `replaceShortlist` (URL-import path) trusts caller input. A `?sl=a,a,b`
+ * copy-paste would otherwise persist duplicates that confuse the rest of
+ * the UI (progress totals, render keys). First occurrence wins so the
+ * caller's intended ordering is preserved.
+ */
+function dedupe(entries: readonly ShortlistEntry[]): ShortlistEntry[] {
+  const seen = new Set<string>();
+  const out: ShortlistEntry[] = [];
+  for (const entry of entries) {
+    if (seen.has(entry.sightId)) continue;
+    seen.add(entry.sightId);
+    out.push(entry);
+  }
+  return out;
+}
+
 function commit(next: ShortlistEntry[]): void {
-  storeEntries = next;
+  storeEntries = dedupe(next);
   storeHydrated = true;
-  writeLocalStorage(next);
+  writeLocalStorage(storeEntries);
   emit();
+}
+
+/* ============================================================
+ * Cross-tab sync
+ * ------------------------------------------------------------
+ * The `storage` event fires in OTHER tabs/windows that share the same
+ * origin when our key changes. We re-read and emit so a user toggling
+ * items in tab A sees them appear in tab B immediately.
+ *
+ * Safety note: the originating tab does NOT receive its own `storage`
+ * event (per the HTML spec), so writing to localStorage inside the
+ * handler would not cause a self-loop. We still skip the write here
+ * because the source tab already persisted the value — we only need to
+ * refresh in-memory state and notify React subscribers.
+ * ============================================================ */
+if (typeof window !== 'undefined') {
+  window.addEventListener('storage', (event) => {
+    if (event.key !== STORAGE_KEY) return;
+    // event.newValue can be null if the key was removed (cleared in another
+    // tab). readLocalStorage() handles that path uniformly.
+    storeEntries = readLocalStorage();
+    storeHydrated = true;
+    emit();
+  });
 }
 
 /* ============================================================
@@ -181,6 +258,20 @@ export function snapshotShortlist(): ShortlistEntry[] {
 
 /** Subscribe to store changes — used by URL-sync component. */
 export const subscribeToShortlist = subscribe;
+
+/**
+ * Subscribe to write failures (quota exceeded, private mode, blocked
+ * extension). Returns an unsubscribe function. Used by `ShortlistUrlSync`
+ * which is the global host with access to the toast Sonner.
+ */
+export function subscribeToShortlistWriteError(
+  listener: (error: unknown) => void,
+): () => void {
+  writeErrorListeners.add(listener);
+  return () => {
+    writeErrorListeners.delete(listener);
+  };
+}
 
 /* ============================================================
  * React hook

@@ -1,0 +1,83 @@
+{
+  "id": "charyn-canyon",
+  "name": {
+    "fi": "Charynin kanjoni",
+    "en": "Charyn Canyon",
+    "ru": "Чарынский каньон",
+    "kk": "Шарын шатқалы"
+  },
+  "shortDescription": {
+    "fi": "Keski-Aasian suurin kanjoni — \"linnojen laakso\" muistuttaa Grand Canyonia pienoiskoossa.",
+    "en": "Central Asia's largest canyon — the \"Valley of Castles\" looks like a miniature Grand Canyon.",
+    "ru": "Крупнейший каньон Центральной Азии — «Долина замков» напоминает Гранд-Каньон в миниатюре.",
+    "kk": "Орталық Азиядағы ең үлкен шатқал — «Қамалдар аңғары» кіші Гранд-Каньонға ұқсайды."
+  },
+  "description": {
+    "fi": "154 km pitkä, 200–300 m syvä kanjoni n. 200 km Almatysta itään. Päiväretki Almatysta on klassikko. Aurinkoisina päivinä kuumuus voi olla rankka — vesi ja päähine mukaan.",
+    "en": "A 154 km long, 200–300 m deep canyon about 200 km east of Almaty. A day trip from Almaty is a classic. On sunny days the heat can be intense — bring water and a hat.",
+    "ru": "Каньон длиной 154 км и глубиной 200–300 м, примерно в 200 км к востоку от Алматы. Однодневный выезд из Алматы — классика. В солнечные дни жара может быть тяжёлой — берите воду и головной убор.",
+    "kk": "Алматыдан шығысқа қарай шамамен 200 км жерде орналасқан, ұзындығы 154 км, тереңдігі 200–300 м шатқал. Алматыдан бір күндік саяхат классикаға айналған. Күн ашық кездері ыстық қатты болуы мүмкін — су мен бас киім алып жүріңіз."
+  },
+  "imageAlt": {
+    "fi": "Charynin kanjonin punaiset hiekkakivimuodostelmat",
+    "en": "Red sandstone formations of Charyn Canyon",
+    "ru": "Красные песчаниковые образования Чарынского каньона",
+    "kk": "Шарын шатқалының қызыл құмтасты жартастары"
+  },
+  "openingHours": {
+    "fi": "päivittäin auringonnoususta -laskuun (portti)",
+    "en": "Daily from sunrise to sunset (park gate)",
+    "ru": "ежедневно с восхода до заката (ворота парка)",
+    "kk": "күн сайын күн шыққаннан күн батқанға дейін (саябақ қақпасы)"
+  },
+  "practicalTips": [
+    {
+      "fi": "Lähde Almatysta klo 7 — edestakainen ajo + vaellus vie 11–13 tuntia.",
+      "en": "Leave Almaty around 7:00 — the round trip drive plus hike takes 11–13 hours.",
+      "ru": "Выезжайте из Алматы около 7 утра — дорога туда-обратно с прогулкой занимает 11–13 часов.",
+      "kk": "Алматыдан таңғы 7-де жолға шығыңыз — барып-қайту жолы мен серуен 11–13 сағатқа созылады."
+    },
+    {
+      "fi": "Kansallispuiston portti n. 1500–2500 KZT/aikuinen + ajoneuvomaksu — vahvista paikan päällä.",
+      "en": "The national park entrance fee is about 1,500–2,500 KZT per adult plus a vehicle fee — confirm on site.",
+      "ru": "Входной билет в нацпарк — около 1500–2500 KZT за взрослого плюс плата за машину; уточняйте на месте.",
+      "kk": "Ұлттық саябаққа кіру ересек адамға шамамен 1500–2500 KZT және көлікке қосымша төлем — нақты бағаны жерінде нақтылаңыз."
+    },
+    {
+      "fi": "Vesi mukaan vähintään 2 l/henkilö — polulla ei myydä juotavaa.",
+      "en": "Bring at least 2 litres of water per person — there's nothing to drink for sale along the trail.",
+      "ru": "Берите минимум 2 литра воды на человека — на тропе ничего не продают.",
+      "kk": "Әр адамға кемінде 2 литр су алып жүріңіз — соқпақта ішетін ештеңе сатылмайды."
+    },
+    {
+      "fi": "Päähine, aurinkovoide ja aurinkolasit pakolliset — maasto on avoin ja paahteinen.",
+      "en": "A hat, sunscreen and sunglasses are essential — the terrain is open and scorching.",
+      "ru": "Головной убор, солнцезащитный крем и очки обязательны — местность открытая и жарко припекает.",
+      "kk": "Бас киім, күн қорғаныш кремі мен көзілдірік міндетті — жер ашық әрі күн қатты қыздырады."
+    },
+    {
+      "fi": "Kuljettaja Almatysta yksityisesti ~150–200 €/auto tai jaettu ryhmäretki 60–100 €/henkilö.",
+      "en": "A private driver from Almaty costs about €150–200 per car, or a shared group tour €60–100 per person.",
+      "ru": "Личный водитель из Алматы — около 150–200 € за машину, групповой тур — 60–100 € с человека.",
+      "kk": "Алматыдан жеке жүргізуші шамамен 150–200 €/көлік, ал топтық саяхат адамына 60–100 € тұрады."
+    },
+    {
+      "fi": "Vaella Linnojen laaksossa 2–3 km ylätasangolta joelle ja takaisin.",
+      "en": "Walk 2–3 km through the Valley of Castles from the rim down to the river and back.",
+      "ru": "Пройдитесь 2–3 км по Долине замков — с верхнего плато до реки и обратно.",
+      "kk": "Қамалдар аңғарында жоғарғы үстірттен өзенге дейін 2–3 км жаяу жүріп қайтыңыз."
+    },
+    {
+      "fi": "Kesäkuussa vältä vaellusta klo 12–15 — kanjonin pohjalla on huomattavasti reunaa kuumempi.",
+      "en": "In June, avoid hiking between 12:00 and 15:00 — the canyon floor is considerably hotter than the rim.",
+      "ru": "В июне не ходите по тропе с 12:00 до 15:00 — на дне каньона значительно жарче, чем наверху.",
+      "kk": "Маусымда сағат 12:00–15:00 аралығында жүруден аулақ болыңыз — шатқалдың түбі шеттегіден әлдеқайда ыстық."
+    }
+  ],
+  "historicalContext": {
+    "fi": "Charynjoki on uurtanut 154 km pitkän, 150–300 m syvän kanjonin punaiseen hiekkakiveen miljoonien vuosien aikana. Vuonna 2004 perustettu Charynin kansallispuisto (≈125 050 ha) suojelee kanjonin kuuluisaa Linnojen laaksoa sekä paleogeenikauden saarnimetsikköä.",
+    "en": "The Charyn River has carved this 154 km long, 150–300 m deep canyon into red sandstone over millions of years. Founded in 2004, Charyn National Park (≈125,050 ha) protects the canyon's famous Valley of Castles together with a relict Palaeogene ash forest.",
+    "ru": "Река Чарын миллионы лет вырезала в красных песчаниках каньон длиной 154 км и глубиной 150–300 м. Созданный в 2004 году Чарынский национальный парк (≈125 050 га) охраняет знаменитую Долину замков и реликтовую ясеневую рощу палеогенового возраста.",
+    "kk": "Шарын өзені миллиондаған жылдар бойы қызыл құмтасқа ұзындығы 154 км, тереңдігі 150–300 м шатқал ойып шығарған. 2004 жылы құрылған Шарын ұлттық саябағы (≈125 050 га) шатқалдың әйгілі Қамалдар аңғары мен палеогендік дәуірден сақталған шаған тоғайын қорғайды."
+  }
+}

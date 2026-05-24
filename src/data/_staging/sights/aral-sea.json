@@ -1,0 +1,65 @@
+{
+  "id": "aral-sea",
+  "name": {
+    "fi": "Aralsk ja Aral-meren laivahautausmaa",
+    "en": "Aralsk and the Aral Sea ship graveyard",
+    "ru": "Аральск и кладбище кораблей на Аральском море",
+    "kk": "Арал қаласы және Арал теңізінің кеме зираты"
+  },
+  "city": {
+    "fi": "Aralsk",
+    "en": "Aralsk",
+    "ru": "Аральск",
+    "kk": "Арал"
+  },
+  "shortDescription": {
+    "fi": "Kuivuneen Aral-meren ruostuneet laivat ja Kokaralin padon elpymistarina.",
+    "en": "Rusting ships on the dried bed of the Aral Sea and the recovery story driven by the Kokaral dam.",
+    "ru": "Ржавеющие корабли на дне высохшего Аральского моря и история восстановления благодаря Кокаральской плотине.",
+    "kk": "Кеуіп қалған Арал теңізінің түбіндегі тат басқан кемелер және Көкарал бөгетінің арқасында қалпына келу тарихы."
+  },
+  "description": {
+    "fi": "Yksi maailman tunnetuimmista ekokatastrofin symboleista. Zhalanashin laivahautausmaa kuivuneen pohjamerellä 75 km Aralskista. VAROITUS: vuoden 2019 jälkeen suurin osa laivoista on viety romumetalliksi — jäljellä vain muutama. Varmista nykytilanne ennen reissua.\n\nKokaralin pato (2005) palautti veden Pohjois-Araliin: kalastajakylät elpyivät, vesi nousi. Optimistinen vastapaino katastrofille. Päivätrippejä Aralskista 50–150 USD/hlö.",
+    "en": "One of the world's best-known symbols of environmental catastrophe. The Zhalanash ship graveyard sits on the former seabed 75 km from Aralsk. WARNING: since 2019 most of the ships have been removed for scrap metal — only a handful remain. Confirm the current situation before you go.\n\nThe Kokaral dam (2005) brought water back to the North Aral: fishing villages have revived and water levels have risen — an optimistic counterweight to the disaster. Day trips from Aralsk cost 50–150 USD per person.",
+    "ru": "Один из самых известных в мире символов экологической катастрофы. Кладбище кораблей в Жаланаше расположено на бывшем морском дне в 75 км от Аральска. ВНИМАНИЕ: с 2019 года большинство кораблей сдали на металлолом — осталось всего несколько. Перед поездкой уточняйте актуальную ситуацию.\n\nКокаральская плотина (2005) вернула воду в Северный Арал: рыбацкие посёлки ожили, уровень воды поднялся. Оптимистичный противовес катастрофе. Однодневные поездки из Аральска стоят 50–150 USD с человека.",
+    "kk": "Әлемдегі экологиялық апаттың ең танымал символдарының бірі. Жаланаш кеме зираты Арал қаласынан 75 км жердегі бұрынғы теңіз түбінде орналасқан. ЕСКЕРТУ: 2019 жылдан бері кемелердің көпшілігі металл сынық ретінде әкетілді — тек бірнешеуі ғана қалды. Сапар алдында ағымдағы жағдайды нақтылаңыз.\n\nКөкарал бөгеті (2005) Солтүстік Аралға суды қайтарды: балықшы ауылдары жанданды, су деңгейі көтерілді. Апатқа оптимистік қарама-қарсылық. Арал қаласынан бір күндік сапарлар адам басына 50–150 USD."
+  },
+  "imageAlt": {
+    "fi": "Aral-meren kutistuminen 1989–2014 — NASA-satelliittikuvavertailu",
+    "en": "Shrinking of the Aral Sea 1989–2014 — NASA satellite comparison",
+    "ru": "Сокращение Аральского моря 1989–2014 — сравнение снимков НАСА со спутника",
+    "kk": "Арал теңізінің кішіреюі 1989–2014 — NASA жерсеріктік суреттерін салыстыру"
+  },
+  "bestSeason": {
+    "fi": "kevät–alkukesä tai syksy; kesä +40 °C",
+    "en": "spring to early summer or autumn; summer reaches +40 °C",
+    "ru": "весна — начало лета или осень; летом +40 °C",
+    "kk": "көктем–жаздың басы немесе күз; жазда +40 °C"
+  },
+  "practicalTips": [
+    {
+      "fi": "Vaatii 4–5 lisäpäivää: yöjuna Almatysta 27 h tai lento Kyzylordaan + auto.",
+      "en": "Requires 4–5 extra days: a 27-hour night train from Almaty or a flight to Kyzylorda plus a car.",
+      "ru": "Потребуется 4–5 дополнительных дней: ночной поезд из Алматы 27 часов или перелёт в Кызылорду и машина.",
+      "kk": "Қосымша 4–5 күн қажет: Алматыдан 27 сағаттық түнгі пойыз немесе Қызылордаға ұшу мен көлік."
+    },
+    {
+      "fi": "Laivat suurelta osin viety romumetalliksi 2019 jälkeen — tarkista nykytilanne ennen päätöksiä.",
+      "en": "Most of the ships were removed for scrap after 2019 — verify the current state before deciding.",
+      "ru": "После 2019 года большинство кораблей сдали на металлолом — перед решением проверьте актуальное состояние.",
+      "kk": "2019 жылдан кейін кемелердің көпшілігі металл сынық ретінде әкетілді — шешім қабылдамас бұрын ағымдағы жағдайды тексеріңіз."
+    },
+    {
+      "fi": "Yöpyminen Aralskissa Shanyrak-hotelli paikallisten suositusten mukaan.",
+      "en": "Locals recommend the Shanyrak hotel for overnight stays in Aralsk.",
+      "ru": "Для ночёвки в Аральске местные жители советуют отель \"Шанырак\".",
+      "kk": "Арал қаласында түнеуге жергілікті тұрғындар \"Шаңырақ\" қонақ үйін ұсынады."
+    },
+    {
+      "fi": "Voi yhdistää Kokaralin padolle ja kalastajakyliin (Tastubek, Karateren).",
+      "en": "Can be combined with the Kokaral dam and the fishing villages (Tastubek, Karateren).",
+      "ru": "Можно совместить с поездкой к Кокаральской плотине и рыбацким посёлкам (Тастубек, Каратерень).",
+      "kk": "Көкарал бөгеті мен балықшы ауылдарына (Тастүбек, Қаратерең) сапармен үйлестіруге болады."
+    }
+  ]
+}

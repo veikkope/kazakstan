@@ -1,0 +1,67 @@
+{
+  "id": "tuzbair",
+  "name": {
+    "fi": "Tuzbair-suolajärvi",
+    "en": "Tuzbair salt flat",
+    "ru": "Солончак Тузбаир",
+    "kk": "Тұзбайыр тұзды көлі"
+  },
+  "shortDescription": {
+    "fi": "Kuivunut suolajärvi valkoisine pintoineen ja 60 m korkeine kalkkikiviseinämineen Ustyurtin reunavyöhykkeellä.",
+    "en": "A dried-up salt lake with a white surface, ringed by 60 m chalk cliffs on the edge of the Ustyurt plateau.",
+    "ru": "Высохшее солёное озеро с белой поверхностью и 60-метровыми меловыми обрывами на краю плато Устюрт.",
+    "kk": "Үстірт жоталарының шетіндегі ақ беті бар, 60 м биіктіктегі бор жартастарымен қоршалған кеуіп кеткен тұзды көл."
+  },
+  "description": {
+    "fi": "Tuzbair on Ustyurtin ylätasangon reunalla makaava sor — 15×4 km kuivunut suolajärven pohja, jonka ympärillä yli 60 m korkeat liitukauden kalkkikivijyrkänteet rajaavat lähes kuun maisemaa muistuttavan altaan. Valkoinen suolapinta heijastaa valoa rajusti ja peilaa taivaan keväisinä sadepäivinä.",
+    "en": "Tuzbair is a sor — a dried salt lake bed — lying on the edge of the Ustyurt plateau. The 15×4 km basin is rimmed by Cretaceous chalk cliffs over 60 m high, framing a landscape that feels almost lunar. The white salt surface reflects the light sharply, and on rainy spring days it mirrors the sky.",
+    "ru": "Тузбаир — это сор на краю плато Устюрт: высохшее дно солёного озера 15×4 км, окружённое меловыми обрывами высотой более 60 м, очерчивающими почти лунный пейзаж. Белая солёная поверхность ярко отражает свет, а в дождливые весенние дни в ней зеркально отражается небо.",
+    "kk": "Тұзбайыр — Үстірт жотасының шетіндегі сор: 15×4 км көлемдегі кеуіп кеткен тұзды көл табаны. Айналасында 60 м-ден астам биіктіктегі бор дәуірінен қалған әктас жартастары тұрып, көріністі айдай ғаламшардай етіп көрсетеді. Ақ тұзды бет жарықты қатты шағылыстырады, ал көктемгі жаңбырлы күндері аспанды айнадай көрсетеді."
+  },
+  "imageAlt": {
+    "fi": "Tuzbairin \"Lohikäärmeen silmä\" -kaaren näkymä suolajärven yli auringonlaskussa",
+    "en": "View through Tuzbair's \"Dragon's Eye\" arch over the salt flat at sunset",
+    "ru": "Вид через арку «Глаз дракона» в Тузбаире на солончак на закате",
+    "kk": "Күн батқан кездегі Тұзбайырдағы «Айдаһардың көзі» арқасы арқылы тұзды көлге қараған көрініс"
+  },
+  "bestSeason": {
+    "fi": "kevät tai syksy; kesällä yli +40 °C eikä varjoa",
+    "en": "spring or autumn; summers top +40 °C with no shade",
+    "ru": "весна или осень; летом более +40 °C и нет тени",
+    "kk": "көктем немесе күз; жазда +40 °C-тан жоғары және көлеңке жоқ"
+  },
+  "practicalTips": {
+    "fi": [
+      "⚠️ Ei pääse vuokra-autolla — viimeiset kymmenet kilometrit pehmeää hiekkaa, vain 4WD ja paikallinen opas. Vuokra-auton sopimus käytännössä kieltää tämän.",
+      "Aqtausta n. 250 km yhteen suuntaan, n. 5 h ajoaika — kokopäivä kuljettajan kanssa (n. 50 000–70 000 ₸).",
+      "Useita näköalapisteitä cliff-reunalla 44.04–44.09 / 53.16–53.26 -alueella — opas tietää parhaat. Tämä piste on yksi suosituimmista keskeisistä viewpoint-klustereista.",
+      "Käy auringonnousun tai -laskun aikaan; keskipäivän valkoinen heijastus tappaa kontrastin valokuvissa.",
+      "Aurinkolasit ja huivi pakollisia, tuuli nostaa suolapölyn silmiin.",
+      "Vesivarat (2–3 l/hlö) ja eväät mukaan — matkalla ei ole kioskeja."
+    ],
+    "en": [
+      "⚠️ A rental car will not get you there — the final dozens of kilometres are soft sand, so only a 4WD with a local guide will do. Most rental contracts effectively forbid this drive.",
+      "About 250 km one way from Aktau, around 5 h of driving — a full day with a driver (roughly 50,000–70,000 ₸).",
+      "There are several viewpoints along the cliff edge in the 44.04–44.09 / 53.16–53.26 area — a guide knows the best ones. This spot is one of the most popular central viewpoint clusters.",
+      "Visit at sunrise or sunset; the midday white glare kills the contrast in photos.",
+      "Sunglasses and a scarf are essential — the wind blows salt dust into your eyes.",
+      "Bring water (2–3 l/person) and snacks — there are no shops along the way."
+    ],
+    "ru": [
+      "⚠️ На арендованной машине туда не добраться — последние десятки километров — мягкий песок, нужен только внедорожник с местным гидом. Договор аренды фактически такое запрещает.",
+      "Около 250 км в одну сторону от Актау, ~5 ч в пути — целый день с водителем (примерно 50 000–70 000 ₸).",
+      "На краю обрыва в районе 44.04–44.09 / 53.16–53.26 есть несколько смотровых точек — гид знает лучшие. Это одна из самых популярных групп центральных видовых площадок.",
+      "Приезжайте на рассвете или закате; полуденный белый блеск убивает контраст на фото.",
+      "Солнцезащитные очки и платок обязательны — ветер поднимает солёную пыль в глаза.",
+      "Возьмите запас воды (2–3 л/чел) и еду — по дороге нет магазинов."
+    ],
+    "kk": [
+      "⚠️ Жалға алған көлікпен жете алмайсыз — соңғы ондаған шақырым жұмсақ құм, тек жергілікті гид қосылған 4WD көлікпен ғана баруға болады. Жалдау шарты іс жүзінде мұндай жолды тыйым салады.",
+      "Ақтаудан бір бағытқа шамамен 250 км, шамамен 5 сағат жол — жүргізушімен бір күн (шамамен 50 000–70 000 ₸).",
+      "44.04–44.09 / 53.16–53.26 аумағындағы жартас шетінде бірнеше шолу алаңы бар — ең жақсыларын гид біледі. Бұл нүкте — ең танымал орталық шолу алаңы топтарының бірі.",
+      "Күн шыққанда немесе батқанда барыңыз; түскі ақ шағылысу суреттегі контрастты жояды.",
+      "Күннен қорғайтын көзілдірік пен орамал міндетті — жел тұзды шаңды көзге үрлейді.",
+      "Су (адамға 2–3 л) мен тағам ала жүріңіз — жол бойында дүкендер жоқ."
+    ]
+  }
+}

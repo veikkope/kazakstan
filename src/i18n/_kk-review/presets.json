@@ -1,0 +1,61 @@
+{
+  "file": "src/data/presets.ts",
+  "changes": [
+    {
+      "context": "preset 'luonto-almaty-5' / day 1 / 'summary'",
+      "before": "Қону, қонақүйге орналасу, Панфилов саябағы мен Жасыл базар арқылы алғашқы серуен.",
+      "after": "Қону, қонақ үйге орналасу, Панфилов саябағы мен Жасыл базар арқылы алғашқы серуен.",
+      "reason": "Style guide requires 'қонақ үй' as two words; the compound 'қонақүй' is informal/nonstandard."
+    },
+    {
+      "context": "preset 'luonto-almaty-5' / day 3 / 'summary'",
+      "before": "Көлсай көлдеріне ерте шығу. Қайыңдыға да баруға болуы үшін Сатыда түнеу.",
+      "after": "Көлсай көлдеріне ерте шығу. Қайыңдыға да бару үшін Сатыда түнеу.",
+      "reason": "'баруға болуы үшін' is an awkward calque from fi/ru ('jotta voi mennä'); native Kazakh uses a bare infinitive: 'бару үшін' (in order to go)."
+    },
+    {
+      "context": "preset 'kaupunki-kulttuuri-7' / 'whoFor'",
+      "before": "Қарама-қайшылықты көргісі келетіндерге: жасыл Алматы, футуристік Астана және тарихи Түркістан.",
+      "after": "Қарама-қарсылықты көргісі келетіндерге: жасыл Алматы, футуристік Астана және тарихи Түркістан.",
+      "reason": "'қарама-қайшылық' means 'contradiction'; the intended sense (Finnish 'kontrasti', Russian 'контраст') is 'қарама-қарсылық' (contrast/opposition)."
+    },
+    {
+      "context": "preset 'kaupunki-kulttuuri-7' / day 1 / 'summary'",
+      "before": "Қонақүйге орналасу, Панфилов саябағы және Жасыл базар.",
+      "after": "Қонақ үйге орналасу, Панфилов саябағы және Жасыл базар.",
+      "reason": "Style guide requires 'қонақ үй' as two words."
+    },
+    {
+      "context": "preset 'eeppinen-roadtrip-10' / day 7 / 'summary'",
+      "before": "4WD турының басталуы, бірінші бағыт — Торыш.",
+      "after": "4WD турының басталуы, бірінші нүкте — Торыш.",
+      "reason": "'бағыт' means 'direction', not 'stop/point'. Russian 'первая точка' and Finnish 'ensimmäinen kohde' map to 'нүкте' (point) or 'аялдама' (stop)."
+    }
+  ],
+  "uncertain": [
+    {
+      "context": "preset 'luonto-almaty-5' / highlight 4 + day 5 summary; preset 'kaupunki-kulttuuri-7' / highlight 1 + day 2 summary",
+      "current": "арқан жолы / арқан жолымен",
+      "concern": "Literal calque ('rope road') used consistently for 'cable car / gondola'. The more established Kazakh term is 'канат жолы'. Kept for now because 'арқан жолы' is documented in some sources and the usage is internally consistent across the file.",
+      "alternatives": ["канат жолы", "арқан жолы (current)"]
+    },
+    {
+      "context": "preset 'kaupunki-kulttuuri-7' / day 7 / 'title'",
+      "current": "Алматыға және үйге қайту",
+      "concern": "Reads as 'return to Almaty and to home', but the trip is one-way through Almaty to home (a layover, not a destination). Slightly ambiguous calque.",
+      "alternatives": ["Алматы арқылы үйге қайту", "Алматыға қайтып, үйге ұшу"]
+    },
+    {
+      "context": "preset 'eeppinen-roadtrip-10' / 'whoFor'",
+      "current": "Көбірек ауысулар қажет.",
+      "concern": "'ауысу' is more commonly 'shift/change' than travel 'transfers'. Comprehensible but stylistically not the strongest term.",
+      "alternatives": ["Көбірек көшу қажет", "Көбірек ауыстырып отыру керек"]
+    },
+    {
+      "context": "preset 'luonto-almaty-5' / highlights[2]",
+      "current": "Үлкен Алматы көлі — таулардың көгілдір меруерті",
+      "concern": "'көгілдір' means 'bluish/pale blue'; Finnish 'turkoosi' and Russian 'бирюзовая' are turquoise. 'Көгілдір' is close enough but not exact.",
+      "alternatives": ["таулардың көгілдір меруерті (current)", "таулардың түркіс меруерті"]
+    }
+  ]
+}

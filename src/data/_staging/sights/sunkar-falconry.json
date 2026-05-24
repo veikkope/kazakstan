@@ -1,0 +1,53 @@
+{
+  "id": "sunkar-falconry",
+  "name": {
+    "fi": "Sunkar — kotkametsästyskeskus",
+    "en": "Sunkar — falconry centre",
+    "ru": "Сункар — центр соколиной охоты",
+    "kk": "Сұңқар — саятшылық орталығы"
+  },
+  "shortDescription": {
+    "fi": "UNESCO-suojeltu kazakkilainen kotkametsästys eläväksi nähtynä — show klo 17 (ei ma).",
+    "en": "UNESCO-listed Kazakh falconry brought to life — daily show at 17:00 (closed Mondays).",
+    "ru": "Казахская соколиная охота, внесённая в список ЮНЕСКО, в живом исполнении — шоу в 17:00 (выходной — понедельник).",
+    "kk": "ЮНЕСКО қорғауындағы қазақ саятшылығын тірі көрсету — күн сайын сағат 17:00-де (дүйсенбіде жабық)."
+  },
+  "description": {
+    "fi": "1989 perustettu sakri-haukan suojelukeskus 10 km Almatysta, BAO-tien varrella. 450 petolintua: haukkoja, kotkia, harmaakorppikotkia, huuhkajia. Päivittäinen falconry-show klo 17 jossa kazakkilaiset metsästyshaukat lentävät 320 km/h ja kultakotka \"saalistaa\" suden näytöksessä.\n\nFalconry on UNESCO-suojeltua aineetonta perintöä Kazakstanissa. Sopii lyhyemmäksi käynniksi Iso Almatyn järvi -päivän alkuun tai loppuun (matkalla samaa tietä).",
+    "en": "A saker falcon conservation centre founded in 1989, 10 km from Almaty along the road to Big Almaty Lake. Home to 450 birds of prey: falcons, eagles, griffon vultures and eagle owls. The daily 17:00 falconry show features Kazakh hunting falcons reaching 320 km/h and a golden eagle \"hunting\" a wolf in a staged demonstration.\n\nFalconry is UNESCO-listed intangible heritage in Kazakhstan. A great short stop at the start or end of a Big Almaty Lake day — it sits on the same road.",
+    "ru": "Центр сохранения балобана, основанный в 1989 году, в 10 км от Алматы вдоль дороги на Большое Алматинское озеро. 450 хищных птиц: соколов, орлов, белоголовых сипов, филинов. Ежедневное шоу соколиной охоты в 17:00, где казахские охотничьи соколы развивают скорость до 320 км/ч, а беркут \"охотится\" на волка в постановочной демонстрации.\n\nСоколиная охота входит в список нематериального наследия ЮНЕСКО в Казахстане. Подходит как короткая остановка в начале или в конце дня поездки к Большому Алматинскому озеру — по той же дороге.",
+    "kk": "1989 жылы құрылған ителгі қорықшасы Алматыдан 10 км жерде, Үлкен Алматы көліне баратын жолдың бойында. 450 жыртқыш құс: сұңқарлар, бүркіттер, жұртшы құмайлар, үкілер. Күн сайын сағат 17:00-де өтетін саятшылық шоуында қазақтың аңшы сұңқарлары 320 км/сағ жылдамдықпен ұшады, ал алтын бүркіт қойылымда қасқырды «аулайды».\n\nСаятшылық — Қазақстандағы ЮНЕСКО қорғауындағы материалдық емес мұра. Үлкен Алматы көлі күнінің басында немесе соңында қысқа аялдама ретінде қолайлы — сол жолдың бойында."
+  },
+  "imageAlt": {
+    "fi": "Falconry — kazakkilainen kotkametsästysperinne ja petolinnut",
+    "en": "Falconry — Kazakh eagle-hunting tradition and birds of prey",
+    "ru": "Соколиная охота — казахская традиция охоты с беркутом и хищные птицы",
+    "kk": "Саятшылық — қазақтың бүркітпен аң аулау дәстүрі және жыртқыш құстар"
+  },
+  "practicalTips": [
+    {
+      "fi": "Lippu n. 3 500 KZT, show kestää 30 min.",
+      "en": "Ticket around 3,500 KZT; the show lasts 30 minutes.",
+      "ru": "Билет около 3 500 KZT, шоу длится 30 минут.",
+      "kk": "Билет шамамен 3 500 KZT, шоу 30 минутқа созылады."
+    },
+    {
+      "fi": "Maanantaisin kiinni — tarkista aukioloajat etukäteen.",
+      "en": "Closed on Mondays — check opening hours in advance.",
+      "ru": "По понедельникам закрыто — заранее проверьте часы работы.",
+      "kk": "Дүйсенбіде жабық — жұмыс уақытын алдын ала тексеріңіз."
+    },
+    {
+      "fi": "Sama tie kuin Iso Almatyn järvelle — yhdistä päivään.",
+      "en": "Same road as Big Almaty Lake — combine them in one day.",
+      "ru": "Та же дорога, что и к Большому Алматинскому озеру — совместите в один день.",
+      "kk": "Үлкен Алматы көлімен бір жолда — бір күнге біріктіріңіз."
+    },
+    {
+      "fi": "Voit pitää kotkaa kädessä lisämaksusta.",
+      "en": "You can hold an eagle on your arm for an extra fee.",
+      "ru": "За дополнительную плату вы можете подержать беркута на руке.",
+      "kk": "Қосымша ақыға бүркітті қолыңызға ұстай аласыз."
+    }
+  ]
+}

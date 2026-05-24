@@ -1,0 +1,53 @@
+{
+  "id": "ulytau-jochi",
+  "name": {
+    "fi": "Ulytau ja Jochi-khaanin mausoleumi",
+    "en": "Ulytau and the Mausoleum of Jochi Khan",
+    "ru": "Улытау и мавзолей Джучи-хана",
+    "kk": "Ұлытау және Жошы хан кесенесі"
+  },
+  "shortDescription": {
+    "fi": "Tšingis-kaanin vanhimman pojan hauta Kazakstanin maantieteellisessä sydämessä.",
+    "en": "The tomb of Genghis Khan's eldest son at the geographic heart of Kazakhstan.",
+    "ru": "Могила старшего сына Чингисхана в географическом сердце Казахстана.",
+    "kk": "Шыңғыс ханның үлкен ұлының кесенесі — Қазақстанның географиялық жүрегінде."
+  },
+  "description": {
+    "fi": "1200-luvulla rakennettu sinikupolinen mausoleumi Tšingis-kaanin vanhimman pojan, Kultaisen ordan perustajan Jochi-khaanin haudalla. 2023 valmistui ympärillä 2 500 hehtaarin Jochi-khaanin historiallis-kulttuurinen kompleksi etnografisine kylineen.\n\nUlytau on Kazakstanin maantieteellinen ja symbolinen sydän — \"shanyrak\", missä khaanit kruunattiin. Lähes kukaan länsimainen turisti ei käy täällä.",
+    "en": "A 13th-century blue-domed mausoleum over the grave of Jochi Khan, eldest son of Genghis Khan and founder of the Golden Horde. In 2023 a 2,500-hectare historical-cultural complex with an ethnographic village opened around the tomb.\n\nUlytau is the geographic and symbolic heart of Kazakhstan — the \"shanyrak\" where the khans were crowned. Almost no Western travellers reach it.",
+    "ru": "Мавзолей с голубым куполом, построенный в XIII веке над могилой Джучи-хана — старшего сына Чингисхана и основателя Золотой Орды. В 2023 году вокруг него открылся историко-культурный комплекс площадью 2 500 га с этнографической деревней.\n\nУлытау — географическое и символическое сердце Казахстана, \"шанырак\", где короновали ханов. Западные туристы сюда почти не доезжают.",
+    "kk": "XIII ғасырда салынған көк күмбезді кесене — Шыңғыс ханның үлкен ұлы, Алтын Орданың негізін қалаушы Жошы ханның басына тұрғызылған. 2023 жылы оның айналасында 2 500 гектарлық тарихи-мәдени кешен және этнографиялық ауыл ашылды.\n\nҰлытау — Қазақстанның географиялық және символдық жүрегі, хандар тағайындалған «шаңырақ». Бұл жерге Батыс туристері тек сирек ғана барады."
+  },
+  "imageAlt": {
+    "fi": "Jochi-khaanin mausoleumi Ulytaussa — sinikupolinen kompleksi",
+    "en": "The mausoleum of Jochi Khan at Ulytau — the blue-domed complex",
+    "ru": "Мавзолей Джучи-хана в Улытау — комплекс с голубым куполом",
+    "kk": "Ұлытаудағы Жошы хан кесенесі — көк күмбезді кешен"
+  },
+  "practicalTips": [
+    {
+      "fi": "Vaatii oman 2–3 päivän retken. 600 km Astanasta, infrastruktuuri niukka.",
+      "en": "Plan a dedicated 2–3 day trip. It is 600 km from Astana, with limited infrastructure.",
+      "ru": "Требуется отдельная поездка на 2–3 дня. 600 км от Астаны, инфраструктура минимальна.",
+      "kk": "Жеке 2–3 күндік сапар қажет. Астанадан 600 км, инфрақұрылым шектеулі."
+    },
+    {
+      "fi": "Voi yhdistää Ulytaun vuorivaelluksiin ja muihin mausoleumeihin.",
+      "en": "Combine it with hiking in the Ulytau mountains and visits to other mausoleums.",
+      "ru": "Можно совместить с походами по горам Улытау и другими мавзолеями.",
+      "kk": "Ұлытау тауларындағы жорықтармен және басқа кесенелермен ұштастыруға болады."
+    },
+    {
+      "fi": "Steppe & Sky ja muut operaattorit järjestävät paketteja.",
+      "en": "Steppe & Sky and other operators offer ready-made packages.",
+      "ru": "Steppe & Sky и другие операторы предлагают готовые туры.",
+      "kk": "Steppe & Sky және басқа операторлар дайын турлар ұсынады."
+    },
+    {
+      "fi": "Vain jos pidennätte reissun 14+ päivään.",
+      "en": "Only worthwhile if you extend your trip to 14+ days.",
+      "ru": "Имеет смысл только при поездке длиной 14+ дней.",
+      "kk": "Тек сапарыңыз 14+ күнге созылған жағдайда мағынасы бар."
+    }
+  ]
+}

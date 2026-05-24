@@ -1,5 +1,9 @@
+'use client';
+
 import Image from 'next/image';
+import { useLocale, useTranslations } from 'next-intl';
 import { categoryMeta } from '@/data/categories';
+import { asLocale, localised } from '@/lib/i18n-helpers';
 import type { Sight } from '@/lib/types';
 
 interface Props {
@@ -36,6 +40,8 @@ export default function SightImage({
   className = '',
   showAttribution = true,
 }: Props) {
+  const t = useTranslations();
+  const loc = asLocale(useLocale());
   const meta = categoryMeta[sight.category];
   const wrapperClass = `relative ${aspect} w-full overflow-hidden ${className}`;
 
@@ -44,7 +50,11 @@ export default function SightImage({
       <div className={wrapperClass}>
         <Image
           src={sight.image}
-          alt={sight.imageAlt ?? sight.name}
+          alt={
+            sight.imageAlt
+              ? localised(sight.imageAlt, loc)
+              : localised(sight.name, loc)
+          }
           fill
           sizes={sizes}
           priority={priority}
@@ -63,7 +73,7 @@ export default function SightImage({
     <div
       className={wrapperClass}
       role="img"
-      aria-label={`${meta.fi}-kategoria — kuva puuttuu`}
+      aria-label={t('components.sightImage.placeholderAria', { category: localised(meta.label, loc) })}
       style={{
         background: `linear-gradient(135deg, ${meta.color} 0%, ${meta.color}cc 60%, #1e293b 140%)`,
       }}
@@ -82,14 +92,21 @@ function AttributionChip({
 }: {
   attribution: NonNullable<Sight['imageAttribution']>;
 }) {
+  const t = useTranslations();
   const credit = [attribution.author, attribution.license].filter(Boolean).join(' · ');
+  const ariaLabel = credit
+    ? t('components.sightImage.attributionAriaWithCredit', {
+        source: attribution.source,
+        credit,
+      })
+    : t('components.sightImage.attributionAria', { source: attribution.source });
   return (
     <a
       href={attribution.sourceUrl}
       target="_blank"
       rel="noreferrer"
       className="absolute bottom-1 right-1 z-10 max-w-[80%] truncate rounded bg-black/55 px-1.5 py-0.5 text-[10px] text-white/90 backdrop-blur hover:bg-black/75 hover:text-white hover:no-underline"
-      aria-label={`Kuvan lähde: ${attribution.source}${credit ? ` — ${credit}` : ''}`}
+      aria-label={ariaLabel}
     >
       © {credit || attribution.source}
     </a>

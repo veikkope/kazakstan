@@ -1,0 +1,528 @@
+{
+  "_meta": {
+    "language": "English",
+    "lastTranslated": "2026-05-24",
+    "canonical": false,
+    "translatedFrom": "fi",
+    "conventions": "Namespace pattern: pages.<route>.<element>, components.<feature>.<element>, common.<element>, errors.<context>. Keys camelCase, values native English. Pluralization uses ICU MessageFormat: {count, plural, one {item} other {items}}."
+  },
+  "common": {
+    "loading": "Loading…",
+    "cancel": "Cancel",
+    "close": "Close",
+    "clear": "Clear",
+    "save": "Save",
+    "back": "Back",
+    "more": "More",
+    "open": "Open",
+    "search": "Search",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "languageSwitcher": {
+    "label": "Change language",
+    "current": "Current language: {language}"
+  },
+  "brand": {
+    "name": "Kazakhstan",
+    "tagline": "Kazakhstan trip planner"
+  },
+  "nav": {
+    "home": "Home",
+    "today": "Today",
+    "map": "Map",
+    "sights": "Sights",
+    "routes": "Ready-made routes",
+    "itinerary": "Itinerary",
+    "shortlist": "Shortlist",
+    "info": "Info",
+    "budget": "Budget",
+    "days": "Days",
+    "infoLong": "Practical info",
+    "carRental": "Car rental (Aktau)",
+    "ariaPrimary": "Primary navigation",
+    "ariaBottom": "Main pages",
+    "ariaMore": "More links"
+  },
+  "errors": {
+    "notFound": {
+      "title": "404 — Not found",
+      "description": "This page does not exist. Maybe you meant:",
+      "linkMap": "Map",
+      "linkSights": "Sights",
+      "linkRoutes": "Ready-made routes",
+      "cta": "Back to home"
+    }
+  },
+  "pages": {
+    "home": {
+      "eyebrow": "A travel guide for you and a friend",
+      "title": "Let's plan a trip to Kazakhstan.",
+      "intro": "This is a decision tool — browse destinations on the map, compare ready-made routes, and save favourites to your shortlist. Share the current view with a friend via a link.",
+      "pathMapTitle": "Browse on the map",
+      "pathMapDescription": "Interactive map + filters. Click destinations and add them to your shortlist.",
+      "pathRoutesTitle": "Ready-made route templates",
+      "pathRoutesDescription": "3 different templates: 5, 7, and 10-day versions. A good starting point.",
+      "pathInfoTitle": "Practical info",
+      "pathInfoDescription": "Visa, currency, transport, pre-departure checklist.",
+      "featuredHeading": "Classic destinations",
+      "draftsHeading": "To be added / confirmed later",
+      "draftsDescription": "These don't appear on the map yet — awaiting confirmation."
+    },
+    "map": {
+      "title": "Map",
+      "resultCount": "{count} destinations.",
+      "tipAriaLabel": "Map tip",
+      "tipTooltip": "Click a pin or list row to zoom in.",
+      "listRegionAriaLabel": "Destinations as a list",
+      "switchToListAriaLabel": "Switch to list view — {count} destinations",
+      "switchToMapAriaLabel": "Switch to map view",
+      "list": "List",
+      "map": "Map",
+      "rentalPin": {
+        "subtitle": "Rental car pickup and return in Aktau.",
+        "pickup": "Pickup: {date}",
+        "return": "Return: {date}",
+        "address": "Address: {address}",
+        "hours": "Hours: {hours}",
+        "hrefLabel": "Detailed instructions"
+      }
+    },
+    "sights": {
+      "title": "Sights",
+      "subtitle": "<bold>{count}</bold> destinations. Use filters to narrow down options.",
+      "resultsCountMobile": "<bold>{count}</bold> destinations",
+      "filterButton": "Filter",
+      "filterButtonAria": "Filters",
+      "filterButtonActiveAria": "Filters — {count} active",
+      "filterSheetTitle": "Filters",
+      "categoriesHeading": "Categories",
+      "regionsHeading": "Regions",
+      "allRegions": "All",
+      "sortLabel": "Sort:",
+      "sortHeading": "Sort",
+      "sortDefault": "Default (by region)",
+      "sortPopular": "Most popular",
+      "sortInteresting": "Most interesting",
+      "sortUnique": "Most unique",
+      "clear": "Clear",
+      "clearSearch": "Clear search",
+      "clearAll": "Clear all",
+      "showResults": "Show {count} destinations",
+      "emptyTitleQuery": "No results for \"{query}\"",
+      "emptyTitleFilters": "No destinations match these filters",
+      "emptyDescBoth": "Try removing filters or changing your search term.",
+      "emptyDescQuery": "Check the spelling or try a different search term.",
+      "emptyDescFilters": "Try removing category or region filters."
+    },
+    "sightDetail": {
+      "notFoundTitle": "Destination not found",
+      "metaTitle": "{name} — Kazakhstan trip",
+      "draftBadge": "Draft — awaiting confirmation",
+      "navigator": "Navigator",
+      "descriptionHeading": "Description",
+      "historyHeading": "History",
+      "tipsHeading": "Practical tips",
+      "nearbyHeading": "Nearby",
+      "ratingsHeading": "Ratings",
+      "ratedOn": "Rated {date}",
+      "quickFactsHeading": "Quick facts",
+      "city": "City",
+      "timeNeeded": "Visit time",
+      "hours": "{hours} h",
+      "approxHours": "~{hours} h",
+      "difficulty": "Difficulty",
+      "difficultyEasy": "easy",
+      "difficultyModerate": "moderate",
+      "difficultyHard": "hard",
+      "budgetLevel": "Price level",
+      "budgetLow": "budget",
+      "budgetMid": "mid-range",
+      "budgetHigh": "expensive",
+      "cost": "Entry",
+      "free": "Free",
+      "openingHours": "Hours",
+      "needsCar": "Car required",
+      "needsGuide": "Guide recommended",
+      "travelFromAlmaty": "Travel from Almaty",
+      "travelFromAstana": "Travel from Astana",
+      "bestTime": "Best time",
+      "locationHeading": "Location",
+      "openOnMap": "Open on map →",
+      "monthJan": "Jan",
+      "monthFeb": "Feb",
+      "monthMar": "Mar",
+      "monthApr": "Apr",
+      "monthMay": "May",
+      "monthJun": "Jun",
+      "monthJul": "Jul",
+      "monthAug": "Aug",
+      "monthSep": "Sep",
+      "monthOct": "Oct",
+      "monthNov": "Nov",
+      "monthDec": "Dec"
+    },
+    "routes": {
+      "title": "Ready-made route templates",
+      "intro": "Three different starting points: one for nature, one for cities, and one longer road trip. Pick a template and customise it into your own route."
+    },
+    "routeDetail": {
+      "metaNotFound": "Route not found",
+      "metaTitle": "{title} — Kazakhstan trip",
+      "backLink": "← Ready-made route templates",
+      "tileWhoFor": "Who it's for",
+      "tileDuration": "Duration",
+      "tileBudget": "Estimated budget / person",
+      "durationValue": "{count} days",
+      "highlightsHeading": "Highlights",
+      "dayByDayHeading": "Day by day",
+      "useAsTemplateTitle": "Use as a template for your own itinerary",
+      "useAsTemplateBody": "Copy the <code>preset.days</code> from this file with id <code>{id}</code> and bring them into the <code>userItinerary</code> array in <code>src/data/itinerary.ts</code>. Then customise freely."
+    },
+    "itinerary": {
+      "title": "My itinerary",
+      "intro": "This is your own route template. Empty at first — fill in the days as the trip locks in, or copy a template from the <routes>ready-made routes</routes>."
+    },
+    "shortlist": {
+      "loading": "Loading…",
+      "title": "Shortlist",
+      "intro": "{count} destinations. Choose region by region what you'll visit — get a ready-made route in Google Maps, Yandex, or 2GIS.",
+      "shareButton": "Share with friends",
+      "shareCopied": "✓ Link copied",
+      "shareError": "Sharing failed",
+      "shareTitle": "Kazakhstan trip shortlist",
+      "shareText": "Here's my shortlist for Kazakhstan — what do you think?",
+      "clearButton": "Clear",
+      "clearDialogTitle": "Clear shortlist?",
+      "clearDialogDescription": "All <strong>{count} destinations</strong> will be removed from the list — including favourites and visited markers. You can undo for a moment via the notification.",
+      "cancel": "Cancel",
+      "confirmClear": "Yes, clear",
+      "removedToast": "Removed: {name}",
+      "undo": "Undo",
+      "clearedToast": "Shortlist cleared",
+      "clearedToastDescription": "Removed {count} destinations",
+      "emptyTitle": "Shortlist is empty",
+      "emptyDescription": "Add destinations to the list from the Sights page. You can promote top picks to favourites ★, mark visited ones ✓ during the trip, and build region-by-region routes in Google Maps, Yandex, or 2GIS.",
+      "emptyBrowseSights": "Browse sights",
+      "emptyOpenMap": "Open map",
+      "usageHint": "Tick the destinations you're visiting today — then press <strong>Open route</strong> and choose a navigator (Google Maps, Yandex, 2GIS, or Apple Maps). The route opens ready-ordered, with your current location as the starting point.",
+      "progressComplete": "🎉 Trip complete!",
+      "progressInProgress": "Trip progress",
+      "progressVisitedLabel": "visited",
+      "progressPriorityLabel": "favourites",
+      "progressAria": "Trip progress: {visited} / {total} visited ({percent}%)",
+      "selectAll": "Select all",
+      "clearSelection": "Clear selection",
+      "routeButtonEmpty": "Select for route",
+      "routeButtonWithCount": "Open route ({count})",
+      "overLimitWarning": "Navigators support at most {max} points per route — remove selections to continue.",
+      "aktauWarning": "<strong>Note:</strong> Mangystau desert routes are not fully on Google Maps. The route link shows the direction, but also use an offline map (e.g. Maps.me) and a local driver.",
+      "selectAria": "Select {name} for the route",
+      "deselectAria": "Remove {name} from route selection",
+      "removeAria": "Remove from shortlist",
+      "visitedOn": "Visited {date}",
+      "priorityLabel": "Favourite",
+      "visitedLabel": "Visited"
+    },
+    "today": {
+      "metaTitle": "Today — Kazakhstan",
+      "metaDescription": "Today's plan, anchors, emergency card, and quick links during the trip.",
+      "title": "Today",
+      "intro": "The day's plan, anchors, cash, and emergency card — at a glance."
+    },
+    "budget": {
+      "title": "Budget",
+      "intro": "Estimates per region and category. Prices per person unless otherwise noted. Mangystau prices assume 2–4 people in the car.",
+      "estimatesHeading": "Budget estimate per region",
+      "perDayLabel": "Per day:",
+      "tiersLabel": "(budget / mid-range / expensive)",
+      "tableItem": "Item",
+      "tableEstimate": "Estimate",
+      "categoryFlights": "Flights",
+      "categoryLodging": "Lodging",
+      "categoryFood": "Food",
+      "categoryTransport": "Transport",
+      "categoryActivities": "Activities",
+      "categoryMisc": "Other"
+    },
+    "info": {
+      "title": "Practical info",
+      "intro": "Visa, pre-departure checklist, transport, language, and safety.",
+      "languageHeading": "Language",
+      "languageColFi": "Finnish",
+      "languageColKk": "Kazakh",
+      "languageColRu": "Russian",
+      "safetyHeading": "Safety — what it means in practice"
+    },
+    "carRental": {
+      "metaTitle": "{operator} — Car rental in Aktau",
+      "metaDescription": "{operator} ({pickup}) — car pickup {pickupDate}, return {returnDate}.",
+      "backToMap": "Back to map",
+      "badge": "🚗 Rental car",
+      "pickupTitle": "Pickup and return location",
+      "pickupDates": "Arrive here on {pickup} and return on {return}.",
+      "postalCode": "Postal code",
+      "openNavigator": "Open navigator",
+      "navigatorHint": "Open Google Maps, 2GIS, Yandex, or Apple Maps — route from your current location to this point.",
+      "contactsTitle": "Contacts",
+      "phone": "Phone",
+      "whatsapp": "WhatsApp",
+      "openChat": "Open chat →",
+      "instagram": "Instagram",
+      "bookingTitle": "Booking basics",
+      "pickupLabel": "Pickup",
+      "returnLabel": "Return",
+      "hoursLabel": "Hours",
+      "officeTitle": "Official office (different from pickup)",
+      "officeDescription": "Address per the company's 2GIS listing. <strong>Don't go here</strong> — the car is picked up and returned at ЖК Оазис above.",
+      "notesTitle": "Notes",
+      "externalLinksTitle": "External links",
+      "lastVerified": "Information last verified {date}."
+    }
+  },
+  "components": {
+    "header": {
+      "searchButton": "Search",
+      "searchAriaLabel": "Search destinations"
+    },
+    "footer": {
+      "intro": "Personal trip plan. Map tiles:",
+      "disclaimer": "Always check practical info before departure — visas, rates, and connections can change."
+    },
+    "bottomNav": {
+      "more": "More"
+    },
+    "commandPalette": {
+      "title": "Command palette",
+      "description": "Search for sights and navigate between pages",
+      "placeholder": "Search sights, pages, routes...",
+      "noResults": "No results for \u201c{query}\u201d.",
+      "pagesHeading": "Pages",
+      "sightsHeading": "Sights"
+    },
+    "offlineBanner": {
+      "message": "Offline mode — showing saved content. The map and images may be limited."
+    },
+    "navigateMenu": {
+      "openNavigator": "Open navigator",
+      "googleSubtitle": "Universal — works on all devices",
+      "twoGisSubtitle": "Best in Kazakhstan — accurate addresses and reviews",
+      "yandexSubtitle": "Good in Central Asia — real-time traffic",
+      "appleSubtitle": "iPhone and Mac — opens natively",
+      "firstStopOnly": "Opens only the 1st stop of the route — doesn't support multiple stops",
+      "headerTitleMulti": "{count}-stop route",
+      "headerDescriptionMulti": "The starting point is your current location. Points are ordered by shortest distance.",
+      "headerDescriptionSingleWithLabel": "Route from your current location to {label}.",
+      "headerDescriptionSingle": "Route from your current location.",
+      "desktopLabelMulti": "Route via {count} destinations",
+      "desktopLabelSingle": "Route from your current location"
+    },
+    "sightCard": {
+      "draft": "Draft",
+      "hours": "{count} h",
+      "difficultyEasy": "easy",
+      "difficultyModerate": "moderate",
+      "difficultyHard": "hard",
+      "budgetLow": "budget",
+      "budgetMid": "mid-range",
+      "budgetHigh": "expensive",
+      "car": "car",
+      "guide": "guide"
+    },
+    "searchInput": {
+      "label": "Search sights",
+      "placeholder": "Search destination, city, category...",
+      "clearAria": "Clear search",
+      "resultsAnnouncement": "{count} results for {query}",
+      "noResultsAnnouncement": "No results for {query}",
+      "totalAnnouncement": "{count} destinations in total"
+    },
+    "sightImage": {
+      "placeholderAria": "{category} category — image missing",
+      "attributionAria": "Image source: {source}",
+      "attributionAriaWithCredit": "Image source: {source} — {credit}"
+    },
+    "nearbyList": {
+      "distanceKm": "{km} km"
+    },
+    "starRating": {
+      "popularity": "Popularity",
+      "interest": "Interest",
+      "uniqueness": "Uniqueness",
+      "starsAria": "{value} / 5",
+      "valueOutOfFive": "{value}/5",
+      "placeholder": "ⓘ Not yet rated — run the <code>place-rater</code> agent."
+    },
+    "overallStars": {
+      "averageAria": "Average {value} out of five",
+      "outOfFive": "/ 5",
+      "popular": "Popular",
+      "rich": "Rich in content",
+      "unique": "Unique",
+      "standoutTitle": "{label} — top dimension 5/5"
+    },
+    "shortlistButton": {
+      "add": "Add to shortlist",
+      "onShortlist": "On shortlist",
+      "addAria": "Add to shortlist",
+      "removeAria": "Remove from shortlist",
+      "addedToast": "Added to shortlist",
+      "removedToast": "Removed from list",
+      "softMaxTitle": "Shortlist is already large ({count} destinations)",
+      "softMaxDescription": "The share link may get heavy — some chat apps truncate long URLs. Consider trimming."
+    },
+    "sightActionBar": {
+      "navigate": "Navigate",
+      "shareAria": "Share",
+      "shareTitle": "{name} — Kazakhstan trip",
+      "linkCopiedTitle": "Link copied",
+      "linkCopiedDescription": "Send it to a friend",
+      "linkCopyError": "Copying the link failed",
+      "addShortlistAria": "Add to shortlist",
+      "removeShortlistAria": "Remove from shortlist"
+    },
+    "sightList": {
+      "empty": "No destinations with these filters.",
+      "regionAria": "{region} — {count} destinations",
+      "visitedAria": "Visited",
+      "favoriteAria": "Favourite"
+    },
+    "categoryFilter": {
+      "all": "All"
+    },
+    "mapView": {
+      "readMore": "Read more",
+      "visited": "Visited",
+      "favorite": "Favourite",
+      "tripPin": {
+        "rentalCar": "Rental car",
+        "airport": "Airport",
+        "hotel": "Lodging",
+        "meetingPoint": "Meeting point"
+      }
+    },
+    "locateControl": {
+      "show": "Show my location",
+      "hide": "Hide location",
+      "locating": "Locating…",
+      "errorPermission": "Allow the browser to use your location in settings",
+      "errorTimeout": "Location lookup timed out — try again",
+      "errorUnavailable": "Location unavailable"
+    },
+    "dayCard": {
+      "dayLabel": "Day {day}",
+      "todayBadge": "Today",
+      "earlyWake": "Early wake-up",
+      "driverNeeded": "Driver needed",
+      "offlineNote": "Offline note",
+      "anchors": "Anchors",
+      "primaryPlan": "Main plan",
+      "alternatives": "Alternatives ({count})",
+      "planB": "Plan B",
+      "sights": "Sights",
+      "unknownSight": "⚠️ unknown: {id}",
+      "transportSection": "Getting around",
+      "cashBadge": "💰 Cash ~{amount}",
+      "sleepBadge": "🛏️ Night: {city}",
+      "lodgingHint": "Lodging tip",
+      "lodgingPrice": "€{min}–{max} / night",
+      "lodgingBook": "Book: {apps}",
+      "accommodation": "Accommodation",
+      "transport": {
+        "plane": "Flight",
+        "train": "Train",
+        "car": "Car",
+        "bus": "Bus",
+        "taxi": "Taxi",
+        "walk": "Walk"
+      },
+      "urgency": {
+        "now": "Book now",
+        "week-before": "Book a week before",
+        "on-arrival": "Book on arrival",
+        "walk-in": "Walk-in OK"
+      }
+    },
+    "dayTimeline": {
+      "emptyTitle": "Itinerary is empty",
+      "emptyDescription": "No days yet — copy a template from the ready-made routes or add manually to the <code>src/data/itinerary.ts</code> file.",
+      "browseRoutes": "Browse ready-made routes",
+      "jumpToToday": "↓ Today — day {day}: {title}"
+    },
+    "todayDashboard": {
+      "emptyState": "No itinerary. Add days to your <link>itinerary</link>.",
+      "countdownLabel": "Until departure",
+      "daysLeft": "{count, plural, one {# day} other {# days}}",
+      "daysLeftSoon": "soon",
+      "tripStarts": "Trip starts on {date} — a {total}-day journey",
+      "tripStartsNoDate": "Trip starts soon — a {total}-day journey",
+      "firstDayPreview": "Departure day preview",
+      "tripEnded": "Trip has ended",
+      "lastTripDate": "The last day of the trip was {date}.",
+      "browseBack": "Browse back through the days",
+      "todayLabel": "Today",
+      "nextDayLabel": "Next day",
+      "dayCount": "Day {day} / {total}",
+      "previewStarts": "Preview — day starts on {date}",
+      "tomorrow": "Tomorrow",
+      "earlyWake": "Early wake-up",
+      "prevDayNav": "← Day {day}: {title}",
+      "nextDayNav": "Day {day}: {title} →",
+      "quickLinks": {
+        "map": "Map",
+        "allDays": "All days",
+        "info": "Info",
+        "budget": "Budget"
+      },
+      "currencyLabel": "Currency",
+      "currencyRate": "1 € ≈ {rate} ₸",
+      "currencyHint": "static — check before departure",
+      "emergency": {
+        "openCard": "🆘 Emergency card — open",
+        "numbers": "Emergency numbers",
+        "embassy": "Finnish embassy",
+        "phrases": "Emergency phrases",
+        "allPhrasesLink": "All phrases on the info page →"
+      }
+    },
+    "presetCard": {
+      "themeNature": "🏔️ Nature",
+      "themeCulture": "🕌 Culture",
+      "themeRoadtrip": "🚗 Road trip",
+      "durationDays": "{count} days",
+      "whoForLabel": "Who it's for:",
+      "budgetLabel": "Estimated budget:",
+      "perPerson": "/ person"
+    },
+    "currencyConverter": {
+      "title": "Currency converter",
+      "rateInfo": "Static rate: 1 € ≈ {rate} ₸. Check the daily rate before the trip.",
+      "directionAria": "Conversion direction",
+      "kztToEur": "KZT → EUR",
+      "eurToKzt": "EUR → KZT",
+      "amountKztAria": "Amount in tenge",
+      "amountEurAria": "Amount in euros"
+    },
+    "shortlistUrlSync": {
+      "prunedToast": "{count, plural, one {1 destination removed from the list} other {# destinations removed from the list}}",
+      "prunedToastDescription": "These destinations are no longer available. You can add new ones from the /sights page.",
+      "unknownInLinkToast": "{count, plural, one {1 ID in the shared link doesn't match current destinations} other {# IDs in the shared link don't match current destinations}}",
+      "unknownInLinkDescription": "The destinations may have been removed or the IDs have changed.",
+      "droppedUnknownToast": "Dropped {count} unknown destinations from the shared link",
+      "saveFailedToast": "Saving the shortlist failed",
+      "saveFailedDescription": "The browser's storage is full or blocked. The list stays for this session but may disappear on refresh.",
+      "dialogTitle": "Import the shared shortlist?",
+      "dialogDescription": "The link contains <strong>{urlCount} destinations</strong>. You already have <strong>{localCount} of your own destinations</strong> on the list.",
+      "statShared": "Shared",
+      "statNew": "New",
+      "statOnlyYours": "Only yours",
+      "unknownDroppedNote": "<strong>{count} unknown destinations</strong> were dropped from the link — they may have been removed or the IDs have changed.",
+      "previewLabel": "From link:",
+      "previewMore": "+ {count} more",
+      "explanation": "<strong>Merge</strong> adds the new destinations from the link to your list — you don't lose your own. <strong>Replace yours</strong> keeps only the link's contents and <destructive>removes {localOnlyCount} of your own</destructive>.",
+      "cancel": "Cancel",
+      "replace": "Replace yours",
+      "merge": "Merge"
+    }
+  }
+}

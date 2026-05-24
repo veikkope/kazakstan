@@ -1,0 +1,59 @@
+{
+  "id": "sauran",
+  "name": {
+    "fi": "Sauranin rauniot",
+    "en": "Ruins of Sauran",
+    "ru": "Руины Саурана",
+    "kk": "Сауран қирандылары"
+  },
+  "shortDescription": {
+    "fi": "Silkkitien parhaiten säilyneet kaupunginrauniot — 6 m muurit ja kyariz-vedensiirtojärjestelmä.",
+    "en": "The best-preserved Silk Road city ruins — 6 m walls and a karez underground water system.",
+    "ru": "Лучше всего сохранившиеся городские руины Шёлкового пути — стены высотой 6 м и подземная система водоснабжения кяриз.",
+    "kk": "Жібек жолының ең жақсы сақталған қала қирандылары — биіктігі 6 м қабырғалар мен кәріз жер асты су жүйесі."
+  },
+  "description": {
+    "fi": "Keskiaikainen kaupunki Syrdarjan laaksossa, jota arabigeografi al-Muqaddasi kuvasi 10. vuosisadalla seitsemän muurin kaupunkina. 13.–16. vuosisadalla Kazakstanin suurin kaupunki ja Kultaisen Ordan pääkaupunki — selvisi mongolihyökkäyksistä diplomatialla, toisin kuin naapuri Otrar.\n\nSäilyneet 6 m korkeat tiilimuurit, portit, bastionit. Ainutlaatuinen maanalainen kyariz-vedensiirtojärjestelmä toi vettä vuoristoaqviferistä. UNESCO:n alustavalla listalla.",
+    "en": "A medieval city in the Syr Darya valley that the Arab geographer al-Muqaddasi described in the 10th century as a town of seven walls. From the 13th to the 16th century it was Kazakhstan's largest city and a capital of the Golden Horde — surviving the Mongol invasions through diplomacy, unlike its neighbour Otrar.\n\nWhat remains is a set of 6 m brick walls, gates and bastions. A unique underground karez system once carried water from a mountain aquifer. The site is on UNESCO's tentative list.",
+    "ru": "Средневековый город в долине Сырдарьи, который арабский географ аль-Мукаддаси в X веке описывал как город семи стен. С XIII по XVI век — крупнейший город Казахстана и столица Золотой Орды; в отличие от соседнего Отрара, пережил монгольское нашествие благодаря дипломатии.\n\nСохранились кирпичные стены высотой 6 м, ворота и бастионы. Уникальная подземная система кяриз приводила воду из горного водоносного слоя. Объект входит в предварительный список ЮНЕСКО.",
+    "kk": "Сырдария аңғарындағы орта ғасырлық қала, оны Х ғасырда араб географы әл-Мұқаддаси жеті қабырғалы қала деп сипаттаған. XIII–XVI ғасырларда Қазақстандағы ең ірі қала әрі Алтын Орданың астанасы болған — көршісі Отырардан айырмашылығы, моңғол шапқыншылығынан дипломатиялық жолмен аман қалған.\n\nБиіктігі 6 метрлік кірпіш қабырғалар, қақпалар мен бастиондар сақталған. Бірегей жер асты кәріз жүйесі тау сулы қабатынан су әкеліп тұрған. Нысан ЮНЕСКО-ның алдын ала тізіміне енген."
+  },
+  "imageAlt": {
+    "fi": "Sauranin keskiaikaiset tiilimuurit ja kaupunginrauniot",
+    "en": "The medieval brick walls and city ruins of Sauran",
+    "ru": "Средневековые кирпичные стены и городские руины Саурана",
+    "kk": "Саурандағы орта ғасырлық кірпіш қабырғалар мен қала қирандылары"
+  },
+  "bestSeason": {
+    "fi": "kevät tai syksy; kesä paahtava",
+    "en": "spring or autumn; summer is scorching",
+    "ru": "весна или осень; летом изнуряющая жара",
+    "kk": "көктем немесе күз; жазда аптап ыстық"
+  },
+  "practicalTips": [
+    {
+      "fi": "Taksi Turkistanista — n. 10 000 KZT edestakaisin (45 min ajo).",
+      "en": "Taxi from Turkistan — about 10,000 KZT round trip (a 45-minute drive).",
+      "ru": "Такси из Туркестана — около 10 000 тенге туда-обратно (45 минут езды).",
+      "kk": "Түркістаннан такси — екі жаққа шамамен 10 000 теңге (45 минуттық жол)."
+    },
+    {
+      "fi": "Ei sisäänpääsymaksua, ei opasta paikalla — lue tausta etukäteen.",
+      "en": "No entry fee, no on-site guide — read up on the background in advance.",
+      "ru": "Входной платы нет, гида на месте тоже — лучше изучить контекст заранее.",
+      "kk": "Кіру ақысы жоқ, орнында гид те жоқ — тарихи мәнмәтінмен алдын ала танысыңыз."
+    },
+    {
+      "fi": "Aurinkohattu ja vesi pakollisia — varjoa ei ole.",
+      "en": "A sun hat and water are essential — there is no shade.",
+      "ru": "Панама и вода обязательны — тени нет.",
+      "kk": "Күн қалпағы мен су міндетті — көлеңке жоқ."
+    },
+    {
+      "fi": "Yhdistä Otrariin + Arystan Babiin samaan päivään silkkitiekokemukseksi.",
+      "en": "Combine with Otrar + Arystan Bab on the same day for a full Silk Road experience.",
+      "ru": "Совместите с Отраром и Арыстан-Бабом в один день — получится полноценное \"шёлковое\" путешествие.",
+      "kk": "Толыққанды Жібек жолы тәжірибесі үшін бір күнде Отырар + Арыстан Бабпен біріктіріңіз."
+    }
+  ]
+}

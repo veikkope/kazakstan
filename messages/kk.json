@@ -1,0 +1,530 @@
+{
+  "_meta": {
+    "language": "Қазақша",
+    "lastTranslated": "2026-05-24",
+    "canonical": false,
+    "translatedFrom": "fi",
+    "autoTranslated": true,
+    "note": "AI-translated draft — review by native speaker recommended",
+    "conventions": "Namespace pattern: pages.<route>.<element>, components.<feature>.<element>, common.<element>, errors.<context>. Keys camelCase, values native Finnish. Pluralization uses ICU MessageFormat: {count, plural, one {kohde} other {kohdetta}}."
+  },
+  "common": {
+    "loading": "Жүктелуде…",
+    "cancel": "Бас тарту",
+    "close": "Жабу",
+    "clear": "Тазарту",
+    "save": "Сақтау",
+    "back": "Артқа",
+    "more": "Тағы",
+    "open": "Ашу",
+    "search": "Іздеу",
+    "yes": "Иә",
+    "no": "Жоқ"
+  },
+  "languageSwitcher": {
+    "label": "Тілді ауыстыру",
+    "current": "Қазіргі тіл: {language}"
+  },
+  "brand": {
+    "name": "Қазақстан",
+    "tagline": "Қазақстан сапарын жоспарлау"
+  },
+  "nav": {
+    "home": "Басты бет",
+    "today": "Бүгін",
+    "map": "Карта",
+    "sights": "Көрнекті жерлер",
+    "routes": "Дайын маршруттар",
+    "itinerary": "Сапар жоспары",
+    "shortlist": "Шорт-лист",
+    "info": "Ақпарат",
+    "budget": "Бюджет",
+    "days": "Күндер",
+    "infoLong": "Практикалық ақпарат",
+    "carRental": "Жалдамалы көлік (Ақтау)",
+    "ariaPrimary": "Негізгі навигация",
+    "ariaBottom": "Негізгі беттер",
+    "ariaMore": "Қосымша сілтемелер"
+  },
+  "errors": {
+    "notFound": {
+      "title": "404 — Табылмады",
+      "description": "Мұндай бет жоқ. Мүмкін сіз мынаны іздегенсіз:",
+      "linkMap": "Карта",
+      "linkSights": "Көрнекті жерлер",
+      "linkRoutes": "Дайын маршруттар",
+      "cta": "Басты бетке"
+    }
+  },
+  "pages": {
+    "home": {
+      "eyebrow": "Өзіңізге және досыңызға арналған сапар нұсқаулығы",
+      "title": "Қазақстанға саяхатты жоспарлайық.",
+      "intro": "Бұл — шешім қабылдау құралы. Картадан нысандарды қараңыз, дайын маршруттарды салыстырыңыз және ұнаған жерлерді шорт-листке сақтаңыз. Қазіргі көріністі досыңызбен сілтеме арқылы бөлісіңіз.",
+      "pathMapTitle": "Картадан қарау",
+      "pathMapDescription": "Интерактивті карта және сүзгілер. Нысанды басып, шорт-листке қосыңыз.",
+      "pathRoutesTitle": "Дайын маршрут негіздері",
+      "pathRoutesDescription": "3 түрлі негіз: 5, 7 және 10 күндік нұсқалар. Жақсы бастапқы нүкте.",
+      "pathInfoTitle": "Практикалық ақпарат",
+      "pathInfoDescription": "Виза, валюта, көлік, сапарға дейінгі чек-парақ.",
+      "featuredHeading": "Классикалық нысандар",
+      "draftsHeading": "Кейінірек қосылатын / расталатын",
+      "draftsDescription": "Бұлар картада әлі көрінбейді — растауды күтуде."
+    },
+    "map": {
+      "title": "Карта",
+      "resultCount": "{count} нысан.",
+      "tipAriaLabel": "Карта кеңесі",
+      "tipTooltip": "Жақындау үшін пинді немесе тізім қатарын басыңыз.",
+      "listRegionAriaLabel": "Нысандар тізім түрінде",
+      "switchToListAriaLabel": "Тізім көрінісіне ауысу — {count} нысан",
+      "switchToMapAriaLabel": "Карта көрінісіне ауысу",
+      "list": "Тізім",
+      "map": "Карта",
+      "rentalPin": {
+        "subtitle": "Ақтауда жалдамалы көлікті алу және қайтару.",
+        "pickup": "Алу: {date}",
+        "return": "Қайтару: {date}",
+        "address": "Мекенжай: {address}",
+        "hours": "Жұмыс уақыты: {hours}",
+        "hrefLabel": "Толығырақ нұсқаулар"
+      }
+    },
+    "sights": {
+      "title": "Көрнекті жерлер",
+      "subtitle": "<bold>{count}</bold> нысан. Нұсқаларды шектеу үшін сүзгілерді пайдаланыңыз.",
+      "resultsCountMobile": "<bold>{count}</bold> нысан",
+      "filterButton": "Сүзу",
+      "filterButtonAria": "Сүзгілер",
+      "filterButtonActiveAria": "Сүзгілер — {count} белсенді",
+      "filterSheetTitle": "Сүзгілер",
+      "categoriesHeading": "Санаттар",
+      "regionsHeading": "Аймақтар",
+      "allRegions": "Барлығы",
+      "sortLabel": "Реті:",
+      "sortHeading": "Реті",
+      "sortDefault": "Әдепкі (аймақ бойынша)",
+      "sortPopular": "Ең танымал",
+      "sortInteresting": "Ең қызықты",
+      "sortUnique": "Ең ерекше",
+      "clear": "Тазарту",
+      "clearSearch": "Іздеуді тазарту",
+      "clearAll": "Барлығын тазарту",
+      "showResults": "{count} нысанды көрсету",
+      "emptyTitleQuery": "\"{query}\" сұрауы бойынша нәтиже жоқ",
+      "emptyTitleFilters": "Бұл сүзгілермен нысандар табылмады",
+      "emptyDescBoth": "Сүзгілерді алып тастап немесе іздеу сөзін өзгертіп көріңіз.",
+      "emptyDescQuery": "Жазылуын тексеріңіз немесе басқа сұрау сөзін көріңіз.",
+      "emptyDescFilters": "Санат немесе аймақ сүзгілерін алып тастап көріңіз."
+    },
+    "sightDetail": {
+      "notFoundTitle": "Нысан табылмады",
+      "metaTitle": "{name} — Қазақстан сапары",
+      "draftBadge": "Қаралама — растауды күтуде",
+      "navigator": "Навигатор",
+      "descriptionHeading": "Сипаттама",
+      "historyHeading": "Тарих",
+      "tipsHeading": "Практикалық кеңестер",
+      "nearbyHeading": "Жақын маңда",
+      "ratingsHeading": "Бағалар",
+      "ratedOn": "{date} бағаланды",
+      "quickFactsHeading": "Қысқаша ақпарат",
+      "city": "Қала",
+      "timeNeeded": "Қажетті уақыт",
+      "hours": "{hours} сағ",
+      "approxHours": "~{hours} сағ",
+      "difficulty": "Қиындық",
+      "difficultyEasy": "оңай",
+      "difficultyModerate": "орташа",
+      "difficultyHard": "қиын",
+      "budgetLevel": "Баға деңгейі",
+      "budgetLow": "арзан",
+      "budgetMid": "орташа",
+      "budgetHigh": "қымбат",
+      "cost": "Кіру ақысы",
+      "free": "Тегін",
+      "openingHours": "Жұмыс уақыты",
+      "needsCar": "Көлік қажет",
+      "needsGuide": "Гид ұсынылады",
+      "travelFromAlmaty": "Алматыдан жол",
+      "travelFromAstana": "Астанадан жол",
+      "bestTime": "Ең қолайлы уақыт",
+      "locationHeading": "Орналасуы",
+      "openOnMap": "Картадан ашу →",
+      "monthJan": "қаң",
+      "monthFeb": "ақп",
+      "monthMar": "нау",
+      "monthApr": "сәу",
+      "monthMay": "мам",
+      "monthJun": "мау",
+      "monthJul": "шіл",
+      "monthAug": "там",
+      "monthSep": "қыр",
+      "monthOct": "қаз",
+      "monthNov": "қар",
+      "monthDec": "жел"
+    },
+    "routes": {
+      "title": "Дайын маршрут негіздері",
+      "intro": "Үш түрлі бастапқы нүкте: біреуі — табиғат, екіншісі — қалалар, үшіншісі — ұзақ роуд-трип. Негізді таңдап, өз маршрутыңызға бейімдеңіз."
+    },
+    "routeDetail": {
+      "metaNotFound": "Маршрут табылмады",
+      "metaTitle": "{title} — Қазақстан сапары",
+      "backLink": "← Дайын маршрут негіздері",
+      "tileWhoFor": "Кімге арналған",
+      "tileDuration": "Ұзақтығы",
+      "tileBudget": "Бюджет бағасы / адамға",
+      "durationValue": "{count} күн",
+      "highlightsHeading": "Басты тұстары",
+      "dayByDayHeading": "Күн сайын",
+      "useAsTemplateTitle": "Өз сапар жоспарыңызда үлгі ретінде пайдаланыңыз",
+      "useAsTemplateBody": "Осы файлдан <code>{id}</code> идентификаторымен <code>preset.days</code> көшіріп, оны <code>src/data/itinerary.ts</code> файлындағы <code>userItinerary</code> массивіне қойыңыз. Содан кейін еркін өңдеңіз."
+    },
+    "itinerary": {
+      "title": "Жеке сапар жоспары",
+      "intro": "Бұл — сіздердің жеке маршрут негіздеріңіз. Бастапқыда бос — маршрут бекітілгенде күндерді толтырыңыз немесе <routes>дайын маршруттардан</routes> негізді көшіріңіз."
+    },
+    "shortlist": {
+      "loading": "Жүктелуде…",
+      "title": "Шорт-лист",
+      "intro": "{count} нысан. Аймақ бойынша қандай жерлерге баратыныңызды таңдаңыз — Google Maps, Yandex немесе 2GIS-ке дайын маршрут аласыз.",
+      "shareButton": "Достарға бөлісу",
+      "shareCopied": "✓ Сілтеме көшірілді",
+      "shareError": "Бөлісу сәтсіз аяқталды",
+      "shareTitle": "Қазақстан сапарының шорт-листі",
+      "shareText": "Мынау — менің Қазақстанға шорт-лист, не дейсіңдер?",
+      "clearButton": "Тазарту",
+      "clearDialogTitle": "Шорт-листті тазартасыз ба?",
+      "clearDialogDescription": "Тізімнен барлық <strong>{count} нысан</strong> жойылады — таңдаулылар мен барған белгілерімен қоса. Әрекетті хабарлама арқылы біраз уақыт ішінде қайтаруға болады.",
+      "cancel": "Бас тарту",
+      "confirmClear": "Иә, тазарту",
+      "removedToast": "Жойылды: {name}",
+      "undo": "Қайтару",
+      "clearedToast": "Шорт-лист тазартылды",
+      "clearedToastDescription": "{count} нысан жойылды",
+      "emptyTitle": "Шорт-лист бос",
+      "emptyDescription": "Көрнекті жерлер бетінен тізімге нысандар қосыңыз. Басты таңдауларды ★ таңдаулыларға шығарып, сапар барысында ✓ барған деп белгілеп, аймақ бойынша Google Maps, Yandex немесе 2GIS-ке маршруттар құрастыруға болады.",
+      "emptyBrowseSights": "Көрнекті жерлерді қарау",
+      "emptyOpenMap": "Картаны ашу",
+      "usageHint": "Бүгін барғыңыз келетін нысандарды белгілеңіз, сосын <strong>Маршрутты ашу</strong> түймесін басып, навигаторды таңдаңыз (Google Maps, Yandex, 2GIS немесе Apple Maps). Маршрут реттелген күйде ашылады, бастау нүктесі сіздің қазіргі орныңыз болады.",
+      "progressComplete": "🎉 Сапар аяқталды!",
+      "progressInProgress": "Сапардың барысы",
+      "progressVisitedLabel": "барған",
+      "progressPriorityLabel": "таңдаулы",
+      "progressAria": "Сапар барысы: {visited} / {total} барған ({percent} %)",
+      "selectAll": "Барлығын таңдау",
+      "clearSelection": "Таңдауды тазарту",
+      "routeButtonEmpty": "Маршрутқа таңдау",
+      "routeButtonWithCount": "Маршрутты ашу ({count})",
+      "overLimitWarning": "Навигаторлар бір маршрутта көп дегенде {max} нүктені қолдайды — жалғастыру үшін таңдауларды алып тастаңыз.",
+      "aktauWarning": "<strong>Ескерту:</strong> Маңғыстаудың шөл маршруттары Google Maps-та толық емес. Маршрут сілтемесі бағытты көрсетеді, бірақ офлайн картаны (мысалы, Maps.me) және жергілікті жүргізушіні де пайдаланыңыз.",
+      "selectAria": "{name} маршрутқа таңдау",
+      "deselectAria": "{name} маршрут таңдауынан алып тастау",
+      "removeAria": "Шорт-листтен алып тастау",
+      "visitedOn": "{date} барылды",
+      "priorityLabel": "Таңдаулы",
+      "visitedLabel": "Барылды"
+    },
+    "today": {
+      "metaTitle": "Бүгін — Қазақстан",
+      "metaDescription": "Бүгінгі жоспар, тірек нүктелер, шұғыл карта және сапар кезіндегі жылдам сілтемелер.",
+      "title": "Бүгін",
+      "intro": "Күнгі жоспар, тірек нүктелер, қолма-қол ақша және шұғыл карта — бір қарағанда."
+    },
+    "budget": {
+      "title": "Бюджет",
+      "intro": "Аймақ және санат бойынша болжамдар. Бағалар адам басына, басқаша көрсетілмесе. Маңғыстау бағалары көлікте 2–4 адам бар деп есептейді.",
+      "estimatesHeading": "Аймақ бойынша бюджет болжамы",
+      "perDayLabel": "Күніне:",
+      "tiersLabel": "(арзан / орташа / қымбат)",
+      "tableItem": "Бап",
+      "tableEstimate": "Болжам",
+      "categoryFlights": "Әуе билеттері",
+      "categoryLodging": "Тұрғын-жай",
+      "categoryFood": "Тамақ",
+      "categoryTransport": "Көлік",
+      "categoryActivities": "Іс-шаралар",
+      "categoryMisc": "Басқа"
+    },
+    "info": {
+      "title": "Практикалық ақпарат",
+      "intro": "Виза, сапарға дейінгі чек-парақ, көлік, тіл және қауіпсіздік.",
+      "languageHeading": "Тіл",
+      "languageColFi": "Фин тілі",
+      "languageColKk": "Қазақ тілі",
+      "languageColRu": "Орыс тілі",
+      "safetyHeading": "Қауіпсіздік — практикада нені білдіреді"
+    },
+    "carRental": {
+      "metaTitle": "{operator} — Ақтаудағы жалдамалы көлік",
+      "metaDescription": "{operator} ({pickup}) — көлікті алу {pickupDate}, қайтару {returnDate}.",
+      "backToMap": "Картаға қайту",
+      "badge": "🚗 Жалдамалы көлік",
+      "pickupTitle": "Алу және қайтару орны",
+      "pickupDates": "Бұл жерге {pickup} келеміз және {return} қайтамыз.",
+      "postalCode": "Пошта индексі",
+      "openNavigator": "Навигаторды ашу",
+      "navigatorHint": "Google Maps, 2GIS, Yandex немесе Apple Maps-ты ашыңыз — қазіргі орныңыздан осы нүктеге дейінгі маршрут.",
+      "contactsTitle": "Байланыс",
+      "phone": "Телефон",
+      "whatsapp": "WhatsApp",
+      "openChat": "Чатты ашу →",
+      "instagram": "Instagram",
+      "bookingTitle": "Брондау туралы негізгі мәліметтер",
+      "pickupLabel": "Алу",
+      "returnLabel": "Қайтару",
+      "hoursLabel": "Жұмыс уақыты",
+      "officeTitle": "Ресми кеңсе (алу орнынан бөлек)",
+      "officeDescription": "Компанияның 2GIS тізіміндегі мекенжай. <strong>Бұл жерге бармаңыз</strong> — көлік жоғарыдағы ЖК Оазисте алынады және қайтарылады.",
+      "notesTitle": "Ескертулер",
+      "externalLinksTitle": "Сыртқы сілтемелер",
+      "lastVerified": "Мәліметтер соңғы рет {date} тексерілді."
+    }
+  },
+  "components": {
+    "header": {
+      "searchButton": "Іздеу",
+      "searchAriaLabel": "Нысандарды іздеу"
+    },
+    "footer": {
+      "intro": "Жеке сапар жоспары. Карта негізі:",
+      "disclaimer": "Сапарға дейін практикалық ақпаратты әрқашан тексеріңіз — визалар, бағамдар және қатынастар өзгеруі мүмкін."
+    },
+    "bottomNav": {
+      "more": "Тағы"
+    },
+    "commandPalette": {
+      "title": "Команда палитрасы",
+      "description": "Көрнекті жерлерді іздеп, беттер арасында өтіңіз",
+      "placeholder": "Көрнекті жерлерді, беттерді, маршруттарды іздеу...",
+      "noResults": "\u201c{query}\u201d сұрауы бойынша нәтиже жоқ.",
+      "pagesHeading": "Беттер",
+      "sightsHeading": "Көрнекті жерлер"
+    },
+    "offlineBanner": {
+      "message": "Офлайн режим — сақталған мазмұн көрсетіледі. Карта мен суреттер шектеулі болуы мүмкін."
+    },
+    "navigateMenu": {
+      "openNavigator": "Навигаторды ашу",
+      "googleSubtitle": "Әмбебап — барлық құрылғыларда жұмыс істейді",
+      "twoGisSubtitle": "Қазақстанда ең жақсысы — нақты мекенжайлар мен пікірлер",
+      "yandexSubtitle": "Орталық Азияда жақсы — нақты уақыттағы трафик",
+      "appleSubtitle": "iPhone және Mac — нативті ашылады",
+      "firstStopOnly": "Тек маршруттың 1-ші нүктесін ашады — бірнеше аялдаманы қолдамайды",
+      "headerTitleMulti": "{count} аялдамалы маршрут",
+      "headerDescriptionMulti": "Бастау нүктесі — сіздің қазіргі орныңыз. Нүктелер ең қысқа қашықтыққа қарай реттелген.",
+      "headerDescriptionSingleWithLabel": "Қазіргі орныңыздан {label} нысанына дейінгі маршрут.",
+      "headerDescriptionSingle": "Қазіргі орныңыздан бастап маршрут.",
+      "desktopLabelMulti": "{count} нысан арқылы маршрут",
+      "desktopLabelSingle": "Қазіргі орныңыздан бастап маршрут"
+    },
+    "sightCard": {
+      "draft": "Қаралама",
+      "hours": "{count} сағ",
+      "difficultyEasy": "оңай",
+      "difficultyModerate": "орташа",
+      "difficultyHard": "қиын",
+      "budgetLow": "арзан",
+      "budgetMid": "орташа",
+      "budgetHigh": "қымбат",
+      "car": "көлік",
+      "guide": "гид"
+    },
+    "searchInput": {
+      "label": "Көрнекті жерді іздеу",
+      "placeholder": "Нысанды, қаланы, санатты іздеу...",
+      "clearAria": "Іздеуді тазарту",
+      "resultsAnnouncement": "{query} сұрауы бойынша {count} нәтиже",
+      "noResultsAnnouncement": "{query} сұрауы бойынша нәтиже жоқ",
+      "totalAnnouncement": "Барлығы {count} нысан"
+    },
+    "sightImage": {
+      "placeholderAria": "{category} санаты — сурет жоқ",
+      "attributionAria": "Сурет көзі: {source}",
+      "attributionAriaWithCredit": "Сурет көзі: {source} — {credit}"
+    },
+    "nearbyList": {
+      "distanceKm": "{km} км"
+    },
+    "starRating": {
+      "popularity": "Танымалдық",
+      "interest": "Қызықтылық",
+      "uniqueness": "Ерекшелік",
+      "starsAria": "{value} / 5",
+      "valueOutOfFive": "{value}/5",
+      "placeholder": "ⓘ Әлі бағаланбаған — <code>place-rater</code> агентін іске қосыңыз."
+    },
+    "overallStars": {
+      "averageAria": "Орташа {value} бестен",
+      "outOfFive": "/ 5",
+      "popular": "Танымал",
+      "rich": "Мазмұнға бай",
+      "unique": "Ерекше",
+      "standoutTitle": "{label} — ең үздік өлшем 5/5"
+    },
+    "shortlistButton": {
+      "add": "Шорт-листке қосу",
+      "onShortlist": "Шорт-листте",
+      "addAria": "Шорт-листке қосу",
+      "removeAria": "Шорт-листтен алып тастау",
+      "addedToast": "Тізімге қосылды",
+      "removedToast": "Тізімнен жойылды",
+      "softMaxTitle": "Шорт-лист едәуір үлкен ({count} нысан)",
+      "softMaxDescription": "Бөлісу сілтемесі ауыр болуы мүмкін — кейбір чат қосымшалары ұзын URL-ды үзеді. Қысқартуды ойластырыңыз."
+    },
+    "sightActionBar": {
+      "navigate": "Бағыт",
+      "shareAria": "Бөлісу",
+      "shareTitle": "{name} — Қазақстан сапары",
+      "linkCopiedTitle": "Сілтеме көшірілді",
+      "linkCopiedDescription": "Досыңызға жіберіңіз",
+      "linkCopyError": "Сілтемені көшіру сәтсіз аяқталды",
+      "addShortlistAria": "Шорт-листке қосу",
+      "removeShortlistAria": "Шорт-листтен алып тастау"
+    },
+    "sightList": {
+      "empty": "Бұл сүзгілермен нысандар табылмады.",
+      "regionAria": "{region} — {count} нысан",
+      "visitedAria": "Барылды",
+      "favoriteAria": "Таңдаулы"
+    },
+    "categoryFilter": {
+      "all": "Барлығы"
+    },
+    "mapView": {
+      "readMore": "Толығырақ оқу",
+      "visited": "Барылды",
+      "favorite": "Таңдаулы",
+      "tripPin": {
+        "rentalCar": "Жалдамалы көлік",
+        "airport": "Әуежай",
+        "hotel": "Қонақ үй",
+        "meetingPoint": "Кездесу нүктесі"
+      }
+    },
+    "locateControl": {
+      "show": "Орнымды көрсету",
+      "hide": "Орнымды жасыру",
+      "locating": "Орын анықталуда…",
+      "errorPermission": "Браузерге орынды пайдалануға рұқсат беріңіз",
+      "errorTimeout": "Орын анықтау уақыты өтіп кетті — қайталап көріңіз",
+      "errorUnavailable": "Орын қолжетімсіз"
+    },
+    "dayCard": {
+      "dayLabel": "{day}-күн",
+      "todayBadge": "Бүгін",
+      "earlyWake": "Ерте тұру",
+      "driverNeeded": "Жүргізуші қажет",
+      "offlineNote": "Офлайн ескерту",
+      "anchors": "Тірек нүктелер",
+      "primaryPlan": "Негізгі жоспар",
+      "alternatives": "Баламалар ({count})",
+      "planB": "B жоспар",
+      "sights": "Нысандар",
+      "unknownSight": "⚠️ беймәлім: {id}",
+      "transportSection": "Жол жүру",
+      "cashBadge": "💰 Қолма-қол ~{amount}",
+      "sleepBadge": "🛏️ Түн: {city}",
+      "lodgingHint": "Тұрғын-жай кеңесі",
+      "lodgingPrice": "€{min}–{max} / түн",
+      "lodgingBook": "Брондау: {apps}",
+      "accommodation": "Түнеу",
+      "transport": {
+        "plane": "Ұшақ",
+        "train": "Пойыз",
+        "car": "Көлік",
+        "bus": "Автобус",
+        "taxi": "Такси",
+        "walk": "Жаяу"
+      },
+      "urgency": {
+        "now": "Дереу брондаңыз",
+        "week-before": "Бір апта бұрын брондаңыз",
+        "on-arrival": "Жеткен соң брондаңыз",
+        "walk-in": "Walk-in OK"
+      }
+    },
+    "dayTimeline": {
+      "emptyTitle": "Сапар жоспары бос",
+      "emptyDescription": "Әлі күндер жоқ — негізді дайын маршруттардан көшіріңіз немесе <code>src/data/itinerary.ts</code> файлына қолмен қосыңыз.",
+      "browseRoutes": "Дайын маршруттарды қарау",
+      "jumpToToday": "↓ Бүгін — {day}-күн: {title}"
+    },
+    "todayDashboard": {
+      "emptyState": "Сапар жоспары жоқ. <link>Сапар жоспарына</link> күндер қосыңыз.",
+      "countdownLabel": "Шығуға дейін",
+      "daysLeft": "{count, plural, one {# күн} other {# күн}}",
+      "daysLeftSoon": "жақында",
+      "tripStarts": "Сапар {date} басталады — {total} күндік бағдарлама",
+      "tripStartsNoDate": "Сапар жақында басталады — {total} күндік бағдарлама",
+      "firstDayPreview": "Шығу күнін алдын ала қарау",
+      "tripEnded": "Сапар аяқталды",
+      "lastTripDate": "Соңғы сапар күні {date} болды.",
+      "browseBack": "Күндерді кері қарау",
+      "todayLabel": "Бүгін",
+      "nextDayLabel": "Келесі күн",
+      "dayCount": "{day} / {total} күн",
+      "previewStarts": "Алдын ала қарау — күн {date} басталады",
+      "tomorrow": "Ертең",
+      "earlyWake": "Ерте тұру",
+      "prevDayNav": "← {day}-күн: {title}",
+      "nextDayNav": "{day}-күн: {title} →",
+      "quickLinks": {
+        "map": "Карта",
+        "allDays": "Барлық күндер",
+        "info": "Ақпарат",
+        "budget": "Бюджет"
+      },
+      "currencyLabel": "Валюта",
+      "currencyRate": "1 € ≈ {rate} ₸",
+      "currencyHint": "статикалық — сапарға дейін тексеріңіз",
+      "emergency": {
+        "openCard": "🆘 Шұғыл карта — ашу",
+        "numbers": "Шұғыл нөмірлер",
+        "embassy": "Финляндия өкілдігі",
+        "phrases": "Шұғыл сөз тіркестері",
+        "allPhrasesLink": "Барлық сөз тіркестері — ақпарат бетінде →"
+      }
+    },
+    "presetCard": {
+      "themeNature": "🏔️ Табиғат",
+      "themeCulture": "🕌 Мәдениет",
+      "themeRoadtrip": "🚗 Роуд-трип",
+      "durationDays": "{count} күн",
+      "whoForLabel": "Кімге:",
+      "budgetLabel": "Бюджет болжамы:",
+      "perPerson": "/ адам"
+    },
+    "currencyConverter": {
+      "title": "Валюта айырбастаушы",
+      "rateInfo": "Статикалық бағам: 1 € ≈ {rate} ₸. Сапарға дейін күнделікті бағамды тексеріңіз.",
+      "directionAria": "Айырбастау бағыты",
+      "kztToEur": "KZT → EUR",
+      "eurToKzt": "EUR → KZT",
+      "amountKztAria": "Теңгедегі сома",
+      "amountEurAria": "Еуродағы сома"
+    },
+    "shortlistUrlSync": {
+      "prunedToast": "{count, plural, one {Тізімнен 1 нысан жойылды} other {Тізімнен # нысан жойылды}}",
+      "prunedToastDescription": "Бұл нысандар енді қолжетімсіз. Көрнекті жерлер бетінен жаңасын қосуға болады.",
+      "unknownInLinkToast": "{count, plural, one {Бөлісілген сілтемедегі 1 ID қазіргі нысандарға сәйкес келмейді} other {Бөлісілген сілтемедегі # ID қазіргі нысандарға сәйкес келмейді}}",
+      "unknownInLinkDescription": "Нысандар жойылған немесе ID-лері өзгерген болуы мүмкін.",
+      "droppedUnknownToast": "Бөлісілген сілтемеден {count} беймәлім нысан алынып тасталды",
+      "saveFailedToast": "Шорт-листті сақтау сәтсіз аяқталды",
+      "saveFailedDescription": "Браузердің сақтау орны толы немесе бұғатталған. Тізім осы сеанс кезінде сақталады, бірақ жаңартқанда жоғалуы мүмкін.",
+      "dialogTitle": "Бөлісілген шорт-листті аласыз ба?",
+      "dialogDescription": "Сілтемеде <strong>{urlCount} нысан</strong> бар. Сізде тізімде <strong>{localCount} жеке нысан</strong> бар.",
+      "statShared": "Ортақ",
+      "statNew": "Жаңа",
+      "statOnlyYours": "Тек сізде",
+      "unknownDroppedNote": "Сілтемеден <strong>{count} беймәлім нысан</strong> алынып тасталды — олар жойылған немесе ID-лері өзгерген болуы мүмкін.",
+      "previewLabel": "Сілтемеде:",
+      "previewMore": "+ тағы {count}",
+      "explanation": "<strong>Біріктіру</strong> сілтемедегі жаңа нысандарды тізіміңізге қосады — өзіңіздікін жоғалтпайсыз. <strong>Өзіңіздікін ауыстыру</strong> тек сілтеме мазмұнын қалдырады және <destructive>сіздің {localOnlyCount} нысаныңызды жояды</destructive>.",
+      "cancel": "Бас тарту",
+      "replace": "Өзіңіздікін ауыстыру",
+      "merge": "Біріктіру"
+    }
+  }
+}

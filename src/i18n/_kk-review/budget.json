@@ -1,0 +1,36 @@
+{
+  "file": "src/data/budget.ts",
+  "total_kk_strings": 27,
+  "edits_applied": 1,
+  "edit_percent": "3.7%",
+  "edits": [
+    {
+      "id": "turkistan.food-per-day",
+      "before": "Күніне тамаққа",
+      "after": "Күндік тамақ",
+      "reason": "'Күніне тамаққа' ('per day, to food [dative]') is grammatically awkward as a label — dative on the bare noun without a verb. 'Күндік тамақ' ('daily food') is the natural noun-phrase equivalent of FI 'Ruoka per päivä' / EN 'Food per day'."
+    }
+  ],
+  "considered_but_not_edited": [
+    {
+      "id": "almaty.cable-car",
+      "current": "Көк-Төбе аспалы жолы",
+      "note": "Matches style guide place name Көк-Төбе and 'аспалы жол' is the standard Kazakh term for 'cable car / ropeway'. Good."
+    },
+    {
+      "id": "aktau.4wd-driver",
+      "current": "4WD + жүргізуші (күніне, көлікке бөлінген)",
+      "note": "'көлікке бөлінген' ('split per vehicle') is slightly compressed but understandable; matches FI 'jaettu autoon'. Left."
+    },
+    {
+      "id": "aktau.tour-package",
+      "current": "Маңғыстау сапары (3–4 күн) — пакет бағасы",
+      "note": "Uses 'пакет' loanword per style guide. Good."
+    },
+    {
+      "id": "general.flights",
+      "current": "Хельсинки–Алматы екі жақты рейсі",
+      "note": "'екі жақты рейс' ('two-sided flight') is a mild calque but widely used in Kazakh travel sites for 'return flight'. Left."
+    }
+  ]
+}

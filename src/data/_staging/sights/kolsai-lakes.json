@@ -1,0 +1,77 @@
+{
+  "id": "kolsai-lakes",
+  "name": {
+    "fi": "Kolsain järvet",
+    "en": "Kolsai Lakes",
+    "ru": "Кольсайские озёра",
+    "kk": "Көлсай көлдері"
+  },
+  "shortDescription": {
+    "fi": "Kolmen alppijärven ketju Tienšanin kuusimetsissä, 300 km Almatysta.",
+    "en": "A chain of three alpine lakes in the spruce forests of the Tian Shan, 300 km from Almaty.",
+    "ru": "Цепочка из трёх альпийских озёр в еловых лесах Тянь-Шаня, в 300 км от Алматы.",
+    "kk": "Алматыдан 300 км қашықтықтағы Тянь-Шань шыршалы орманындағы үш альпі көлінің тізбегі."
+  },
+  "description": {
+    "fi": "Ensimmäiselle järvelle pääsee autolla, ylemmille kävelemällä tai ratsain. Maisema on Sveitsiä muistuttava. Yöpyminen lähikylässä Saty mahdollistaa kaksi-päiväretken yhdessä Kaindyn järven kanssa.",
+    "en": "You can drive to the first lake; the upper two are reached on foot or on horseback. The scenery is reminiscent of Switzerland. Staying overnight in the nearby village of Saty makes a two-day trip combined with Kaindy Lake possible.",
+    "ru": "К первому озеру можно подъехать на машине, к двум верхним — только пешком или верхом. Пейзаж напоминает Швейцарию. Ночёвка в ближайшем селе Саты позволяет растянуть поездку на два дня и совместить её с озером Каинды.",
+    "kk": "Бірінші көлге көлікпен жетуге болады, жоғарғы екеуіне жаяу немесе атпен ғана барасыз. Көрінісі Швейцарияға ұқсайды. Жақын маңдағы Саты ауылында түнеу Қайыңды көлімен бірге екі күндік сапар жасауға мүмкіндік береді."
+  },
+  "imageAlt": {
+    "fi": "Alimmainen Kolsain järvi kuusimetsän keskellä",
+    "en": "The lowest Kolsai lake surrounded by spruce forest",
+    "ru": "Нижнее Кольсайское озеро посреди елового леса",
+    "kk": "Шыршалы орман ортасындағы төменгі Көлсай көлі"
+  },
+  "openingHours": {
+    "fi": "kansallispuiston portti päivittäin auringonnoususta -laskuun",
+    "en": "National park gate open daily from sunrise to sunset",
+    "ru": "ворота нацпарка открыты ежедневно с восхода до заката",
+    "kk": "ұлттық саябақ қақпасы күн сайын күн шыққаннан күн батқанға дейін ашық"
+  },
+  "historicalContext": {
+    "fi": "Kolmen alppijärven ketju Pohjois-Tienšanin Kolsay Lakes National Parkissa kolmella eri korkeustasolla (Kolsay-1 1 818 m, Kolsay-2 2 252 m, Kolsay-3 2 850 m). Naapurissa sijaitseva Kaindyn järvi syntyi vuoden 1911 Kebin-maanjäristyksen massiivisen kalkkikivivyöryn tukittua laakson.",
+    "en": "A chain of three alpine lakes in the Kolsai Lakes National Park of the Northern Tian Shan, set at three different altitudes (Kolsai-1 at 1,818 m, Kolsai-2 at 2,252 m, Kolsai-3 at 2,850 m). The neighbouring Kaindy Lake was born when a massive limestone landslide caused by the 1911 Kebin earthquake dammed the valley.",
+    "ru": "Цепочка из трёх альпийских озёр в национальном парке «Кольсайские озёра» в Северном Тянь-Шане, расположенных на трёх разных высотах (Кольсай-1 — 1818 м, Кольсай-2 — 2252 м, Кольсай-3 — 2850 м). Соседнее озеро Каинды образовалось, когда массивный известняковый оползень, вызванный Кеминским землетрясением 1911 года, перекрыл долину.",
+    "kk": "Солтүстік Тянь-Шаньдағы Көлсай көлдері ұлттық саябағындағы үш түрлі биіктікте орналасқан үш альпі көлінің тізбегі (Көлсай-1 — 1818 м, Көлсай-2 — 2252 м, Көлсай-3 — 2850 м). Көршілес Қайыңды көлі 1911 жылғы Кебін жер сілкінісі тудырған үлкен әктас көшкіні аңғарды бөгеген кезде пайда болған."
+  },
+  "practicalTips": [
+    {
+      "fi": "Yövy Saty-kylässä — guesthouse paikan päällä tai etukäteen esim. kalpak-travel.com:n kautta. Päiväreissu Almatysta on liian tiukka (5–6 h ajoa per suunta).",
+      "en": "Stay overnight in Saty village — a guesthouse on the spot or booked in advance via, e.g., kalpak-travel.com. A day trip from Almaty is too tight (5–6 hours of driving each way).",
+      "ru": "Ночуйте в селе Саты — гостевой дом на месте или заранее, например через kalpak-travel.com. Однодневная вылазка из Алматы слишком тяжёлая (5–6 часов дороги в одну сторону).",
+      "kk": "Саты ауылында түнеңіз — қонақ үйді жерінен тауып аласыз немесе kalpak-travel.com сияқты сайт арқылы алдын ала брондап қойыңыз. Алматыдан бір күндік сапар тым шиеленісті (бір жаққа 5–6 сағат жол)."
+    },
+    {
+      "fi": "Vaellus Kolsay-1 → Kolsay-2 vie 4–5 h suuntaansa ja nousee 1 820 m → 2 250 m — vaativampi kuin pelkkä alaranta-kierros.",
+      "en": "The Kolsai-1 → Kolsai-2 hike takes 4–5 hours each way and climbs from 1,820 m to 2,250 m — more demanding than just walking around the lower lake.",
+      "ru": "Поход Кольсай-1 → Кольсай-2 занимает 4–5 часов в одну сторону с набором высоты с 1820 м до 2250 м — заметно тяжелее простой прогулки вокруг нижнего озера.",
+      "kk": "Көлсай-1 → Көлсай-2 жаяу жорығы бір бағытқа 4–5 сағат алады, биіктік 1820 м-ден 2250 м-ге көтеріледі — төменгі көлдің жағасын аралағаннан әлдеқайда ауыр."
+    },
+    {
+      "fi": "Kaindyn viimeinen 10–15 km vaatii 4WD:n; paikallinen UAZ-shuttle Satystä on käytännössä ainoa järkevä vaihtoehto.",
+      "en": "The last 10–15 km to Kaindy require a 4WD; in practice the local UAZ shuttle from Saty is the only sensible option.",
+      "ru": "Последние 10–15 км до Каинды требуют полного привода; на практике единственный разумный вариант — местный шаттл на УАЗе из Саты.",
+      "kk": "Қайыңдыға дейінгі соңғы 10–15 км толық жетекті көлікті талап етеді; іс жүзінде Сатыдан жүретін жергілікті УАЗ-шаттл — жалғыз қолайлы шешім."
+    },
+    {
+      "fi": "Ota yötakki ja sadetakki mukaan vaikka olisi kesä — Kolsay-2:n korkeudessa (2 252 m) lämpötila tippuu helposti ja vuoristosateet ovat tavallisia.",
+      "en": "Bring a warm jacket and a rain shell even in summer — at Kolsai-2 (2,252 m) temperatures drop quickly and mountain rain is common.",
+      "ru": "Берите тёплую куртку и дождевик даже летом — на высоте Кольсай-2 (2252 м) температура легко падает, и горные дожди тут не редкость.",
+      "kk": "Тіпті жазда да жылы күрте мен жаңбыр киімін алып жүріңіз — Көлсай-2 биіктігінде (2252 м) температура тез түседі, тауда жаңбыр жиі жауады."
+    },
+    {
+      "fi": "Ratsastusvaihtoehto Satystä on vakiintunut tapa nousta ylemmille järville ja Sary-Bulakin solalle ilman omaa kuntoa.",
+      "en": "Horse riding from Saty is a well-established way to reach the upper lakes and the Sary-Bulak pass without relying on your own fitness.",
+      "ru": "Конная прогулка из Саты — устоявшийся способ добраться до верхних озёр и перевала Сары-Булак без серьёзной физической формы.",
+      "kk": "Сатыдан атпен жүру — жоғарғы көлдер мен Сарыбұлақ асуына өзіңіздің дене дайындығыңызға сенбей-ақ көтерілудің кең таралған тәсілі."
+    },
+    {
+      "fi": "Tankkaa Almatyssa tai Kegenissä — Satyssä ei ole vakiintunutta huoltoasemaa. Ota käteistä KZT:nä porttimaksuihin.",
+      "en": "Fill up in Almaty or Kegen — Saty has no proper petrol station. Carry KZT cash for the park entrance fees.",
+      "ru": "Заправляйтесь в Алматы или Кегене — в Саты нет нормальной заправки. Возьмите наличные KZT для оплаты входа в парк.",
+      "kk": "Алматыда немесе Кегенде жанармай құйып алыңыз — Сатыда тұрақты жанармай бекеті жоқ. Саябақ кіру ақысын төлеуге қолма-қол KZT алып жүріңіз."
+    }
+  ]
+}

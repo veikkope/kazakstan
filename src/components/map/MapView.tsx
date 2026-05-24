@@ -7,9 +7,28 @@ import 'leaflet/dist/leaflet.css';
 import 'leaflet.markercluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
-import type { Sight } from '@/lib/types';
+import { useLocale, useTranslations } from 'next-intl';
+import type { Sight, TripPin, TripPinKind } from '@/lib/types';
 import { categoryMeta } from '@/data/categories';
+import { asLocale, localised } from '@/lib/i18n-helpers';
 import LocateControl from './LocateControl';
+
+/** Localised string bundle injected into raw-HTML popups. Leaflet popups live
+ *  outside React's tree so we can't call `useTranslations` inside them — the
+ *  parent reads keys once and passes them down. */
+interface PopupLabels {
+  readMore: string;
+  visited: string;
+  favorite: string;
+}
+
+interface TripPinLabels {
+  rentalCar: string;
+  airport: string;
+  hotel: string;
+  meetingPoint: string;
+  readMore: string;
+}
 
 L.Icon.Default.mergeOptions({
   iconUrl: '/leaflet/marker-icon.png',
@@ -111,21 +130,32 @@ function starsRow(rating: number): string {
   `;
 }
 
-function popupHtml(sight: Sight, mark: MarkState): string {
+function popupHtml(
+  sight: Sight,
+  mark: MarkState,
+  locale: string,
+  labels: PopupLabels,
+): string {
   const meta = categoryMeta[sight.category];
+  const loc = asLocale(locale);
+  const sightName = localised(sight.name, loc);
+  const sightShortDesc = localised(sight.shortDescription, loc);
+  const categoryLabel = localised(meta.label, loc);
   const imageUrl = sight.image ? safeUrl(sight.image) : '';
-  const imageAlt = safeAttr(sight.imageAlt ?? sight.name);
+  const imageAlt = safeAttr(
+    sight.imageAlt ? localised(sight.imageAlt, loc) : sightName,
+  );
 
   const markChip =
     mark === 'visited'
       ? `<span style="position:absolute;top:8px;right:8px;display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:999px;background:rgba(6,78,59,0.85);color:#fff;font-size:11px;font-weight:600;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)">
           <span style="color:#34d399" aria-hidden="true">✓</span>
-          Käyty
+          ${safeText(labels.visited)}
         </span>`
       : mark === 'priority'
         ? `<span style="position:absolute;top:8px;right:8px;display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:999px;background:rgba(15,23,42,0.62);color:#fff;font-size:11px;font-weight:600;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)">
             <span style="color:#fbbf24" aria-hidden="true">★</span>
-            Suosikki
+            ${safeText(labels.favorite)}
           </span>`
         : '';
 
@@ -135,13 +165,13 @@ function popupHtml(sight: Sight, mark: MarkState): string {
           style="width:100%;height:100%;object-fit:cover;display:block" />
         <span style="position:absolute;bottom:8px;left:8px;display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;background:rgba(15,23,42,0.62);color:#fff;font-size:11px;font-weight:500;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)">
           <span style="display:inline-block;width:6px;height:6px;border-radius:999px;background:${meta.color}"></span>
-          <span>${meta.emoji} ${meta.fi}</span>
+          <span>${meta.emoji} ${safeText(categoryLabel)}</span>
         </span>
         ${markChip}
       </div>`
     : `<div style="position:relative;height:56px;display:flex;align-items:center;justify-content:center;background:${meta.color}1a;color:#1e293b;font-size:13px;font-weight:500;gap:6px">
         <span style="display:inline-block;width:8px;height:8px;border-radius:999px;background:${meta.color}"></span>
-        ${meta.emoji} ${meta.fi}
+        ${meta.emoji} ${safeText(categoryLabel)}
         ${markChip}
       </div>`;
 
@@ -158,16 +188,119 @@ function popupHtml(sight: Sight, mark: MarkState): string {
     <div style="width:248px;font-family:var(--font-geist-sans),system-ui,-apple-system,sans-serif;color:#1e293b">
       ${hero}
       <div style="padding:11px 14px 13px">
-        <strong style="display:block;font-size:15px;line-height:1.25;letter-spacing:-0.01em">${safeText(sight.name)}</strong>
+        <strong style="display:block;font-size:15px;line-height:1.25;letter-spacing:-0.01em">${safeText(sightName)}</strong>
         ${ratings}
-        <p style="font-size:13px;line-height:1.45;margin:8px 0 10px;color:#475569">${safeText(sight.shortDescription)}</p>
-        <a href="/nahtavyydet/${safeAttr(sight.slug)}" style="display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:600;color:#2563eb;text-decoration:none">
-          Lue lisää
+        <p style="font-size:13px;line-height:1.45;margin:8px 0 10px;color:#475569">${safeText(sightShortDesc)}</p>
+        <a href="/${safeAttr(locale)}/sights/${safeAttr(sight.slug)}" style="display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:600;color:#2563eb;text-decoration:none">
+          ${safeText(labels.readMore)}
           <span aria-hidden="true">→</span>
         </a>
       </div>
     </div>
   `;
+}
+
+const tripPinVisual: Record<TripPinKind, { emoji: string; color: string }> = {
+  'rental-car': { emoji: '🚗', color: '#0ea5e9' },
+  airport: { emoji: '✈️', color: '#6366f1' },
+  hotel: { emoji: '🛏️', color: '#a855f7' },
+  'meeting-point': { emoji: '📍', color: '#f97316' },
+};
+
+function tripPinLabelFor(kind: TripPinKind, labels: TripPinLabels): string {
+  switch (kind) {
+    case 'rental-car':
+      return labels.rentalCar;
+    case 'airport':
+      return labels.airport;
+    case 'hotel':
+      return labels.hotel;
+    case 'meeting-point':
+      return labels.meetingPoint;
+  }
+}
+
+function makeTripIcon(kind: TripPinKind): L.DivIcon {
+  const { emoji, color } = tripPinVisual[kind];
+  return L.divIcon({
+    className: '',
+    html: `<div style="position:relative;width:1.6rem;height:1.6rem;border-radius:9999px;background:${color};border:2.5px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;font-size:13px;line-height:1" aria-hidden="true">${emoji}</div>`,
+    iconSize: [26, 26],
+    iconAnchor: [13, 13],
+  });
+}
+
+function tripPinPopupHtml(pin: TripPin, locale: string, labels: TripPinLabels): string {
+  const visual = tripPinVisual[pin.kind];
+  const label = tripPinLabelFor(pin.kind, labels);
+  const loc = asLocale(locale);
+  const subtitle = pin.subtitle
+    ? `<p style="font-size:13px;line-height:1.45;margin:6px 0 0;color:#475569">${safeText(localised(pin.subtitle, loc))}</p>`
+    : '';
+  const details = pin.details && pin.details.length > 0
+    ? `<ul style="margin:8px 0 0;padding:0;list-style:none;font-size:12px;line-height:1.5;color:#475569">
+        ${pin.details
+          .map(
+            (d) =>
+              `<li style="padding:2px 0;border-top:1px solid #e2e8f0">${safeText(localised(d, loc))}</li>`,
+          )
+          .join('')}
+      </ul>`
+    : '';
+  const hrefBlock = pin.href
+    ? `<a href="${safeUrl(pin.href)}" style="display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:13px;font-weight:600;color:#2563eb;text-decoration:none">
+        ${safeText(pin.hrefLabel ? localised(pin.hrefLabel, loc) : labels.readMore)}
+        <span aria-hidden="true">→</span>
+      </a>`
+    : '';
+  return `
+    <div style="width:240px;font-family:var(--font-geist-sans),system-ui,-apple-system,sans-serif;color:#1e293b">
+      <div style="display:flex;align-items:center;gap:6px;padding:10px 14px 6px">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:1.4rem;height:1.4rem;border-radius:9999px;background:${visual.color};color:#fff;font-size:13px;line-height:1" aria-hidden="true">${visual.emoji}</span>
+        <span style="font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:0.04em">${safeText(label)}</span>
+      </div>
+      <div style="padding:0 14px 13px">
+        <strong style="display:block;font-size:14px;line-height:1.3;letter-spacing:-0.01em">${safeText(localised(pin.title, loc))}</strong>
+        ${subtitle}
+        ${details}
+        ${hrefBlock}
+      </div>
+    </div>
+  `;
+}
+
+interface TripPinLayerProps {
+  pins: TripPin[];
+  locale: string;
+  labels: TripPinLabels;
+}
+
+function TripPinLayer({ pins, locale, labels }: TripPinLayerProps) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (pins.length === 0) return;
+    const layer = L.layerGroup();
+    for (const pin of pins) {
+      const marker = L.marker([pin.coords.lat, pin.coords.lng], {
+        icon: makeTripIcon(pin.kind),
+        // Above sight markers so tripPin always wins overlap (24 = default, 1000 = top)
+        zIndexOffset: 1000,
+      });
+      marker.bindPopup(tripPinPopupHtml(pin, locale, labels), {
+        className: 'trip-pin-popup',
+        maxWidth: 280,
+        minWidth: 240,
+      });
+      layer.addLayer(marker);
+    }
+    map.addLayer(layer);
+    return () => {
+      map.removeLayer(layer);
+    };
+  }, [pins, map, locale, labels]);
+
+  return null;
 }
 
 interface ClusterProps {
@@ -176,6 +309,12 @@ interface ClusterProps {
   priorityIds: ReadonlySet<string>;
   visitedIds: ReadonlySet<string>;
   onSelect: (id: string) => void;
+  /** Locale prefix for popup "Lue lisää" hrefs — Leaflet popups are raw HTML
+      strings outside React's render tree, so we can't use next-intl's <Link>. */
+  locale: string;
+  /** Localised popup labels — same reason as `locale`: Leaflet popups are
+      raw HTML strings, hooks can't run inside them. */
+  popupLabels: PopupLabels;
   /** Setter for the marker registry kept by the parent for zoomToShowLayer lookups. */
   registerMarkers: (
     cluster: L.MarkerClusterGroup,
@@ -189,6 +328,8 @@ function MarkerClusterLayer({
   priorityIds,
   visitedIds,
   onSelect,
+  locale,
+  popupLabels,
   registerMarkers,
 }: ClusterProps) {
   const map = useMap();
@@ -230,7 +371,7 @@ function MarkerClusterLayer({
       const marker = L.marker([s.coords.lat, s.coords.lng], {
         icon: makeIcon(categoryMeta[s.category].color, mark),
       });
-      marker.bindPopup(popupHtml(s, mark), {
+      marker.bindPopup(popupHtml(s, mark, locale, popupLabels), {
         className: 'sight-popup',
         maxWidth: 280,
         minWidth: 248,
@@ -249,7 +390,7 @@ function MarkerClusterLayer({
       markersMapRef.current = new Map();
       registerMarkers(cluster, new Map()); // signal cleanup to parent
     };
-  }, [sights, map, onSelect, registerMarkers]);
+  }, [sights, map, onSelect, registerMarkers, locale, popupLabels]);
 
   // Update popup content + marker icon when shortlist/priority/visited
   // membership changes, without rebuilding the cluster (which would
@@ -260,10 +401,10 @@ function MarkerClusterLayer({
       const marker = markersMapRef.current.get(s.id);
       if (!marker) continue;
       const mark = markStateFor(s.id, shortlistIds, priorityIds, visitedIds);
-      marker.setPopupContent(popupHtml(s, mark));
+      marker.setPopupContent(popupHtml(s, mark, locale, popupLabels));
       marker.setIcon(makeIcon(categoryMeta[s.category].color, mark));
     }
-  }, [sights, shortlistIds, priorityIds, visitedIds]);
+  }, [sights, shortlistIds, priorityIds, visitedIds, locale, popupLabels]);
 
   return null;
 }
@@ -313,6 +454,8 @@ interface Props {
   priorityIds: ReadonlySet<string>;
   /** Sight ids marked as visited — pins switch to a ✓ in emerald. */
   visitedIds: ReadonlySet<string>;
+  /** Logistics pins (rental, airport, hotel) — always visible, unaffected by category filter. */
+  tripPins?: TripPin[];
 }
 
 export default function MapView({
@@ -322,7 +465,33 @@ export default function MapView({
   shortlistIds,
   priorityIds,
   visitedIds,
+  tripPins,
 }: Props) {
+  // Locale flows into popupHtml so "Lue lisää" hrefs land on the correct
+  // /<locale>/sights/<slug> route. Leaflet popups are HTML strings, not
+  // React — they sit outside next-intl's <Link> auto-prefix.
+  const locale = useLocale();
+  const t = useTranslations();
+  // Bundle strings once per render; memoise so child layer effects only
+  // re-run when the locale (and thus the strings) actually changes.
+  const popupLabels = useMemo<PopupLabels>(
+    () => ({
+      readMore: t('components.mapView.readMore'),
+      visited: t('components.mapView.visited'),
+      favorite: t('components.mapView.favorite'),
+    }),
+    [t],
+  );
+  const tripPinLabels = useMemo<TripPinLabels>(
+    () => ({
+      rentalCar: t('components.mapView.tripPin.rentalCar'),
+      airport: t('components.mapView.tripPin.airport'),
+      hotel: t('components.mapView.tripPin.hotel'),
+      meetingPoint: t('components.mapView.tripPin.meetingPoint'),
+      readMore: t('components.mapView.readMore'),
+    }),
+    [t],
+  );
   const clusterRef = useRef<L.MarkerClusterGroup | null>(null);
   const markersRef = useRef<Map<string, L.Marker>>(new Map());
 
@@ -359,6 +528,8 @@ export default function MapView({
         priorityIds={priorityIds}
         visitedIds={visitedIds}
         onSelect={onSelect}
+        locale={locale}
+        popupLabels={popupLabels}
         registerMarkers={registerMarkers}
       />
       <PanToSelected
@@ -367,6 +538,9 @@ export default function MapView({
         clusterRef={clusterRef}
         markersRef={markersRef}
       />
+      {tripPins && tripPins.length > 0 && (
+        <TripPinLayer pins={tripPins} locale={locale} labels={tripPinLabels} />
+      )}
       <LocateControl />
     </MapContainer>
   );

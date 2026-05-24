@@ -1,0 +1,65 @@
+{
+  "id": "kaindy-lake",
+  "name": {
+    "fi": "Kaindyn järvi (uponnut metsä)",
+    "en": "Lake Kaindy (sunken forest)",
+    "ru": "Озеро Каинды (затопленный лес)",
+    "kk": "Қайыңды көлі (су астындағы орман)"
+  },
+  "shortDescription": {
+    "fi": "Vuonna 1911 maanjäristyksessä syntynyt järvi, jonka pinnasta törröttää kuolleita kuusia.",
+    "en": "A lake formed by a 1911 earthquake, with dead spruces still jutting from its surface.",
+    "ru": "Озеро, образовавшееся после землетрясения 1911 года, из его поверхности торчат мёртвые ели.",
+    "kk": "1911 жылғы жер сілкінісінен пайда болған көл, оның бетінен өлі шыршалардың діңдері шығып тұр."
+  },
+  "description": {
+    "fi": "Kirkas turkoosi vesi ja veden alle jääneet kuuset tekevät paikasta surrealistisen. Viimeinen kilometri ajetaan 4WD:llä; kävelyä kahteen suuntaan vajaa tunti.",
+    "en": "Crystal-clear turquoise water and submerged spruce trees give the place a surreal feel. The last stretch is driven by 4WD, and the walk takes just under an hour each way.",
+    "ru": "Прозрачная бирюзовая вода и затопленные ели делают это место сюрреалистическим. Последний участок преодолевается на внедорожнике, пешком в одну сторону уходит около часа.",
+    "kk": "Мөлдір көгілдір су және су астында қалған шыршалар бұл жерді ғажайып көрсетеді. Соңғы бөлігі 4WD көлігімен жүріледі, әр бағытқа жаяу шамамен бір сағат жүру керек."
+  },
+  "imageAlt": {
+    "fi": "Kaindyn järvi ja vedestä nousevat hopeaksi haalistuneet kuusenrungot",
+    "en": "Lake Kaindy with silver-weathered spruce trunks rising from the water",
+    "ru": "Озеро Каинды и поднимающиеся из воды посеребрённые стволы елей",
+    "kk": "Қайыңды көлі және судан көтерілген күміс түсті шырша діңдері"
+  },
+  "historicalContext": {
+    "fi": "Kaindyn järvi syntyi vuonna 1911 Kebin-maanjäristyksen aiheuttaman maanvyörymän tukittua laakson. Kuusimetsä jäi veden alle — rungot pysyivät pystyssä ja näkyvät vieläkin pinnasta hopeisina, koska kylmä vuoristovesi hidastaa lahoamista.",
+    "en": "Lake Kaindy was formed in 1911 when a landslide triggered by the Kebin earthquake blocked the valley. The spruce forest was submerged — the trunks remained upright and still rise silvery above the surface, since the cold mountain water slows decay.",
+    "ru": "Озеро Каинды образовалось в 1911 году, когда оползень, вызванный Кеминским землетрясением, перекрыл долину. Еловый лес оказался под водой — стволы остались стоять и до сих пор серебристо выступают над поверхностью, так как холодная горная вода замедляет гниение.",
+    "kk": "Қайыңды көлі 1911 жылы Кебін жер сілкінісінен туындаған көшкін аңғарды бөгеген кезде пайда болды. Шырша орманы су астында қалды — діңдер тік күйінде сақталып, суық тау суы шіруді баяулатқандықтан, әлі күнге дейін судың бетінен күміс түсті болып көрінеді."
+  },
+  "practicalTips": [
+    {
+      "fi": "Saty-kylästä UAZ-shuttle Kaindyn parkkipaikalle ~5000–8000 KZT/auto edestakaisin (yhteishinta 4 hengelle).",
+      "en": "From Saty village, a UAZ shuttle to the Kaindy parking area costs ~5,000–8,000 KZT per vehicle round-trip (shared between up to 4 people).",
+      "ru": "Из села Саты УАЗ-шаттл до парковки Каинды стоит примерно 5000–8000 тенге за машину туда-обратно (цена делится на 4 человек).",
+      "kk": "Саты ауылынан Қайыңды тұрағына дейін УАЗ-шаттл шамамен 5000–8000 теңге/көлік (4 адамға бөлінеді)."
+    },
+    {
+      "fi": "Viimeinen 10–15 km vaatii 4WD:n — älä yritä omalla autolla, paikallinen kuljettaja hoitaa.",
+      "en": "The final 10–15 km require 4WD — don't attempt it in your own car; let a local driver handle it.",
+      "ru": "Последние 10–15 км требуют полного привода — не пытайтесь проехать на своей машине, доверьтесь местному водителю.",
+      "kk": "Соңғы 10–15 км үшін 4WD қажет — өз көлігіңізбен жүруге тырыспаңыз, жергілікті жүргізуші көмектеседі."
+    },
+    {
+      "fi": "Parkkipaikalta järvelle kävelyä n. 45 min suuntaansa, korkeusero pieni mutta polku epätasainen.",
+      "en": "From the parking lot to the lake it's about a 45-minute walk each way; the elevation change is small but the path is uneven.",
+      "ru": "От парковки до озера около 45 минут пешком в одну сторону, перепад высот небольшой, но тропа неровная.",
+      "kk": "Тұрақтан көлге дейін бір бағытта шамамен 45 минут жаяу, биіктік айырмашылығы аз, бірақ соқпақ тегіс емес."
+    },
+    {
+      "fi": "Kansallispuiston portti n. 1500 KZT/aikuinen — sama kuin Kolsailla, voi maksaa yhdellä lipulla jos sama päivä.",
+      "en": "National park entry is around 1,500 KZT per adult — the same as Kolsai, and one ticket may cover both if visited the same day.",
+      "ru": "Вход в национальный парк около 1500 тенге со взрослого — столько же, сколько на Кольсае; один билет может покрывать оба парка, если посещение в один день.",
+      "kk": "Ұлттық парк билеті ересек адам үшін шамамен 1500 теңге — Көлсаймен бірдей, бір күнде барсаңыз бір билетпен төлеуге болады."
+    },
+    {
+      "fi": "Paras valo aamulla — vesi rauhallisin ja vihreä-turkoosi heijastus voimakkain.",
+      "en": "The best light is in the morning — the water is calmest and the green-turquoise reflection at its strongest.",
+      "ru": "Лучший свет утром — вода спокойнее, а зелёно-бирюзовое отражение наиболее яркое.",
+      "kk": "Ең жақсы жарық таңертең — су тыныш болады, ал жасыл-көгілдір шағылысу ең қанық."
+    }
+  ]
+}

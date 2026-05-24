@@ -1,0 +1,50 @@
+{
+  "file": "src/data/checklist.ts",
+  "total_kk_strings": 36,
+  "edits_applied": 5,
+  "edit_percent": "13.9%",
+  "edits": [
+    {
+      "id": "travel-insurance.detail",
+      "before": "Таулы әрекеттер мен Маңғыстаудағы жолсыз жүруді қамтитынын тексеріңіз.",
+      "after": "Тауда жасалатын әрекеттер мен Маңғыстаудағы жолсыз жүруді қамтитынын тексеріңіз.",
+      "reason": "'Таулы әрекеттер' is an awkward calque ('mountainous activities'). 'Тауда жасалатын әрекеттер' ('activities done in the mountains') reads more naturally in Kazakh."
+    },
+    {
+      "id": "card-foreign-use.label",
+      "before": "Банк картасының шетелде қолданылуы белсендірілген",
+      "after": "Банк картаңыздың шетелде қолданылуы іске қосылған",
+      "reason": "'белсендірілген' is a literal calque of Russian 'активировать'. 'іске қосылған' ('switched on / activated') is the standard idiomatic Kazakh equivalent. Also switched to possessive 'картаңыздың' to match Сіз-register."
+    },
+    {
+      "id": "cash-kzt.detail",
+      "before": "Яндекс таксиінің бастапқы шоты әдетте 3000–5000 ₸ шамасында.",
+      "after": "Әуежайдан Yandex таксиі әдетте 3000–5000 ₸ шамасында тұрады.",
+      "reason": "'бастапқы шот' ('initial bill/invoice') is a calque that does not convey the EN/FI meaning of an airport taxi fare. Reworded to match the EN/FI semantics ('A Yandex taxi from the airport typically costs...'). Also normalised brand to Latin 'Yandex' to match other entries in the file (esim, yandex-go, offline-maps)."
+    },
+    {
+      "id": "power-adapter.label",
+      "before": "Желілік адаптер — Қазақстанда C/F түріндегі розеткалар қолданылады",
+      "after": "Сым адаптері — Қазақстанда C/F түріндегі розеткалар қолданылады",
+      "reason": "Style guide prescribes 'сым адаптері' for 'power adapter'. 'Желілік адаптер' ('network/grid adapter') is ambiguous."
+    },
+    {
+      "id": "first-night.label",
+      "before": "Алғашқы түнгі тұрғын үй брондалған",
+      "after": "Алғашқы түнге қонақ үй брондалған",
+      "reason": "'тұрғын үй' means 'residence/dwelling (long-term)', not 'overnight accommodation'. 'қонақ үй' ('guesthouse/hotel') is the correct term and matches style-guide vocabulary. Dative 'түнге' ('for the night') also reads better than relational 'түнгі'."
+    }
+  ],
+  "considered_but_not_edited": [
+    {
+      "id": "sturdy-shoes",
+      "current": "Жақсы жүру аяқ киімі (таулы соқпақтар тасты)",
+      "note": "'Берік' would be slightly more idiomatic than 'Жақсы', but the call is stylistic, not a clear grammar error — left alone per conservative bias."
+    },
+    {
+      "id": "vaccines.detail",
+      "current": "саяхат дәрігерімен кеңесіңіз",
+      "note": "'саяхат дәрігері' is a mild calque of 'travel doctor', but understandable and reasonably idiomatic. Left."
+    }
+  ]
+}

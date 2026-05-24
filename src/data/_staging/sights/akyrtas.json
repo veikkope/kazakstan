@@ -1,0 +1,47 @@
+{
+  "id": "akyrtas",
+  "name": {
+    "fi": "Akyrtas-palatsikompleksi (UNESCO)",
+    "en": "Akyrtas palace complex (UNESCO)",
+    "ru": "Дворцовый комплекс Акыртас (ЮНЕСКО)",
+    "kk": "Ақыртас сарай кешені (ЮНЕСКО)"
+  },
+  "shortDescription": {
+    "fi": "Keskeneräinen 8.–12. vuosisadan palatsi punaisesta hiekkakivestä — \"Stonehenge keskellä aroa\".",
+    "en": "An unfinished 8th–12th century palace of red sandstone — a \"Stonehenge in the middle of the steppe\".",
+    "ru": "Незаконченный дворец VIII–XII веков из красного песчаника — \"Стоунхендж посреди степи\".",
+    "kk": "VIII–XII ғасырлардағы аяқталмаған қызыл құмтастан жасалған сарай — \"даладағы Стоунхендж\"."
+  },
+  "description": {
+    "fi": "45 km itään Tarazista, A-2 valtatien varrella matkalla Almatyyn. 8.–12. vuosisadan keskeneräinen palatsi punaisesta hiekkakivestä — yksittäiset lohkareet jopa useita tonneja. Suunnitelmaan kuului 70 huonetta ja 15 pylväskäytävää, mutta ei koskaan valmistunut. UNESCO-perintökohde Silkkitien sarjassa.\n\nMystinen \"kuka rakensi ja miksi\" — joko arabikenraali Kuteiban tilaus 700-luvulla tai myöhempi. Stonehengen tunnelma keskellä aroa, ei selitystä.",
+    "en": "Forty-five km east of Taraz, just off the A-2 highway on the way to Almaty. An unfinished 8th–12th century palace of red sandstone, with individual blocks weighing several tonnes. The plan included 70 rooms and 15 colonnaded corridors, but was never completed. A UNESCO World Heritage site as part of the Silk Roads inscription.\n\nThe \"who built it and why\" remains a mystery — either commissioned by the Arab general Qutayba in the 8th century or built later. A Stonehenge-like mood in the open steppe, with no clear explanation.",
+    "ru": "В 45 км к востоку от Тараза, рядом с трассой А-2 по дороге в Алматы. Незаконченный дворец VIII–XII веков из красного песчаника — отдельные блоки весят несколько тонн. По проекту он включал 70 помещений и 15 колоннад, но так и не был достроен. Объект Всемирного наследия ЮНЕСКО в серии \"Шёлковый путь\".\n\nЗагадка \"кто построил и зачем\" остаётся открытой — либо это заказ арабского полководца Кутейбы в VIII веке, либо более поздняя постройка. Атмосфера Стоунхенджа посреди степи и никаких объяснений.",
+    "kk": "Тараздан шығысқа қарай 45 км жерде, А-2 тас жолының бойында, Алматыға баратын жолда. VIII–XII ғасырларда қызыл құмтастан салынған, аяқталмаған сарай — жекелеген блоктардың салмағы бірнеше тоннаға жетеді. Жобада 70 бөлме мен 15 бағаналы дәліз көзделген, бірақ ешқашан аяқталмаған. ЮНЕСКО-ның Жібек жолы сериясындағы Дүниежүзілік мұра нысаны.\n\n\"Кім салған және не үшін салған\" деген құпия әлі ашылмаған — VIII ғасырда араб қолбасшысы Құтайбаның тапсырмасы ма, әлде кейінгі құрылыс па белгісіз. Даланың ортасында Стоунхенждің атмосферасы, ешқандай түсіндірмесіз."
+  },
+  "imageAlt": {
+    "fi": "Akyrtasin keskeneräinen palatsi punaisesta hiekkakivestä",
+    "en": "Akyrtas — the unfinished palace built of red sandstone",
+    "ru": "Акыртас — незаконченный дворец из красного песчаника",
+    "kk": "Ақыртас — қызыл құмтастан салынған аяқталмаған сарай"
+  },
+  "practicalTips": [
+    {
+      "fi": "Sopii vain jos ajatte Almaty → Shymkent maanteitse — A-2 valtatien varrella.",
+      "en": "Worth a stop only if you're driving Almaty → Shymkent — it's right on the A-2 highway.",
+      "ru": "Имеет смысл только если вы едете Алматы → Шымкент по трассе — он находится прямо у дороги А-2.",
+      "kk": "Алматы → Шымкент бағытында көлікпен жүрсеңіз ғана мағынасы бар — А-2 тас жолының бойында."
+    },
+    {
+      "fi": "Yhdistä Aisha-Bibiin samaan Taraz-pysähdykseen.",
+      "en": "Combine with Aisha Bibi in the same Taraz stop.",
+      "ru": "Совместите с Айша-Биби в одну остановку в Таразе.",
+      "kk": "Тараздағы аялдамада Айша-Бибимен үйлестіріңіз."
+    },
+    {
+      "fi": "1–2 h paikalla. Aurinkohattu — varjoa ei ole.",
+      "en": "Allow 1–2 hours on site. Bring a sun hat — there is no shade.",
+      "ru": "На месте 1–2 часа. Возьмите панаму — тени нет.",
+      "kk": "Орнында 1–2 сағат. Күн қалпақ алыңыз — көлеңке жоқ."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "central-state-museum",
+  "name": {
+    "fi": "Kazakstanin keskusvaltion museo",
+    "en": "Central State Museum of Kazakhstan",
+    "ru": "Центральный государственный музей Казахстана",
+    "kk": "Қазақстан Республикасының Орталық мемлекеттік музейі"
+  },
+  "shortDescription": {
+    "fi": "Maan suurin museo — paimentolaiskulttuurista nykypäivään.",
+    "en": "The country's largest museum — from nomadic culture to the present day.",
+    "ru": "Крупнейший музей страны — от кочевой культуры до современности.",
+    "kk": "Елдегі ең үлкен музей — көшпенді мәдениеттен бүгінгі күнге дейін."
+  },
+  "description": {
+    "fi": "Neljä pääsalia kattavat arkeologian, etnografian ja itsenäisyyden ajan. Issykin Kultainen mies -kopio on klassinen kohokohta.",
+    "en": "Four main halls cover archaeology, ethnography and the era of independence. A replica of the Golden Man of Issyk is a classic highlight.",
+    "ru": "Четыре основных зала охватывают археологию, этнографию и эпоху независимости. Копия Иссыкского «Золотого человека» — классическая изюминка экспозиции.",
+    "kk": "Төрт негізгі зал археология, этнография және тәуелсіздік дәуірін қамтиды. Есік қорғанынан табылған «Алтын адамның» көшірмесі — классикалық басты экспонат."
+  },
+  "imageAlt": {
+    "fi": "Keskusvaltionmuseon julkisivu Almatyssa",
+    "en": "Facade of the Central State Museum in Almaty",
+    "ru": "Фасад Центрального государственного музея в Алматы",
+    "kk": "Алматыдағы Орталық мемлекеттік музей ғимаратының алдыңғы көрінісі"
+  },
+  "city": {
+    "fi": "Almaty",
+    "en": "Almaty",
+    "ru": "Алматы",
+    "kk": "Алматы"
+  },
+  "openingHours": {
+    "fi": "ti–su 09:30–17:30",
+    "en": "Tue–Sun 09:30–17:30",
+    "ru": "вт–вс 09:30–17:30",
+    "kk": "сс–жс 09:30–17:30"
+  }
+}

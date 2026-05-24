@@ -1,0 +1,59 @@
+{
+  "id": "alzhir-memorial",
+  "name": {
+    "fi": "ALŽIR-muistomerkki (entinen naisten gulag)",
+    "en": "ALZHIR Memorial (former women's gulag)",
+    "ru": "Мемориал АЛЖИР (бывший женский лагерь ГУЛАГа)",
+    "kk": "АЛЖИР мемориалы (бұрынғы әйелдер ГУЛАГ лагері)"
+  },
+  "shortDescription": {
+    "fi": "Museo entisellä Stalinin leirin paikalla — maailman ainoa naisille suunnattu gulag-museo.",
+    "en": "A museum on the site of a former Stalinist camp — the world's only gulag museum dedicated to women.",
+    "ru": "Музей на месте бывшего сталинского лагеря — единственный в мире музей ГУЛАГа, посвящённый женщинам.",
+    "kk": "Бұрынғы сталиндік лагерь орнындағы мұражай — әлемдегі әйелдерге арналған жалғыз ГУЛАГ мұражайы."
+  },
+  "description": {
+    "fi": "Akmolan kylässä 40 km Astanasta sijaitseva muistomuseo entisellä Stalinin leirin paikalla, jonne 1938–1953 lähetettiin lähes 18 000 naista — \"isänmaan pettureiden vaimoja\" — pelkän miehensä pidätyksen vuoksi. Avattu 2007: museorakennus, \"Surun kaari\", muistomerkit ja alkuperäinen vankivaunu.\n\nKazakstanin tärkein neuvostorepression muistopaikka. Hyvin tuotettu ja koskettava, englanninkielistä materiaalia kohtuullisesti.",
+    "en": "A memorial museum in the village of Akmol, 40 km from Astana, on the site of a former Stalinist camp where between 1938 and 1953 nearly 18,000 women — the \"wives of traitors to the Motherland\" — were sent simply because their husbands had been arrested. Opened in 2007, the site includes the museum building, the \"Arc of Sorrow\", several monuments and an original prisoner railway wagon.\n\nKazakhstan's most important memorial to Soviet repression. Well presented and deeply moving, with a reasonable amount of English-language material.",
+    "ru": "Мемориальный музей в селе Акмол в 40 км от Астаны, на месте бывшего сталинского лагеря, куда в 1938–1953 годах было отправлено около 18 000 женщин — \"жён изменников Родины\" — лишь за то, что были арестованы их мужья. Открыт в 2007 году: здание музея, \"Арка скорби\", памятники и подлинный тюремный вагон.\n\nГлавное в Казахстане место памяти жертв советских репрессий. Сделано вдумчиво и трогательно, материалов на английском достаточно.",
+    "kk": "Астанадан 40 км қашықтықтағы Ақмол ауылында, 1938–1953 жылдары \"отанын сатқандардың әйелдері\" деген желеумен жай ғана күйеулері тұтқындалғаны үшін 18 000-ға жуық әйел жөнелтілген бұрынғы сталиндік лагерь орнындағы мемориалдық мұражай. 2007 жылы ашылған: мұражай ғимараты, \"Қайғы аркасы\", ескерткіштер және түпнұсқа тұтқын вагоны.\n\nҚазақстандағы кеңестік қуғын-сүргін құрбандарына арналған ең маңызды ескерткіш орын. Жоғары деңгейде жасалған әрі жан тебірентеді, ағылшын тіліндегі материалдар да жеткілікті."
+  },
+  "imageAlt": {
+    "fi": "ALŽIR — entinen naisten gulag-leiri Akmolissa, muistomerkki",
+    "en": "ALZHIR — the former women's gulag camp at Akmol, memorial",
+    "ru": "АЛЖИР — бывший женский лагерь ГУЛАГа в Акмоле, мемориал",
+    "kk": "АЛЖИР — Ақмолдағы бұрынғы әйелдер ГУЛАГ лагері, мемориал"
+  },
+  "city": {
+    "fi": "Akmol",
+    "en": "Akmol",
+    "ru": "Акмол",
+    "kk": "Ақмол"
+  },
+  "practicalTips": [
+    {
+      "fi": "Avoinna ti–su (ma kiinni). Englanninkielinen opastettu kierros suositeltava.",
+      "en": "Open Tue–Sun (closed Mon). An English-language guided tour is recommended.",
+      "ru": "Открыто вт–вс (пн выходной). Рекомендуется экскурсия с гидом на английском.",
+      "kk": "Сс–жс жұмыс істейді (дс демалыс). Ағылшын тіліндегі гидпен экскурсияны ұсынамыз."
+    },
+    {
+      "fi": "Marshrutka tai taksi Astanan keskustasta — n. 30 min.",
+      "en": "Take a marshrutka or taxi from central Astana — about 30 minutes.",
+      "ru": "Маршрутка или такси из центра Астаны — около 30 минут.",
+      "kk": "Астана орталығынан маршрутка немесе такси — шамамен 30 минут."
+    },
+    {
+      "fi": "Yhdistettävissä Astana-päivän puolikkaaksi.",
+      "en": "Can be combined as half a day of an Astana itinerary.",
+      "ru": "Можно вписать как половину дня в маршрут по Астане.",
+      "kk": "Астана күнінің жартысы ретінде ыңғайлы жоспарлауға болады."
+    },
+    {
+      "fi": "Varaa varaa raskaaseen tunnelmaan — ei kevyt vierailu.",
+      "en": "Be prepared for a heavy atmosphere — this is not a light visit.",
+      "ru": "Будьте готовы к тяжёлому настроению — это непростой визит.",
+      "kk": "Ауыр көңіл-күйге дайын болыңыз — бұл жеңіл сапар емес."
+    }
+  ]
+}

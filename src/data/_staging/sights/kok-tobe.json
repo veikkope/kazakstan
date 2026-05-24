@@ -1,0 +1,65 @@
+{
+  "id": "kok-tobe",
+  "name": {
+    "fi": "Kök-Töbe ja köysirata",
+    "en": "Kok-Tobe and the cable car",
+    "ru": "Кок-Тобе и канатная дорога",
+    "kk": "Көк-Төбе және аспалы жол"
+  },
+  "shortDescription": {
+    "fi": "Almatyn yllä kohoava kukkula köysiradalla — kaupunkinäkymät ja Beatles-patsas.",
+    "en": "A hill rising above Almaty with a cable car — city views and a Beatles statue.",
+    "ru": "Холм над Алматы с канатной дорогой — панорама города и памятник The Beatles.",
+    "kk": "Алматының үстінен көтерілетін аспалы жолы бар төбе — қала көрінісі мен Beatles ескерткіші."
+  },
+  "description": {
+    "fi": "Köysirata nousee keskustasta 1100 metriin. Ylhäällä on huvipuisto, näköalaravintolat ja Beatles-patsas. Tule auringonlaskun aikaan kun kaupungin valot syttyvät.",
+    "en": "The cable car climbs from the city centre up to 1,100 metres. At the top you'll find an amusement park, viewpoint restaurants and a Beatles statue. Come at sunset, when the city lights start coming on.",
+    "ru": "Канатная дорога поднимается из центра на высоту 1100 метров. Наверху — парк аттракционов, рестораны с панорамой и памятник The Beatles. Приезжайте на закате, когда зажигаются городские огни.",
+    "kk": "Аспалы жол қала орталығынан 1100 метр биіктікке көтеріледі. Жоғарыда ойын-сауық саябағы, шолу мейрамханалары мен Beatles ескерткіші бар. Күн батқан кезде келіңіз — қала шамдары жанып, көрініс ең әсем болады."
+  },
+  "imageAlt": {
+    "fi": "Ilmakuva Kok-Tobe-kukkulasta auringonlaskussa, TV-torni ja Almatyn siluetti",
+    "en": "Aerial view of Kok-Tobe hill at sunset with the TV tower and Almaty skyline",
+    "ru": "Вид с высоты на холм Кок-Тобе на закате, телебашня и силуэт Алматы",
+    "kk": "Күн батқан кездегі Көк-Төбе төбесінің әуеден түсірілген көрінісі, теледидар мұнарасы мен Алматы силуэті"
+  },
+  "city": {
+    "fi": "Almaty",
+    "en": "Almaty",
+    "ru": "Алматы",
+    "kk": "Алматы"
+  },
+  "openingHours": {
+    "fi": "päivittäin 11:00–22:00 (köysirata; huipulla ravintolat myöhempään)",
+    "en": "Daily 11:00–22:00 (cable car; restaurants at the top stay open later)",
+    "ru": "ежедневно 11:00–22:00 (канатная дорога; рестораны наверху работают дольше)",
+    "kk": "күн сайын 11:00–22:00 (аспалы жол; төбедегі мейрамханалар кеш уақытқа дейін ашық)"
+  },
+  "practicalTips": [
+    {
+      "fi": "Köysiradan lippu meno-paluu n. 3000 KZT, yksisuuntainen halvempi (alas voi taksilla).",
+      "en": "A return cable-car ticket costs about 3,000 KZT; one-way is cheaper (you can take a taxi back down).",
+      "ru": "Билет на канатную дорогу туда-обратно стоит около 3000 KZT, в одну сторону дешевле (вниз можно на такси).",
+      "kk": "Аспалы жолға барып-қайту билеті шамамен 3000 KZT, бір бағытқа арзанырақ (төменге таксимен түсуге болады)."
+    },
+    {
+      "fi": "Auringonlaskun aika on paras — kaupungin valot syttyvät ja vuoret hehkuvat.",
+      "en": "Sunset is the best time — the city lights come on and the mountains glow.",
+      "ru": "Лучшее время — закат: зажигаются городские огни, а горы окрашиваются золотом.",
+      "kk": "Ең тамаша уақыт — күн батар сәт: қала шамдары жанып, таулар алтындай жайнайды."
+    },
+    {
+      "fi": "Yläkerrassa lasten huvipuisto, ravintoloita ja Beatles-patsas — perheystävällinen 1–2 h käynti.",
+      "en": "At the top there's a children's amusement park, restaurants and a Beatles statue — a family-friendly 1–2 hour visit.",
+      "ru": "Наверху — детский парк аттракционов, рестораны и памятник The Beatles — семейная прогулка на 1–2 часа.",
+      "kk": "Жоғарыда балалар ойын-сауық саябағы, мейрамханалар мен Beatles ескерткіші бар — отбасына ыңғайлы 1–2 сағаттық саяхат."
+    },
+    {
+      "fi": "Yandex Go köysiradan alaasemalle Dostyk Avenuelta n. 1000 KZT.",
+      "en": "Yandex Go from Dostyk Avenue to the lower cable-car station costs about 1,000 KZT.",
+      "ru": "Yandex Go от проспекта Достык до нижней станции канатной дороги стоит около 1000 KZT.",
+      "kk": "Достық даңғылынан аспалы жолдың төменгі станциясына Yandex Go таксиі шамамен 1000 KZT тұрады."
+    }
+  ]
+}

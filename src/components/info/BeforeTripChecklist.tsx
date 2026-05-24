@@ -1,5 +1,7 @@
+import { getLocale } from 'next-intl/server';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { beforeTripChecklist } from '@/data/checklist';
+import { asLocale, localised } from '@/lib/i18n-helpers';
 import type { ChecklistCategory, ChecklistItem } from '@/lib/types';
 
 const CATEGORY_META: Record<ChecklistCategory, { fi: string; emoji: string }> = {
@@ -20,7 +22,8 @@ const ORDER: ChecklistCategory[] = [
   'packing',
 ];
 
-export default function BeforeTripChecklist() {
+export default async function BeforeTripChecklist() {
+  const loc = asLocale(await getLocale());
   const grouped = new Map<ChecklistCategory, ChecklistItem[]>();
   for (const cat of ORDER) grouped.set(cat, []);
   for (const item of beforeTripChecklist) {
@@ -48,7 +51,7 @@ export default function BeforeTripChecklist() {
                     .sort((a, b) => (b.daysBeforeTrip ?? 0) - (a.daysBeforeTrip ?? 0))
                     .map((item) => (
                       <li key={item.id} className="leading-tight">
-                        <span className="text-(--color-fg)">☐ {item.label}</span>
+                        <span className="text-(--color-fg)">☐ {localised(item.label, loc)}</span>
                         {item.daysBeforeTrip !== undefined && (
                           <span className="ml-1 text-xs text-(--color-muted)">
                             (~{item.daysBeforeTrip} pv ennen)
@@ -56,7 +59,7 @@ export default function BeforeTripChecklist() {
                         )}
                         {item.detail && (
                           <p className="ml-4 mt-0.5 text-xs text-(--color-muted)">
-                            {item.detail}
+                            {localised(item.detail, loc)}
                           </p>
                         )}
                       </li>

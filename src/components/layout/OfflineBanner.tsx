@@ -1,8 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 export default function OfflineBanner() {
+  const t = useTranslations();
   const [offline, setOffline] = useState(false);
 
   useEffect(() => {
@@ -26,7 +28,7 @@ export default function OfflineBanner() {
       aria-live="polite"
       className="border-b border-(--color-sand-dark) bg-(--color-sand) px-4 py-2 text-center text-xs text-(--color-fg)"
     >
-      Offline-tila — näytetään tallennettua sisältöä. Kartta ja kuvat voivat olla rajalliset.
+      {t('components.offlineBanner.message')}
     </div>
   );
 }
