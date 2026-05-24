@@ -5446,8 +5446,12 @@ export const sights: Sight[] = [
         kk: 'Басқыштар жарықтандырылмаған және барлық жерде қоршалмаған — қараңғыдан бұрын төмен түсіңіз; қыста мұздан сақ болыңыз немесе гондоланы пайдаланыңыз. Жоғарыда қаладан шамамен +10 °C салқын, желді.',
       },
     ],
-    historicalContext:
-      'Pato pystytettiin 1966–1972 neuvostomatemaatikko Mihail Lavrentjevin "suunnatun räjäytyksen" menetelmällä — yhteensä noin 5 400 tonnia räjähdettä irrotti vuoren sivun laakson tukkeeksi. Tulikasteensa pato sai 15.7.1973, kun se pysäytti 3,8–4,5 miljoonan kuution mutavyöryn ja pelasti Almatyn; koko mutavyörysuojelukompleksi on nykyään Kazakstanin UNESCO-aieluettelolla.',
+    historicalContext: {
+      fi: 'Pato pystytettiin 1966–1972 neuvostomatemaatikko Mihail Lavrentjevin "suunnatun räjäytyksen" menetelmällä — yhteensä noin 5 400 tonnia räjähdettä irrotti vuoren sivun laakson tukkeeksi. Tulikasteensa pato sai 15.7.1973, kun se pysäytti 3,8–4,5 miljoonan kuution mutavyöryn ja pelasti Almatyn; koko mutavyörysuojelukompleksi on nykyään Kazakstanin UNESCO-aieluettelolla.',
+      en: 'The dam was built in 1966–1972 using Soviet mathematician Mikhail Lavrentyev\'s directed-explosion method — roughly 5,400 tonnes of explosives blasted a mountain flank into the valley to form the barrier. Its baptism of fire came on 15 July 1973, when it halted a 3.8–4.5 million cubic metre mudflow and saved Almaty; the entire mudflow-protection complex is now on Kazakhstan\'s UNESCO tentative list.',
+      ru: 'Плотина была возведена в 1966–1972 годах методом «направленного взрыва», разработанным советским математиком Михаилом Лаврентьевым: около 5 400 тонн взрывчатки обрушили склон горы и перегородили долину. Боевое крещение плотина получила 15 июля 1973 года, остановив сель объёмом 3,8–4,5 млн кубометров и тем самым спасла Алматы; весь комплекс защиты от селей ныне включён в предварительный список ЮНЕСКО Казахстана.',
+      kk: 'Бөгет 1966–1972 жылдары кеңес математигі Михаил Лаврентьевтің «бағытталған жарылыс» әдісімен салынды — шамамен 5 400 тонна жарылғыш зат тау бөктерін аңғарға аударып, кедергі жасады. Бөгет 1973 жылы 15 шілдеде 3,8–4,5 млн текше метр сел ағынын тоқтатып, Алматыны сақтап қалды; бүкіл сел қорғаныс кешені қазір Қазақстанның ЮНЕСКО-ның болашақ тізіміне енгізілген.',
+    },
     ratings: {
       popularity: 3,
       interest: 3,

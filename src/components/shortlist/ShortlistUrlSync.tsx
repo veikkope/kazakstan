@@ -21,7 +21,7 @@ import {
 } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 import { sights } from '@/data/sights';
-import type { ShortlistEntry } from '@/lib/types';
+import type { LocalizedString, ShortlistEntry } from '@/lib/types';
 
 const PARAM_SL = 'sl';
 
@@ -285,7 +285,7 @@ function ImportShortlistDialog({
     const names = payload.urlIds
       .slice(0, cap)
       .map((id) => sightById.get(id))
-      .filter((n): n is string => Boolean(n));
+      .filter((n): n is LocalizedString => Boolean(n));
     const more = Math.max(0, payload.urlIds.length - names.length);
     return { names, more };
   }, [payload]);

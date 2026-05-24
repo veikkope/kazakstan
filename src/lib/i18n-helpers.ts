@@ -6,21 +6,15 @@ import type {
 } from './types';
 
 /**
- * Resolve a `TranslatableString` to a plain string for the given locale.
- * Falls back to `fi` (canonical) if the requested locale is missing — this
- * keeps the UI rendering even during partial-migration windows where a
- * field is still a plain Finnish string or a translation key is empty.
- *
- * Accepts `undefined` for ergonomic chaining (e.g. `localised(sight.historicalContext, locale)`
- * directly without a null-check at the call site). Returns empty string in
- * that case, which matches caller expectations (conditional rendering).
+ * Resolve a `LocalizedString` to a plain string for the given locale.
+ * Falls back to `fi` (canonical) if the locale key is empty.
+ * Accepts `undefined` for ergonomic chaining — returns `''` in that case.
  */
 export function localised(
   value: TranslatableString | undefined,
   locale: Locale,
 ): string {
   if (value === undefined) return '';
-  if (typeof value === 'string') return value;
   return value[locale] || value.fi || '';
 }
 

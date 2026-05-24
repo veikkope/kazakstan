@@ -230,26 +230,25 @@ function makeTripIcon(kind: TripPinKind): L.DivIcon {
   });
 }
 
-function tripPinPopupHtml(pin: TripPin, locale: string, labels: TripPinLabels): string {
+function tripPinPopupHtml(pin: TripPin, _locale: string, labels: TripPinLabels): string {
   const visual = tripPinVisual[pin.kind];
   const label = tripPinLabelFor(pin.kind, labels);
-  const loc = asLocale(locale);
   const subtitle = pin.subtitle
-    ? `<p style="font-size:13px;line-height:1.45;margin:6px 0 0;color:#475569">${safeText(localised(pin.subtitle, loc))}</p>`
+    ? `<p style="font-size:13px;line-height:1.45;margin:6px 0 0;color:#475569">${safeText(pin.subtitle)}</p>`
     : '';
   const details = pin.details && pin.details.length > 0
     ? `<ul style="margin:8px 0 0;padding:0;list-style:none;font-size:12px;line-height:1.5;color:#475569">
         ${pin.details
           .map(
             (d) =>
-              `<li style="padding:2px 0;border-top:1px solid #e2e8f0">${safeText(localised(d, loc))}</li>`,
+              `<li style="padding:2px 0;border-top:1px solid #e2e8f0">${safeText(d)}</li>`,
           )
           .join('')}
       </ul>`
     : '';
   const hrefBlock = pin.href
     ? `<a href="${safeUrl(pin.href)}" style="display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:13px;font-weight:600;color:#2563eb;text-decoration:none">
-        ${safeText(pin.hrefLabel ? localised(pin.hrefLabel, loc) : labels.readMore)}
+        ${safeText(pin.hrefLabel ?? labels.readMore)}
         <span aria-hidden="true">→</span>
       </a>`
     : '';
@@ -260,7 +259,7 @@ function tripPinPopupHtml(pin: TripPin, locale: string, labels: TripPinLabels): 
         <span style="font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:0.04em">${safeText(label)}</span>
       </div>
       <div style="padding:0 14px 13px">
-        <strong style="display:block;font-size:14px;line-height:1.3;letter-spacing:-0.01em">${safeText(localised(pin.title, loc))}</strong>
+        <strong style="display:block;font-size:14px;line-height:1.3;letter-spacing:-0.01em">${safeText(pin.title)}</strong>
         ${subtitle}
         ${details}
         ${hrefBlock}

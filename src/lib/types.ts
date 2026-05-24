@@ -24,10 +24,9 @@ export type SightStatus = 'verified' | 'draft';
  * compile time — if a contributor adds a sight in Finnish only, the build
  * fails until they add the other three locales.
  *
- * `TranslatableString` is a transition alias used during the migration
- * from plain Finnish strings to localized objects. Once `src/data/*` is
- * fully migrated, narrow content fields to `LocalizedString` only and
- * delete this alias.
+ * `TranslatableString` is an alias for `LocalizedString` kept so that
+ * existing interfaces don't need bulk renaming. All data has been migrated
+ * to localized objects — TypeScript now prevents plain-string drift.
  * ============================================================ */
 
 export type Locale = 'fi' | 'en' | 'ru' | 'kk';
@@ -41,14 +40,8 @@ export interface LocalizedString {
   kk: string;
 }
 
-/**
- * Either a plain Finnish string (legacy, will be migrated) or a full
- * `LocalizedString`. Always read these through `localised()` from
- * `src/lib/i18n-helpers.ts` so callers don't need to handle both shapes.
- *
- * TODO: After full migration, replace usages with `LocalizedString`.
- */
-export type TranslatableString = LocalizedString | string;
+/** Alias for `LocalizedString`. All content is fully localized. */
+export type TranslatableString = LocalizedString;
 
 /** 0–5 star rating dimensions used by the place-rater agent. */
 export interface SightRatings {
@@ -139,16 +132,14 @@ export type TripPinKind = 'rental-car' | 'airport' | 'hotel' | 'meeting-point';
 export interface TripPin {
   id: string;
   kind: TripPinKind;
-  title: TranslatableString;
-  /** Optional 1–2 lauseen kuvaus popupissa. */
-  subtitle?: TranslatableString;
+  /** Already locale-resolved at construction time — TripPins are ephemeral runtime objects. */
+  title: string;
+  subtitle?: string;
   coords: Coords;
-  /** Vapaa lista käytännön kenttiä popupiin (esim. "Pickup 31.5", "Address: …"). */
-  details?: TranslatableString[];
-  /** Linkki yksityiskohtaiselle sivulle (esim. "/vuokra-auto"). */
+  /** Already locale-resolved at construction time. */
+  details?: string[];
   href?: string;
-  /** Linkin näkyvä teksti — oletus "Lue lisää". */
-  hrefLabel?: TranslatableString;
+  hrefLabel?: string;
 }
 
 export type TransportMode = 'plane' | 'train' | 'car' | 'bus' | 'taxi' | 'walk';

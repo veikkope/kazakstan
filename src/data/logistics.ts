@@ -237,7 +237,7 @@ export const transportLegs: TransportLegInfo[] = [
     options: [
       {
         mode: 'plane',
-        operator: 'Air Astana',
+        operator: { fi: 'Air Astana', en: 'Air Astana', ru: 'Air Astana', kk: 'Air Astana' },
         duration: {
           fi: '3 h 10 min suoraan',
           en: '3 h 10 min direct',
@@ -279,12 +279,12 @@ export const transportLegs: TransportLegInfo[] = [
             kk: 'FlyArystan-нан аз рейс',
           },
         ],
-        bookVia: 'airastana.com',
+        bookVia: { fi: 'airastana.com', en: 'airastana.com', ru: 'airastana.com', kk: 'airastana.com' },
         bookWhen: 'week-before',
       },
       {
         mode: 'plane',
-        operator: 'FlyArystan',
+        operator: { fi: 'FlyArystan', en: 'FlyArystan', ru: 'FlyArystan', kk: 'FlyArystan' },
         duration: {
           fi: '3 h 10 min suoraan',
           en: '3 h 10 min direct',
@@ -326,12 +326,12 @@ export const transportLegs: TransportLegInfo[] = [
             kk: 'Air Astana-ның еншілес компаниясы, бірақ лоукост моделі',
           },
         ],
-        bookVia: 'flyarystan.com',
+        bookVia: { fi: 'flyarystan.com', en: 'flyarystan.com', ru: 'flyarystan.com', kk: 'flyarystan.com' },
         bookWhen: 'week-before',
       },
       {
         mode: 'plane',
-        operator: 'SCAT Airlines',
+        operator: { fi: 'SCAT Airlines', en: 'SCAT Airlines', ru: 'SCAT Airlines', kk: 'SCAT Airlines' },
         duration: {
           fi: '3 h 15 min',
           en: '3 h 15 min',
@@ -367,7 +367,7 @@ export const transportLegs: TransportLegInfo[] = [
             kk: 'Кесте әрқашан сақтала бермейді',
           },
         ],
-        bookVia: 'scat.kz',
+        bookVia: { fi: 'scat.kz', en: 'scat.kz', ru: 'scat.kz', kk: 'scat.kz' },
         bookWhen: 'week-before',
       },
     ],
@@ -404,7 +404,7 @@ export const transportLegs: TransportLegInfo[] = [
     options: [
       {
         mode: 'plane',
-        operator: 'Air Astana / FlyArystan / SCAT',
+        operator: { fi: 'Air Astana / FlyArystan / SCAT', en: 'Air Astana / FlyArystan / SCAT', ru: 'Air Astana / FlyArystan / SCAT', kk: 'Air Astana / FlyArystan / SCAT' },
         duration: {
           fi: '1 h 45 min',
           en: '1 h 45 min',
@@ -446,7 +446,7 @@ export const transportLegs: TransportLegInfo[] = [
             kk: 'Астанадағы қонақ үй түні бөлек',
           },
         ],
-        bookVia: 'aviata.kz / flyarystan.com',
+        bookVia: { fi: 'aviata.kz / flyarystan.com', en: 'aviata.kz / flyarystan.com', ru: 'aviata.kz / flyarystan.com', kk: 'aviata.kz / flyarystan.com' },
         bookWhen: 'week-before',
       },
       {
@@ -510,7 +510,7 @@ export const transportLegs: TransportLegInfo[] = [
             kk: 'Жүк үстіңгі сөрелерде',
           },
         ],
-        bookVia: 'bilet.railways.kz',
+        bookVia: { fi: 'bilet.railways.kz', en: 'bilet.railways.kz', ru: 'bilet.railways.kz', kk: 'bilet.railways.kz' },
         bookWhen: 'week-before',
       },
     ],
