@@ -8,6 +8,7 @@ import 'leaflet.markercluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import { useLocale, useTranslations } from 'next-intl';
+import { useTheme } from 'next-themes';
 import type { Sight, TripPin, TripPinKind } from '@/lib/types';
 import { categoryMeta } from '@/data/categories';
 import { asLocale, localised } from '@/lib/i18n-helpers';
@@ -122,10 +123,10 @@ function starsRow(rating: number): string {
   }
   return `
     <div style="display:flex;align-items:center;gap:6px;margin-top:6px">
-      <span style="display:inline-flex;letter-spacing:1px;color:#a98654;font-size:13px;line-height:1">
+      <span style="display:inline-flex;letter-spacing:1px;color:var(--color-sand-dark);font-size:13px;line-height:1">
         ${stars}
       </span>
-      <span style="font-size:11px;color:#64748b">${rating.toFixed(1)}</span>
+      <span style="font-size:11px;color:var(--color-muted)">${rating.toFixed(1)}</span>
     </div>
   `;
 }
@@ -160,7 +161,7 @@ function popupHtml(
         : '';
 
   const hero = imageUrl
-    ? `<div style="position:relative;height:132px;overflow:hidden;background:#f1ede4">
+    ? `<div style="position:relative;height:132px;overflow:hidden;background:var(--color-border)">
         <img src="${imageUrl}" alt="${imageAlt}" loading="lazy"
           style="width:100%;height:100%;object-fit:cover;display:block" />
         <span style="position:absolute;bottom:8px;left:8px;display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;background:rgba(15,23,42,0.62);color:#fff;font-size:11px;font-weight:500;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)">
@@ -169,7 +170,7 @@ function popupHtml(
         </span>
         ${markChip}
       </div>`
-    : `<div style="position:relative;height:56px;display:flex;align-items:center;justify-content:center;background:${meta.color}1a;color:#1e293b;font-size:13px;font-weight:500;gap:6px">
+    : `<div style="position:relative;height:56px;display:flex;align-items:center;justify-content:center;background:${meta.color}1a;color:var(--color-fg);font-size:13px;font-weight:500;gap:6px">
         <span style="display:inline-block;width:8px;height:8px;border-radius:999px;background:${meta.color}"></span>
         ${meta.emoji} ${safeText(categoryLabel)}
         ${markChip}
@@ -185,13 +186,13 @@ function popupHtml(
     : '';
 
   return `
-    <div style="width:248px;font-family:var(--font-geist-sans),system-ui,-apple-system,sans-serif;color:#1e293b">
+    <div style="width:248px;font-family:var(--font-geist-sans),system-ui,-apple-system,sans-serif;color:var(--color-fg)">
       ${hero}
       <div style="padding:11px 14px 13px">
         <strong style="display:block;font-size:15px;line-height:1.25;letter-spacing:-0.01em">${safeText(sightName)}</strong>
         ${ratings}
-        <p style="font-size:13px;line-height:1.45;margin:8px 0 10px;color:#475569">${safeText(sightShortDesc)}</p>
-        <a href="/${safeAttr(locale)}/sights/${safeAttr(sight.slug)}" style="display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:600;color:#2563eb;text-decoration:none">
+        <p style="font-size:13px;line-height:1.45;margin:8px 0 10px;color:var(--color-muted)">${safeText(sightShortDesc)}</p>
+        <a href="/${safeAttr(locale)}/sights/${safeAttr(sight.slug)}" style="display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:600;color:var(--color-steppe);text-decoration:none">
           ${safeText(labels.readMore)}
           <span aria-hidden="true">→</span>
         </a>
@@ -234,29 +235,29 @@ function tripPinPopupHtml(pin: TripPin, _locale: string, labels: TripPinLabels):
   const visual = tripPinVisual[pin.kind];
   const label = tripPinLabelFor(pin.kind, labels);
   const subtitle = pin.subtitle
-    ? `<p style="font-size:13px;line-height:1.45;margin:6px 0 0;color:#475569">${safeText(pin.subtitle)}</p>`
+    ? `<p style="font-size:13px;line-height:1.45;margin:6px 0 0;color:var(--color-muted)">${safeText(pin.subtitle)}</p>`
     : '';
   const details = pin.details && pin.details.length > 0
-    ? `<ul style="margin:8px 0 0;padding:0;list-style:none;font-size:12px;line-height:1.5;color:#475569">
+    ? `<ul style="margin:8px 0 0;padding:0;list-style:none;font-size:12px;line-height:1.5;color:var(--color-muted)">
         ${pin.details
           .map(
             (d) =>
-              `<li style="padding:2px 0;border-top:1px solid #e2e8f0">${safeText(d)}</li>`,
+              `<li style="padding:2px 0;border-top:1px solid var(--color-border)">${safeText(d)}</li>`,
           )
           .join('')}
       </ul>`
     : '';
   const hrefBlock = pin.href
-    ? `<a href="${safeUrl(pin.href)}" style="display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:13px;font-weight:600;color:#2563eb;text-decoration:none">
+    ? `<a href="${safeUrl(pin.href)}" style="display:inline-flex;align-items:center;gap:4px;margin-top:10px;font-size:13px;font-weight:600;color:var(--color-steppe);text-decoration:none">
         ${safeText(pin.hrefLabel ?? labels.readMore)}
         <span aria-hidden="true">→</span>
       </a>`
     : '';
   return `
-    <div style="width:240px;font-family:var(--font-geist-sans),system-ui,-apple-system,sans-serif;color:#1e293b">
+    <div style="width:240px;font-family:var(--font-geist-sans),system-ui,-apple-system,sans-serif;color:var(--color-fg)">
       <div style="display:flex;align-items:center;gap:6px;padding:10px 14px 6px">
         <span style="display:inline-flex;align-items:center;justify-content:center;width:1.4rem;height:1.4rem;border-radius:9999px;background:${visual.color};color:#fff;font-size:13px;line-height:1" aria-hidden="true">${visual.emoji}</span>
-        <span style="font-size:11px;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:0.04em">${safeText(label)}</span>
+        <span style="font-size:11px;font-weight:600;color:var(--color-muted);text-transform:uppercase;letter-spacing:0.04em">${safeText(label)}</span>
       </div>
       <div style="padding:0 14px 13px">
         <strong style="display:block;font-size:14px;line-height:1.3;letter-spacing:-0.01em">${safeText(pin.title)}</strong>
@@ -471,6 +472,12 @@ export default function MapView({
   // React — they sit outside next-intl's <Link> auto-prefix.
   const locale = useLocale();
   const t = useTranslations();
+  // Dark mode swaps OSM tiles for Carto's dark basemap. `resolvedTheme`
+  // collapses 'system' to the concrete light/dark; undefined pre-mount
+  // falls through to the light OSM tiles. The `key` forces the TileLayer
+  // to remount on switch so both url and attribution update cleanly.
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === 'dark';
   // Bundle strings once per render; memoise so child layer effects only
   // re-run when the locale (and thus the strings) actually changes.
   const popupLabels = useMemo<PopupLabels>(
@@ -515,8 +522,17 @@ export default function MapView({
     >
       <ZoomControl position="topright" />
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        key={isDark ? 'dark' : 'light'}
+        attribution={
+          isDark
+            ? '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+            : '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }
+        url={
+          isDark
+            ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
+            : 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        }
         maxZoom={17}
         keepBuffer={4}
         updateWhenZooming={false}

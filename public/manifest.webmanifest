@@ -28,19 +28,19 @@
     {
       "name": "Kartta",
       "short_name": "Kartta",
-      "url": "/kartta",
+      "url": "/fi/map",
       "description": "Avaa interaktiivinen kartta"
     },
     {
       "name": "Reittisuunnitelma",
       "short_name": "Päivät",
-      "url": "/reittisuunnitelma",
+      "url": "/fi/itinerary",
       "description": "Oma reittisuunnitelma päivä päivältä"
     },
     {
       "name": "Shortlist",
       "short_name": "Shortlist",
-      "url": "/shortlist",
+      "url": "/fi/shortlist",
       "description": "Tallennetut kohteet"
     }
   ]

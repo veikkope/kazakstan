@@ -281,6 +281,12 @@
     }
   },
   "components": {
+    "themeToggle": {
+      "label": "Сменить тему",
+      "system": "Системная",
+      "light": "Светлая",
+      "dark": "Тёмная"
+    },
     "header": {
       "searchButton": "Поиск",
       "searchAriaLabel": "Искать объекты"

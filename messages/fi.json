@@ -280,6 +280,12 @@
     }
   },
   "components": {
+    "themeToggle": {
+      "label": "Vaihda teema",
+      "system": "Järjestelmä",
+      "light": "Vaalea",
+      "dark": "Tumma"
+    },
     "header": {
       "searchButton": "Hae",
       "searchAriaLabel": "Hae kohteita"

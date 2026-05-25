@@ -163,38 +163,58 @@
 }
 
 /*
- * Dark mode tokens kept for shadcn components that reference `dark:`
- * variants — currently no .dark class is applied to <html>, so this
- * block is inert. Leave intact so the components compile cleanly and
- * dark mode can be wired in later without re-tuning palettes.
+ * Dark mode. `next-themes` applies `.dark` to <html> (class strategy).
+ * One cohesive, slate-tinted dark scale (hue ~263 to match the steppe
+ * brand) drives BOTH token systems so the outdoor-palette surfaces and
+ * the shadcn surfaces read as the same family.
+ *
+ * Tuned for WCAG AA: body text ~15:1, muted text ~6:1 on its surface.
+ * --color-sand and --color-accent intentionally keep their :root values
+ * — they sit on dark surfaces fine and back white-on-colour badges
+ * (category chips, visa card) that must stay legible.
  */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.62 0.21 262);
-  --primary-foreground: oklch(0.145 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.62 0.21 262);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.62 0.21 262);
-  --sidebar-primary-foreground: oklch(0.145 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* Outdoor palette — dark surface family. */
+  --color-bg: oklch(0.17 0.012 263);
+  --color-fg: oklch(0.965 0.004 263);
+  --color-muted: oklch(0.72 0.02 263);
+  --color-card: oklch(0.205 0.013 263);
+  --color-border: oklch(0.34 0.015 263);
+  --color-steppe: oklch(0.62 0.17 259);
+  --color-steppe-dark: oklch(0.72 0.14 259);
+
+  /* shadcn semantic tokens — same dark family. */
+  --background: oklch(0.17 0.012 263);
+  --foreground: oklch(0.965 0.004 263);
+  --card: oklch(0.205 0.013 263);
+  --card-foreground: oklch(0.965 0.004 263);
+  --popover: oklch(0.225 0.013 263);
+  --popover-foreground: oklch(0.965 0.004 263);
+  --primary: oklch(0.58 0.19 262);
+  --primary-foreground: oklch(0.99 0.004 263);
+  --secondary: oklch(0.255 0.012 263);
+  --secondary-foreground: oklch(0.965 0.004 263);
+  --muted: oklch(0.255 0.012 263);
+  --muted-foreground: oklch(0.72 0.02 263);
+  --accent: oklch(0.28 0.013 263);
+  --accent-foreground: oklch(0.965 0.004 263);
+  --destructive: oklch(0.62 0.21 25);
+  --border: oklch(0.31 0.014 263);
+  --input: oklch(0.34 0.015 263);
+  --ring: oklch(0.58 0.19 262);
+  --chart-1: oklch(0.62 0.19 262);
+  --chart-2: oklch(0.7 0.16 150);
+  --chart-3: oklch(0.78 0.09 78);
+  --chart-4: oklch(0.62 0.2 300);
+  --chart-5: oklch(0.7 0.1 70);
+  --sidebar: oklch(0.185 0.012 263);
+  --sidebar-foreground: oklch(0.965 0.004 263);
+  --sidebar-primary: oklch(0.58 0.19 262);
+  --sidebar-primary-foreground: oklch(0.99 0.004 263);
+  --sidebar-accent: oklch(0.28 0.013 263);
+  --sidebar-accent-foreground: oklch(0.965 0.004 263);
+  --sidebar-border: oklch(0.31 0.014 263);
+  --sidebar-ring: oklch(0.58 0.19 262);
 }
 
 @layer base {
@@ -247,11 +267,48 @@
   box-shadow: 0 6px 24px rgba(15, 23, 42, 0.18);
 }
 .leaflet-popup.sight-popup a {
-  color: #2563eb;
+  color: var(--color-steppe);
 }
 .leaflet-popup.sight-popup a:hover {
-  color: #1d4ed8;
+  color: var(--color-steppe-dark);
   text-decoration: underline;
+}
+
+/*
+ * Dark mode map chrome. The tiles themselves switch to Carto dark (see
+ * MapView's theme-aware TileLayer); these rules keep Leaflet's own
+ * surfaces — popups, zoom buttons, attribution — from flashing white on
+ * the dark basemap. Popup *content* colours are CSS vars set inline in
+ * MapView, so they re-resolve here automatically.
+ */
+.dark .leaflet-popup-content-wrapper,
+.dark .leaflet-popup-tip {
+  background: var(--color-card);
+  color: var(--color-fg);
+}
+.dark .leaflet-popup.sight-popup .leaflet-popup-content-wrapper,
+.dark .leaflet-popup.sight-popup .leaflet-popup-tip {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+}
+.dark .leaflet-popup-close-button {
+  color: var(--color-muted);
+}
+.dark .leaflet-bar a,
+.dark .leaflet-bar a:hover {
+  background: var(--color-card);
+  color: var(--color-fg);
+  border-bottom-color: var(--color-border);
+}
+.dark .leaflet-control-zoom-in,
+.dark .leaflet-control-zoom-out {
+  border-color: var(--color-border);
+}
+.dark .leaflet-control-attribution {
+  background: color-mix(in oklab, var(--color-card) 80%, transparent);
+  color: var(--color-muted);
+}
+.dark .leaflet-control-attribution a {
+  color: var(--color-steppe);
 }
 
 /*

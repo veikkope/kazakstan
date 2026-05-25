@@ -281,6 +281,12 @@
     }
   },
   "components": {
+    "themeToggle": {
+      "label": "Toggle theme",
+      "system": "System",
+      "light": "Light",
+      "dark": "Dark"
+    },
     "header": {
       "searchButton": "Search",
       "searchAriaLabel": "Search destinations"

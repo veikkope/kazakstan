@@ -12,6 +12,7 @@ import ServiceWorkerRegistration from '@/components/layout/ServiceWorkerRegistra
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Toaster } from '@/components/ui/sonner';
 import MotionProvider from '@/components/layout/MotionProvider';
+import ThemeProvider from '@/components/layout/ThemeProvider';
 import ShortlistUrlSync from '@/components/shortlist/ShortlistUrlSync';
 import { routing } from '@/i18n/routing';
 
@@ -49,7 +50,11 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
-  themeColor: '#2563eb',
+  // Tint the mobile browser chrome to match the active OS colour scheme.
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#2563eb' },
+    { media: '(prefers-color-scheme: dark)', color: '#14161d' },
+  ],
 };
 
 /**
@@ -80,25 +85,28 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <NextIntlClientProvider>
-          <TooltipProvider delayDuration={150}>
-            <MotionProvider>
-              <ServiceWorkerRegistration />
-              <ShortlistUrlSync />
-              <Header />
-              <OfflineBanner />
-              <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 pb-24 sm:pb-6">
-                {children}
-              </main>
-              <Footer />
-              <BottomNav />
-              <Toaster position="bottom-center" richColors closeButton />
-            </MotionProvider>
-          </TooltipProvider>
-        </NextIntlClientProvider>
+        <ThemeProvider>
+          <NextIntlClientProvider>
+            <TooltipProvider delayDuration={150}>
+              <MotionProvider>
+                <ServiceWorkerRegistration />
+                <ShortlistUrlSync />
+                <Header />
+                <OfflineBanner />
+                <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 pb-24 sm:pb-6">
+                  {children}
+                </main>
+                <Footer />
+                <BottomNav />
+                <Toaster position="bottom-center" richColors closeButton />
+              </MotionProvider>
+            </TooltipProvider>
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -8,6 +8,7 @@ import { Kbd, KbdGroup } from '@/components/ui/kbd';
 import { Link } from '@/i18n/navigation';
 import CommandPalette from './CommandPalette';
 import LanguageSwitcher from './LanguageSwitcher';
+import ThemeToggle from './ThemeToggle';
 
 // Keep route paths separate from labels — labels are translated via
 // `t(navKey)`, while paths are constant English slugs across locales.
@@ -75,6 +76,7 @@ export default function Header() {
               <Kbd>K</Kbd>
             </KbdGroup>
           </Button>
+          <ThemeToggle />
           <LanguageSwitcher />
         </div>
       </div>

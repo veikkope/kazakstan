@@ -283,6 +283,12 @@
     }
   },
   "components": {
+    "themeToggle": {
+      "label": "Теманы ауыстыру",
+      "system": "Жүйелік",
+      "light": "Ашық",
+      "dark": "Қараңғы"
+    },
     "header": {
       "searchButton": "Іздеу",
       "searchAriaLabel": "Нысандарды іздеу"

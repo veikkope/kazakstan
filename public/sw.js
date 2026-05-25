@@ -87,8 +87,11 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(request.url);
 
-  // OSM tile servers — cache-first, LRU-bounded.
-  if (/\.tile\.openstreetmap\.org$/.test(url.hostname)) {
+  // Map tile servers (OSM light + Carto dark) — cache-first, LRU-bounded.
+  if (
+    /\.tile\.openstreetmap\.org$/.test(url.hostname) ||
+    /\.basemaps\.cartocdn\.com$/.test(url.hostname)
+  ) {
     event.respondWith(cacheFirstWithLimit(request, TILES_CACHE, TILES_MAX_ENTRIES));
     return;
   }
