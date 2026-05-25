@@ -2,7 +2,7 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import VisaCard from '@/components/info/VisaCard';
 import BeforeTripChecklist from '@/components/info/BeforeTripChecklist';
 import TransportSection from '@/components/info/TransportSection';
-import { Card, CardContent } from '@/components/ui/card';
+import LanguageTable from '@/components/info/LanguageTable';
 import { Separator } from '@/components/ui/separator';
 import { languageBasics, safetyNotes } from '@/data/practical';
 import { asLocale, localised } from '@/lib/i18n-helpers';
@@ -31,31 +31,23 @@ export default async function InfoPage() {
         <h2 className="text-xl font-semibold">{t('pages.info.languageHeading')}</h2>
         <p className="text-sm text-muted-foreground">{localised(languageBasics.notes, loc)}</p>
         <p className="text-sm text-muted-foreground">{localised(languageBasics.alphabet, loc)}</p>
-        <Card className="py-0">
-          <CardContent className="overflow-x-auto px-0">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-border text-left text-xs uppercase tracking-wide text-muted-foreground">
-                  <th className="p-3">{t('pages.info.languageColFi')}</th>
-                  <th className="p-3">{t('pages.info.languageColKk')}</th>
-                  <th className="p-3">{t('pages.info.languageColRu')}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {languageBasics.greetings.map((row) => {
-                  const fi = localised(row.fi, loc);
-                  return (
-                    <tr key={fi} className="border-b border-border last:border-b-0">
-                      <td className="p-3 font-medium">{fi}</td>
-                      <td className="p-3 text-muted-foreground">{row.kk}</td>
-                      <td className="p-3 text-muted-foreground">{row.ru}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </CardContent>
-        </Card>
+        <LanguageTable
+          groups={languageBasics.groups.map((group) => ({
+            label: localised(group.label, loc),
+            playAll: group.playAll,
+            phrases: group.phrases.map((row) => ({
+              fi: localised(row.fi, loc),
+              kk: row.kk,
+              ru: row.ru,
+              kkAudio: row.audioUrls?.kk,
+              ruAudio: row.audioUrls?.ru,
+            })),
+          }))}
+          colFi={t('pages.info.languageColFi')}
+          colKk={t('pages.info.languageColKk')}
+          colRu={t('pages.info.languageColRu')}
+          playAllLabel={t('pages.info.playAll')}
+        />
       </section>
 
       <Separator />
