@@ -168,16 +168,16 @@ function DownloadToast({
   indeterminate: boolean;
 }) {
   return (
-    <div className="flex w-[min(90vw,360px)] items-center gap-3 rounded-xl border border-border bg-popover px-4 py-3 text-popover-foreground shadow-lg">
-      <Loader2 className="size-5 shrink-0 animate-spin text-primary" aria-hidden />
+    <div className="flex w-[min(76vw,248px)] items-center gap-2.5 rounded-lg border border-border bg-popover px-3 py-2.5 text-popover-foreground shadow-md">
+      <Loader2 className="size-4 shrink-0 animate-spin text-primary" aria-hidden />
       <div className="min-w-0 flex-1">
-        <div className="flex items-center justify-between gap-2">
-          <span className="truncate text-sm font-medium">{title}</span>
+        <div className="flex items-center justify-between gap-1.5">
+          <span className="truncate text-xs font-medium">{title}</span>
           {!indeterminate && (
-            <span className="shrink-0 text-xs tabular-nums text-muted-foreground">{pct}%</span>
+            <span className="shrink-0 text-[11px] tabular-nums text-muted-foreground">{pct}%</span>
           )}
         </div>
-        <div className="mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-muted">
+        <div className="mt-1 h-1 w-full overflow-hidden rounded-full bg-muted">
           <div
             className={cn(
               'h-full rounded-full bg-primary',

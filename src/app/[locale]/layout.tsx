@@ -104,7 +104,7 @@ export default async function LocaleLayout({
                   </main>
                   <Footer />
                   <BottomNav />
-                  <Toaster position="bottom-center" richColors closeButton />
+                  <Toaster position="bottom-right" richColors closeButton />
                 </MotionProvider>
               </TooltipProvider>
             </OfflineProvider>
