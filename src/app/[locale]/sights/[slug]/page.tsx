@@ -4,7 +4,7 @@ import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
 import { sights } from '@/data/sights';
 import { categoryMeta, regionMeta } from '@/data/categories';
-import { excludeDrafts, findBySlug } from '@/lib/filters';
+import { findBySlug } from '@/lib/filters';
 import { nearestSights } from '@/lib/distance';
 import NearbyList from '@/components/sights/NearbyList';
 import ShortlistButton from '@/components/sights/ShortlistButton';
@@ -15,7 +15,6 @@ import StarRating, { RatingPlaceholder } from '@/components/sights/StarRating';
 import OverallStars from '@/components/sights/OverallStars';
 import { formatKZT } from '@/lib/currency';
 import { asLocale, getSightFields, localised } from '@/lib/i18n-helpers';
-import { Badge } from '@/components/ui/badge';
 import {
   Card,
   CardContent,
@@ -75,8 +74,7 @@ export default async function SightDetailPage({
   const catLabel = localised(cat.label, loc);
   const region = regionMeta[sight.region];
   const regionLabel = localised(region.label, loc);
-  // Nearby: aina rajaa draftit pois.
-  const nearby = nearestSights(sight, excludeDrafts(sights), 5);
+  const nearby = nearestSights(sight, sights, 5);
 
   return (
     <>
@@ -97,14 +95,6 @@ export default async function SightDetailPage({
             {cat.emoji} {catLabel}
           </span>
           <span className="text-sm text-muted-foreground">{regionLabel}</span>
-          {sight.status === 'draft' && (
-            <Badge
-              variant="outline"
-              className="border-(--color-sand-dark) text-(--color-sand-dark) uppercase tracking-wide"
-            >
-              {t('pages.sightDetail.draftBadge')}
-            </Badge>
-          )}
         </div>
         <div className="flex flex-wrap items-center gap-3">
           <h1 className="text-balance text-3xl font-bold tracking-tight">{fields.name}</h1>

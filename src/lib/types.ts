@@ -11,7 +11,6 @@ export type Region =
 
 export type Difficulty = 'easy' | 'moderate' | 'hard';
 export type BudgetLevel = 'low' | 'mid' | 'high';
-export type SightStatus = 'verified' | 'draft';
 
 /* ============================================================
  * i18n primitives
@@ -118,7 +117,6 @@ export interface Sight {
   researchSlug?: string;
   /** ISO-päivä jolloin `sight-enricher` viimeksi koski tähän entryyn. */
   lastEnriched?: string;
-  status: SightStatus;
   featured?: boolean;
 }
 

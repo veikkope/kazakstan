@@ -35,7 +35,7 @@ Henkilökohtainen monikielinen matkasuunnittelusivu Kazakstaniin. Kahden ihmisen
 ## Tiedostokartta
 
 - `src/app/[locale]/<english-path>/page.tsx` — App Router -sivut, locale-prefixin alla
-- `src/middleware.ts` — locale detection + redirect
+- `src/proxy.ts` — locale detection + redirect (Next.js 16 proxy convention)
 - `src/i18n/` — next-intl config (locales, request, navigation)
 - `messages/<locale>.json` — UI-stringit per locale
 - `src/components/<feature>/` — feature-grouped (map, sights, itinerary, presets, info, budget, layout, navigation)
@@ -65,7 +65,6 @@ Henkilökohtainen monikielinen matkasuunnittelusivu Kazakstaniin. Kahden ihmisen
 1. **Yksi yhtenäinen URL-parametriskeema:** `cat` (kategoriat CSV), `region` (alueet CSV), `id` (valittu yksi), `sl` (shortlist CSV), `sort` (sortDimension), `q` (haku-string). Sama parsija `src/lib/url-state.ts`:ssä. Locale ei ole query-param vaan path-prefix.
 2. **URL-päivitykset aina `router.replace`** — ei `router.push`, muuten historian stack paisuu.
 3. **Shortlist on SSR-turvallinen:** ei `localStorage`-lukua renderissä; vain `useEffect`issä. URL voittaa localStoragen mountissa.
-4. **`status: 'draft'`-kohteet eivät näy oletuksena:** EI kartalla, EI preseteissä, EI nearby-listassa. Vain etusivun "Myöhemmin lisättävät"-osiossa ja `/nahtavyydet?showDrafts=1`. Käytä `excludeDrafts(sights)` `filters.ts`:stä oletuksena.
 
 ### Sight-konventiot
 - `id` on **pysyvä**, käytetään itineraryssa ja preseteissä — älä koskaan muuta.
@@ -93,7 +92,7 @@ Henkilökohtainen monikielinen matkasuunnittelusivu Kazakstaniin. Kahden ihmisen
 
 ### Yksittäiset agentit
 
-- **Uutta nähtävyyttä:** `sight-adder` — koordinaatit, perusmetadata, `status: 'draft'`. Käyttäjä vahvistaa → `status: 'verified'`.
+- **Uutta nähtävyyttä:** `sight-adder` — koordinaatit ja perusmetadata. Kohde näkyy heti (ei erillistä draft-tilaa).
 - **Päivän reittiin:** `itinerary-day-writer`.
 - **Faktantarkistus ennen deployta:** `source-verifier` — `lastVerified`-päivät, valuuttakurssi, viisumistilanne.
 
@@ -119,4 +118,3 @@ Kolmen agentin ketju syventää olemassa olevaa kohdetta ja antaa sille 0–5 t�
 - Read-only agentit (`place-rater`, `source-verifier`) eivät edit:aa — ehdotukset menevät write-agentin (`sight-enricher`) kautta.
 - `deep-researcher` voi kirjoittaa **vain** `src/research/`:iin.
 - `sight-enricher` voi kirjoittaa **vain** `src/data/sights.ts`:n yhteen kohteeseen kerrallaan.
-- Käyttäjä vahvistaa `draft → verified` itse.

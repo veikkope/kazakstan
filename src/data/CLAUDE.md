@@ -22,11 +22,6 @@ Kaikki sisältö on typed TypeScriptiä. Ei JSON, ei DB.
 - ≥4 desimaalia.
 - **Vahvista aina** OpenStreetMapista tai Wikipediasta ennen committia.
 
-## Status-konventio
-- `verified` näkyy kaikkialla.
-- `draft` vain etusivun "Myöhemmin lisättävät" -osiossa ja `/nahtavyydet?showDrafts=1`-näkymässä.
-- Käytä `excludeDrafts()` `src/lib/filters.ts`:stä kaikissa pääkulkureitin renderöinneissä — kartassa, preseteissä, NearbyListissä.
-
 ## Ratings ja tutkimus
 - `Sight.ratings` täytetään `sight-enricher`-agentilla, ei käsin.
 - Lähde-aineisto on `src/research/<slug>.md` jonka `deep-researcher` kirjoittaa.

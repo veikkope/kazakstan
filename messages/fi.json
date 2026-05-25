@@ -64,9 +64,7 @@
       "pathRoutesDescription": "3 erilaista pohjaa: 5, 7 ja 10 päivän versiot. Hyvä lähtökohta.",
       "pathInfoTitle": "Käytännön info",
       "pathInfoDescription": "Viisumi, valuutta, kuljetukset, ennen lähtöä -checklist.",
-      "featuredHeading": "Klassikkokohteet",
-      "draftsHeading": "Myöhemmin lisättävät / vahvistettavat",
-      "draftsDescription": "Nämä eivät vielä näy kartalla — odottavat varmistusta."
+      "featuredHeading": "Klassikkokohteet"
     },
     "map": {
       "title": "Kartta",
@@ -117,7 +115,6 @@
     "sightDetail": {
       "notFoundTitle": "Kohdetta ei löytynyt",
       "metaTitle": "{name} — Kazakstan-reissu",
-      "draftBadge": "Luonnos — odottaa vahvistusta",
       "navigator": "Navigaattori",
       "descriptionHeading": "Kuvaus",
       "historyHeading": "Historia",
@@ -286,6 +283,29 @@
       "light": "Vaalea",
       "dark": "Tumma"
     },
+    "offline": {
+      "title": "Lataa offline-käyttöön",
+      "description": "Tallenna koko reissu puhelimeen ennen lähtöä — kaikki kohteet, kuvat ja kartta toimivat ilman nettiä.",
+      "unsupported": "Offline-lataus vaatii sovelluksen asennettuna (lisää aloitusnäyttöön) tai tuotantoversiona.",
+      "statusReady": "Ladattu offline-käyttöön · päivitetty {date}",
+      "statusStale": "Tallennettu aiemmin — lataa uudelleen päivittääksesi",
+      "statusNone": "Ei vielä ladattu",
+      "tilesToggle": "Sisällytä karttalaatat",
+      "detail": "Tarkkuus",
+      "tilesEstimate": "≈ {count} laattaa · {size}",
+      "includesNote": "Sisältää kaikki {sights} kohdetta, kuvat ja reitit valitulla kielellä",
+      "download": "Lataa offline-käyttöön",
+      "update": "Päivitä offline-data",
+      "clear": "Poista offline-data",
+      "preparing": "Valmistellaan…",
+      "downloading": "Ladataan… {done}/{total}",
+      "doneToast": "Reissu käytettävissä offline ✓",
+      "clearToast": "Offline-data poistettu",
+      "errorToast": "Lataus epäonnistui — tarkista yhteys",
+      "unavailableToast": "Offline-lataus vaatii asennetun sovelluksen",
+      "storage": "Käytössä {used} / {total}",
+      "mapTip": "Tarkkaan navigointiin offline kannattaa käyttää erillistä karttasovellusta (esim. Organic Maps) — Navigoi-painike linkittää siihen jo."
+    },
     "header": {
       "searchButton": "Hae",
       "searchAriaLabel": "Hae kohteita"
@@ -323,7 +343,6 @@
       "desktopLabelSingle": "Reitti nykyisestä sijainnistasi"
     },
     "sightCard": {
-      "draft": "Luonnos",
       "hours": "{count} h",
       "difficultyEasy": "helppo",
       "difficultyModerate": "keskitaso",

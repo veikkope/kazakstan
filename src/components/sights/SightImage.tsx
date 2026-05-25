@@ -58,6 +58,13 @@ export default function SightImage({
           fill
           sizes={sizes}
           priority={priority}
+          // Served unoptimized: the /_next/image optimizer is a server route
+          // that doesn't exist offline, so an optimized image that wasn't
+          // pre-fetched would break on the trip. Unoptimized requests the
+          // stable same-origin /images/sights/<slug>.jpg URL, which the
+          // service worker can precache and serve offline. Originals are
+          // size-capped at build (scripts/optimize-sight-images.mjs).
+          unoptimized
           className="object-cover"
         />
         {showAttribution && sight.imageAttribution && (

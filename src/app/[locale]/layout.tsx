@@ -59,7 +59,7 @@ export const viewport: Viewport = {
 
 /**
  * Pre-render all supported locales at build time. Next.js needs this to
- * statically generate the `[locale]/*` routes; without it the middleware
+ * statically generate the `[locale]/*` routes; without it the proxy
  * still works but pages would be on-demand SSR'd, hurting cold-start.
  */
 export function generateStaticParams() {
@@ -74,7 +74,7 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
-  // Reject unknown locales early — middleware should redirect first, but
+  // Reject unknown locales early — the proxy should redirect first, but
   // hand-crafted URLs (e.g. `/xx/map`) shouldn't crash the layout.
   if (!hasLocale(routing.locales, locale)) notFound();
 

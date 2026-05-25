@@ -39,12 +39,8 @@ You apply previously-gathered research and ratings to ONE Sight entry in `src/da
    - `lastEnriched`: today ISO date
 6. **Edit `src/data/sights.ts`** käyttäen `Edit`-toolia. Käytä uniikkia `old_string`-kontekstia kohteen löytämiseen (esim. `id: 'charyn-canyon',` + seuraava rivi). Säilytä olemassa olevat kentät joita et päivitä — älä koskaan tyhjennä `description` tai `coords`.
 7. **Run typecheck:** `pnpm typecheck`. Jos virhe, korjaa entry ja yritä uudelleen.
-8. **Status käsittely:**
-   - Jos `status: 'draft'` ja rater antoi täydet arviot, **älä** muuta verifiedeksi — se on käyttäjän vahvistus.
-   - Mainitse raportissa että user voi nyt vahvistaa statusin.
-9. **Report back:**
+8. **Report back:**
    - Kentät joita päivitit (lista)
-   - Status (`draft` → mahdollinen `verified`-päivitysehdotus)
    - Mahdolliset varoitukset (raportissa ristiriidat, päivittämättömät kentät)
 
 ## Constraints
@@ -65,5 +61,5 @@ Päivitin Sight 'charyn-canyon':
   + combinesWith (lisätty: kolsai-lakes)
   + lastEnriched: 2026-05-18
 
-Status pysyy 'verified'. pnpm typecheck OK.
+pnpm typecheck OK.
 ```

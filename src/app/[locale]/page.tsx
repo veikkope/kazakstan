@@ -14,8 +14,7 @@ import {
 export default async function HomePage() {
   const t = await getTranslations();
   const loc = asLocale(await getLocale());
-  const featured = sights.filter((s) => s.featured && s.status === 'verified');
-  const drafts = sights.filter((s) => s.status === 'draft');
+  const featured = sights.filter((s) => s.featured);
 
   return (
     <div className="space-y-12">
@@ -74,22 +73,6 @@ export default async function HomePage() {
                   </CardContent>
                 </Card>
               </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-      {drafts.length > 0 && (
-        <section className="space-y-3">
-          <h2 className="text-xl font-semibold">
-            {t('pages.home.draftsHeading')}
-          </h2>
-          <p className="text-sm text-muted-foreground">
-            {t('pages.home.draftsDescription')}
-          </p>
-          <ul className="text-sm">
-            {drafts.map((s) => (
-              <li key={s.id}>• {localised(s.name, loc)}</li>
             ))}
           </ul>
         </section>

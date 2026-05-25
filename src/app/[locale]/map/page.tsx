@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button';
 import { sights } from '@/data/sights';
 import { carRental } from '@/data/logistics';
 import type { TripPin } from '@/lib/types';
-import { excludeDrafts, filterByCategories } from '@/lib/filters';
+import { filterByCategories } from '@/lib/filters';
 import { filterBySearch } from '@/lib/search';
 import { asLocale, localised } from '@/lib/i18n-helpers';
 import { useUrlState } from '@/lib/url-state';
@@ -58,25 +58,39 @@ function KarttaPageInner() {
   // ephemeral mobile chrome.
   const [viewMode, setViewMode] = useState<ViewMode>('map');
 
-  // Lock the page to the viewport: the map fills the available space
-  // between Header and BottomNav, no document scroll, Footer hidden.
-  // Cleanup on unmount restores defaults so the rest of the app keeps
-  // its normal flow.
+  // Lock the page to the viewport — MOBILE ONLY. On phones the map fills
+  // the space between Header and BottomNav with no document scroll (Footer
+  // hidden). Desktop uses normal flow (title + filters + 70dvh map + sidebar)
+  // which is taller than the viewport and MUST scroll normally, so the lock
+  // must not apply there. We mirror Tailwind's `sm` breakpoint (640px) and
+  // re-evaluate on resize so crossing the breakpoint flips the lock cleanly.
   useEffect(() => {
     const html = document.documentElement;
     const body = document.body;
-    const prevHtmlOverflow = html.style.overflow;
-    html.style.overflow = 'hidden';
-    body.classList.add('kartta-locked');
+    const mql = window.matchMedia('(max-width: 639.98px)');
+
+    const apply = () => {
+      if (mql.matches) {
+        html.style.overflow = 'hidden';
+        body.classList.add('kartta-locked');
+      } else {
+        html.style.overflow = '';
+        body.classList.remove('kartta-locked');
+      }
+    };
+
+    apply();
+    mql.addEventListener('change', apply);
     return () => {
-      html.style.overflow = prevHtmlOverflow;
+      mql.removeEventListener('change', apply);
+      html.style.overflow = '';
       body.classList.remove('kartta-locked');
     };
   }, []);
 
   // Cheapest filter first (set lookup) → text scan last. Both run only
   // when their source state changes thanks to useMemo deps.
-  const verified = useMemo(() => excludeDrafts(sights), []);
+  const verified = sights;
   const visible = useMemo(() => {
     const byCategory = filterByCategories(verified, state.categories);
     return filterBySearch(byCategory, state.q);
@@ -175,7 +189,10 @@ function KarttaPageInner() {
         of the canvas. dvh adapts to Safari address-bar autohide.
         Desktop: classic 70dvh side-by-side with sidebar.
       */}
-      <div className="relative flex h-[calc(100dvh-3rem-4rem-env(safe-area-inset-bottom))] sm:h-[70dvh] sm:flex-row sm:gap-3">
+      {/* `isolate` traps Leaflet's internal z-index (panes ~400, controls
+          ~1000) inside this stacking context so they can't paint over the
+          sticky Header (z-20) when the desktop page scrolls. */}
+      <div className="relative isolate flex h-[calc(100dvh-3rem-4rem-env(safe-area-inset-bottom))] sm:h-[70dvh] sm:flex-row sm:gap-3">
         {/* Map canvas (always mounted) */}
         <div className="relative h-full flex-1 overflow-hidden sm:overflow-hidden sm:rounded-lg sm:border sm:border-border">
           <MapViewClient

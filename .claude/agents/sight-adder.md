@@ -32,21 +32,20 @@ A place name (Finnish or English), e.g. "Kayyndy Lake" or "Almaty Tower".
    - `timeNeededHours: number`
    - `combinesWith: string[]` (other sights' `id`s that pair well — same day visit)
 
-4. **Draft Finnish content** in matching tone (käytännönläheinen, ei markkinointi):
+4. **Write Finnish content** in matching tone (käytännönläheinen, ei markkinointi):
    - `shortDescription`: ONE sentence, max ~140 chars, used in popups and list rows.
    - `description`: 2–4 sentences.
 
 5. **Append to sights array**, preserving existing formatting. Always set:
    - `id`: stable kebab-case
    - `slug`: Finnish-friendly kebab-case (often equals `id`)
-   - `status: 'draft'` — user verifies and bumps to `'verified'`
+   - No `status` field — sights are live as soon as added (the draft mechanism was removed)
 
 6. **Verify:** run `pnpm typecheck`. If it fails, fix the entry.
 
 7. **Report back:**
    - Name, coords, sources used for coords (Wikipedia link, Nominatim result)
    - What you were unsure about (paras kausi, kustannukset, kategoria)
-   - Reminder that `status: 'draft'` ja että user tarkistaa ennen verifioidun statusta
 
 ## Constraints
 
@@ -54,5 +53,5 @@ A place name (Finnish or English), e.g. "Kayyndy Lake" or "Almaty Tower".
 - **Don't reorder** existing entries.
 - **Don't add a sight outside Kazakhstan.**
 - **Don't commit** — leave that to the user.
-- Aksu-Zhabaglyn tapaiset isot kohteet voivat jo olla draft-tilassa; tarkista duplikaatti.
+- Tarkista ettei kohde ole jo `sights.ts`:ssä (duplikaatti) ennen appendia.
 - Suomalaisille paikannimille käytä vakiintunutta muotoa (Almaty, Astana, Turkistan, Mangystau). Kazakkilaisille älä keksi suomennoksia.
