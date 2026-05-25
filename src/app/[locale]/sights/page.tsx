@@ -9,7 +9,7 @@ import SightCard from '@/components/sights/SightCard';
 import SearchInput from '@/components/sights/SearchInput';
 import CategoryFilter from '@/components/map/CategoryFilter';
 import { regionMeta } from '@/data/categories';
-import { excludeDrafts, filterByCategories, filterByRegions } from '@/lib/filters';
+import { filterByCategories, filterByRegions } from '@/lib/filters';
 import { filterBySearch } from '@/lib/search';
 import { useUrlState } from '@/lib/url-state';
 import { sortSights } from '@/lib/sort';
@@ -89,9 +89,9 @@ function NahtavyydetPageInner() {
     }
   };
 
-  // Verified set is stable across rerenders — split so the sort/filter
-  // chain doesn't redo draft exclusion on every keystroke.
-  const verified = useMemo(() => excludeDrafts(sights), []);
+  // Stable reference across rerenders — split so the sort/filter
+  // chain doesn't redo work on every keystroke.
+  const verified = sights;
   const totalCount = verified.length;
 
   // Filter order matters for cost:

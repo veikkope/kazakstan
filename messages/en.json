@@ -65,9 +65,7 @@
       "pathRoutesDescription": "3 different templates: 5, 7, and 10-day versions. A good starting point.",
       "pathInfoTitle": "Practical info",
       "pathInfoDescription": "Visa, currency, transport, pre-departure checklist.",
-      "featuredHeading": "Classic destinations",
-      "draftsHeading": "To be added / confirmed later",
-      "draftsDescription": "These don't appear on the map yet — awaiting confirmation."
+      "featuredHeading": "Classic destinations"
     },
     "map": {
       "title": "Map",
@@ -118,7 +116,6 @@
     "sightDetail": {
       "notFoundTitle": "Destination not found",
       "metaTitle": "{name} — Kazakhstan trip",
-      "draftBadge": "Draft — awaiting confirmation",
       "navigator": "Navigator",
       "descriptionHeading": "Description",
       "historyHeading": "History",
@@ -324,7 +321,6 @@
       "desktopLabelSingle": "Route from your current location"
     },
     "sightCard": {
-      "draft": "Draft",
       "hours": "{count} h",
       "difficultyEasy": "easy",
       "difficultyModerate": "moderate",

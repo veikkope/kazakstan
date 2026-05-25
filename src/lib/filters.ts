@@ -1,9 +1,5 @@
 import type { Category, Region, Sight } from './types';
 
-export function excludeDrafts(sights: Sight[]): Sight[] {
-  return sights.filter((s) => s.status === 'verified');
-}
-
 export function filterByCategories(sights: Sight[], categories: Category[]): Sight[] {
   if (categories.length === 0) return sights;
   const set = new Set(categories);

@@ -67,9 +67,7 @@
       "pathRoutesDescription": "3 түрлі негіз: 5, 7 және 10 күндік нұсқалар. Жақсы бастапқы нүкте.",
       "pathInfoTitle": "Практикалық ақпарат",
       "pathInfoDescription": "Виза, валюта, көлік, сапарға дейінгі чек-парақ.",
-      "featuredHeading": "Классикалық нысандар",
-      "draftsHeading": "Кейінірек қосылатын / расталатын",
-      "draftsDescription": "Бұлар картада әлі көрінбейді — растауды күтуде."
+      "featuredHeading": "Классикалық нысандар"
     },
     "map": {
       "title": "Карта",
@@ -120,7 +118,6 @@
     "sightDetail": {
       "notFoundTitle": "Нысан табылмады",
       "metaTitle": "{name} — Қазақстан сапары",
-      "draftBadge": "Қаралама — растауды күтуде",
       "navigator": "Навигатор",
       "descriptionHeading": "Сипаттама",
       "historyHeading": "Тарих",
@@ -326,7 +323,6 @@
       "desktopLabelSingle": "Қазіргі орныңыздан бастап маршрут"
     },
     "sightCard": {
-      "draft": "Қаралама",
       "hours": "{count} сағ",
       "difficultyEasy": "оңай",
       "difficultyModerate": "орташа",

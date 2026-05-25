@@ -5,7 +5,6 @@ import { Clock, Dumbbell, Wallet, Car, Compass } from 'lucide-react';
 import { m } from 'motion/react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { categoryMeta, regionMeta } from '@/data/categories';
 import { asLocale, localised } from '@/lib/i18n-helpers';
 import type { Sight } from '@/lib/types';
@@ -57,11 +56,6 @@ export default function SightCard({ sight }: { sight: Sight }) {
             >
               {cat.emoji} {localised(cat.label, loc)}
             </span>
-            {sight.status === 'draft' && (
-              <Badge variant="outline" className="text-[10px] uppercase tracking-wide">
-                {t('components.sightCard.draft')}
-              </Badge>
-            )}
           </div>
           <h3 className="mt-2 text-lg font-semibold">
             <Link

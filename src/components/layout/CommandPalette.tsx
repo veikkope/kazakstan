@@ -25,7 +25,6 @@ import {
 } from '@/components/ui/command';
 import { sights } from '@/data/sights';
 import { regionMeta } from '@/data/categories';
-import { excludeDrafts } from '@/lib/filters';
 import { asLocale, localised } from '@/lib/i18n-helpers';
 import { filterBySearch, matchesText, tokenizeQuery } from '@/lib/search';
 
@@ -74,7 +73,7 @@ export default function CommandPalette({ open, onOpenChange }: CommandPalettePro
   const router = useRouter();
   const [query, setQuery] = useState('');
 
-  const verifiedSights = useMemo(() => excludeDrafts(sights), []);
+  const verifiedSights = sights;
 
   // cmdk's built-in filter is substring-only on each item's `value` prop.
   // We disable it (`shouldFilter={false}`) and run our own search lib so

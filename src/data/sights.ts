@@ -66,7 +66,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Almatyn klassikko — pakollinen pysähdys, mutta kaupunkikokemuksena tavanomainen.',
     },
-    status: 'verified',
     featured: true,
   },
   {
@@ -134,7 +133,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Maailman korkeimpia puurakenteisia kirkkoja — selvästi omalaatuinen rakennus.',
     },
-    status: 'verified',
   },
   {
     id: 'green-bazaar',
@@ -201,7 +199,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Vahva makukokemus paikallisesta keittiöstä; basaareita löytyy toki muualtakin.',
     },
-    status: 'verified',
     featured: true,
   },
   {
@@ -296,7 +293,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Mukava näköalakukkula köysiradalla, mutta konseptina tavanomainen.',
     },
-    status: 'verified',
   },
   {
     id: 'medeu-shymbulak',
@@ -390,7 +386,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Maailman korkein luistinrata yhdistettynä isoon hiihtokeskukseen — harvinainen yhdistelmä.',
     },
-    status: 'verified',
     featured: true,
   },
   {
@@ -457,7 +452,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Hyvä katsaus paimentolaiskulttuuriin; museona ei poikkeuksellinen.',
     },
-    status: 'verified',
   },
   {
     id: 'almaty-arbat',
@@ -516,7 +510,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Mukava kävelykatu, mutta vastaavia löytyy jokaisesta isosta kaupungista.',
     },
-    status: 'verified',
   },
   {
     id: 'almaty-craft-beer',
@@ -575,7 +568,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Paikallinen niche-skene; piristystä iltaan mutta ei matkan vetonaula.',
     },
-    status: 'verified',
   },
 
   // ============== ALMATYN ALUE (luontoretket) ==============
@@ -666,7 +658,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Kaunis turkoosi vuoristojärvi; tämäntyyppisiä on globaalisti useita.',
     },
-    status: 'verified',
     featured: true,
   },
   {
@@ -782,7 +773,6 @@ export const sights: Sight[] = [
     },
     researchSlug: 'charyn-canyon',
     lastEnriched: '2026-05-21',
-    status: 'verified',
     featured: true,
   },
   {
@@ -891,7 +881,6 @@ export const sights: Sight[] = [
     },
     researchSlug: 'kolsain-jarvet',
     lastEnriched: '2026-05-21',
-    status: 'verified',
     featured: true,
   },
   {
@@ -986,7 +975,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Vedestä törröttävät kuolleet kuuset ovat aidosti ainutlaatuinen näky.',
     },
-    status: 'verified',
   },
   {
     id: 'singing-dunes',
@@ -1081,7 +1069,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Hiekan "laulava" ääni on maailmanlaajuisesti harvinainen ilmiö.',
     },
-    status: 'verified',
     featured: true,
   },
   {
@@ -1170,7 +1157,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Värikkäät kerrosvuoret; geologisesti puhutteleva, mutta pääsy vaivalloinen.',
     },
-    status: 'verified',
   },
 
   // ============== ASTANA (pääkaupunki) ==============
@@ -1280,7 +1266,6 @@ export const sights: Sight[] = [
     },
     researchSlug: 'baiterek-torni',
     lastEnriched: '2026-05-22',
-    status: 'verified',
     featured: true,
   },
   {
@@ -1400,7 +1385,6 @@ export const sights: Sight[] = [
     },
     researchSlug: 'khan-shatyr',
     lastEnriched: '2026-05-22',
-    status: 'verified',
   },
   {
     id: 'nur-astana-mosque',
@@ -1469,7 +1453,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Hieno moskeija, mutta alueella on muita vielä vaikuttavampia.',
     },
-    status: 'verified',
   },
   {
     id: 'palace-of-peace',
@@ -1570,7 +1553,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Pyramidi maailmanuskontojen kongressitalona — konseptuaalisesti uniikki rakennus.',
     },
-    status: 'verified',
   },
   {
     id: 'hazret-sultan-mosque',
@@ -1678,7 +1660,6 @@ export const sights: Sight[] = [
     },
     researchSlug: 'hazret-sultan-moskeija',
     lastEnriched: '2026-05-22',
-    status: 'verified',
   },
 
   // ============== TURKISTAN (UNESCO) ==============
@@ -1786,7 +1767,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'UNESCO-kohde, Timuridi-arkkitehtuurin alkupiste ja Samarkandin edeltäjä.',
     },
-    status: 'verified',
     featured: true,
   },
   {
@@ -1846,7 +1826,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Mukava lisäys mausoleumi-vierailuun; vahvuus tulee silkkitiekontekstista.',
     },
-    status: 'verified',
   },
 
   // ============== MANGYSTAU (länsi, surreaali aavikko) ==============
@@ -1951,7 +1930,6 @@ export const sights: Sight[] = [
     },
     researchSlug: 'bozzhyra',
     lastEnriched: '2026-05-21',
-    status: 'verified',
     featured: true,
   },
   {
@@ -2026,7 +2004,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Geologisesti ainutlaatuinen pyöreiden konkreetioiden kenttä.',
     },
-    status: 'verified',
   },
   {
     id: 'beket-ata',
@@ -2125,7 +2102,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Maanalainen sufi-moskeija on harvinaisuus; pyhiinvaelluskohteena merkityksellinen.',
     },
-    status: 'verified',
   },
   {
     id: 'sherkala',
@@ -2219,7 +2195,6 @@ export const sights: Sight[] = [
       rationale:
         'Mangystaun ikoninen "leijonalinnoitus" ja alueen tunnetuin maamerkki, mutta käynti on pääosin valokuvauspysäkki.',
     },
-    status: 'verified',
   },
   {
     id: 'tuzbair',
@@ -2319,7 +2294,6 @@ export const sights: Sight[] = [
       rationale:
         'Vähän tunnettu mutta 60 m kalkkikivijyrkänteet kuivuneen suolajärven ympärillä — "Lohikäärmeen silmä" -kaari globaalisti harvinaislaatuinen yhdistelmä.',
     },
-    status: 'verified',
   },
   {
     id: 'kyzylkup',
@@ -2419,7 +2393,6 @@ export const sights: Sight[] = [
       rationale:
         '"Tiramisu-vuoret" — värikerrostumat vaikuttavat (vrt. Zhangye Danxia), mutta laajuus ja drama eivät yllä Bozzhyran tasolle.',
     },
-    status: 'verified',
   },
   {
     id: 'aqtau-promenade',
@@ -2519,7 +2492,6 @@ export const sights: Sight[] = [
       rationale:
         'Lähes jokainen Aqtauhun saapuva kävelee promenadilla, mutta itse kävelykatu auringonlaskuineen on tavallinen rantakaupunkikokemus.',
     },
-    status: 'verified',
   },
   {
     id: 'cape-zhygylgan',
@@ -2613,7 +2585,6 @@ export const sights: Sight[] = [
       rationale:
         'Tunnetaan lähinnä Mangystau-fanaatikkojen keskuudessa, mutta n. 10 km² laaja meren reunaan romahtanut kalliosortuma fossiileineen on harvinainen geologinen ilmiö.',
     },
-    status: 'verified',
   },
   {
     id: 'saura-canyon',
@@ -2713,7 +2684,6 @@ export const sights: Sight[] = [
       rationale:
         'Vähän tunnettu päiväretkikohde, mutta makean veden lähteen keidasjärvi vesikilpikonnineen aavikossa on ekologisesti epätyypillinen yhdistelmä.',
     },
-    status: 'verified',
   },
   {
     id: 'tamshaly-canyon',
@@ -2808,7 +2778,6 @@ export const sights: Sight[] = [
     },
     researchSlug: 'tamshaly-kanjoni',
     lastEnriched: '2026-05-24',
-    status: 'verified',
   },
 
   // ============== SHYMKENT ==============
@@ -2870,7 +2839,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Tavallinen restauroitu vanhakaupunki; arvo nousee silkkitie-kontekstissa.',
     },
-    status: 'verified',
   },
 
   // ============== DRAFT (näkyy vain "Myöhemmin lisättävät" -osiossa) ==============
@@ -2925,7 +2893,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Keski-Aasian vanhin luonnonpuisto; vähän käyty, biologisesti rikas.',
     },
-    status: 'verified',
   },
 
   // ============== ASTANA-LISÄYKSET (kesäkuun 2026 reissua varten) ==============
@@ -3029,7 +2996,6 @@ export const sights: Sight[] = [
       rationale:
         'Guinness-sertifioitu maailman suurin pallorakennus ja EXPO 2017 -ikoni — Astanan top-3 must-see, 8 kerrosta interaktiivista energiamuseota, arkkitehtuuri geometrialtaan ainutlaatuinen globaalisti.',
     },
-    status: 'verified',
     featured: true,
   },
   {
@@ -3131,7 +3097,6 @@ export const sights: Sight[] = [
       rationale:
         'Keski-Aasian suurimpiin lukeutuva museo on Astanan vakiokierroksen osa; 7 salia ja Kultainen mies tarjoavat puoli päivää sisältöä, mutta kansallismuseo-konsepti yleinen pääkaupungeissa.',
     },
-    status: 'verified',
     featured: true,
   },
   {
@@ -3225,7 +3190,6 @@ export const sights: Sight[] = [
       rationale:
         'Astanassa tunnettu kulttuurilaitos mutta turistien harvoin vierailema; italialainen uusklassisismi tavanomainen, kesäkuun kausitauko jättää vain ulkoarkkitehtuurin.',
     },
-    status: 'verified',
   },
   {
     id: 'atameken-map',
@@ -3320,7 +3284,6 @@ export const sights: Sight[] = [
       rationale:
         'Koko maan miniatyyrikartta 1,7 hehtaarilla on harvinainen konsepti (vrt. Brysselin Mini-Europe, Pekingin World Park) mutta turistikuplan ulkopuolella.',
     },
-    status: 'verified',
   },
   {
     id: 'burabay-park',
@@ -3426,7 +3389,6 @@ export const sights: Sight[] = [
       rationale:
         'Pohjois-Kazakstanin tunnetuin lomakohde — järvi, graniittivuori ja mäntymetsä tarjoavat koko päivän aktiviteetit, mutta konsepti vastaa globaalisti Karjalan/Baltian maisemaa.',
     },
-    status: 'verified',
     featured: true,
   },
   {
@@ -3526,7 +3488,6 @@ export const sights: Sight[] = [
       rationale:
         'Saryarkan oikea ranta jää useimmilta turisteilta ohi vasemman rannan futurismin varjossa; neuvostokauden Tselinograd-rakennukset tyypillistä postSov-arkkitehtuuria.',
     },
-    status: 'verified',
   },
 
   // ============== UUDET KOHTEET (lisätty 2026-05-23) ==============
@@ -3617,7 +3578,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-23',
       rationale: 'Kazakstanin kansallisidentiteetin syntypaikka — kotimaassa tunnettu, ulkomailla marginaalinen. Konteksti Astanan kansallismuseon kultanäyttelylle.',
     },
-    status: 'verified',
   },
   {
     id: 'korgalzhyn',
@@ -3701,7 +3661,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-23',
       rationale: 'UNESCO + maailman pohjoisin flamingopopulaatio — ekosysteemi jolla ei vastinetta tällä leveysasteella. Lintubongareille pakollinen.',
     },
-    status: 'verified',
   },
   {
     id: 'alzhir-memorial',
@@ -3784,7 +3743,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-23',
       rationale: 'Gulag-museoita on muutamia, mutta naisleirinä tämä on poikkeuksellinen. Suomalaiselle Stalinin terrori on opettavainen sukulaistarina.',
     },
-    status: 'verified',
   },
   {
     id: 'sauran',
@@ -3868,7 +3826,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-23',
       rationale: 'Silkkitien autenttisimpia raunioita Kazakstanissa, käytännössä ei turisteja. Kyariz-järjestelmä uniikki Keski-Aasiassa.',
     },
-    status: 'verified',
   },
 
   // -------- Vahvasti harkittavat --------
@@ -3948,7 +3905,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-23',
       rationale: 'Maailmanhistoriallisesti merkittävä tuhokohde + pyhiinvaelluskeskus. Yhdistettynä Sauraniin ja Khojaan, koko silkkitiepäivä Turkistanin pohjana.',
     },
-    status: 'verified',
   },
   {
     id: 'tamgaly-tas',
@@ -4031,7 +3987,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-23',
       rationale: 'Buddhalaisuus + petroglyfit + aro — yhdistelmä jolla ei vastinetta muualla Kazakstanissa.',
     },
-    status: 'verified',
   },
   {
     id: 'charyn-ash-grove',
@@ -4109,7 +4064,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-23',
       rationale: 'Paleobotaaninen relikti, ainutlaatuinen koko Keski-Aasiassa. Yhdistyy ilmaiseksi Charynin retkeen.',
     },
-    status: 'verified',
   },
   {
     id: 'sunkar-falconry',
@@ -4187,7 +4141,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-23',
       rationale: 'Kazakkilaisen kotkametsästysperinteen parhaiten saavutettava esittely Almatyn alueella. Show-luonteinen mutta autenttiset linnut ja kouluttajat.',
     },
-    status: 'verified',
   },
   {
     id: 'karlag-karaganda',
@@ -4275,7 +4228,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-23',
       rationale: 'Suomen muistomerkin takia poikkeuksellisen merkityksellinen suomalaiselle. Syvempi gulag-tarina kuin ALŽIR mutta vaatii yön Karagandassa.',
     },
-    status: 'verified',
   },
   {
     id: 'atyrau',
@@ -4364,7 +4316,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-23',
       rationale: 'Yksittäisenä kohteena keskinkertainen, mutta Eurooppa-Aasia-silta on hauska anekdootti ja kaviaari toimii ruokakerroksena. Kytkös Aktolagayyn nostaa arvoa.',
     },
-    status: 'verified',
   },
   {
     id: 'akyrtas',
@@ -4436,7 +4387,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-23',
       rationale: 'Mittakaava + selittämättömyys tekevät kohteesta poikkeuksellisen. Vain harvojen tiedossa, jopa Kazakstanin sisällä.',
     },
-    status: 'verified',
   },
   {
     id: 'aisha-bibi',
@@ -4508,7 +4458,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-23',
       rationale: 'Terrakottakuviot ainutlaatuisia Keski-Aasiassa. Sopii Taraz-pysähdyspariksi Akyrtasin kanssa.',
     },
-    status: 'verified',
   },
 
   // -------- Unelmakohteet --------
@@ -4594,7 +4543,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-23',
       rationale: 'Kazakstanin ainoa "alppi-Kazakstan" — täysin eri maisematyyppi kuin muu maa. Vaatii commitmentin mutta palkitsee.',
     },
-    status: 'verified',
   },
   {
     id: 'baikonur',
@@ -4672,7 +4620,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-23',
       rationale: 'Universaalisti tunnettu, mutta vain pieni vähemmistö käy. Avaruusfanille pyhiinvaelluskohde.',
     },
-    status: 'verified',
   },
   {
     id: 'aral-sea',
@@ -4762,7 +4709,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-23',
       rationale: 'Globaalisti tunnettu ekokatastrofialue, mutta laivojen vähetessä visuaalinen vaikutus heikkenee. Realismi tarkistettava ennen päätöstä.',
     },
-    status: 'verified',
   },
   {
     id: 'semey',
@@ -4840,7 +4786,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-23',
       rationale: 'Dostojevski-museo ainutlaatuinen, mutta kaukana reitistä. Polygon kiinnostava mutta vaatii varmistuksen.',
     },
-    status: 'verified',
   },
   {
     id: 'markakol',
@@ -4918,7 +4863,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-23',
       rationale: 'Luonnonrauhalle erinomainen, mutta "ei tehtävää". Vain Altai-fokus-reissulle.',
     },
-    status: 'verified',
   },
   {
     id: 'aktolagay',
@@ -4996,7 +4940,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-23',
       rationale: 'Visuaalisesti vahva mutta jos Mangystau on jo katettu, toistoa. Vain jos länsi-Kazakstanin fokus.',
     },
-    status: 'verified',
   },
   {
     id: 'ulytau-jochi',
@@ -5074,7 +5017,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-23',
       rationale: 'Ainoa Tšingisin perheen lähihauta jota voi vierailla. Mutta etäisyys tekee kohteesta vaikean.',
     },
-    status: 'verified',
   },
   {
     id: 'kiin-kerish',
@@ -5146,7 +5088,6 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-23',
       rationale: 'Visuaalisesti vahva ja erottuu kaikista muista alueen kohteista. Sopii vain Altai-sub-reissun yhteyteen.',
     },
-    status: 'verified',
   },
   {
     id: 'khan-tengri',
@@ -5254,7 +5195,6 @@ export const sights: Sight[] = [
     },
     researchSlug: 'khan-tengri',
     lastEnriched: '2026-05-24',
-    status: 'verified',
   },
   {
     id: 'ustyurt-reserve',
@@ -5357,7 +5297,6 @@ export const sights: Sight[] = [
         'Suljettu valtion zapovednik, pääsy vain ennakkoluvalla ja akkreditoidulla oppaalla — kävijämäärät marginaalisia. Harvinainen aavikkofauna (urial, jeyran, manul) ja UNESCO Tentative -status nostavat sisältöarvoa, mutta vapaasti käytävät Bozzhyra ja Tuzbair vetävät enemmistön kävijöistä.',
     },
     lastEnriched: '2026-05-24',
-    status: 'verified',
   },
   {
     id: 'medeu-dam',
@@ -5461,7 +5400,6 @@ export const sights: Sight[] = [
         'Maailman korkein mutavyörypato (150 m), rakennettu ainutlaatuisella suunnatulla räjäytyksellä — UNESCO-aieluettelolla. Suuri osa Medeu/Shymbulak-kävijöistä ohittaa padon mutta vain murto-osa kiipeää 842 portaan päähän.',
     },
     lastEnriched: '2026-05-24',
-    status: 'verified',
   },
   {
     id: 'asy-plateau',
@@ -5596,7 +5534,6 @@ export const sights: Sight[] = [
     },
     researchSlug: 'assyn-ylatasanko',
     lastEnriched: '2026-05-24',
-    status: 'verified',
   },
   {
     id: 'baluaniyaz-batyr',
@@ -5692,7 +5629,6 @@ export const sights: Sight[] = [
     },
     researchSlug: 'baluaniyaz-batyrin-mausoleumi',
     lastEnriched: '2026-05-24',
-    status: 'verified',
   },
   {
     id: 'karynzharyq-nakoalapaikka',
@@ -5801,7 +5737,6 @@ export const sights: Sight[] = [
     },
     researchSlug: 'karynzharyq-nakoalapaikka',
     lastEnriched: '2026-05-24',
-    status: 'verified',
   },
   {
     id: 'akkol-talgar',
@@ -5896,6 +5831,821 @@ export const sights: Sight[] = [
     },
     researchSlug: 'akkol-jarvi-talgar',
     lastEnriched: '2026-05-24',
-    status: 'verified',
+  },
+  {
+    id: 'furmanov-peak',
+    slug: 'furmanov-huippu',
+    name: {
+      fi: 'Furmanov-huippu',
+      en: 'Furmanov Peak',
+      ru: 'Пик Фурманова',
+      kk: 'Фурманов шыңы',
+    },
+    nameLocal: 'Пик Фурманова',
+    category: 'nature',
+    region: 'almaty-region',
+    coords: { lat: 43.1496, lng: 77.1161 },
+    shortDescription: {
+      fi: 'Klassinen ei-tekninen 3050 metrin päivähuippu suoraan Medeun luistinradalta — kova nousu, ei lupia.',
+      en: 'A classic non-technical 3,050 m day peak straight from the Medeu rink — a tough climb, no permits.',
+      ru: 'Классическая нетехническая вершина 3050 м одним днём прямо от катка Медеу — серьёзный набор высоты, без пропусков.',
+      kk: 'Медеу мұз айдынынан тура басталатын классикалық техникалық емес 3050 м биіктегі бір күндік шың — қатты көтерілу, рұқсат қажет емес.',
+    },
+    description: {
+      fi: 'Furmanov (3050 m) on yksi Almatyn suosituimmista päivähuipuista. Reitti lähtee suoraan Medeun luistinradalta (1609 m) ja nousee Kim Asar -rotkon harjannetta kuusimetsän läpi — edestakaisin n. 16 km ja nousua noin 1400 m, joten varaa 7–8 tuntia. Ei vaadi lupia eikä teknistä kalustoa, mutta kunnon kunto on pakollinen.\n\nHuippu jää lumirajan alapuolelle, joten se on yleensä kuljettavissa kesäkuun alusta lokakuulle (säävaraus). Keskustasta pääsee bussilla 12 tai 28 Medeulle, tai Yandex Go -taksilla.',
+      en: 'Furmanov (3,050 m) is one of Almaty\'s most popular day peaks. The trail starts straight from the Medeu skating rink (1,609 m) and climbs the ridge of the Kim Asar gorge through spruce forest — about 16 km return with roughly 1,400 m of ascent, so allow 7–8 hours. No permits or technical gear needed, but good fitness is essential.\n\nThe summit sits below the snow line, so it is usually walkable from early June into October (weather permitting). From the centre take bus 12 or 28 to Medeu, or a Yandex Go taxi.',
+      ru: 'Фурманова (3050 м) — одна из самых популярных однодневных вершин Алматы. Маршрут начинается прямо от катка Медеу (1609 м) и поднимается по гребню ущелья Ким-Асар через еловый лес — около 16 км туда-обратно и примерно 1400 м набора, так что закладывайте 7–8 часов. Пропуска и техническое снаряжение не нужны, но хорошая физическая форма обязательна.\n\nВершина ниже снеговой линии, поэтому обычно проходима с начала июня до октября (по погоде). Из центра до Медеу идут автобусы 12 и 28 или такси Yandex Go.',
+      kk: 'Фурманов (3050 м) — Алматының ең танымал бір күндік шыңдарының бірі. Маршрут Медеу мұз айдынынан (1609 м) тура басталып, Қым-Асар шатқалының жотасымен шыршалы орман арқылы көтеріледі — барып-қайту шамамен 16 км және 1400 м-ге жуық көтерілу, сондықтан 7–8 сағат бөліңіз. Рұқсат пен техникалық жабдық қажет емес, бірақ жақсы дене дайындығы міндетті.\n\nШың қар сызығынан төмен орналасқан, сондықтан әдетте маусым басынан қазанға дейін жүруге болады (ауа райына байланысты). Орталықтан Медеуге 12 не 28 автобусымен немесе Yandex Go таксиімен жетуге болады.',
+    },
+    tags: ['huippu', 'vaellus', 'vuoristo'],
+    bestMonths: [6, 7, 8, 9, 10],
+    travelTimeFromAlmatyHours: 1,
+    difficulty: 'hard',
+    needsCar: false,
+    needsGuide: false,
+    budgetLevel: 'low',
+    timeNeededHours: 8,
+    costKZT: 'free',
+    combinesWith: ['medeu-shymbulak', 'medeu-dam'],
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/1/10/Furmanov_peak_with_view_on_Talgar_peak.jpg',
+    imageAlt: {
+      fi: 'Furmanov-huipun harjanne ja näkymä Talgar-huipulle',
+      en: 'The Furmanov Peak ridge with a view to Talgar Peak',
+      ru: 'Гребень пика Фурманова с видом на пик Талгар',
+      kk: 'Фурманов шыңының жотасы және Талғар шыңына көрініс',
+    },
+    imageAttribution: {
+      sourceUrl:
+        'https://commons.wikimedia.org/wiki/File:Furmanov_peak_with_view_on_Talgar_peak.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Nikita Mikhailovskiy (Nmikhailovskiy)',
+      license: 'CC BY-SA 4.0',
+    },
+    historicalContext: {
+      fi: 'Huippu on nimetty neuvostokirjailija Dmitri Furmanovin mukaan ja sijaitsee Ile-Alatausin pohjoisrinteellä Medeun yläpuolella; harjanteen "Furmanov-keinu" (~2500 m) on yksi Almatyn kuvatuimmista paikoista.',
+      en: 'The peak is named after the Soviet writer Dmitry Furmanov and sits on the northern slope of the Ile Alatau above Medeu; the ridge\'s "Furmanov swing" (~2,500 m) is one of Almaty\'s most photographed spots.',
+      ru: 'Вершина названа в честь советского писателя Дмитрия Фурманова и расположена на северном склоне Иле-Алатау над Медеу; «качели Фурманова» на гребне (~2500 м) — одно из самых фотографируемых мест Алматы.',
+      kk: 'Шың кеңестік жазушы Дмитрий Фурмановтың атымен аталған және Медеу үстіндегі Іле Алатаудың солтүстік беткейінде орналасқан; жотадағы «Фурманов әткеншегі» (~2500 м) — Алматының ең көп суретке түсірілетін орындарының бірі.',
+    },
+    practicalTips: [
+      {
+        fi: 'Edestakaisin ~16 km ja nousua ~1400 m — varaa 7–8 tuntia; reitti ei ole tekninen, mutta vaatii hyvän kunnon.',
+        en: 'About 16 km return with ~1,400 m of ascent — allow 7–8 hours; the route is non-technical but demands good fitness.',
+        ru: 'Около 16 км туда-обратно и ~1400 м набора — закладывайте 7–8 часов; маршрут нетехнический, но требует хорошей формы.',
+        kk: 'Барып-қайту шамамен 16 км және ~1400 м көтерілу — 7–8 сағат бөліңіз; маршрут техникалық емес, бірақ жақсы дене дайындығын талап етеді.',
+      },
+      {
+        fi: 'Ei lupia eikä maksua, mutta reitillä ei ole palveluja — täytä vesi ~2,5 km kohdan lähteestä, yläosassa vettä ei ole.',
+        en: 'No permits or fee, but no services on the trail — fill up at the spring around 2.5 km, there is no water higher up.',
+        ru: 'Пропусков и платы нет, но и сервиса на маршруте нет — наберите воду у родника на ~2,5 км, выше воды нет.',
+        kk: 'Рұқсат пен төлем жоқ, бірақ маршрутта қызмет те жоқ — ~2,5 км белгісіндегі бұлақтан су толтырыңыз, жоғарыда су жоқ.',
+      },
+      {
+        fi: 'Lähde aamulla — iltapäivällä harjanteille nousee usein ukkoskuuroja.',
+        en: 'Start in the morning — afternoon thunderstorms often build over the ridges.',
+        ru: 'Выходите утром — днём над гребнями часто собираются грозы.',
+        kk: 'Таңертең шығыңыз — түстен кейін жоталарда жиі найзағайлы жаңбыр пайда болады.',
+      },
+      {
+        fi: 'Yleensä kuljettavissa kesäkuun alusta lokakuulle; alkukesästä varjorinteillä voi olla lumilaikkuja.',
+        en: 'Usually walkable from early June into October; in early summer the shaded slopes may still hold patches of snow.',
+        ru: 'Обычно проходима с начала июня до октября; в начале лета на теневых склонах могут оставаться снежники.',
+        kk: 'Әдетте маусым басынан қазанға дейін жүруге болады; жаз басында көлеңкелі беткейлерде қар дақтары қалуы мүмкін.',
+      },
+    ],
+    ratings: {
+      popularity: 3,
+      interest: 4,
+      uniqueness: 2,
+      ratedAt: '2026-05-25',
+      rationale:
+        'Yksi Almatyn suosituimmista ei-teknisistä päivähuipuista — ilmainen, ei lupia, suoraan Medeulta; ikoninen harjannenäkymä. Itse vaellus on Tienšanissa tavanomainen päivähuippu, joten ainutlaatuisuus jää matalaksi.',
+    },
+    lastEnriched: '2026-05-25',
+  },
+  {
+    id: 'kok-zhailau',
+    slug: 'kok-zhailau',
+    name: {
+      fi: 'Kök-Zhailau',
+      en: 'Kok-Zhailau',
+      ru: 'Кок-Жайляу',
+      kk: 'Көк Жайлау',
+    },
+    nameLocal: 'Кок-Жайляу',
+    category: 'nature',
+    region: 'almaty-region',
+    coords: { lat: 43.1398, lng: 76.996 },
+    shortDescription: {
+      fi: 'Vihreä ylätasanko 2240 metrissä — suosittu helppo päivävaellus ja hyvä akklimatisointikävely.',
+      en: 'A green plateau at 2,240 m — a popular easy day hike and a good acclimatisation walk.',
+      ru: 'Зелёное плато на 2240 м — популярный лёгкий однодневный маршрут и хорошая акклиматизация.',
+      kk: '2240 м биіктіктегі жасыл жайлау — танымал жеңіл бір күндік жорық әрі жақсы бейімделу серуені.',
+    },
+    description: {
+      fi: 'Kök-Zhailau ("vihreä laidun") on Ile-Alatausin alppiniitty 2240 metrissä, yksi Almatyn suosituimmista lähivaelluksista. Reitti on 10–13 km edestakaisin ja nousua noin 600–700 m — varaa 5–6 tuntia. Vaellus on suurimmaksi osaksi helppo ja merkitty, sopii hyvin myös ensimmäiseksi korkeuskävelyksi ennen kovempia huippuja.\n\nLähtöpisteet ovat Prosveshchenets-portti Medeun tien varrella tai Terrenkur-polku. Bussi 12 vie lähtöön, eikä lupia tarvita.',
+      en: 'Kok-Zhailau ("green pasture") is an alpine meadow in the Ile Alatau at 2,240 m and one of Almaty\'s most popular local hikes. The route is 10–13 km return with roughly 600–700 m of ascent — allow 5–6 hours. It is mostly easy and waymarked, and works well as a first altitude walk before tougher peaks.\n\nTrailheads are the Prosveshchenets gate off the Medeu road or the Terrenkur path. Bus 12 reaches the start, and no permits are required.',
+      ru: 'Кок-Жайляу («зелёное пастбище») — альпийский луг в Иле-Алатау на высоте 2240 м и один из самых популярных маршрутов вблизи Алматы. Путь 10–13 км туда-обратно с набором около 600–700 м — закладывайте 5–6 часов. Маршрут в основном лёгкий и размеченный, хорошо подходит как первая высотная прогулка перед более серьёзными вершинами.\n\nСтарт — у ворот Просвещенец на дороге к Медеу или по тропе Терренкур. До начала идёт автобус 12, пропуска не нужны.',
+      kk: 'Көк Жайлау — Іле Алатаудағы 2240 м биіктіктегі биік таулы шалғын, Алматы маңындағы ең танымал жорықтардың бірі. Жол барып-қайту 10–13 км, көтерілу шамамен 600–700 м — 5–6 сағат бөліңіз. Маршрут негізінен жеңіл әрі белгіленген, қиынырақ шыңдарға дейінгі алғашқы биіктік серуені ретінде өте қолайлы.\n\nБастау нүктелері — Медеу жолындағы Просвещенец қақпасы немесе Терренкур соқпағы. Бастауға 12 автобус жетеді, рұқсат қажет емес.',
+    },
+    tags: ['vaellus', 'ylätasanko', 'vuoristo'],
+    bestMonths: [5, 6, 7, 8, 9, 10],
+    travelTimeFromAlmatyHours: 1,
+    difficulty: 'easy',
+    needsCar: false,
+    needsGuide: false,
+    budgetLevel: 'low',
+    timeNeededHours: 6,
+    costKZT: 'free',
+    combinesWith: ['medeu-shymbulak', 'furmanov-peak'],
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/3/37/Kok_Zhailau_Scenery.jpg',
+    imageAlt: {
+      fi: 'Kök-Zhailaun vihreä alppiniitty vuorten keskellä',
+      en: 'The green alpine meadow of Kok-Zhailau among the mountains',
+      ru: 'Зелёный альпийский луг Кок-Жайляу среди гор',
+      kk: 'Таулар арасындағы Көк Жайлаудың жасыл биік таулы шалғыны',
+    },
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Kok_Zhailau_Scenery.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Yerdeshkyzy',
+      license: 'CC BY-SA 4.0',
+    },
+    historicalContext: {
+      fi: 'Kök-Zhailau ("vihreä laidun") on paimentolaisten vanha kesälaidun Ile-Alataun kansallispuistossa; alueesta vuosia kiistelty suuri hiihtokeskushanke on toistuvasti kaatunut ympäristövastustukseen.',
+      en: 'Kok-Zhailau ("green pasture") is an old nomad summer pasture in the Ile Alatau national park; a long-disputed major ski-resort project here has repeatedly collapsed under environmental opposition.',
+      ru: 'Кок-Жайляу («зелёное пастбище») — старое летнее пастбище кочевников в национальном парке Иле-Алатау; долго обсуждавшийся крупный горнолыжный проект здесь не раз срывался из-за протестов экологов.',
+      kk: 'Көк Жайлау («жасыл жайылым») — Іле Алатау ұлттық паркіндегі көшпенділердің ескі жайлауы; мұндағы ұзақ талас тудырған ірі тау шаңғысы курорты жобасы экологиялық қарсылыққа бірнеше рет тоқтап қалды.',
+    },
+    practicalTips: [
+      {
+        fi: 'Edestakaisin 10–13 km, nousua ~600–700 m — varaa 5–6 tuntia; vain ensimmäinen tunti on jyrkkä, sen jälkeen polku loivenee.',
+        en: '10–13 km return with ~600–700 m of ascent — allow 5–6 hours; only the first hour is steep, then the trail eases.',
+        ru: '10–13 км туда-обратно, набор ~600–700 м — закладывайте 5–6 часов; круто только первый час, дальше тропа выполаживается.',
+        kk: 'Барып-қайту 10–13 км, көтерілу ~600–700 м — 5–6 сағат бөліңіз; тек алғашқы сағат тік, одан кейін соқпақ жайлап түседі.',
+      },
+      {
+        fi: 'Hyvä akklimatisointikävely ennen kovempia huippuja — helppo ja merkitty.',
+        en: 'A good acclimatisation walk before tougher peaks — easy and waymarked.',
+        ru: 'Хорошая акклиматизационная прогулка перед более серьёзными вершинами — лёгкая и размеченная.',
+        kk: 'Қиынырақ шыңдарға дейінгі жақсы бейімделу серуені — жеңіл әрі белгіленген.',
+      },
+      {
+        fi: 'Tasangolla ei ole kioskeja, kahvilaa eikä jurttia — vie vesi ja eväät mukaan.',
+        en: 'No kiosks, café or yurts on the plateau — bring your own water and food.',
+        ru: 'На плато нет киосков, кафе и юрт — берите воду и еду с собой.',
+        kk: 'Жайлауда дүңгіршек, кафе не киіз үй жоқ — су мен азықты өзіңізбен алыңыз.',
+      },
+      {
+        fi: 'Touko–kesäkuussa polku on sulamisvedestä mutainen ja liukas — pitävät kengät; talvella reitti on lumen peitossa.',
+        en: 'In May–June the trail is muddy and slippery from meltwater — wear grippy shoes; in winter it is under snow.',
+        ru: 'В мае–июне тропа грязная и скользкая от талой воды — нужна обувь с протектором; зимой маршрут под снегом.',
+        kk: 'Мамыр–маусымда соқпақ еріген судан балшықты әрі сырғанақ — табаны жақсы аяқкиім; қыста маршрут қар астында.',
+      },
+    ],
+    ratings: {
+      popularity: 4,
+      interest: 3,
+      uniqueness: 2,
+      ratedAt: '2026-05-25',
+      rationale:
+        'Almatyn suosituin ja saavutettavin lähivaellus, mutta sisältönä yksittäinen helppo niittykävely ja alppiniittynä globaalisti tavanomainen.',
+    },
+    lastEnriched: '2026-05-25',
+  },
+  {
+    id: 'kumbel-peak',
+    slug: 'kumbel-huippu',
+    name: {
+      fi: 'Kumbel-huippu',
+      en: 'Kumbel Peak',
+      ru: 'Пик Кумбель',
+      kk: 'Күмбел шыңы',
+    },
+    nameLocal: 'Пик Кумбель',
+    category: 'nature',
+    region: 'almaty-region',
+    coords: { lat: 43.1193, lng: 77.0313 },
+    shortDescription: {
+      fi: 'Ei-tekninen mutta vaativa ~3200 metrin huippu Shymbulakin yläpuolella — gondolilla pääsee korkealle.',
+      en: 'A non-technical but demanding ~3,200 m peak above Shymbulak — the gondola lifts you high.',
+      ru: 'Нетехническая, но непростая вершина ~3200 м над Шымбулаком — гондола поднимает высоко.',
+      kk: 'Шымбұлақ үстіндегі ~3200 м техникалық емес, бірақ қиын шың — гондола биікке көтереді.',
+    },
+    description: {
+      fi: 'Kumbel (~3200 m) on ei-tekninen mutta vaativa huippu Kumbel Tau -harjanteella Shymbulakin yläpuolella. Helpoin reitti nousee Shymbulakin gondolilla Talgar-solan suuntaan ja jatkuu sieltä harjannetta huipulle — yhteensä n. 15 km ja 5–6 tuntia. Pohjoisrinteen varjoissa on lumilaikkuja vielä kesäkuun alussa, mutta reitti on pääosin kuljettavissa.\n\nHuomaa, että "Kumbel-huipulla" tarkoitetaan tätä noin 3200 metrin matkailupistettä, ei kauempana harjanteella olevaa varsinaista Mount Kumbelia (3618 m).',
+      en: 'Kumbel (~3,200 m) is a non-technical but demanding peak on the Kumbel Tau ridge above Shymbulak. The easiest route takes the Shymbulak gondola toward the Talgar pass and then follows the ridge to the summit — about 15 km and 5–6 hours in total. Shaded north slopes hold patches of snow into early June, but the route is mostly passable.\n\nNote that "Kumbel Peak" here means this ~3,200 m tourist point, not the true Mount Kumbel (3,618 m) further along the ridge.',
+      ru: 'Кумбель (~3200 м) — нетехническая, но непростая вершина на хребте Кумбель-Тау над Шымбулаком. Самый лёгкий путь — на гондоле Шымбулака в сторону перевала Талгар, а затем по гребню к вершине — всего около 15 км и 5–6 часов. В тени северных склонов снежники держатся до начала июня, но маршрут в основном проходим.\n\nУчтите, что «пик Кумбель» здесь — эта туристическая точка ~3200 м, а не настоящая гора Кумбель (3618 м) дальше по гребню.',
+      kk: 'Күмбел (~3200 м) — Шымбұлақ үстіндегі Күмбел Тау жотасындағы техникалық емес, бірақ қиын шың. Ең жеңіл жол Шымбұлақ гондоласымен Талғар асуы бағытына көтеріліп, сосын жотамен шыңға жетеді — барлығы шамамен 15 км және 5–6 сағат. Көлеңкелі солтүстік беткейлерде маусым басына дейін қар дақтары сақталады, бірақ маршрут негізінен өтуге жарамды.\n\nМұндағы «Күмбел шыңы» дегеніміз — осы ~3200 м туристік нүкте, жотаның арғы жағындағы нағыз Күмбел тауы (3618 м) емес.',
+    },
+    tags: ['huippu', 'vaellus', 'vuoristo'],
+    bestMonths: [6, 7, 8, 9],
+    travelTimeFromAlmatyHours: 1,
+    difficulty: 'hard',
+    needsCar: false,
+    needsGuide: false,
+    budgetLevel: 'mid',
+    timeNeededHours: 7,
+    costKZT: 7000,
+    combinesWith: ['medeu-shymbulak'],
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/8/81/View_of_the_snow_peak_Talgar_%284979_m%29_from_the_Talgar_Pass_%283200_m%29_in_summer.jpg',
+    imageAlt: {
+      fi: 'Näkymä Talgar-solalta lumihuippuiselle Talgarille kesällä',
+      en: 'View from the Talgar Pass toward the snowy Talgar peak in summer',
+      ru: 'Вид с перевала Талгар на заснеженный пик Талгар летом',
+      kk: 'Жазда Талғар асуынан қарлы Талғар шыңына көрініс',
+    },
+    imageAttribution: {
+      sourceUrl:
+        'https://commons.wikimedia.org/wiki/File:View_of_the_snow_peak_Talgar_(4979_m)_from_the_Talgar_Pass_(3200_m)_in_summer.jpg',
+      source: 'Wikimedia Commons',
+      author: 'МаратД',
+      license: 'CC BY-SA 4.0',
+    },
+    historicalContext: {
+      fi: 'Kumbel Tau on Zailijski Alataun vedenjakajaharjanne, jonka nimi tulee kazakin sanoista *kum* (hiekka) ja *bel* (harjanne); huipulla on pieni kello, jota nousijat soittavat perinteen mukaan.',
+      en: 'Kumbel Tau is a watershed ridge of the Trans-Ili Alatau whose name comes from the Kazakh *kum* (sand) and *bel* (ridge); a small bell on the summit is rung by climbers as a tradition.',
+      ru: 'Кумбель-Тау — водораздельный хребет Заилийского Алатау, чьё название происходит от казахских *кум* (песок) и *бел* (хребет); на вершине есть колокол, в который по традиции звонят восходители.',
+      kk: 'Күмбел Тау — Іле Алатауының суайрық жотасы, оның атауы қазақтың *құм* (құм) және *бел* (жота) сөздерінен шыққан; шыңдағы шағын қоңырауды дәстүр бойынша шыңға шыққандар соғады.',
+    },
+    practicalTips: [
+      {
+        fi: 'Gondoliavusteisena n. 15 km ja 5–6 tuntia; alhaalta noustessa 19–20 km ja 1700–1900 m nousua — pitkä mutta ei-tekninen.',
+        en: 'Gondola-assisted it is about 15 km and 5–6 hours; from the bottom it is 19–20 km with 1,700–1,900 m of ascent — long but non-technical.',
+        ru: 'С гондолой около 15 км и 5–6 часов; снизу — 19–20 км и 1700–1900 м набора — длинно, но нетехнически.',
+        kk: 'Гондоламен шамамен 15 км және 5–6 сағат; төменнен 19–20 км және 1700–1900 м көтерілу — ұзақ, бірақ техникалық емес.',
+      },
+      {
+        fi: 'Gondolilippu n. 7000 KZT suuntaansa; tarkista viimeisen alasmenon aika — myöhästyt, ja edessä on pitkä jalkamatka laaksoon.',
+        en: 'A gondola ticket is about 7,000 KZT each way; check the last downhill run — miss it and you face a long walk back to the valley.',
+        ru: 'Билет на гондолу около 7000 KZT в одну сторону; уточните последний спуск — опоздаете, и придётся долго идти в долину пешком.',
+        kk: 'Гондола билеті бір бағытқа шамамен 7000 KZT; соңғы төмен түсу уақытын тексеріңіз — кешіксеңіз, аңғарға дейін ұзақ жаяу жүруге тура келеді.',
+      },
+      {
+        fi: 'Harjanteella olet omillasi — ota eväät ja vesi; palvelut ovat vain Shymbulakin asemilla.',
+        en: 'On the ridge you are on your own — bring food and water; services are only at the Shymbulak stations.',
+        ru: 'На гребне вы сами по себе — берите еду и воду; сервис только на станциях Шымбулака.',
+        kk: 'Жотада өз бетіңізше боласыз — азық пен су алыңыз; қызмет тек Шымбұлақ бекеттерінде.',
+      },
+      {
+        fi: 'Kesäkuun alussa pohjoisvarjoissa voi olla lunta — kysy reitin tilanne Shymbulakin henkilökunnalta.',
+        en: 'In early June the shaded north faces may hold snow — ask the Shymbulak staff about the route condition.',
+        ru: 'В начале июня в тени северных склонов может лежать снег — спросите о состоянии маршрута у персонала Шымбулака.',
+        kk: 'Маусым басында көлеңкелі солтүстік беткейлерде қар болуы мүмкін — маршрут жағдайын Шымбұлақ қызметкерлерінен сұраңыз.',
+      },
+    ],
+    ratings: {
+      popularity: 2,
+      interest: 3,
+      uniqueness: 2,
+      ratedAt: '2026-05-25',
+      rationale:
+        'Aito vaeltajien kohde mutta ei yleisön klassikko; kunnollinen koko päivän panoraamavaellus, mutta ei-tekninen näköalahuippu on Tienšanissa geneerinen.',
+    },
+    lastEnriched: '2026-05-25',
+  },
+  {
+    id: 'tuyuksu-valley',
+    slug: 'tuyuksu-laakso',
+    name: {
+      fi: 'Tuyuksu-laakso',
+      en: 'Tuyuksu Valley',
+      ru: 'Долина Туюксу',
+      kk: 'Тұйықсу аңғары',
+    },
+    nameLocal: 'Туюксу',
+    category: 'nature',
+    region: 'almaty-region',
+    coords: { lat: 43.0442, lng: 77.0811 },
+    shortDescription: {
+      fi: 'Jäätikkölaakso Shymbulakin yläpuolella — vaativa nousu T1-jäätikköasemalle 3400 metriin.',
+      en: 'A glacier valley above Shymbulak — a demanding climb to the T1 glacier station at 3,400 m.',
+      ru: 'Ледниковая долина над Шымбулаком — непростой подъём к гляциостанции T1 на 3400 м.',
+      kk: 'Шымбұлақ үстіндегі мұздық аңғары — 3400 м-дегі T1 мұздық бекетіне қиын көтерілу.',
+    },
+    description: {
+      fi: 'Tuyuksu on jäätikkölaakso Shymbulakin yläpuolella, jossa sijaitsee T1-glaciostation (3400 m) — yksi maailman vanhimmista jäätikkötutkimusasemista. Reitti nousee Shymbulakista huoltotietä Mynzhylki-tasangon (3000 m) kautta, edestakaisin n. 16 km ja nousua noin 1250 m — varaa lähes koko päivä, n. 10 tuntia. Yläosasta avautuu näkymä Molodyozhny-jäätikölle; varsinaista nimettyä huippua reitillä ei ole.\n\nKesäkuun alussa 3400 metrissä on vielä lunta ja sulamisveden jokiylitykset ovat korkeimmillaan iltapäivällä — lähde aamuvarhain.',
+      en: 'Tuyuksu is a glacier valley above Shymbulak that holds the T1 glacier station (3,400 m) — one of the world\'s oldest glaciological stations. The route climbs the service road from Shymbulak via the Mynzhylki plateau (3,000 m), about 16 km return with roughly 1,250 m of ascent — set aside nearly a full day, around 10 hours. The upper section opens onto the Molodyozhny glacier; there is no named summit on the route.\n\nIn early June there is still snow at 3,400 m and meltwater river crossings peak in the afternoon — start at first light.',
+      ru: 'Туюксу — ледниковая долина над Шымбулаком, где находится гляциостанция T1 (3400 м), одна из старейших в мире. Маршрут поднимается по технической дороге от Шымбулака через плато Мынжилки (3000 м), около 16 км туда-обратно с набором примерно 1250 м — закладывайте почти весь день, около 10 часов. Сверху открывается вид на ледник Молодёжный; именованной вершины на маршруте нет.\n\nВ начале июня на 3400 м ещё лежит снег, а броды талых рек максимальны после полудня — выходите на рассвете.',
+      kk: 'Тұйықсу — Шымбұлақ үстіндегі мұздық аңғары, мұнда T1 мұздық бекеті (3400 м) орналасқан — әлемдегі ең көне мұздық зерттеу бекеттерінің бірі. Маршрут Шымбұлақтан қызмет жолымен Мыңжылқы жайлауы (3000 м) арқылы көтеріледі, барып-қайту шамамен 16 км, көтерілу 1250 м-ге жуық — толық бір күнге жуық, шамамен 10 сағат бөліңіз. Жоғарғы бөліктен Молодёжный мұздығына көрініс ашылады; маршрутта атаулы шың жоқ.\n\nМаусым басында 3400 м-де әлі қар бар, еріген су өзендерінің кешуі түстен кейін ең жоғары болады — таң ата шығыңыз.',
+    },
+    tags: ['jäätikkö', 'vaellus', 'vuoristo'],
+    bestMonths: [7, 8, 9],
+    travelTimeFromAlmatyHours: 1,
+    difficulty: 'hard',
+    needsCar: false,
+    needsGuide: true,
+    budgetLevel: 'mid',
+    timeNeededHours: 10,
+    combinesWith: ['medeu-shymbulak'],
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/5/5f/The_Tuyuksu_Glacier.jpg',
+    imageAlt: {
+      fi: 'Tuyuksu-jäätikkö ja sitä ympäröivät vuoret',
+      en: 'The Tuyuksu glacier and the mountains surrounding it',
+      ru: 'Ледник Туюксу и окружающие его горы',
+      kk: 'Тұйықсу мұздығы және оны қоршаған таулар',
+    },
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:The_Tuyuksu_Glacier.jpg',
+      source: 'Wikimedia Commons',
+      author: 'VadimYap',
+      license: 'CC BY 4.0',
+    },
+    historicalContext: {
+      fi: 'Laakson päässä oleva Tuyuksun jäätikköasema (3400 m) on Keski-Aasian pisin katkeamaton jäätikön massatasapainon mittaussarja; itse jäätikkö on kutistunut noin 4 kilometristä 2:een ja sen arvioidaan katoavan vuoteen 2050 mennessä.',
+      en: 'The Tuyuksu glacier station (3,400 m) at the head of the valley holds Central Asia\'s longest unbroken glacier mass-balance record; the glacier itself has shrunk from about 4 km to 2 km and is projected to vanish by 2050.',
+      ru: 'Гляциостанция Туюксу (3400 м) в верховьях долины ведёт самый длинный в Центральной Азии непрерывный ряд наблюдений за балансом массы ледника; сам ледник сократился примерно с 4 км до 2 км и может исчезнуть к 2050 году.',
+      kk: 'Аңғардың басындағы Тұйықсу мұздық бекеті (3400 м) Орталық Азиядағы ең ұзақ үздіксіз мұздық масса балансы бақылауларын жүргізеді; мұздықтың өзі шамамен 4 км-ден 2 км-ге дейін кішірейген және 2050 жылға қарай жоғалуы мүмкін.',
+    },
+    practicalTips: [
+      {
+        fi: 'T1-asemalle edestakaisin ~16 km ja nousua ~1250 m — varaa lähes koko päivä, n. 10 tuntia; reitti on pitkä mutta ei jyrkkä.',
+        en: 'To the T1 station it is ~16 km return with ~1,250 m of ascent — set aside nearly a full day, around 10 hours; long but not steep.',
+        ru: 'До станции T1 — ~16 км туда-обратно и ~1250 м набора — закладывайте почти весь день, около 10 часов; длинно, но не круто.',
+        kk: 'T1 бекетіне барып-қайту ~16 км және ~1250 м көтерілу — толық бір күнге жуық, шамамен 10 сағат бөліңіз; ұзақ, бірақ тік емес.',
+      },
+      {
+        fi: 'Mynzhylki-tasanko (3000 m, ~730 m, 2–3 h) on kevyempi vaihtoehto, jos koko jäätikköreitti tuntuu liikaa.',
+        en: 'The Mynzhylki plateau (3,000 m, ~730 m, 2–3 h) is a lighter alternative if the full glacier route feels like too much.',
+        ru: 'Плато Мынжилки (3000 м, ~730 м, 2–3 ч) — более лёгкий вариант, если полный ледниковый маршрут кажется чрезмерным.',
+        kk: 'Мыңжылқы жайлауы (3000 м, ~730 м, 2–3 сағат) — толық мұздық маршруты артық болса, жеңілірек нұсқа.',
+      },
+      {
+        fi: 'Lähde aamuvarhain — sulamisveden jokiylitykset ovat pahimmillaan iltapäivällä; opas on suositeltava lumikenttien ja reitinhaun vuoksi.',
+        en: 'Start at first light — meltwater river crossings peak in the afternoon; a guide is recommended for the snowfields and route-finding.',
+        ru: 'Выходите на рассвете — броды талых рек максимальны после полудня; гид рекомендуется из-за снежников и поиска пути.',
+        kk: 'Таң ата шығыңыз — еріген су өзендерінің кешуі түстен кейін ең жоғары; қар алқаптары мен жол табу үшін гид ұсынылады.',
+      },
+      {
+        fi: 'Paras kausi heinä–syyskuu; kesäkuun alussa 3400 metrissä on vielä lunta. Päiväretkellä laaksossa ei ole palveluja, mutta n. 2600 m korkeudessa on alppimaja yöpyjille.',
+        en: 'Best from July to September; in early June there is still snow at 3,400 m. There are no services in the valley for a day trip, but an alpine lodge sits at around 2,600 m for those who stay over.',
+        ru: 'Лучшее время — июль–сентябрь; в начале июня на 3400 м ещё снег. Для однодневки в долине нет сервиса, но на ~2600 м есть альпийская хижина для ночёвки.',
+        kk: 'Ең жақсы маусым — шілде–қыркүйек; маусым басында 3400 м-де әлі қар бар. Бір күндік сапарда аңғарда қызмет жоқ, бірақ ~2600 м биіктікте түнейтіндерге арналған альпі үйі бар.',
+      },
+    ],
+    ratings: {
+      popularity: 2,
+      interest: 4,
+      uniqueness: 3,
+      ratedAt: '2026-05-25',
+      rationale:
+        'Vaeltajien tuntema mutta laajalle yleisölle marginaalinen jäätikkölaakso; sisältörikas kokopäivän reitti ja yhden maailman pisimpään seurattujen jäätiköiden päätepiste antavat kohtalaisen erikoisuuden.',
+    },
+    lastEnriched: '2026-05-25',
+  },
+  {
+    id: 'big-almaty-peak',
+    slug: 'big-almaty-peak',
+    name: {
+      fi: 'Big Almaty Peak',
+      en: 'Big Almaty Peak',
+      ru: 'Большой Алматинский пик',
+      kk: 'Үлкен Алматы шыңы',
+    },
+    nameLocal: 'Большой Алматинский пик',
+    category: 'nature',
+    region: 'almaty-region',
+    coords: { lat: 43.0553, lng: 76.9336 },
+    shortDescription: {
+      fi: 'Reissun korkein ei-tekninen huippu, 3680 m — istuu täsmälleen lumirajalla Iso Almatyn järven yläpuolella.',
+      en: 'The trip\'s highest non-technical peak at 3,680 m — sitting right on the snow line above Big Almaty Lake.',
+      ru: 'Самая высокая нетехническая вершина поездки, 3680 м — прямо на снеговой линии над Большим Алматинским озером.',
+      kk: 'Сапардың ең биік техникалық емес шыңы, 3680 м — Үлкен Алматы көлі үстіндегі қар сызығында дәл орналасқан.',
+    },
+    description: {
+      fi: 'Big Almaty Peak (3680 m) on tämän reissun korkein ei-tekninen huippu. Lyhin reitti lähtee kosmoasemalta tai Zhusaly-Kezen-solalta; BAO-järveltä (2511 m) noustessa edestakaista kertyy jopa 33 km, nousua yli 2300 m ja aikaa 12–15 tuntia. Teknistä kalustoa ei tarvita, mutta yläosassa on jyrkkää löysää kivikkoa.\n\nHuippu istuu täsmälleen lumirajalla (~3700 m): kesäkuun alussa yläosassa on todennäköisesti lunta, ja vaikka eteläharja on yleensä sula, sitä ei voi taata. Tarkista lumitilanne operaattorilta juuri ennen lähtöä. Tarkastuspisteet vaativat passin mukaan, mutta erillistä rajalupaa ei tarvita. Opas on vahvasti suositeltu.',
+      en: 'Big Almaty Peak (3,680 m) is the highest non-technical peak of this trip. The shortest route starts at the cosmostation or the Zhusaly-Kezen pass; climbing from BAO lake (2,511 m) racks up as much as 33 km return, over 2,300 m of ascent and 12–15 hours. No technical gear is needed, but the upper section is steep loose scree.\n\nThe summit sits right on the snow line (~3,700 m): in early June there is likely snow up top, and while the south ridge is usually clear it cannot be guaranteed. Check the snow situation with an operator right before you go. Checkpoints require your passport, but no separate border permit is needed. A guide is strongly recommended.',
+      ru: 'Большой Алматинский пик (3680 м) — самая высокая нетехническая вершина этой поездки. Самый короткий путь начинается от космостанции или перевала Жусалы-Кезен; при подъёме от озера БАО (2511 м) набегает до 33 км туда-обратно, более 2300 м набора и 12–15 часов. Техническое снаряжение не нужно, но верх — крутая подвижная осыпь.\n\nВершина прямо на снеговой линии (~3700 м): в начале июня наверху, вероятно, снег, и хотя южный гребень обычно открыт, гарантировать нельзя. Уточните снежную обстановку у оператора прямо перед выходом. На контрольных пунктах нужен паспорт, но отдельный пограничный пропуск не требуется. Гид настоятельно рекомендуется.',
+      kk: 'Үлкен Алматы шыңы (3680 м) — осы сапардың ең биік техникалық емес шыңы. Ең қысқа жол космостанциядан немесе Жусалы-Кезен асуынан басталады; БАО көлінен (2511 м) көтерілгенде барып-қайту 33 км-ге дейін, көтерілу 2300 м-ден астам және 12–15 сағат жинақталады. Техникалық жабдық қажет емес, бірақ жоғарғы бөлік — тік әрі сусымалы тас үйінді.\n\nШың дәл қар сызығында (~3700 м): маусым басында жоғарыда қар болуы ықтимал, оңтүстік жота әдетте ашық болса да, оны кепілдеуге болмайды. Шықпас бұрын қар жағдайын оператордан тексеріңіз. Бақылау бекеттерінде паспорт қажет, бірақ бөлек шекара рұқсаты керек емес. Гид қатты ұсынылады.',
+    },
+    tags: ['huippu', 'vaellus', 'vuoristo'],
+    bestMonths: [7, 8, 9],
+    travelTimeFromAlmatyHours: 1.5,
+    difficulty: 'hard',
+    needsCar: true,
+    needsGuide: true,
+    budgetLevel: 'mid',
+    timeNeededHours: 12,
+    combinesWith: ['big-almaty-lake'],
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/3/39/Big_Almaty_peak.jpg',
+    imageAlt: {
+      fi: 'Big Almaty Peakin pyramidihuippu solan suunnalta',
+      en: 'The pyramid summit of Big Almaty Peak seen from the pass',
+      ru: 'Пирамидальная вершина Большого Алматинского пика со стороны перевала',
+      kk: 'Асу жағынан көрінген Үлкен Алматы шыңының пирамида тәрізді шыңы',
+    },
+    imageAttribution: {
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Big_Almaty_peak.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Soorette salike',
+      license: 'CC BY-SA 4.0',
+    },
+    historicalContext: {
+      fi: 'Pyramidinmuotoinen huippu Ilin Alataun pohjoisrinteellä näkyy kirkkaalla säällä Almatyn keskustaan asti; sen rinteillä toimii Tienšanin astronomian observatorio, sääasema ja kosmisen säteilyn "kosmoasema".',
+      en: 'This pyramid-shaped peak on the northern slope of the Ile Alatau is visible from central Almaty in clear weather; its slopes host the Tien Shan astronomical observatory, a weather station and a cosmic-ray "cosmostation".',
+      ru: 'Пирамидальная вершина на северном склоне Иле-Алатау в ясную погоду видна из центра Алматы; на её склонах работают Тянь-Шаньская астрономическая обсерватория, метеостанция и «космостанция» космических лучей.',
+      kk: 'Іле Алатаудың солтүстік беткейіндегі осы пирамида тәрізді шың ашық ауа райында Алматы орталығынан көрінеді; оның беткейлерінде Тянь-Шань астрономиялық обсерваториясы, метеобекет және ғарыштық сәуленің «космостанциясы» жұмыс істейді.',
+    },
+    practicalTips: [
+      {
+        fi: 'Reissun korkein ei-tekninen huippu (3680 m): solalta huipulle ~2–3 h, mutta jos tie on kiinni ja noustaan järveltä, edessä on jopa 33 km ja 12–15 tuntia — varaa koko päivä ja lähde aikaisin.',
+        en: 'The trip\'s highest non-technical peak (3,680 m): 2–3 h from the pass, but if the road is closed and you climb from the lake it can be up to 33 km and 12–15 hours — block out a full day and start early.',
+        ru: 'Самая высокая нетехническая вершина поездки (3680 м): от перевала 2–3 ч, но если дорога закрыта и подъём от озера — до 33 км и 12–15 часов — закладывайте целый день и выходите рано.',
+        kk: 'Сапардың ең биік техникалық емес шыңы (3680 м): асудан 2–3 сағат, бірақ жол жабық болып, көлден көтерілсеңіз — 33 км-ге дейін және 12–15 сағат — толық күн бөліп, ерте шығыңыз.',
+      },
+      {
+        fi: 'Huippu istuu lumirajalla (~3700 m) — kesäkuun alussa yläosa voi olla lumessa; tarkista lumitilanne operaattorilta juuri ennen lähtöä.',
+        en: 'The summit sits on the snow line (~3,700 m) — in early June the top can be under snow; check the snow situation with an operator right before you go.',
+        ru: 'Вершина на снеговой линии (~3700 м) — в начале июня верх может быть в снегу; уточните снежную обстановку у оператора прямо перед выходом.',
+        kk: 'Шың қар сызығында (~3700 м) — маусым басында жоғарғы бөлік қар астында болуы мүмкін; шықпас бұрын қар жағдайын оператордан тексеріңіз.',
+      },
+      {
+        fi: 'Opas on vahvasti suositeltu: yläosan löysä kivikko ja korkeus tekevät itsenäisestä noususta riskialttiin, ja navigointi nojaa hajanaisiin kiviröykkiöihin.',
+        en: 'A guide is strongly recommended: the loose upper scree and altitude make an independent climb risky, and navigation relies on scattered cairns.',
+        ru: 'Гид настоятельно рекомендуется: подвижная осыпь наверху и высота делают самостоятельный подъём рискованным, а навигация опирается на редкие туры из камней.',
+        kk: 'Гид қатты ұсынылады: жоғарыдағы сусымалы тас пен биіктік өз бетіңше көтерілуді қауіпті етеді, ал бағдарлау сирек тас үйінділеріне сүйенеді.',
+      },
+      {
+        fi: 'Ota passi mukaan — järven yläpuolinen tarkastuspiste tarkistaa henkilöllisyyden (erillistä rajalupaa ei tarvita).',
+        en: 'Bring your passport — the checkpoint above the lake checks identity (no separate border permit needed).',
+        ru: 'Возьмите паспорт — контрольный пункт выше озера проверяет документы (отдельный пограничный пропуск не нужен).',
+        kk: 'Паспортыңызды алыңыз — көл үстіндегі бақылау бекеті жеке басты тексереді (бөлек шекара рұқсаты қажет емес).',
+      },
+    ],
+    ratings: {
+      popularity: 3,
+      interest: 4,
+      uniqueness: 3,
+      ratedAt: '2026-05-25',
+      rationale:
+        'Almatyn alueen tunnettu klassikkohuippu, jonka maine nojaa viereiseen järveen; pitkä sisältörikas vuoristoseikkailu, mutta ei-tekninen 3680 m huippu ei ole globaalisti ainutlaatuinen.',
+    },
+    lastEnriched: '2026-05-25',
+  },
+  {
+    id: 'butakovka-falls',
+    slug: 'butakovka-vesiputoukset',
+    name: {
+      fi: 'Butakovkan vesiputoukset',
+      en: 'Butakovka Waterfalls',
+      ru: 'Бутаковские водопады',
+      kk: 'Бутаковка сарқырамалары',
+    },
+    nameLocal: 'Бутаковские водопады',
+    category: 'nature',
+    region: 'almaty',
+    coords: { lat: 43.1723, lng: 77.114 },
+    shortDescription: {
+      fi: 'Helppo metsävaellus vesiputouksille aivan Almatyn kupeessa — kesäisin täysillä virtaamilla.',
+      en: 'An easy forest hike to waterfalls right on Almaty\'s doorstep — at full flow in summer.',
+      ru: 'Лёгкий лесной маршрут к водопадам у самой Алматы — летом на полной воде.',
+      kk: 'Алматының дәл түбіндегі сарқырамаларға жеңіл орман жорығы — жазда толық ағыста.',
+    },
+    description: {
+      fi: 'Butakovka-rotko Almatyn koillispuolella tarjoaa helpon metsävaelluksen vesiputouksille aivan kaupungin kupeessa. Alaputoukselle on edestakaisin 6–8 km ja nousua noin 450 m — 3–4 tuntia. Molemmille putouksille kertyy 13 km edestakaisin, nousua noin 800 m ja 6–7 tuntia. Bussi 29P vie eco-postille.\n\nKesäkuussa putoukset ovat sulamisveden ansiosta täysillä virtaamilla. Sisäänpääsy on eco-maksullinen mutta edullinen.',
+      en: 'The Butakovka gorge northeast of Almaty offers an easy forest hike to waterfalls right on the city\'s edge. The lower fall is 6–8 km return with about 450 m of ascent — 3–4 hours. Both falls add up to 13 km return, around 800 m of ascent and 6–7 hours. Bus 29P reaches the eco-post.\n\nIn June the falls run at full flow thanks to the meltwater. Entry has a small eco fee.',
+      ru: 'Бутаковское ущелье к северо-востоку от Алматы — лёгкий лесной маршрут к водопадам у самой границы города. До нижнего водопада 6–8 км туда-обратно с набором около 450 м — 3–4 часа. До обоих водопадов набегает 13 км туда-обратно, около 800 м набора и 6–7 часов. До эко-поста идёт автобус 29P.\n\nВ июне водопады полноводны за счёт талой воды. Вход — небольшой эко-сбор.',
+      kk: 'Алматының солтүстік-шығысындағы Бутаковка шатқалы қаланың дәл шетіндегі сарқырамаларға жеңіл орман жорығын ұсынады. Төменгі сарқыраға барып-қайту 6–8 км, көтерілу шамамен 450 м — 3–4 сағат. Екі сарқыраға барлығы 13 км барып-қайту, шамамен 800 м көтерілу және 6–7 сағат. Эко-бекетке 29P автобус жетеді.\n\nМаусымда сарқырамалар еріген су есебінен толық ағыста. Кіру — шағын эко-төлем.',
+    },
+    tags: ['vesiputous', 'vaellus', 'metsä'],
+    bestMonths: [5, 6, 7, 8, 9],
+    travelTimeFromAlmatyHours: 1,
+    difficulty: 'easy',
+    needsCar: false,
+    needsGuide: false,
+    budgetLevel: 'low',
+    timeNeededHours: 4,
+    costKZT: 500,
+    combinesWith: [],
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/0/04/Butakovka_Waterfall_-_panoramio.jpg',
+    imageAlt: {
+      fi: 'Butakovkan vesiputous metsärotkossa',
+      en: 'A Butakovka waterfall in the forested gorge',
+      ru: 'Бутаковский водопад в лесистом ущелье',
+      kk: 'Орманды шатқалдағы Бутаковка сарқырамасы',
+    },
+    imageAttribution: {
+      sourceUrl:
+        'https://commons.wikimedia.org/wiki/File:Butakovka_Waterfall_-_panoramio.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Raki_Man',
+      license: 'CC BY 3.0',
+    },
+    historicalContext: {
+      fi: 'Butakovka-rotko Ile-Alataun kansallispuistossa oli neuvostoaikana suosittu virkistys- ja vuoristoturismialue urheilutukikohtineen, jotka sulkeutuivat Neuvostoliiton hajottua; nimi tulee kazakin sanasta *bұtaq* ("oksa, haara").',
+      en: 'In Soviet times the Butakovka gorge in the Ile Alatau national park was a popular recreation and mountain-tourism area with sports bases that closed after the USSR broke up; the name comes from the Kazakh *bұtaq* ("branch").',
+      ru: 'В советское время Бутаковское ущелье в национальном парке Иле-Алатау было популярной зоной отдыха и горного туризма со спортбазами, закрывшимися после распада СССР; название происходит от казахского *бұтақ* («ветвь»).',
+      kk: 'Кеңес заманында Іле Алатау ұлттық паркіндегі Бутаковка шатқалы спорт базалары бар танымал демалыс және тау туризмі аймағы болды, олар КСРО ыдырағаннан кейін жабылды; атауы қазақтың *бұтақ* сөзінен шыққан.',
+    },
+    practicalTips: [
+      {
+        fi: 'Alaputoukselle 6–8 km edestakaisin, nousua ~450 m, 3–4 h; molemmille putouksille 13 km ja ~800 m, 6–7 h — helppo metsäpolku, lopussa jyrkempi kivikko.',
+        en: 'To the lower fall 6–8 km return, ~450 m of ascent, 3–4 h; to both falls 13 km and ~800 m, 6–7 h — an easy forest path with a steeper rocky section at the end.',
+        ru: 'До нижнего водопада 6–8 км туда-обратно, ~450 м набора, 3–4 ч; до обоих — 13 км и ~800 м, 6–7 ч — лёгкая лесная тропа с более крутым каменистым участком в конце.',
+        kk: 'Төменгі сарқыраға барып-қайту 6–8 км, көтерілу ~450 м, 3–4 сағат; екеуіне 13 км және ~800 м, 6–7 сағат — соңында тікірек тасты бөлігі бар жеңіл орман соқпағы.',
+      },
+      {
+        fi: 'Bussi 29P vie eco-postille; sieltä polun lähtöön on vielä ~30–40 min kävelyä tietä pitkin.',
+        en: 'Bus 29P reaches the eco-post; from there it is still a ~30–40 min walk along the road to the trailhead.',
+        ru: 'Автобус 29P идёт до эко-поста; оттуда до начала тропы ещё ~30–40 мин ходьбы по дороге.',
+        kk: '29P автобус эко-бекетке жетеді; одан соқпақ басына дейін тағы ~30–40 минут жол бойымен жүру керек.',
+      },
+      {
+        fi: 'Eco-maksu ~500 KZT, käteinen tai Kaspi QR; reitillä ei ole varmaa kahvilaa eikä majoitusta — ota eväät ja vesi mukaan.',
+        en: 'Eco fee ~500 KZT, cash or Kaspi QR; there is no reliable café or lodging on the route — bring food and water.',
+        ru: 'Эко-сбор ~500 KZT, наличные или Kaspi QR; надёжного кафе и ночлега на маршруте нет — берите еду и воду.',
+        kk: 'Эко-төлем ~500 KZT, қолма-қол ақша не Kaspi QR; маршрутта сенімді кафе де, тұрғын үй де жоқ — азық пен су алыңыз.',
+      },
+      {
+        fi: 'Kesäkuussa virtaama on suurimmillaan ja jokiylitykset liukkaita — ylitä purot aamulla ja käytä pitäviä kenkiä.',
+        en: 'In June the flow peaks and the crossings are slippery — cross the streams in the morning and wear grippy shoes.',
+        ru: 'В июне расход воды максимален, броды скользкие — переходите ручьи утром и надевайте обувь с протектором.',
+        kk: 'Маусымда ағын ең жоғары, кешулер сырғанақ — бұлақтарды таңертең кешіп, табаны жақсы аяқкиім киіңіз.',
+      },
+    ],
+    ratings: {
+      popularity: 2,
+      interest: 3,
+      uniqueness: 2,
+      ratedAt: '2026-05-25',
+      rationale:
+        'Paikallisten suosima kevyt päiväkohde, kansainvälisesti tuntematon; helppo metsävaellus, mutta 20–30 m metsäputous on konseptina tavanomainen.',
+    },
+    lastEnriched: '2026-05-25',
+  },
+  {
+    id: 'airakty-shomanai',
+    slug: 'airakty-shomanai',
+    name: {
+      fi: 'Airakty-Shomanai',
+      en: 'Airakty-Shomanai (Valley of Castles)',
+      ru: 'Айракты-Шоманай',
+      kk: 'Айрақты-Шоманай',
+    },
+    nameLocal: 'Айракты-Шоманай',
+    category: 'nature',
+    region: 'aktau',
+    coords: { lat: 44.1565, lng: 52.1641 },
+    shortDescription: {
+      fi: 'Mangystaun "linnojen laakso" — Taras Ševtšenkon kuuluisaksi tekemiä linnamaisia jäännösvuoria aavikolla.',
+      en: 'Mangystau\'s "Valley of Castles" — castle-like residual mountains in the desert, made famous by Taras Shevchenko.',
+      ru: '«Долина замков» Мангистау — похожие на крепости останцовые горы в пустыне, прославленные Тарасом Шевченко.',
+      kk: 'Маңғыстаудың «қамалдар аңғары» — Тарас Шевченко әйгілі еткен, шөлдегі қамал тәрізді қалдық таулар.',
+    },
+    description: {
+      fi: 'Airakty-Shomanai on Mangystaun "linnojen laakso" noin 15 km Shetpestä luoteeseen — linnamaisia liitukivisiä jäännösvuoria, jotka ukrainalainen runoilija Taras Ševtšenko teki kuuluisaksi 1850-luvun maanpaossaan. Älä sekoita Charynin samannimiseen laaksoon. Liikkuminen tapahtuu rinteiden juurella kävellen (2–3 h), kalliopiirroksia ja fossiileja etsien.\n\nTornien kiipeäminen on kielletty — pehmeä liitu murenee. Hevosenkenkämuoto kerää helteen: kesällä varjossa voi olla jopa +45 °C, joten käy aamulla tai illalla. Pääsy vaatii 4WD:n ja oppaan.',
+      en: 'Airakty-Shomanai is Mangystau\'s "Valley of Castles" about 15 km northwest of Shetpe — castle-like chalk residual mountains made famous by the Ukrainian poet Taras Shevchenko during his 1850s exile. Don\'t confuse it with Charyn\'s valley of the same nickname. You explore on foot along the bases of the slopes (2–3 h), looking for rock carvings and fossils.\n\nClimbing the towers is forbidden — the soft chalk crumbles. The horseshoe shape traps heat: in summer it can reach +45 °C in the shade, so visit in the morning or evening. Access requires a 4WD and a guide.',
+      ru: 'Айракты-Шоманай — «Долина замков» Мангистау примерно в 15 км к северо-западу от Шетпе: похожие на крепости меловые останцы, прославленные украинским поэтом Тарасом Шевченко во время ссылки 1850-х. Не путайте с одноимённой долиной у Чарына. Осмотр — пешком вдоль подножия склонов (2–3 ч), в поисках петроглифов и окаменелостей.\n\nЗабираться на «башни» запрещено — мягкий мел осыпается. Подковообразная форма копит жару: летом в тени бывает до +45 °C, поэтому приезжайте утром или вечером. Для доступа нужны внедорожник и гид.',
+      kk: 'Айрақты-Шоманай — Шетпеден солтүстік-батысқа қарай шамамен 15 км жердегі Маңғыстаудың «қамалдар аңғары»: украин ақыны Тарас Шевченко 1850 жылдардағы жер аударылуында әйгілі еткен қамал тәрізді бор қалдық таулар. Шарындағы аттас аңғармен шатастырмаңыз. Беткейлердің етегімен жаяу жүріп (2–3 сағат), тас суреттер мен қазба қалдықтарды іздейсіз.\n\nМұнараларға өрмелеуге тыйым салынған — жұмсақ бор үгітіледі. Тағатәрізді пішін ыстықты жинайды: жазда көлеңкеде +45 °C-қа дейін жетеді, сондықтан таңертең немесе кешке барыңыз. Жетіп бару үшін 4WD мен гид қажет.',
+    },
+    tags: ['aavikko', 'kalliot', 'maisema'],
+    bestMonths: [4, 5, 9, 10],
+    difficulty: 'moderate',
+    needsCar: true,
+    needsGuide: true,
+    budgetLevel: 'mid',
+    timeNeededHours: 3,
+    costKZT: 'free',
+    combinesWith: ['sherkala', 'valley-of-balls'],
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/8/8d/Airakty_Shomanai_Mountains_in_Mangystau_Region%2C_Kazakhstan_%28April_2024%29.jpg',
+    imageAlt: {
+      fi: 'Airakty-Shomanain linnamaiset jäännösvuoret aavikolla',
+      en: 'The castle-like residual mountains of Airakty-Shomanai in the desert',
+      ru: 'Похожие на крепости останцовые горы Айракты-Шоманай в пустыне',
+      kk: 'Шөлдегі Айрақты-Шоманайдың қамал тәрізді қалдық таулары',
+    },
+    imageAttribution: {
+      sourceUrl:
+        'https://commons.wikimedia.org/wiki/File:Airakty_Shomanai_Mountains_in_Mangystau_Region,_Kazakhstan_(April_2024).jpg',
+      source: 'Wikimedia Commons',
+      author: 'Sergio Agostinelli',
+      license: 'CC BY 2.0',
+    },
+    historicalContext: {
+      fi: 'Vuoret ovat muinaisen Tethys-meren pohjan kalkkikiveä, jonka sade ja tuuli ovat veistäneet linnamaisiksi torneiksi; nimen "linnojen laakso" antoi ukrainalainen runoilija-taiteilija Taras Ševtšenko, joka piirsi vuorista luonnoksia maanpaossaan 1851.',
+      en: 'The mountains are limestone from the floor of the ancient Tethys Sea, carved into castle-like towers by rain and wind; the name "Valley of Castles" was given by the Ukrainian poet-artist Taras Shevchenko, who sketched them during his 1851 exile.',
+      ru: 'Горы сложены известняком дна древнего моря Тетис, выветренным в крепостные башни; название «Долина замков» дал украинский поэт-художник Тарас Шевченко, зарисовавший их в ссылке в 1851 году.',
+      kk: 'Таулар ежелгі Тетис теңізі түбінің әктасынан түзілген, оны жаңбыр мен жел қамал тәрізді мұнараларға айналдырған; «қамалдар аңғары» атауын 1851 жылы жер аударылуында оларды салған украин ақыны әрі суретшісі Тарас Шевченко берген.',
+    },
+    practicalTips: [
+      {
+        fi: 'Liikkuminen on lyhyttä juurikävelyä (2–3 km, 1–3 h) ilman merkittyä polkua; etsi kalliopiirroksia ja fossiileja tornien tyveltä — kiipeäminen on kielletty, sillä pehmeä liitu murenee.',
+        en: 'You explore on a short walk along the bases (2–3 km, 1–3 h) with no marked trail; look for rock carvings and fossils at the foot of the towers — climbing is forbidden as the soft chalk crumbles.',
+        ru: 'Осмотр — короткая прогулка вдоль подножий (2–3 км, 1–3 ч) без тропы; ищите петроглифы и окаменелости у основания «башен» — забираться запрещено, мягкий мел осыпается.',
+        kk: 'Қозғалыс — белгіленген соқпақсыз етектерімен қысқа серуен (2–3 км, 1–3 сағат); мұнаралардың түбінен тас суреттер мен қазба қалдықтарды іздеңіз — өрмелеуге тыйым салынған, жұмсақ бор үгітіледі.',
+      },
+      {
+        fi: 'Käy vain aamulla tai illalla — hevosenkengän muotoinen laakso on helletasku, kesällä jopa +45 °C varjossa.',
+        en: 'Visit only in the morning or evening — the horseshoe-shaped valley is a heat trap, up to +45 °C in the shade in summer.',
+        ru: 'Приезжайте только утром или вечером — подковообразная долина копит жару, летом до +45 °C в тени.',
+        kk: 'Тек таңертең немесе кешке барыңыз — тағатәрізді аңғар ыстықты жинайды, жазда көлеңкеде +45 °C-қа дейін.',
+      },
+      {
+        fi: 'Paikalla ei ole mitään palveluja — ota vettä ≥1,5 l/hlö kävelylle; 4WD ja paikallinen opas ovat käytännössä pakollisia, viimeiset 10–15 km ovat merkitsemätöntä aroa.',
+        en: 'There are no services on site — bring ≥1.5 l of water per person for the walk; a 4WD and local guide are effectively essential, the last 10–15 km are unmarked steppe.',
+        ru: 'На месте нет никакого сервиса — берите ≥1,5 л воды на человека на прогулку; внедорожник и местный гид по сути обязательны, последние 10–15 км — немаркированная степь.',
+        kk: 'Жерде ешқандай қызмет жоқ — серуенге адам басына ≥1,5 л су алыңыз; 4WD мен жергілікті гид іс жүзінде міндетті, соңғы 10–15 км — белгіленбеген дала.',
+      },
+      {
+        fi: 'Älä sekoita Charynin samannimiseen "linnojen laaksoon" — tämä on aivan eri kohde Mangystaussa.',
+        en: 'Don\'t confuse it with Charyn\'s "Valley of Castles" of the same nickname — this is a completely different site in Mangystau.',
+        ru: 'Не путайте с одноимённой «Долиной замков» у Чарына — это совсем другое место в Мангистау.',
+        kk: 'Шарындағы аттас «қамалдар аңғарымен» шатастырмаңыз — бұл Маңғыстаудағы мүлдем басқа нысан.',
+      },
+    ],
+    ratings: {
+      popularity: 2,
+      interest: 3,
+      uniqueness: 3,
+      ratedAt: '2026-05-25',
+      rationale:
+        'Kaunis "linnojen laakso" kalliopiirroksineen ja Ševtšenko-historioineen, mutta käytännössä lyhyt juurikävely ja Mangystaussa useita samantyyppisiä muodostelmia.',
+    },
+    lastEnriched: '2026-05-25',
+  },
+  {
+    id: 'bolektau-burabay',
+    slug: 'bolektau',
+    name: {
+      fi: 'Bolektau-kukkula',
+      en: 'Bolektau Hill',
+      ru: 'Болектау',
+      kk: 'Бөлектау',
+    },
+    nameLocal: 'Болектау',
+    category: 'nature',
+    region: 'astana',
+    coords: { lat: 53.0894, lng: 70.2601 },
+    shortDescription: {
+      fi: 'Burabayn paras panoraama: ~850 metrin kalliokukkula, jolta näkyy Zhumbaktas, Okzhetpes ja kaksi järveä.',
+      en: 'Burabay\'s best panorama: an ~850 m rocky hill overlooking Zhumbaktas, Okzhetpes and two lakes.',
+      ru: 'Лучшая панорама Бурабая: скалистый холм ~850 м с видом на Жумбактас, Окжетпес и два озера.',
+      kk: 'Бурабайдың ең жақсы панорамасы: Жұмбақтас, Оқжетпес пен екі көлге қарайтын ~850 м жартасты төбе.',
+    },
+    description: {
+      fi: 'Bolektau on noin 850 metrin kalliokukkula Burabayn (Borovoe) kansallispuistossa ja sieltä avautuu puiston paras panoraama: Zhumbaktas-kallio, Okzhetpes ja kaksi järveä. Kävely kylästä kestää alle tunnin, ja varsinainen nousu on vain n. 15 minuuttia puuportaita — sopii käytännössä kaikille.\n\nKesäkuussa kukkula on sula ja järvet uimakelpoisia. Burabay on noin 250 km Astanasta, joten kohde sopii parhaiten oman auton tai päiväretken yhteyteen.',
+      en: 'Bolektau is an ~850 m rocky hill in the Burabay (Borovoe) national park, and it offers the park\'s best panorama: the Zhumbaktas rock, Okzhetpes and two lakes. The walk from the village takes under an hour, and the actual climb is only about 15 minutes of wooden steps — suitable for almost everyone.\n\nIn June the hill is snow-free and the lakes are swimmable. Burabay is about 250 km from Astana, so it fits best with your own car or a day trip.',
+      ru: 'Болектау — скалистый холм около 850 м в национальном парке Бурабай (Боровое), откуда открывается лучшая панорама парка: скала Жумбактас, Окжетпес и два озера. Прогулка от посёлка занимает меньше часа, а сам подъём — всего около 15 минут по деревянной лестнице, по силам почти всем.\n\nВ июне холм без снега, а в озёрах можно купаться. Бурабай примерно в 250 км от Астаны, поэтому удобнее всего на своей машине или в формате однодневной поездки.',
+      kk: 'Бөлектау — Бурабай (Бурабай/Боровое) ұлттық паркіндегі шамамен 850 м жартасты төбе, мұнда парктің ең жақсы панорамасы ашылады: Жұмбақтас жартасы, Оқжетпес пен екі көл. Ауылдан серуен бір сағаттан аз уақыт алады, ал нақты көтерілу ағаш баспалдақпен небәрі 15 минуттай — кез келген адамға дерлік қолайлы.\n\nМаусымда төбе қарсыз, көлдерде шомылуға болады. Бурабай Астанадан шамамен 250 км, сондықтан жеке көлікпен немесе бір күндік сапармен бару ыңғайлы.',
+    },
+    tags: ['näköala', 'kukkula', 'järvi'],
+    bestMonths: [6, 7, 8, 9],
+    travelTimeFromAstanaHours: 3,
+    difficulty: 'easy',
+    needsCar: true,
+    needsGuide: false,
+    budgetLevel: 'low',
+    timeNeededHours: 2,
+    costKZT: 'free',
+    combinesWith: ['burabay-park'],
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/6/6a/%D0%9A%D0%B0%D0%B7%D0%B0%D1%85%D1%81%D1%82%D0%B0%D0%BD._%D0%91%D0%BE%D1%80%D0%BE%D0%B2%D0%BE%D0%B5%2C_%D0%B2%D0%B8%D0%B4_%D1%81_%D0%91%D0%BE%D0%BB%D0%B5%D0%BA%D1%82%D0%B0%D1%83%2C_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C%2C_%D0%B2%D0%B5%D1%87%D0%B5%D1%80.jpg',
+    imageAlt: {
+      fi: 'Näkymä Bolektaun kukkulalta Burabayn järvelle iltavalossa',
+      en: 'View from Bolektau hill over a Burabay lake in evening light',
+      ru: 'Вид с холма Болектау на озеро Бурабая в вечернем свете',
+      kk: 'Бөлектау төбесінен кешкі жарықта Бурабай көліне көрініс',
+    },
+    imageAttribution: {
+      sourceUrl:
+        'https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B0%D0%B7%D0%B0%D1%85%D1%81%D1%82%D0%B0%D0%BD._%D0%91%D0%BE%D1%80%D0%BE%D0%B2%D0%BE%D0%B5,_%D0%B2%D0%B8%D0%B4_%D1%81_%D0%91%D0%BE%D0%BB%D0%B5%D0%BA%D1%82%D0%B0%D1%83,_%D0%BE%D1%81%D0%B5%D0%BD%D1%8C,_%D0%B2%D0%B5%D1%87%D0%B5%D1%80.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Evgenyem',
+      license: 'CC BY-SA 4.0',
+    },
+    historicalContext: {
+      fi: 'Bolektau on kalliokukkula Burabayn (Borovoe) kansallispuistossa, jota on suojeltu jo vuodesta 1898; aluetta kutsutaan "Pohjoiseksi Sveitsiksi", ja sen kalliot kantavat kazakkilaisia tarinoita — Zhumbaktas tarkoittaa "arvoituskiveä" ja Okzhetpes "jonne nuoli ei yllä".',
+      en: 'Bolektau is a rocky hill in the Burabay (Borovoe) national park, protected since 1898; the area is nicknamed the "Northern Switzerland", and its rocks carry Kazakh legends — Zhumbaktas means "riddle stone" and Okzhetpes "where the arrow cannot reach".',
+      ru: 'Болектау — скалистый холм в национальном парке Бурабай (Боровое), охраняемом с 1898 года; район называют «Северной Швейцарией», а его скалы хранят казахские легенды — Жумбактас значит «камень-загадка», а Окжетпес — «куда не долетит стрела».',
+      kk: 'Бөлектау — 1898 жылдан бері қорғалатын Бурабай (Боровое) ұлттық паркіндегі жартасты төбе; өңірді «Солтүстік Швейцария» деп атайды, оның жартастары қазақ аңыздарын сақтайды — Жұмбақтас «жұмбақ тас», ал Оқжетпес «оқ жетпес» дегенді білдіреді.',
+    },
+    practicalTips: [
+      {
+        fi: 'Kävely kylästä kestää alle tunnin ja varsinainen nousu vain ~15 min puuportaita (uusittu 2025) — sopii käytännössä kaikille.',
+        en: 'The walk from the village takes under an hour and the actual climb is only ~15 min of wooden steps (renovated in 2025) — suitable for almost everyone.',
+        ru: 'Прогулка от посёлка занимает меньше часа, а сам подъём — всего ~15 мин по деревянной лестнице (обновлена в 2025) — по силам почти всем.',
+        kk: 'Ауылдан серуен бір сағаттан аз уақыт алады, ал нақты көтерілу небәрі ~15 минут ағаш баспалдақ (2025 жылы жаңартылған) — кез келген адамға дерлік қолайлы.',
+      },
+      {
+        fi: 'Burabay on noin 250 km Astanasta (auto 3–4 h tai sähköjuna ~3 h) — ilman omaa autoa varaa juna/kyyti etukäteen, muuten logistiikka syö koko päivän.',
+        en: 'Burabay is about 250 km from Astana (car 3–4 h or e-train ~3 h) — without your own car, book the train/ride in advance or logistics eat the whole day.',
+        ru: 'Бурабай примерно в 250 км от Астаны (машина 3–4 ч или электричка ~3 ч) — без своей машины бронируйте поезд/трансфер заранее, иначе логистика съест весь день.',
+        kk: 'Бурабай Астанадан шамамен 250 км (көлікпен 3–4 сағат не электропоезбен ~3 сағат) — жеке көлік болмаса, пойыз/көлікті алдын ала брондаңыз, әйтпесе логистика бүкіл күнді жейді.',
+      },
+      {
+        fi: 'Kylässä on täysi turisti-infra (hotelleja, kahviloita, ranta); ota uimavarusteet kesällä — järvet ovat uimakelpoisia.',
+        en: 'The village has full tourist infrastructure (hotels, cafés, beach); bring swimwear in summer — the lakes are swimmable.',
+        ru: 'В посёлке полная туристическая инфраструктура (отели, кафе, пляж); летом возьмите купальные принадлежности — в озёрах можно купаться.',
+        kk: 'Ауылда толық туристік инфрақұрылым бар (қонақүйлер, кафелер, жағажай); жазда шомылу киімін алыңыз — көлдерде шомылуға болады.',
+      },
+    ],
+    ratings: {
+      popularity: 3,
+      interest: 2,
+      uniqueness: 2,
+      ratedAt: '2026-05-25',
+      rationale:
+        'Suosittu, helposti saavutettava näköalapiste Burabayssa; vain ~15 min portaita ja panoraamapysähdys, ja "Pohjoinen Sveitsi" -maisema toistuu monessa maassa.',
+    },
+    lastEnriched: '2026-05-25',
+  },
+  {
+    id: 'turgen-gorge',
+    slug: 'turgen-rotko',
+    name: {
+      fi: 'Turgenin rotko ja vesiputoukset',
+      en: 'Turgen Gorge and Waterfalls',
+      ru: 'Тургеньское ущелье и водопады',
+      kk: 'Түрген шатқалы мен сарқырамалары',
+    },
+    nameLocal: 'Тургеньское ущелье',
+    category: 'nature',
+    region: 'almaty-region',
+    coords: { lat: 43.2814, lng: 77.7153 },
+    shortDescription: {
+      fi: 'Vehreä rotko n. 80 km Almatysta itään — Karhuvesiputous lyhyen kävelyn päässä, Kairak pidemmän.',
+      en: 'A lush gorge about 80 km east of Almaty — the Bear Waterfall is a short walk, Kairak a longer one.',
+      ru: 'Зелёное ущелье примерно в 80 км к востоку от Алматы — Медвежий водопад в нескольких минутах, Кайрак дальше.',
+      kk: 'Алматыдан шығысқа қарай шамамен 80 км жердегі көгілдір шатқал — Аю сарқырамасы жақын, Қайрақ алысырақ.',
+    },
+    description: {
+      fi: 'Turgenin rotko on vehreä laakso noin 80 km Almatysta itään, Almaty–Saty-tien varrella. Karhuvesiputous (Medvezhiy, 30 m) on vain n. 30 minuutin helpon kävelyn päässä AkBulak-kahvilalta. Kairak-vesiputous (55–70 m) vaatii noin 8 km / 2,5–3 h suuntaansa, mutta nousua on vähän eikä reitillä ole jyrkkiä tai vaarallisia kohtia — pitkä mutta helppo.\n\nAsfaltti vie 26 km Bataniin, eikä vesiputouksille tarvita 4WD:tä. Kesäkuussa rotko on sula ja vetinen.',
+      en: 'Turgen gorge is a lush valley about 80 km east of Almaty along the Almaty–Saty road. The Bear Waterfall (Medvezhiy, 30 m) is just a 30-minute easy walk from the AkBulak café. The Kairak waterfall (55–70 m) takes about 8 km / 2.5–3 h each way, but with little ascent and no steep or dangerous spots — long but easy.\n\nAsphalt runs 26 km to Batan, and no 4WD is needed for the waterfalls. In June the gorge is green and full of water.',
+      ru: 'Тургеньское ущелье — зелёная долина примерно в 80 км к востоку от Алматы вдоль дороги Алматы–Саты. Медвежий водопад (30 м) — всего 30 минут лёгкой ходьбы от кафе «АкБулак». До водопада Кайрак (55–70 м) около 8 км / 2,5–3 ч в одну сторону, но с небольшим набором и без крутых или опасных мест — длинно, но легко.\n\nАсфальт идёт 26 км до Батана, и для водопадов внедорожник не нужен. В июне ущелье зелёное и полноводное.',
+      kk: 'Түрген шатқалы — Алматыдан шығысқа қарай шамамен 80 км жердегі Алматы–Саты жолы бойындағы көгілдір аңғар. Аю сарқырамасы (Медвежий, 30 м) «АкБулак» кафесінен небәрі 30 минуттық жеңіл серуенде. Қайрақ сарқырамасына (55–70 м) бір бағытқа шамамен 8 км / 2,5–3 сағат, бірақ көтерілу аз әрі тік не қауіпті жер жоқ — ұзақ, бірақ жеңіл.\n\nАсфальт Батанға дейін 26 км, сарқырамаларға 4WD қажет емес. Маусымда шатқал жасыл әрі сулы.',
+    },
+    tags: ['vesiputous', 'rotko', 'metsä'],
+    bestMonths: [5, 6, 7, 8, 9],
+    travelTimeFromAlmatyHours: 2,
+    difficulty: 'easy',
+    needsCar: true,
+    needsGuide: false,
+    budgetLevel: 'low',
+    timeNeededHours: 5,
+    costKZT: 600,
+    combinesWith: ['kolsai-lakes', 'charyn-canyon'],
+    image:
+      'https://upload.wikimedia.org/wikipedia/commons/d/d4/%D0%9C%D0%B5%D0%B4%D0%B2%D0%B5%D0%B6%D0%B8%D0%B9_%D0%B2%D0%BE%D0%B4%D0%BE%D0%BF%D0%B0%D0%B4_%D0%A2%D1%83%D1%80%D0%B3%D0%B5%D0%BD%D1%8C.jpg',
+    imageAlt: {
+      fi: 'Karhuvesiputous Turgenin rotkossa',
+      en: 'The Bear Waterfall in the Turgen gorge',
+      ru: 'Медвежий водопад в Тургеньском ущелье',
+      kk: 'Түрген шатқалындағы Аю сарқырамасы',
+    },
+    imageAttribution: {
+      sourceUrl:
+        'https://commons.wikimedia.org/wiki/File:%D0%9C%D0%B5%D0%B4%D0%B2%D0%B5%D0%B6%D0%B8%D0%B9_%D0%B2%D0%BE%D0%B4%D0%BE%D0%BF%D0%B0%D0%B4_%D0%A2%D1%83%D1%80%D0%B3%D0%B5%D0%BD%D1%8C.jpg',
+      source: 'Wikimedia Commons',
+      author: 'Islam Mirsaitov (Rem.photographer)',
+      license: 'CC BY-SA 4.0',
+    },
+    historicalContext: {
+      fi: 'Turgenin rotko on osa Ile-Alatau-kansallispuistoa, ja noin 44–49 km pitkässä laaksossa on yhteensä seitsemän vesiputousta; Karhuvesiputous syntyi kallionhalkeamaan jääkauden jälkeisten tektonisten liikkeiden seurauksena.',
+      en: 'The Turgen gorge is part of the Ile Alatau national park, and its 44–49 km valley holds seven waterfalls in all; the Bear Waterfall formed in a rock fissure created by post-glacial tectonic movements.',
+      ru: 'Тургеньское ущелье — часть национального парка Иле-Алатау, и в его долине длиной 44–49 км всего семь водопадов; Медвежий водопад образовался в трещине, возникшей при послеледниковых тектонических подвижках.',
+      kk: 'Түрген шатқалы Іле Алатау ұлттық паркінің бөлігі, ал оның 44–49 км аңғарында барлығы жеті сарқырама бар; Аю сарқырамасы мұздықтан кейінгі тектоникалық қозғалыстардан пайда болған жартас саңылауында түзілген.',
+    },
+    practicalTips: [
+      {
+        fi: 'Karhuvesiputous (30 m) on vain ~30 min helppo kävely AkBulak-kahvilalta — riittää, jos aikaa on vähän.',
+        en: 'The Bear Waterfall (30 m) is just a ~30 min easy walk from the AkBulak café — enough if time is short.',
+        ru: 'Медвежий водопад (30 м) — всего ~30 мин лёгкой ходьбы от кафе «АкБулак» — достаточно, если мало времени.',
+        kk: 'Аю сарқырамасы (30 м) — «АкБулак» кафесінен небәрі ~30 минуттық жеңіл серуен — уақыт аз болса жеткілікті.',
+      },
+      {
+        fi: 'Kairak-vesiputous vaatii ~8 km suuntaansa ja koko aamupäivän (5–6 h), mutta nousua on vähän eikä jyrkkiä kohtia — pitkä mutta helppo.',
+        en: 'The Kairak waterfall needs ~8 km each way and a whole morning (5–6 h), but with little ascent and no steep spots — long but easy.',
+        ru: 'До водопада Кайрак — ~8 км в одну сторону и всё утро (5–6 ч), но с небольшим набором и без крутых мест — длинно, но легко.',
+        kk: 'Қайрақ сарқырамасына — бір бағытқа ~8 км және бүкіл таңертең (5–6 сағат), бірақ көтерілу аз әрі тік жер жоқ — ұзақ, бірақ жеңіл.',
+      },
+      {
+        fi: 'Eco-maksu n. 600 KZT; asfaltti vie 26 km Bataniin eikä vesiputouksille tarvita 4WD:tä (Assy-tasanko vaatisi).',
+        en: 'Eco fee about 600 KZT; asphalt runs 26 km to Batan and no 4WD is needed for the waterfalls (the Assy plateau would require one).',
+        ru: 'Эко-сбор около 600 KZT; асфальт идёт 26 км до Батана, и для водопадов внедорожник не нужен (для плато Ассы — нужен).',
+        kk: 'Эко-төлем шамамен 600 KZT; асфальт Батанға дейін 26 км, сарқырамаларға 4WD қажет емес (Асы жайлауына керек болар еді).',
+      },
+      {
+        fi: 'Lähtöpiste on AkBulak-kahvila ja rotkon taimentilalla saa grillattua kalaa; kesäkuussa rotko on sula ja putoukset täysillä virtaamilla.',
+        en: 'The trailhead is the AkBulak café, and the gorge\'s trout farm serves grilled fish; in June the gorge is green and the falls run at full flow.',
+        ru: 'Отправная точка — кафе «АкБулак», а на форелевом хозяйстве ущелья жарят рыбу; в июне ущелье зелёное, а водопады полноводны.',
+        kk: 'Бастау нүктесі — «АкБулак» кафесі, ал шатқалдың бахтақ шаруашылығында грильге пісірілген балық беріледі; маусымда шатқал жасыл, сарқырамалар толық ағыста.',
+      },
+    ],
+    ratings: {
+      popularity: 3,
+      interest: 4,
+      uniqueness: 2,
+      ratedAt: '2026-05-25',
+      rationale:
+        'Vakiintunut Almaty-pohjainen päiväretkikohde ja tunnettu vesiputouspaikka, mutta vehreä metsälaakso ja vesiputoukset ovat globaalisti yleinen kohdetyyppi.',
+    },
+    lastEnriched: '2026-05-25',
   },
 ];

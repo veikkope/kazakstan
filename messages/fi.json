@@ -64,9 +64,7 @@
       "pathRoutesDescription": "3 erilaista pohjaa: 5, 7 ja 10 päivän versiot. Hyvä lähtökohta.",
       "pathInfoTitle": "Käytännön info",
       "pathInfoDescription": "Viisumi, valuutta, kuljetukset, ennen lähtöä -checklist.",
-      "featuredHeading": "Klassikkokohteet",
-      "draftsHeading": "Myöhemmin lisättävät / vahvistettavat",
-      "draftsDescription": "Nämä eivät vielä näy kartalla — odottavat varmistusta."
+      "featuredHeading": "Klassikkokohteet"
     },
     "map": {
       "title": "Kartta",
@@ -117,7 +115,6 @@
     "sightDetail": {
       "notFoundTitle": "Kohdetta ei löytynyt",
       "metaTitle": "{name} — Kazakstan-reissu",
-      "draftBadge": "Luonnos — odottaa vahvistusta",
       "navigator": "Navigaattori",
       "descriptionHeading": "Kuvaus",
       "historyHeading": "Historia",
@@ -323,7 +320,6 @@
       "desktopLabelSingle": "Reitti nykyisestä sijainnistasi"
     },
     "sightCard": {
-      "draft": "Luonnos",
       "hours": "{count} h",
       "difficultyEasy": "helppo",
       "difficultyModerate": "keskitaso",

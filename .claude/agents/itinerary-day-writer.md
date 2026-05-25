@@ -27,5 +27,4 @@ You write ONE day at a time, either into `src/data/itinerary.ts` (user's own pla
 - **Only reference sight `id`s that exist.** Tarkista jokainen.
 - Don't overwrite existing days unless explicitly told.
 - Keep `summary` to 1–2 sentences in Finnish, käytännönläheinen tyyli.
-- Älä lisää `draft`-tilassa olevia sightejä päiväkohtaiseen reittiin — vain `'verified'`.
 - Don't commit.

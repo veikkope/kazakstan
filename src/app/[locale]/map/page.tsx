@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button';
 import { sights } from '@/data/sights';
 import { carRental } from '@/data/logistics';
 import type { TripPin } from '@/lib/types';
-import { excludeDrafts, filterByCategories } from '@/lib/filters';
+import { filterByCategories } from '@/lib/filters';
 import { filterBySearch } from '@/lib/search';
 import { asLocale, localised } from '@/lib/i18n-helpers';
 import { useUrlState } from '@/lib/url-state';
@@ -76,7 +76,7 @@ function KarttaPageInner() {
 
   // Cheapest filter first (set lookup) → text scan last. Both run only
   // when their source state changes thanks to useMemo deps.
-  const verified = useMemo(() => excludeDrafts(sights), []);
+  const verified = sights;
   const visible = useMemo(() => {
     const byCategory = filterByCategories(verified, state.categories);
     return filterBySearch(byCategory, state.q);

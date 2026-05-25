@@ -65,9 +65,7 @@
       "pathRoutesDescription": "3 разные основы: на 5, 7 и 10 дней. Хорошая отправная точка.",
       "pathInfoTitle": "Практическая информация",
       "pathInfoDescription": "Виза, валюта, транспорт, чек-лист перед отъездом.",
-      "featuredHeading": "Классические места",
-      "draftsHeading": "Будут добавлены позже / ждут подтверждения",
-      "draftsDescription": "Эти объекты ещё не отображаются на карте — ждут подтверждения."
+      "featuredHeading": "Классические места"
     },
     "map": {
       "title": "Карта",
@@ -118,7 +116,6 @@
     "sightDetail": {
       "notFoundTitle": "Объект не найден",
       "metaTitle": "{name} — Поездка в Казахстан",
-      "draftBadge": "Черновик — ждёт подтверждения",
       "navigator": "Навигатор",
       "descriptionHeading": "Описание",
       "historyHeading": "История",
@@ -324,7 +321,6 @@
       "desktopLabelSingle": "Маршрут от вашего текущего местоположения"
     },
     "sightCard": {
-      "draft": "Черновик",
       "hours": "{count} ч",
       "difficultyEasy": "лёгкая",
       "difficultyModerate": "средняя",
