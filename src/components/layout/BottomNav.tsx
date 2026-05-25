@@ -102,6 +102,8 @@ export default function BottomNav() {
         className="fixed inset-x-0 bottom-0 z-40 isolate border-t border-border/60 bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80 pb-[env(safe-area-inset-bottom)] sm:hidden"
       >
         <ul className="mx-auto grid max-w-6xl grid-cols-5">
+          {/* min-height is driven by --bottom-nav-h so the locked map view's
+              height calc (globals.css) and the nav can never drift apart. */}
           {PRIMARY_TABS.map((tab) => {
             const active = tab.match(pathname);
             const Icon = tab.Icon;
@@ -110,7 +112,7 @@ export default function BottomNav() {
                 <Link
                   href={tab.href}
                   aria-current={active ? 'page' : undefined}
-                  className={`group relative flex min-h-16 flex-col items-center justify-center gap-1 px-1 pt-2 pb-1.5 text-[11px] leading-none tracking-tight no-underline outline-none select-none transition-colors hover:no-underline focus-visible:[&_.nav-pill]:ring-2 focus-visible:[&_.nav-pill]:ring-ring focus-visible:[&_.nav-pill]:ring-offset-2 focus-visible:[&_.nav-pill]:ring-offset-card ${
+                  className={`group relative flex min-h-[var(--bottom-nav-h)] flex-col items-center justify-center gap-1 px-1 pt-2 pb-1.5 text-[11px] leading-none tracking-tight no-underline outline-none select-none transition-colors hover:no-underline focus-visible:[&_.nav-pill]:ring-2 focus-visible:[&_.nav-pill]:ring-ring focus-visible:[&_.nav-pill]:ring-offset-2 focus-visible:[&_.nav-pill]:ring-offset-card ${
                     active ? 'text-primary' : 'text-muted-foreground'
                   }`}
                 >
@@ -139,7 +141,7 @@ export default function BottomNav() {
                 type="button"
                 aria-label={t('nav.ariaMore')}
                 aria-expanded={open}
-                className={`group relative flex min-h-16 flex-col items-center justify-center gap-1 px-1 pt-2 pb-1.5 text-[11px] leading-none tracking-tight outline-none select-none transition-colors focus-visible:[&_.nav-pill]:ring-2 focus-visible:[&_.nav-pill]:ring-ring focus-visible:[&_.nav-pill]:ring-offset-2 focus-visible:[&_.nav-pill]:ring-offset-card ${
+                className={`group relative flex min-h-[var(--bottom-nav-h)] flex-col items-center justify-center gap-1 px-1 pt-2 pb-1.5 text-[11px] leading-none tracking-tight outline-none select-none transition-colors focus-visible:[&_.nav-pill]:ring-2 focus-visible:[&_.nav-pill]:ring-ring focus-visible:[&_.nav-pill]:ring-offset-2 focus-visible:[&_.nav-pill]:ring-offset-card ${
                   moreActive && !open ? 'text-primary' : 'text-muted-foreground'
                 }`}
               >

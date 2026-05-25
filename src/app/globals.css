@@ -5,6 +5,15 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  /* Fixed mobile chrome heights — single source for the locked map view.
+     --bottom-nav-h is also consumed by BottomNav itself so they can't drift.
+     Mirror --app-header-h if the Header height (h-9 + py-1.5 = 3rem) changes. */
+  --app-header-h: 3rem;
+  --bottom-nav-h: 4rem;
+  /* Live height of the offline banner while visible (0 otherwise); published
+     by OfflineBanner so the locked map view can subtract it. */
+  --offline-banner-h: 0px;
+
   /*
    * Outdoor palette (canonical).
    * Existing code references these via Tailwind v4 arbitrary form

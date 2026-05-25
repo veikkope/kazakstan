@@ -192,7 +192,7 @@ function KarttaPageInner() {
       {/* `isolate` traps Leaflet's internal z-index (panes ~400, controls
           ~1000) inside this stacking context so they can't paint over the
           sticky Header (z-20) when the desktop page scrolls. */}
-      <div className="relative isolate flex h-[calc(100dvh-3rem-4rem-env(safe-area-inset-bottom))] sm:h-[70dvh] sm:flex-row sm:gap-3">
+      <div className="relative isolate flex h-[calc(100dvh-var(--app-header-h)-var(--offline-banner-h)-var(--bottom-nav-h)-env(safe-area-inset-bottom))] sm:h-[70dvh] sm:flex-row sm:gap-3">
         {/* Map canvas (always mounted) */}
         <div className="relative h-full flex-1 overflow-hidden sm:overflow-hidden sm:rounded-lg sm:border sm:border-border">
           <MapViewClient
