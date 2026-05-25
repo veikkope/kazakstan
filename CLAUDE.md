@@ -73,6 +73,16 @@ Henkilökohtainen monikielinen matkasuunnittelusivu Kazakstaniin. Kahden ihmisen
 - `category` ∈ `'nature' | 'culture' | 'food' | 'nightlife'`.
 - Ajetaan `pnpm typecheck` aina `src/data/*` -muokkauksen jälkeen.
 
+### Offline / PWA (älä riko näitä)
+
+Service worker `public/sw.js` + "Lataa offline-käyttöön" (/today). Tausta: [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md) §3.
+
+- **Välimuistihaut `{ ignoreVary: true }`** (navigoinneissa myös `ignoreSearch`). Next-sivut lähettävät `Vary: rsc, …, Accept-Encoding`; Safari noudattaa Varya tiukasti → ilman tätä offline-navigointi putoaa etusivulle (Chromiumissa "toimii" silti — harhaanjohtavaa).
+- **Proxy/middleware ajetaan vain palvelimella** → SW tekee `/`→`/<locale>`-ohjauksen offline (NEXT_LOCALE-eväste). Älä oleta locale-redirectin toimivan offline ilman sitä.
+- **Nähtävyyskuvat pidetään `unoptimized`** (`SightImage`) — `/_next/image`-optimoija ei toimi offline.
+- **`sw.js`:n `VERSION`-nosto tyhjentää myös ladatun reissun** (`trip-*`-lokerot) → nosta vain kun välimuistin rakenne oikeasti muuttuu.
+- **Lukitun karttasivun korkeus** = `100dvh − var(--app-header-h) − var(--offline-banner-h) − var(--bottom-nav-h)`; pidä CSS-muuttujat yksilähteisinä tai lista/kartta-nappi jää alapalkin alle.
+
 ### Mitä EI saa tehdä
 - Ei tietokantaa, ei autentikointia, ei CMS:ää.
 - Ei i18n-kielten lisäämistä ilman tyypitettyä `Locale`-unionin päivitystä — kaikki 4 kieltä joko täysi tuki tai ei mitään (drift estetty).

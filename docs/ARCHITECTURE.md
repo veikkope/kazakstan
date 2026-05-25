@@ -59,7 +59,7 @@ Because `Locale` is a closed union of all four languages, omitting any one of th
 | Map tiles (OSM light + Carto dark) | **Cache-first + LRU trim** (400) | Re-visited areas load instantly; bounded storage |
 | Wikimedia / optimised images | **Cache-first + LRU trim** (200) | Same, for the few remote photos |
 
-The Cache API has no native LRU, so `trimCache()` does a FIFO eviction once a cache exceeds its cap. The precache is **best-effort** (each URL has its own `catch`). Note: `/` is deliberately *not* precached — it 308-redirects to `/<locale>`, and a cached *redirected* response can't satisfy a navigation, so the default-locale shell is the fallback instead.
+The Cache API has no native LRU, so `trimCache()` does a FIFO eviction once a cache exceeds its cap. The precache is **best-effort** (each URL has its own `catch`). `/` isn't precached (it 308-redirects, and a cached *redirected* response can't satisfy a navigation). The locale redirect lives in the server-only `proxy`, so **the SW replicates it offline** — any locale-less path is redirected to `/<NEXT_LOCALE>` — otherwise the app boots at a locale-less `/` and every navigation falls back to home.
 
 **Proactive ("Download trip for offline")** — reactive caching alone doesn't fit the prep-at-home-then-go-off-grid use case (you'd have to manually open all 75 sights and pan the whole map first). The `/today` page offers a one-tap download that fills **eviction-exempt** `trip-*` caches via a `postMessage` to the SW:
 
@@ -67,7 +67,13 @@ The Cache API has no native LRU, so `trimCache()` does a FIFO eviction once a ca
 - Map tiles for the chosen regions come from `src/lib/tiles.ts` (bbox → XYZ tiles, replicating Leaflet's `a/b/c` subdomain hashing so precached URLs hit at runtime), downloaded for the active theme.
 - The SW fetches everything with bounded concurrency, reporting progress; lookups use a global `caches.match`, so trip content is served before the bounded runtime caches. `navigator.storage.persist()` asks the OS not to evict it.
 
-Sight images are served **`unoptimized`** (stable same-origin URLs) precisely so they're precachable — the `/_next/image` optimizer is a server route that doesn't exist offline.
+**Invariants — regressing any of these silently breaks offline:**
+
+- **Match cached navigations/assets with `{ ignoreVary: true }`** (navigations also `ignoreSearch`). Next.js pages carry `Vary: rsc, …, Accept-Encoding`; Safari honours `Vary` strictly, so without this a navigation misses the cache and bounces to the home shell — even though Chromium is lenient and appears to "work".
+- **The SW redirects locale-less paths to `/<locale>` offline** (from the `NEXT_LOCALE` cookie), because the `proxy` is server-only.
+- **Sight images stay `unoptimized`** (stable same-origin URLs) — the `/_next/image` optimizer is a server route that doesn't exist offline.
+- **Bumping `sw.js`'s `VERSION`** purges every cache including the eviction-exempt `trip-*`, so users must re-download the trip — bump only when the cache shape really changes.
+- **The locked mobile map height** is `100dvh` minus `--app-header-h`, `--offline-banner-h` (published live by `OfflineBanner`) and `--bottom-nav-h` (which also sizes `BottomNav`) — keep them single-sourced or the view-toggle slips under the bottom nav.
 
 ---
 
