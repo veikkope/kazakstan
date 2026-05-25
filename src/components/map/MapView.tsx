@@ -9,8 +9,8 @@ import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import { useLocale, useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
-import type { Sight, TripPin, TripPinKind } from '@/lib/types';
-import { categoryMeta } from '@/data/categories';
+import type { Activity, Sight, TripPin, TripPinKind } from '@/lib/types';
+import { activityMeta, categoryMeta } from '@/data/categories';
 import { asLocale, localised } from '@/lib/i18n-helpers';
 import LocateControl from './LocateControl';
 
@@ -51,7 +51,20 @@ function markStateFor(
   return 'none';
 }
 
-function makeIcon(color: string, mark: MarkState): L.DivIcon {
+function makeIcon(color: string, mark: MarkState, activity?: Activity): L.DivIcon {
+  if (activity === 'hike') {
+    // Emoji-in-circle pin so the researched hike/summit sights stand out
+    // from plain category dots. The ring colour still encodes shortlist
+    // state (amber = on list / top pick, emerald = visited, white = none).
+    const ring =
+      mark === 'visited' ? '#10b981' : mark === 'none' ? '#fff' : '#fbbf24';
+    return L.divIcon({
+      className: '',
+      html: `<div style="position:relative;width:1.6rem;height:1.6rem;border-radius:9999px;background:${activityMeta.hike.color};border:2.5px solid ${ring};box-shadow:0 1px 5px rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;font-size:13px;line-height:1" aria-hidden="true">${activityMeta.hike.emoji}</div>`,
+      iconSize: [26, 26],
+      iconAnchor: [13, 13],
+    });
+  }
   if (mark === 'shortlist') {
     // Plain amber ring, no glyph — signals "on my list" without the
     // weight of a top-pick mark. Same size as priority/visited so the
@@ -369,7 +382,7 @@ function MarkerClusterLayer({
         visitedIdsRef.current,
       );
       const marker = L.marker([s.coords.lat, s.coords.lng], {
-        icon: makeIcon(categoryMeta[s.category].color, mark),
+        icon: makeIcon(categoryMeta[s.category].color, mark, s.activity),
       });
       marker.bindPopup(popupHtml(s, mark, locale, popupLabels), {
         className: 'sight-popup',
@@ -402,7 +415,7 @@ function MarkerClusterLayer({
       if (!marker) continue;
       const mark = markStateFor(s.id, shortlistIds, priorityIds, visitedIds);
       marker.setPopupContent(popupHtml(s, mark, locale, popupLabels));
-      marker.setIcon(makeIcon(categoryMeta[s.category].color, mark));
+      marker.setIcon(makeIcon(categoryMeta[s.category].color, mark, s.activity));
     }
   }, [sights, shortlistIds, priorityIds, visitedIds, locale, popupLabels]);
 

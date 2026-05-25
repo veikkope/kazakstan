@@ -5834,6 +5834,7 @@ export const sights: Sight[] = [
   },
   {
     id: 'furmanov-peak',
+    activity: 'hike',
     slug: 'furmanov-huippu',
     name: {
       fi: 'Furmanov-huippu',
@@ -5926,6 +5927,7 @@ export const sights: Sight[] = [
   },
   {
     id: 'kok-zhailau',
+    activity: 'hike',
     slug: 'kok-zhailau',
     name: {
       fi: 'Kök-Zhailau',
@@ -6017,6 +6019,7 @@ export const sights: Sight[] = [
   },
   {
     id: 'kumbel-peak',
+    activity: 'hike',
     slug: 'kumbel-huippu',
     name: {
       fi: 'Kumbel-huippu',
@@ -6109,6 +6112,7 @@ export const sights: Sight[] = [
   },
   {
     id: 'tuyuksu-valley',
+    activity: 'hike',
     slug: 'tuyuksu-laakso',
     name: {
       fi: 'Tuyuksu-laakso',
@@ -6199,6 +6203,7 @@ export const sights: Sight[] = [
   },
   {
     id: 'big-almaty-peak',
+    activity: 'hike',
     slug: 'big-almaty-peak',
     name: {
       fi: 'Big Almaty Peak',
@@ -6289,6 +6294,7 @@ export const sights: Sight[] = [
   },
   {
     id: 'butakovka-falls',
+    activity: 'hike',
     slug: 'butakovka-vesiputoukset',
     name: {
       fi: 'Butakovkan vesiputoukset',
@@ -6381,6 +6387,7 @@ export const sights: Sight[] = [
   },
   {
     id: 'airakty-shomanai',
+    activity: 'hike',
     slug: 'airakty-shomanai',
     name: {
       fi: 'Airakty-Shomanai',
@@ -6472,6 +6479,7 @@ export const sights: Sight[] = [
   },
   {
     id: 'bolektau-burabay',
+    activity: 'hike',
     slug: 'bolektau',
     name: {
       fi: 'Bolektau-kukkula',
@@ -6558,6 +6566,7 @@ export const sights: Sight[] = [
   },
   {
     id: 'turgen-gorge',
+    activity: 'hike',
     slug: 'turgen-rotko',
     name: {
       fi: 'Turgenin rotko ja vesiputoukset',

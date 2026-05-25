@@ -5,7 +5,7 @@ import { Clock, Dumbbell, Wallet, Car, Compass } from 'lucide-react';
 import { m } from 'motion/react';
 import { useLocale, useTranslations } from 'next-intl';
 import { Card, CardContent } from '@/components/ui/card';
-import { categoryMeta, regionMeta } from '@/data/categories';
+import { activityMeta, categoryMeta, regionMeta } from '@/data/categories';
 import { asLocale, localised } from '@/lib/i18n-helpers';
 import type { Sight } from '@/lib/types';
 import ShortlistButton from './ShortlistButton';
@@ -56,6 +56,14 @@ export default function SightCard({ sight }: { sight: Sight }) {
             >
               {cat.emoji} {localised(cat.label, loc)}
             </span>
+            {sight.activity && (
+              <span
+                className="rounded-full px-2 py-0.5 text-[10px] uppercase tracking-wide text-white"
+                style={{ backgroundColor: activityMeta[sight.activity].color }}
+              >
+                {activityMeta[sight.activity].emoji} {localised(activityMeta[sight.activity].label, loc)}
+              </span>
+            )}
           </div>
           <h3 className="mt-2 text-lg font-semibold">
             <Link

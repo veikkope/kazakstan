@@ -11,6 +11,9 @@ export type Region =
 
 export type Difficulty = 'easy' | 'moderate' | 'hard';
 export type BudgetLevel = 'low' | 'mid' | 'high';
+/** Cross-cutting activity tag (orthogonal to `category`) for outdoor
+ *  destinations researched as hikes/summits. Extensible union. */
+export type Activity = 'hike';
 
 /* ============================================================
  * i18n primitives
@@ -84,6 +87,9 @@ export interface Sight {
   nameLocal?: string;
   category: Category;
   region: Region;
+  /** Optional activity tag — flags outdoor hike/summit destinations so the
+   *  map marker shows an emoji pin and the list/detail get a "Vaellus" badge. */
+  activity?: Activity;
   /** City name. Often a place name that's locale-stable (Almaty, Astana). */
   city?: TranslatableString;
   tags?: string[];

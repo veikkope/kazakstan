@@ -3,7 +3,7 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
 import { sights } from '@/data/sights';
-import { categoryMeta, regionMeta } from '@/data/categories';
+import { activityMeta, categoryMeta, regionMeta } from '@/data/categories';
 import { findBySlug } from '@/lib/filters';
 import { nearestSights } from '@/lib/distance';
 import NearbyList from '@/components/sights/NearbyList';
@@ -94,6 +94,14 @@ export default async function SightDetailPage({
           >
             {cat.emoji} {catLabel}
           </span>
+          {sight.activity && (
+            <span
+              className="rounded-full px-2 py-0.5 text-xs uppercase tracking-wide text-white"
+              style={{ backgroundColor: activityMeta[sight.activity].color }}
+            >
+              {activityMeta[sight.activity].emoji} {localised(activityMeta[sight.activity].label, loc)}
+            </span>
+          )}
           <span className="text-sm text-muted-foreground">{regionLabel}</span>
         </div>
         <div className="flex flex-wrap items-center gap-3">

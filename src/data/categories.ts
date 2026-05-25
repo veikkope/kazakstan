@@ -1,4 +1,4 @@
-import type { Category, LocalizedString, Region } from '@/lib/types';
+import type { Activity, Category, LocalizedString, Region } from '@/lib/types';
 
 /**
  * Category metadata. Labels and descriptions are inline-localized objects
@@ -61,6 +61,24 @@ export const categoryMeta: Record<
 };
 
 export const allCategories: Category[] = ['nature', 'culture', 'food', 'nightlife'];
+
+/**
+ * Activity metadata — a cross-cutting tag (orthogonal to `category`) for the
+ * outdoor destinations we researched as hikes/summits. Drives the distinct
+ * map marker (emoji-in-pin) and the list/detail badge. Same inline-localized
+ * pattern as `categoryMeta`, so labels resolve through `localised()`.
+ */
+export const activityMeta: Record<
+  Activity,
+  { label: LocalizedString; emoji: string; color: string }
+> = {
+  hike: {
+    label: { fi: 'Vaellus', en: 'Hike', ru: 'Поход', kk: 'Жорық' },
+    emoji: '🏔️',
+    // Teal — distinct from the four category colours so hike sights pop.
+    color: '#0d9488',
+  },
+};
 
 /**
  * Region metadata. Same inline-localized pattern as `categoryMeta`.
