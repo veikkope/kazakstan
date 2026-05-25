@@ -16,16 +16,21 @@ const REMOTE_IMG_CACHE = `remote-img-${VERSION}`;
 const TILES_MAX_ENTRIES = 400;
 const REMOTE_IMG_MAX_ENTRIES = 200;
 
+// Precache the default-locale (fi) shell plus locale-independent assets.
+// Non-default locales (/en, /ru, /kk) are covered at runtime by the
+// network-first navigation handler below, which caches each visited page.
 const SHELL_URLS = [
   '/',
-  '/tanaan',
-  '/kartta',
-  '/nahtavyydet',
-  '/reitit',
-  '/reittisuunnitelma',
-  '/shortlist',
-  '/info',
-  '/budjetti',
+  '/fi',
+  '/fi/today',
+  '/fi/map',
+  '/fi/sights',
+  '/fi/routes',
+  '/fi/itinerary',
+  '/fi/shortlist',
+  '/fi/budget',
+  '/fi/car-rental',
+  '/fi/info',
   '/manifest.webmanifest',
   '/icons/icon.svg',
   '/leaflet/marker-icon.png',
