@@ -1,9 +1,8 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
-import { toast } from 'sonner';
 import {
   Check,
   CloudDownload,
@@ -28,17 +27,7 @@ import {
   tilesForBboxes,
   type Bbox,
 } from '@/lib/tiles';
-import {
-  clearTrip,
-  downloadTrip,
-  getTripStatus,
-  isOfflineDownloadSupported,
-  readManifest,
-  requestPersistentStorage,
-  storageEstimate,
-  type DownloadProgress,
-  type TripManifest,
-} from '@/lib/offline';
+import { useOffline } from '@/components/offline/OfflineProvider';
 import { cn } from '@/lib/utils';
 
 const MAX_ZOOM_MIN = 8;
@@ -51,8 +40,6 @@ function formatBytes(bytes: number): string {
   return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
 }
 
-type TripState = 'none' | 'ready' | 'stale';
-
 export default function OfflineManager() {
   const t = useTranslations('components.offline');
   const locale = useLocale();
@@ -60,12 +47,10 @@ export default function OfflineManager() {
   const { resolvedTheme } = useTheme();
   const theme = resolvedTheme === 'dark' ? 'dark' : 'light';
 
-  const [supported, setSupported] = useState(true);
-  const [manifest, setManifest] = useState<TripManifest | null>(null);
-  const [tripState, setTripState] = useState<TripState>('none');
-  const [estimate, setEstimate] = useState<{ usage: number; quota: number } | null>(null);
-  const [busy, setBusy] = useState<'download' | 'clear' | null>(null);
-  const [progress, setProgress] = useState<DownloadProgress | null>(null);
+  // App-wide download state — owned by OfflineProvider so it survives
+  // navigation and a global toast can report progress on any page.
+  const { supported, manifest, tripState, estimate, busy, progress, startDownload, clear } =
+    useOffline();
 
   // Regions that actually contain sights, with their counts.
   const regions = useMemo(() => {
@@ -81,31 +66,6 @@ export default function OfflineManager() {
   );
   const [includeTiles, setIncludeTiles] = useState(true);
   const [maxZoom, setMaxZoom] = useState(MAX_ZOOM_DEFAULT);
-
-  const refreshStatus = async () => {
-    setManifest(readManifest());
-    setEstimate(await storageEstimate());
-    const status = await getTripStatus();
-    const m = readManifest();
-    if (m && status && status.pages > 0) setTripState('ready');
-    else if (m) setTripState('stale');
-    else setTripState('none');
-  };
-
-  useEffect(() => {
-    let cancelled = false;
-    void (async () => {
-      if (!isOfflineDownloadSupported()) {
-        if (!cancelled) setSupported(false);
-        return;
-      }
-      await requestPersistentStorage();
-      if (!cancelled) await refreshStatus();
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
 
   const bboxes = useMemo<Bbox[]>(() => {
     const out: Bbox[] = [];
@@ -129,45 +89,20 @@ export default function OfflineManager() {
     );
   }
 
-  async function handleDownload() {
-    setBusy('download');
-    setProgress({ phase: 'preparing', done: 0, total: 0, bytes: 0 });
-    try {
-      const tiles =
-        includeTiles && bboxes.length
-          ? tileUrls(tilesForBboxes(bboxes, TILE_MIN_ZOOM, maxZoom), theme)
-          : [];
-      await downloadTrip(locale, tiles, setProgress);
-      await refreshStatus();
-      toast.success(t('doneToast'));
-    } catch (err) {
-      toast.error(
-        err instanceof Error && err.message === 'offline-unavailable'
-          ? t('unavailableToast')
-          : t('errorToast'),
-      );
-    } finally {
-      setBusy(null);
-      setProgress(null);
-    }
+  function handleDownload() {
+    if (busy) return;
+    const tiles =
+      includeTiles && bboxes.length
+        ? tileUrls(tilesForBboxes(bboxes, TILE_MIN_ZOOM, maxZoom), theme)
+        : [];
+    void startDownload(locale, tiles);
   }
 
-  async function handleClear() {
-    setBusy('clear');
-    try {
-      await clearTrip();
-      await refreshStatus();
-      toast.success(t('clearToast'));
-    } finally {
-      setBusy(null);
-    }
-  }
-
+  const downloading = busy === 'download';
   const percent =
     progress && progress.total > 0
       ? Math.min(100, Math.round((progress.done / progress.total) * 100))
       : 0;
-
   const dateLabel = manifest
     ? new Intl.DateTimeFormat(locale, { dateStyle: 'medium' }).format(manifest.at)
     : '';
@@ -277,13 +212,18 @@ export default function OfflineManager() {
               {t('includesNote', { sights: sightsWithImages })}
             </p>
 
-            {/* Progress */}
-            {busy === 'download' && progress && (
-              <div className="space-y-1.5">
+            {/* Progress (also mirrored in a global toast, so it shows on any page) */}
+            {downloading && progress && (
+              <div className="space-y-1.5" role="status" aria-live="polite">
                 <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
                   <div
-                    className="h-full rounded-full bg-primary transition-[width] duration-300"
-                    style={{ width: `${progress.phase === 'preparing' ? 6 : percent}%` }}
+                    className={cn(
+                      'h-full rounded-full bg-primary',
+                      progress.phase === 'preparing'
+                        ? 'w-1/3 animate-pulse'
+                        : 'transition-[width] duration-300',
+                    )}
+                    style={progress.phase === 'preparing' ? undefined : { width: `${percent}%` }}
                   />
                 </div>
                 <p className="text-xs text-muted-foreground">
@@ -291,13 +231,21 @@ export default function OfflineManager() {
                     ? t('preparing')
                     : t('downloading', { done: progress.done, total: progress.total })}
                 </p>
+                <p className="text-xs text-muted-foreground">{t('keepBrowsing')}</p>
               </div>
             )}
 
-            {/* Actions */}
+            {/* Actions — aria-disabled (not the `disabled` attr) keeps focus on
+                the button, avoiding the iOS Safari scroll-to-top that fires when
+                a focused element is disabled. */}
             <div className="flex flex-wrap gap-2">
-              <Button onClick={handleDownload} disabled={busy !== null}>
-                {busy === 'download' ? (
+              <Button
+                variant="default"
+                aria-disabled={busy !== null}
+                onClick={handleDownload}
+                className={cn(busy !== null && 'opacity-70')}
+              >
+                {downloading ? (
                   <Loader2 className="size-4 animate-spin" aria-hidden />
                 ) : tripState === 'none' ? (
                   <CloudDownload className="size-4" aria-hidden />
@@ -307,7 +255,15 @@ export default function OfflineManager() {
                 {tripState === 'none' ? t('download') : t('update')}
               </Button>
               {tripState !== 'none' && (
-                <Button variant="outline" onClick={handleClear} disabled={busy !== null}>
+                <Button
+                  variant="outline"
+                  aria-disabled={busy !== null}
+                  onClick={() => {
+                    if (busy) return;
+                    void clear();
+                  }}
+                  className={cn(busy !== null && 'opacity-70')}
+                >
                   <Trash2 className="size-4" aria-hidden />
                   {t('clear')}
                 </Button>

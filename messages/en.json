@@ -295,6 +295,8 @@
       "detail": "Detail",
       "tilesEstimate": "≈ {count} tiles · {size}",
       "includesNote": "Includes all {sights} sights, photos and routes in the current language",
+      "downloadingTitle": "Downloading for offline",
+      "keepBrowsing": "You can keep using the app — the download continues in the background.",
       "download": "Download for offline",
       "update": "Update offline data",
       "clear": "Remove offline data",

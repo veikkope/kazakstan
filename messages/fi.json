@@ -294,6 +294,8 @@
       "detail": "Tarkkuus",
       "tilesEstimate": "≈ {count} laattaa · {size}",
       "includesNote": "Sisältää kaikki {sights} kohdetta, kuvat ja reitit valitulla kielellä",
+      "downloadingTitle": "Ladataan offline-tilaan",
+      "keepBrowsing": "Voit jatkaa sovelluksen käyttöä — lataus jatkuu taustalla.",
       "download": "Lataa offline-käyttöön",
       "update": "Päivitä offline-data",
       "clear": "Poista offline-data",

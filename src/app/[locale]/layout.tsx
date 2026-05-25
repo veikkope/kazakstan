@@ -13,6 +13,7 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import { Toaster } from '@/components/ui/sonner';
 import MotionProvider from '@/components/layout/MotionProvider';
 import ThemeProvider from '@/components/layout/ThemeProvider';
+import OfflineProvider from '@/components/offline/OfflineProvider';
 import ShortlistUrlSync from '@/components/shortlist/ShortlistUrlSync';
 import { routing } from '@/i18n/routing';
 
@@ -91,20 +92,22 @@ export default async function LocaleLayout({
       <body className="flex min-h-full flex-col">
         <ThemeProvider>
           <NextIntlClientProvider>
-            <TooltipProvider delayDuration={150}>
-              <MotionProvider>
-                <ServiceWorkerRegistration />
-                <ShortlistUrlSync />
-                <Header />
-                <OfflineBanner />
-                <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 pb-24 sm:pb-6">
-                  {children}
-                </main>
-                <Footer />
-                <BottomNav />
-                <Toaster position="bottom-center" richColors closeButton />
-              </MotionProvider>
-            </TooltipProvider>
+            <OfflineProvider>
+              <TooltipProvider delayDuration={150}>
+                <MotionProvider>
+                  <ServiceWorkerRegistration />
+                  <ShortlistUrlSync />
+                  <Header />
+                  <OfflineBanner />
+                  <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 pb-24 sm:pb-6">
+                    {children}
+                  </main>
+                  <Footer />
+                  <BottomNav />
+                  <Toaster position="bottom-center" richColors closeButton />
+                </MotionProvider>
+              </TooltipProvider>
+            </OfflineProvider>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

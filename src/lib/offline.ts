@@ -123,8 +123,11 @@ function warmInIframe(url: string, timeoutMs: number): Promise<void> {
     const iframe = document.createElement('iframe');
     iframe.setAttribute('aria-hidden', 'true');
     iframe.tabIndex = -1;
+    // 0×0, inert, at the viewport origin: it still loads and runs (so the
+    // map's dynamic Leaflet chunk is fetched + cached) but can't steal focus or
+    // nudge scroll the way an off-screen 1px iframe does on mobile Safari.
     iframe.style.cssText =
-      'position:absolute;width:1px;height:1px;left:-9999px;top:-9999px;border:0;';
+      'position:fixed;left:0;top:0;width:0;height:0;opacity:0;border:0;pointer-events:none;';
     let settled = false;
     const finish = () => {
       if (settled) return;
