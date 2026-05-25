@@ -283,6 +283,29 @@
       "light": "Vaalea",
       "dark": "Tumma"
     },
+    "offline": {
+      "title": "Lataa offline-käyttöön",
+      "description": "Tallenna koko reissu puhelimeen ennen lähtöä — kaikki kohteet, kuvat ja kartta toimivat ilman nettiä.",
+      "unsupported": "Offline-lataus vaatii sovelluksen asennettuna (lisää aloitusnäyttöön) tai tuotantoversiona.",
+      "statusReady": "Ladattu offline-käyttöön · päivitetty {date}",
+      "statusStale": "Tallennettu aiemmin — lataa uudelleen päivittääksesi",
+      "statusNone": "Ei vielä ladattu",
+      "tilesToggle": "Sisällytä karttalaatat",
+      "detail": "Tarkkuus",
+      "tilesEstimate": "≈ {count} laattaa · {size}",
+      "includesNote": "Sisältää kaikki {sights} kohdetta, kuvat ja reitit valitulla kielellä",
+      "download": "Lataa offline-käyttöön",
+      "update": "Päivitä offline-data",
+      "clear": "Poista offline-data",
+      "preparing": "Valmistellaan…",
+      "downloading": "Ladataan… {done}/{total}",
+      "doneToast": "Reissu käytettävissä offline ✓",
+      "clearToast": "Offline-data poistettu",
+      "errorToast": "Lataus epäonnistui — tarkista yhteys",
+      "unavailableToast": "Offline-lataus vaatii asennetun sovelluksen",
+      "storage": "Käytössä {used} / {total}",
+      "mapTip": "Tarkkaan navigointiin offline kannattaa käyttää erillistä karttasovellusta (esim. Organic Maps) — Navigoi-painike linkittää siihen jo."
+    },
     "header": {
       "searchButton": "Hae",
       "searchAriaLabel": "Hae kohteita"

@@ -1,27 +1,43 @@
 /**
  * Service worker — offline support for trip use.
+ *
+ * Two tiers of caching:
+ *   1. Runtime (reactive): pages / static / tiles / images are cached as you
+ *      browse, with LRU bounds on the volatile tile + image caches.
+ *   2. Trip download (proactive): the in-app "Download for offline" action
+ *      fills dedicated, eviction-exempt trip caches with the WHOLE trip —
+ *      every sight page, its JS/CSS/font assets and images, plus map tiles for
+ *      the chosen regions — so it survives offline regardless of LRU pressure.
+ *
  * Strategies:
- *   - App shell (top-level routes): precache on install
- *   - HTML navigations: network-first, fall back to cache, then to /
- *   - Same-origin static assets: cache-first
- *   - OSM map tiles: cache-first with LRU trim (bounded storage)
+ *   - App shell (default-locale routes + icons/markers): precache on install
+ *   - HTML navigations: network-first → any cache → default-locale shell
+ *   - Static assets / images: cache-first (checks every cache, incl. trip)
+ *   - Map tiles: cache-first; trip tiles win, runtime tiles stay LRU-bounded
  */
 
-const VERSION = 'v3';
+const VERSION = 'v4';
 const SHELL_CACHE = `shell-${VERSION}`;
 const PAGES_CACHE = `pages-${VERSION}`;
 const STATIC_CACHE = `static-${VERSION}`;
 const TILES_CACHE = `tiles-${VERSION}`;
 const REMOTE_IMG_CACHE = `remote-img-${VERSION}`;
+// Proactively downloaded trip — kept separate so it's never LRU-evicted.
+const TRIP_CACHE = `trip-${VERSION}`;
+const TRIP_TILES_CACHE = `trip-tiles-${VERSION}`;
+
 const TILES_MAX_ENTRIES = 400;
 const REMOTE_IMG_MAX_ENTRIES = 200;
+const TRIP_FETCH_CONCURRENCY = 6;
 
-// Precache the default-locale (fi) shell plus locale-independent assets.
-// Non-default locales (/en, /ru, /kk) are covered at runtime by the
-// network-first navigation handler below, which caches each visited page.
+const DEFAULT_LOCALE = 'fi';
+const OFFLINE_FALLBACK = `/${DEFAULT_LOCALE}`;
+
+// Note: '/' is intentionally NOT precached — it 308-redirects to /<locale>,
+// and a cached *redirected* response can't satisfy a navigation request
+// (the browser rejects it). The default-locale shell is the fallback instead.
 const SHELL_URLS = [
-  '/',
-  '/fi',
+  OFFLINE_FALLBACK,
   '/fi/today',
   '/fi/map',
   '/fi/sights',
@@ -38,18 +54,28 @@ const SHELL_URLS = [
   '/leaflet/marker-shadow.png',
 ];
 
+const ALLOWED_CACHES = new Set([
+  SHELL_CACHE,
+  PAGES_CACHE,
+  STATIC_CACHE,
+  TILES_CACHE,
+  REMOTE_IMG_CACHE,
+  TRIP_CACHE,
+  TRIP_TILES_CACHE,
+]);
+
 self.addEventListener('install', (event) => {
   event.waitUntil(
     (async () => {
       const cache = await caches.open(SHELL_CACHE);
-      // Use addAll with individual catches so one 404 doesn't break the install.
+      // Best-effort: individual catches so one 404 can't abort the install.
       await Promise.all(
         SHELL_URLS.map(async (url) => {
           try {
             const res = await fetch(url, { cache: 'reload' });
             if (res.ok) await cache.put(url, res);
           } catch {
-            /* ignore — best effort precache */
+            /* ignore */
           }
         }),
       );
@@ -62,15 +88,8 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     (async () => {
       const keys = await caches.keys();
-      const allowed = new Set([
-        SHELL_CACHE,
-        PAGES_CACHE,
-        STATIC_CACHE,
-        TILES_CACHE,
-        REMOTE_IMG_CACHE,
-      ]);
       await Promise.all(
-        keys.filter((k) => !allowed.has(k)).map((k) => caches.delete(k)),
+        keys.filter((k) => !ALLOWED_CACHES.has(k)).map((k) => caches.delete(k)),
       );
       await self.clients.claim();
     })(),
@@ -78,7 +97,19 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('message', (event) => {
-  if (event.data === 'SKIP_WAITING') self.skipWaiting();
+  const data = event.data;
+  if (data === 'SKIP_WAITING') {
+    self.skipWaiting();
+    return;
+  }
+  if (!data || typeof data !== 'object') return;
+  if (data.type === 'CACHE_TRIP') {
+    event.waitUntil(cacheTrip(data, event.source));
+  } else if (data.type === 'CLEAR_TRIP') {
+    event.waitUntil(clearTrip(event.source));
+  } else if (data.type === 'TRIP_STATUS') {
+    event.waitUntil(reportTripStatus(event.source));
+  }
 });
 
 self.addEventListener('fetch', (event) => {
@@ -87,16 +118,16 @@ self.addEventListener('fetch', (event) => {
 
   const url = new URL(request.url);
 
-  // Map tile servers (OSM light + Carto dark) — cache-first, LRU-bounded.
+  // Map tiles (OSM light + Carto dark) — trip tiles first, then bounded runtime.
   if (
     /\.tile\.openstreetmap\.org$/.test(url.hostname) ||
     /\.basemaps\.cartocdn\.com$/.test(url.hostname)
   ) {
-    event.respondWith(cacheFirstWithLimit(request, TILES_CACHE, TILES_MAX_ENTRIES));
+    event.respondWith(tileResponse(request));
     return;
   }
 
-  // Wikimedia image hosts (sight photos via next/image) — cache-first, bounded.
+  // Wikimedia images (a few sights) — cache-first (any cache), bounded runtime.
   if (url.hostname === 'upload.wikimedia.org') {
     event.respondWith(
       cacheFirstWithLimit(request, REMOTE_IMG_CACHE, REMOTE_IMG_MAX_ENTRIES),
@@ -104,27 +135,27 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Next.js image optimizer endpoint — also bounded image cache.
-  if (url.origin === self.location.origin && url.pathname.startsWith('/_next/image')) {
+  // Other cross-origin: don't intercept.
+  if (url.origin !== self.location.origin) return;
+
+  // Next image optimizer endpoint — bounded image cache.
+  if (url.pathname.startsWith('/_next/image')) {
     event.respondWith(
       cacheFirstWithLimit(request, REMOTE_IMG_CACHE, REMOTE_IMG_MAX_ENTRIES),
     );
     return;
   }
 
-  // Cross-origin (other): don't intercept (fonts, analytics, etc).
-  if (url.origin !== self.location.origin) return;
-
-  // HTML navigation — network-first.
+  // HTML navigation — network-first, fall back to any cache, then shell.
   if (
     request.mode === 'navigate' ||
     (request.headers.get('accept') || '').includes('text/html')
   ) {
-    event.respondWith(networkFirst(request, PAGES_CACHE));
+    event.respondWith(navigateResponse(request));
     return;
   }
 
-  // Static assets (Next.js bundles, images, fonts, leaflet markers) — cache-first.
+  // Same-origin static assets (incl. /images/sights/*.jpg) — cache-first.
   if (
     url.pathname.startsWith('/_next/') ||
     /\.(?:js|css|woff2?|ttf|otf|png|jpe?g|webp|svg|ico|gif)$/.test(url.pathname)
@@ -134,13 +165,40 @@ self.addEventListener('fetch', (event) => {
   }
 });
 
+// ---- response strategies ----
+
+async function navigateResponse(request) {
+  try {
+    const response = await fetch(request);
+    if (response.ok) {
+      const cache = await caches.open(PAGES_CACHE);
+      cache.put(request, response.clone()).catch(() => {});
+    }
+    return response;
+  } catch {
+    // Any cache (runtime PAGES or a downloaded trip page).
+    const cached = await caches.match(request);
+    if (cached) return cached;
+    const shell = await caches.open(SHELL_CACHE);
+    return (await shell.match(OFFLINE_FALLBACK)) || Response.error();
+  }
+}
+
+async function tileResponse(request) {
+  // Downloaded trip tiles are eviction-exempt and win over the LRU cache.
+  const trip = await caches.open(TRIP_TILES_CACHE);
+  const tripHit = await trip.match(request);
+  if (tripHit) return tripHit;
+  return cacheFirstWithLimit(request, TILES_CACHE, TILES_MAX_ENTRIES);
+}
+
 async function cacheFirst(request, cacheName) {
-  const cache = await caches.open(cacheName);
-  const cached = await cache.match(request);
+  const cached = await caches.match(request); // searches every cache, incl. trip
   if (cached) return cached;
   try {
     const response = await fetch(request);
     if (response.ok || response.type === 'opaque') {
+      const cache = await caches.open(cacheName);
       cache.put(request, response.clone()).catch(() => {});
     }
     return response;
@@ -150,32 +208,18 @@ async function cacheFirst(request, cacheName) {
 }
 
 async function cacheFirstWithLimit(request, cacheName, maxEntries) {
-  const cache = await caches.open(cacheName);
-  const cached = await cache.match(request);
+  const cached = await caches.match(request); // searches every cache, incl. trip
   if (cached) return cached;
   try {
     const response = await fetch(request);
     if (response.ok || response.type === 'opaque') {
+      const cache = await caches.open(cacheName);
       await cache.put(request, response.clone());
       trimCache(cacheName, maxEntries);
     }
     return response;
   } catch {
     return cached || Response.error();
-  }
-}
-
-async function networkFirst(request, cacheName) {
-  const cache = await caches.open(cacheName);
-  try {
-    const response = await fetch(request);
-    if (response.ok) cache.put(request, response.clone()).catch(() => {});
-    return response;
-  } catch {
-    const cached = await cache.match(request);
-    if (cached) return cached;
-    const shell = await caches.open(SHELL_CACHE);
-    return (await shell.match(request)) || (await shell.match('/')) || Response.error();
   }
 }
 
@@ -187,5 +231,98 @@ async function trimCache(cacheName, maxEntries) {
   // FIFO trim — Cache API has no native LRU.
   for (let i = 0; i < excess; i++) {
     await cache.delete(keys[i]);
+  }
+}
+
+// ---- trip download (proactive offline provisioning) ----
+
+async function cacheTrip(data, client) {
+  const urls = Array.isArray(data.urls) ? data.urls : [];
+  const tiles = Array.isArray(data.tiles) ? data.tiles : [];
+  const total = urls.length + tiles.length;
+  let done = 0;
+  let failed = 0;
+  let bytes = 0;
+
+  const post = (type) =>
+    client && client.postMessage({ type, done, total, failed, bytes });
+
+  const tripCache = await caches.open(TRIP_CACHE);
+  const tripTiles = await caches.open(TRIP_TILES_CACHE);
+
+  // Pages / assets / images. Same-origin → real response (check .ok and size);
+  // cross-origin (e.g. Wikimedia) → opaque no-cors response, stored as-is.
+  await runPool(urls, TRIP_FETCH_CONCURRENCY, async (u) => {
+    try {
+      const crossOrigin =
+        new URL(u, self.location.origin).origin !== self.location.origin;
+      const res = await fetch(u, crossOrigin ? { mode: 'no-cors' } : { cache: 'reload' });
+      if (crossOrigin) {
+        await tripCache.put(u, res);
+      } else if (res.ok) {
+        bytes += await responseBytes(res.clone());
+        await tripCache.put(u, res);
+      } else {
+        failed++;
+      }
+    } catch {
+      failed++;
+    }
+    done++;
+    if (done % 8 === 0) post('CACHE_TRIP_PROGRESS');
+  });
+
+  // Map tiles — cross-origin, opaque.
+  await runPool(tiles, TRIP_FETCH_CONCURRENCY, async (u) => {
+    try {
+      const res = await fetch(u, { mode: 'no-cors' });
+      await tripTiles.put(u, res);
+    } catch {
+      failed++;
+    }
+    done++;
+    if (done % 8 === 0) post('CACHE_TRIP_PROGRESS');
+  });
+
+  post('CACHE_TRIP_DONE');
+}
+
+async function responseBytes(res) {
+  const len = res.headers.get('content-length');
+  if (len) return Number(len) || 0;
+  try {
+    return (await res.arrayBuffer()).byteLength;
+  } catch {
+    return 0;
+  }
+}
+
+async function runPool(items, concurrency, worker) {
+  let i = 0;
+  const runners = Array.from(
+    { length: Math.min(concurrency, items.length) },
+    async () => {
+      while (i < items.length) {
+        const idx = i++;
+        await worker(items[idx]);
+      }
+    },
+  );
+  await Promise.all(runners);
+}
+
+async function clearTrip(client) {
+  await caches.delete(TRIP_CACHE);
+  await caches.delete(TRIP_TILES_CACHE);
+  if (client) client.postMessage({ type: 'TRIP_CLEARED' });
+}
+
+async function reportTripStatus(client) {
+  const tripCache = await caches.open(TRIP_CACHE);
+  const tripTiles = await caches.open(TRIP_TILES_CACHE);
+  const pages = (await tripCache.keys()).length;
+  const tiles = (await tripTiles.keys()).length;
+  if (client) {
+    client.postMessage({ type: 'TRIP_STATUS_RESULT', pages, tiles });
   }
 }

@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 import TodayDashboard from '@/components/today/TodayDashboard.client';
+import OfflineManager from '@/components/offline/OfflineManager';
 
 export async function generateMetadata() {
   const t = await getTranslations();
@@ -21,6 +22,7 @@ export default async function TanaanPage() {
       </div>
 
       <TodayDashboard />
+      <OfflineManager />
     </div>
   );
 }

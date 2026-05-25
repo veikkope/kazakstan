@@ -284,6 +284,29 @@
       "light": "Light",
       "dark": "Dark"
     },
+    "offline": {
+      "title": "Download for offline",
+      "description": "Save the whole trip to your phone before you go — every sight, photo and the map work with no signal.",
+      "unsupported": "Offline download needs the app installed (add to home screen) or the production build.",
+      "statusReady": "Downloaded for offline · updated {date}",
+      "statusStale": "Saved earlier — download again to refresh",
+      "statusNone": "Not downloaded yet",
+      "tilesToggle": "Include map tiles",
+      "detail": "Detail",
+      "tilesEstimate": "≈ {count} tiles · {size}",
+      "includesNote": "Includes all {sights} sights, photos and routes in the current language",
+      "download": "Download for offline",
+      "update": "Update offline data",
+      "clear": "Remove offline data",
+      "preparing": "Preparing…",
+      "downloading": "Downloading… {done}/{total}",
+      "doneToast": "Trip available offline ✓",
+      "clearToast": "Offline data removed",
+      "errorToast": "Download failed — check your connection",
+      "unavailableToast": "Offline download needs the installed app",
+      "storage": "Using {used} of {total}",
+      "mapTip": "For turn-by-turn navigation offline, pair with a dedicated maps app like Organic Maps — the Navigate button already links out to it."
+    },
     "header": {
       "searchButton": "Search",
       "searchAriaLabel": "Search destinations"

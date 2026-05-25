@@ -39,7 +39,7 @@ So it's a **decision tool for two travellers**, not a catalogue. It runs offline
 | 🗺️ **Interactive map** | 66 curated sights with marker clustering, category/region filters, and list ↔ map sync |
 | 🔍 **Instant full-text search** | Diacritic-insensitive, multi-language, zero dependencies |
 | 🌍 **4 languages** | Finnish · English · Russian · Kazakh — fully translated UI *and* content |
-| 📴 **Works offline** | Installable PWA with a hand-rolled service worker that caches the app shell, map tiles & images |
+| 📴 **Works offline** | One-tap *Download trip* provisions every sight, photo and your chosen map regions into eviction-proof caches — the whole trip works with zero signal |
 | ⭐ **Smart ranking** | Sights rated on *popularity*, *interest* & *uniqueness*; sort and filter by any dimension |
 | 📋 **Shortlist & share** | Save favourites, sync them via the URL, and share with a travel companion (Web Share API) |
 | 🧭 **Itineraries & presets** | Ready-made multi-day routes plus a personal day-by-day planner |
@@ -108,7 +108,7 @@ No environment variables, no API keys, no database — clone and run.
 
 The interesting parts I deliberately spent time on:
 
-- **Offline-first PWA, by hand.** A custom [service worker](./public/sw.js) precaches the app shell, serves HTML *network-first* with a cache fallback, and keeps **LRU-bounded** caches for OpenStreetMap tiles and Wikimedia images — so the app keeps working with no signal in the steppe.
+- **Offline-first PWA, by hand.** A custom [service worker](./public/sw.js) runs two cache tiers: a *reactive* one (network-first HTML, LRU-bounded tiles/images as you browse) and a *proactive* **“Download trip for offline”** that fetches every sight page, its JS/CSS/image assets and your chosen map regions’ tiles into eviction-exempt caches. So the **entire** trip works with no signal in the steppe — not just the pages you happened to open. The map’s runtime-imported Leaflet bundle is warmed in a hidden iframe so even an unvisited map renders offline.
 
 - **i18n where drift is a compile error.** Every localized field is typed as `Record<Locale, string>` across all four languages. Forget a Kazakh translation and the build *fails* — not production. One canonical language (`fi`), per-entry `lastTranslated` timestamps to detect stale copy.
 
