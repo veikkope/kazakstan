@@ -199,12 +199,16 @@ async function navigateResponse(request) {
         url.pathname === '/' ? `/${loc}` : `/${loc}${url.pathname}${url.search}`;
       return Response.redirect(new URL(target, url.origin).href, 302);
     }
-    const cached = await caches.match(request);
+    // ignoreVary: Next.js sets `Vary: rsc, …, Accept-Encoding` on pages. Safari
+    // matches Vary strictly, so a document navigation's headers won't equal the
+    // SW fetch's that populated the cache → a false miss that bounced the user
+    // to the home-shell fallback. ignoreSearch lets a cached "/x" serve "/x?q=…".
+    const cached = await caches.match(request, { ignoreSearch: true, ignoreVary: true });
     if (cached) return cached;
     const shell = await caches.open(SHELL_CACHE);
     return (
-      (await shell.match(`/${localeFromCookie(request)}`)) ||
-      (await shell.match(OFFLINE_FALLBACK)) ||
+      (await shell.match(`/${localeFromCookie(request)}`, { ignoreVary: true })) ||
+      (await shell.match(OFFLINE_FALLBACK, { ignoreVary: true })) ||
       Response.error()
     );
   }
@@ -219,7 +223,9 @@ async function tileResponse(request) {
 }
 
 async function cacheFirst(request, cacheName) {
-  const cached = await caches.match(request); // searches every cache, incl. trip
+  // ignoreVary: assets carry `Vary: Accept-Encoding`; Safari's strict Vary match
+  // would otherwise miss cached JS/CSS offline and break hydration.
+  const cached = await caches.match(request, { ignoreVary: true }); // any cache, incl. trip
   if (cached) return cached;
   try {
     const response = await fetch(request);
@@ -234,7 +240,9 @@ async function cacheFirst(request, cacheName) {
 }
 
 async function cacheFirstWithLimit(request, cacheName, maxEntries) {
-  const cached = await caches.match(request); // searches every cache, incl. trip
+  // ignoreVary: assets carry `Vary: Accept-Encoding`; Safari's strict Vary match
+  // would otherwise miss cached JS/CSS offline and break hydration.
+  const cached = await caches.match(request, { ignoreVary: true }); // any cache, incl. trip
   if (cached) return cached;
   try {
     const response = await fetch(request);
