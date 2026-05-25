@@ -89,7 +89,7 @@ export function getSightFields(sight: Sight, locale: Locale): LocalisedSightFiel
  * Narrow a runtime string to a `Locale`. Use at boundaries where the
  * locale comes from a URL param or next-intl context (typed as `string`).
  * Falls back to `'fi'` for unknown values — preferred over throwing here
- * because next-intl's middleware should already have rejected bad locales
+ * because next-intl's proxy should already have rejected bad locales
  * upstream; this is a defensive last line.
  */
 export function asLocale(value: string | undefined): Locale {

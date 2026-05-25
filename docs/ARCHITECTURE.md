@@ -117,6 +117,5 @@ itinerary-day-writer → fills one day of an itinerary, referencing existing sig
 
 ## Known follow-ups
 
-- Next.js 16 deprecates the `middleware` file convention in favour of `proxy` — a low-risk rename when convenient.
 - Precaching all four locale shells (not just `fi`) would make first-visit offline coverage complete for non-default languages.
 - A Playwright smoke test for the critical paths (map loads, search filters, a sight page renders) would catch regressions the type checker can't.

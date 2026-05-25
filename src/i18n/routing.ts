@@ -8,7 +8,7 @@ import { defineRouting } from 'next-intl/routing';
  * field via `Record<Locale, string>` in `src/lib/types.ts`, so a missing
  * translation surfaces at compile time, not in production.
  *
- * URL strategy: every page lives under `/<locale>/...`. The middleware
+ * URL strategy: every page lives under `/<locale>/...`. The proxy
  * redirects the bare `/` based on `Accept-Language` + the `NEXT_LOCALE`
  * cookie. Page paths are English on every locale (international convention)
  * — translation lives in UI strings and content, not in the URL.

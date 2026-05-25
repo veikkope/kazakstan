@@ -151,7 +151,7 @@ src/
 ├── data/                Typed content (sights, presets, budget, checklist …)
 ├── i18n/                next-intl routing & request config
 ├── lib/                 Helpers (types, filters, search, url-state, shortlist …)
-└── middleware.ts        Locale detection + redirect
+└── proxy.ts             Locale detection + redirect
 messages/                UI strings per locale (fi · en · ru · kk)
 public/                  Service worker, manifest, icons, Leaflet markers
 .claude/agents/          The content-engineering subagents

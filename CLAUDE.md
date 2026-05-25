@@ -35,7 +35,7 @@ Henkilökohtainen monikielinen matkasuunnittelusivu Kazakstaniin. Kahden ihmisen
 ## Tiedostokartta
 
 - `src/app/[locale]/<english-path>/page.tsx` — App Router -sivut, locale-prefixin alla
-- `src/middleware.ts` — locale detection + redirect
+- `src/proxy.ts` — locale detection + redirect (Next.js 16 proxy convention)
 - `src/i18n/` — next-intl config (locales, request, navigation)
 - `messages/<locale>.json` — UI-stringit per locale
 - `src/components/<feature>/` — feature-grouped (map, sights, itinerary, presets, info, budget, layout, navigation)
