@@ -31,6 +31,7 @@ const REMOTE_IMG_MAX_ENTRIES = 200;
 const TRIP_FETCH_CONCURRENCY = 6;
 
 const DEFAULT_LOCALE = 'fi';
+const LOCALES = ['fi', 'en', 'ru', 'kk'];
 const OFFLINE_FALLBACK = `/${DEFAULT_LOCALE}`;
 
 // Note: '/' is intentionally NOT precached — it 308-redirects to /<locale>,
@@ -167,7 +168,18 @@ self.addEventListener('fetch', (event) => {
 
 // ---- response strategies ----
 
+function localeFromCookie(request) {
+  const cookie = request.headers.get('cookie') || '';
+  const m = cookie.match(/(?:^|;\s*)NEXT_LOCALE=([^;]+)/);
+  return m && LOCALES.includes(m[1]) ? m[1] : DEFAULT_LOCALE;
+}
+
+function hasLocalePrefix(pathname) {
+  return LOCALES.some((l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`));
+}
+
 async function navigateResponse(request) {
+  const url = new URL(request.url);
   try {
     const response = await fetch(request);
     if (response.ok) {
@@ -176,11 +188,25 @@ async function navigateResponse(request) {
     }
     return response;
   } catch {
-    // Any cache (runtime PAGES or a downloaded trip page).
+    // Offline. The locale proxy is server-only and can't run, so replicate its
+    // redirect here: any locale-less path — notably the "/" start_url when the
+    // PWA cold-launches — becomes /<locale> from the NEXT_LOCALE cookie.
+    // Without this the app boots at a locale-less, route-less "/" and every
+    // navigation falls back to the home page.
+    if (!hasLocalePrefix(url.pathname)) {
+      const loc = localeFromCookie(request);
+      const target =
+        url.pathname === '/' ? `/${loc}` : `/${loc}${url.pathname}${url.search}`;
+      return Response.redirect(new URL(target, url.origin).href, 302);
+    }
     const cached = await caches.match(request);
     if (cached) return cached;
     const shell = await caches.open(SHELL_CACHE);
-    return (await shell.match(OFFLINE_FALLBACK)) || Response.error();
+    return (
+      (await shell.match(`/${localeFromCookie(request)}`)) ||
+      (await shell.match(OFFLINE_FALLBACK)) ||
+      Response.error()
+    );
   }
 }
 
