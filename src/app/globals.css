@@ -407,6 +407,104 @@ body.kartta-locked footer {
 }
 
 /*
+ * Story-mode typography for the historicalContext block on sight detail.
+ * Lifts the prose feel from "facts on a card" to a small editorial vignette:
+ * larger leading, a warm drop cap, and a paragraph treatment that invites
+ * reading rather than scanning. Pure CSS so reduced-motion users keep it.
+ *
+ * `:first-letter` only matches the first character of the first block-level
+ * child, so the surrounding `<p>` carries it. Whitespace-pre-line preserves
+ * paragraph breaks that the underlying data uses.
+ */
+.kz-story {
+  text-wrap: pretty;
+  hanging-punctuation: first;
+}
+.kz-story::first-letter {
+  font-family: ui-serif, Georgia, 'Times New Roman', serif;
+  font-size: 3.2em;
+  font-weight: 700;
+  float: left;
+  line-height: 0.85;
+  padding-right: 0.08em;
+  margin-top: 0.08em;
+  color: var(--color-steppe);
+}
+
+/*
+ * Decorative gradient meshes — soft animated radial blobs in the steppe-blue
+ * and sand palette. Pure CSS so they cost nothing at runtime and degrade to
+ * a flat gradient under prefers-reduced-motion. Used on the home hero and
+ * the pre-trip countdown card to add depth without overwhelming the content.
+ *
+ * The element they're applied to must be `relative overflow-hidden` so the
+ * pseudo blobs can extend past the box without spilling onto the page.
+ */
+.kz-mesh-hero,
+.kz-mesh-steppe {
+  isolation: isolate;
+}
+.kz-mesh-hero::before,
+.kz-mesh-steppe::before {
+  content: '';
+  position: absolute;
+  inset: -25%;
+  z-index: -1;
+  background:
+    radial-gradient(38% 42% at 20% 30%, color-mix(in oklab, var(--color-steppe), transparent 70%) 0%, transparent 65%),
+    radial-gradient(34% 38% at 80% 20%, color-mix(in oklab, var(--color-sand), transparent 65%) 0%, transparent 60%),
+    radial-gradient(40% 44% at 65% 80%, color-mix(in oklab, var(--color-accent), transparent 78%) 0%, transparent 65%);
+  filter: blur(28px);
+  animation: kz-mesh-drift 18s ease-in-out infinite alternate;
+}
+.kz-mesh-steppe::before {
+  inset: -15%;
+  filter: blur(34px);
+  animation-duration: 22s;
+}
+@keyframes kz-mesh-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(-2%, 1.5%, 0) scale(1.05);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kz-mesh-hero::before,
+  .kz-mesh-steppe::before {
+    animation: none;
+  }
+}
+
+/*
+ * Cross-document View Transitions — soft global enable. With this rule a
+ * browser-level navigation (hard refresh, back/forward, address-bar change)
+ * cross-fades the page automatically. The richer per-element morph between
+ * the sights grid and a detail page would need React 19.2's <ViewTransition>
+ * wrapped around <SightImage> *and* `experimental.viewTransition: true` —
+ * that combination currently loops with ShortlistButton's <Suspense>, so
+ * it's deferred. The CSS below is safe with or without that flag.
+ *
+ * Supported: Chrome 126+, Safari 18.2+. Firefox and older browsers ignore.
+ */
+@view-transition {
+  navigation: auto;
+}
+::view-transition-group(*) {
+  animation-duration: 280ms;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
+
+/*
  * Sonner bottom-right toasts (e.g. offline download success/error) need to
  * sit above the fixed BottomNav on mobile. Sonner's toaster uses
  * data-position to set its edge offsets — we override bottom/right directly

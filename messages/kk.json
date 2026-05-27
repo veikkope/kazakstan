@@ -392,6 +392,12 @@
       "unique": "Ерекше",
       "standoutTitle": "{label} — ең үздік өлшем 5/5"
     },
+    "calendarExport": {
+      "button": "Күнтізбеге қосу",
+      "shareTitle": "Қазақстан сапарының кестесі",
+      "downloadedToast": "Кесте жүктелді (.ics)",
+      "errorToast": "Экспорттау сәтсіз аяқталды"
+    },
     "shortlistButton": {
       "add": "Шорт-листке қосу",
       "onShortlist": "Шорт-листте",
@@ -483,7 +489,7 @@
     "todayDashboard": {
       "emptyState": "Сапар жоспары жоқ. <link>Сапар жоспарына</link> күндер қосыңыз.",
       "countdownLabel": "Шығуға дейін",
-      "daysLeft": "{count, plural, one {# күн} other {# күн}}",
+      "daysLeft": "{count, plural, one {<num>#</num> күн} other {<num>#</num> күн}}",
       "daysLeftSoon": "жақында",
       "tripStarts": "Сапар {date} басталады — {total} күндік бағдарлама",
       "tripStartsNoDate": "Сапар жақында басталады — {total} күндік бағдарлама",

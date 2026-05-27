@@ -149,14 +149,16 @@ export default async function SightDetailPage({
           </Card>
 
           {fields.historicalContext && (
-            <Card>
+            <Card className="border-(--color-sand-dark)/30 bg-(--color-sand)/8">
               <CardHeader>
                 <CardTitle className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
                   {t('pages.sightDetail.historyHeading')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm">{fields.historicalContext}</p>
+                <p className="kz-story font-serif text-base leading-relaxed whitespace-pre-line text-foreground">
+                  {fields.historicalContext}
+                </p>
               </CardContent>
             </Card>
           )}

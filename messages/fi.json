@@ -389,6 +389,12 @@
       "unique": "Erikoinen",
       "standoutTitle": "{label} — paras ulottuvuus 5/5"
     },
+    "calendarExport": {
+      "button": "Vie kalenteriin",
+      "shareTitle": "Kazakstan-reissun aikataulu",
+      "downloadedToast": "Aikataulu ladattu (.ics)",
+      "errorToast": "Vienti epäonnistui"
+    },
     "shortlistButton": {
       "add": "Lisää shortlistille",
       "onShortlist": "Shortlistilla",
@@ -480,7 +486,7 @@
     "todayDashboard": {
       "emptyState": "Ei reittisuunnitelmaa. Lisää päiviä <link>reittisuunnitelmaan</link>.",
       "countdownLabel": "Lähtöön",
-      "daysLeft": "{count, plural, one {# päivä} other {# päivää}}",
+      "daysLeft": "{count, plural, one {<num>#</num> päivä} other {<num>#</num> päivää}}",
       "daysLeftSoon": "pian",
       "tripStarts": "Reissu alkaa {date} — {total} päivän kokonaisuus",
       "tripStartsNoDate": "Reissu alkaa pian — {total} päivän kokonaisuus",

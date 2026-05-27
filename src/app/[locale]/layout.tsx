@@ -17,14 +17,17 @@ import OfflineProvider from '@/components/offline/OfflineProvider';
 import ShortlistUrlSync from '@/components/shortlist/ShortlistUrlSync';
 import { routing } from '@/i18n/routing';
 
+// `latin-ext` covers Finnish/Kazakh Latin diacritics (ä, ö, ü, ş, ğ) the base
+// `latin` subset misses. Cyrillic-script content (ru, kk) currently falls back
+// to the system font stack — Geist does not ship a Cyrillic subset (2026-05).
 const geistSans = Geist({
   variable: '--font-geist-sans',
-  subsets: ['latin'],
+  subsets: ['latin', 'latin-ext'],
 });
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
-  subsets: ['latin'],
+  subsets: ['latin', 'latin-ext'],
 });
 
 export const metadata: Metadata = {

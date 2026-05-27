@@ -92,6 +92,12 @@ self.addEventListener('activate', (event) => {
       await Promise.all(
         keys.filter((k) => !ALLOWED_CACHES.has(k)).map((k) => caches.delete(k)),
       );
+      // Let the browser start fetching the navigation in parallel with SW
+      // boot — typically shaves 50–250 ms off the first nav after a cold
+      // start. Safe on browsers that don't support it (no-op).
+      if (self.registration.navigationPreload) {
+        await self.registration.navigationPreload.enable();
+      }
       await self.clients.claim();
     })(),
   );
@@ -152,7 +158,7 @@ self.addEventListener('fetch', (event) => {
     request.mode === 'navigate' ||
     (request.headers.get('accept') || '').includes('text/html')
   ) {
-    event.respondWith(navigateResponse(request));
+    event.respondWith(navigateResponse(event));
     return;
   }
 
@@ -180,10 +186,14 @@ function hasLocalePrefix(pathname) {
   return LOCALES.some((l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`));
 }
 
-async function navigateResponse(request) {
+async function navigateResponse(event) {
+  const request = event.request;
   const url = new URL(request.url);
   try {
-    const response = await fetch(request);
+    // Navigation Preload: the browser kicked off the fetch in parallel with
+    // SW boot. Use that response if it landed, fall back to a fresh fetch.
+    const preload = await event.preloadResponse;
+    const response = preload || (await fetch(request));
     if (response.ok) {
       const cache = await caches.open(PAGES_CACHE);
       cache.put(request, response.clone()).catch(() => {});

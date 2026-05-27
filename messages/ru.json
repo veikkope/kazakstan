@@ -390,6 +390,12 @@
       "unique": "Уникальный",
       "standoutTitle": "{label} — лучший показатель 5/5"
     },
+    "calendarExport": {
+      "button": "В календарь",
+      "shareTitle": "Расписание поездки в Казахстан",
+      "downloadedToast": "Расписание скачано (.ics)",
+      "errorToast": "Не удалось экспортировать"
+    },
     "shortlistButton": {
       "add": "Добавить в шорт-лист",
       "onShortlist": "В шорт-листе",
@@ -481,7 +487,7 @@
     "todayDashboard": {
       "emptyState": "Нет плана маршрута. Добавьте дни в <link>план маршрута</link>.",
       "countdownLabel": "До отъезда",
-      "daysLeft": "{count, plural, one {# день} few {# дня} many {# дней} other {# дня}}",
+      "daysLeft": "{count, plural, one {<num>#</num> день} few {<num>#</num> дня} many {<num>#</num> дней} other {<num>#</num> дня}}",
       "daysLeftSoon": "скоро",
       "tripStarts": "Поездка начинается {date} — {total, plural, one {# день} few {# дня} many {# дней} other {# дня}}",
       "tripStartsNoDate": "Поездка начинается скоро — {total, plural, one {# день} few {# дня} many {# дней} other {# дня}}",

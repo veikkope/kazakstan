@@ -15,6 +15,9 @@ import { userItinerary } from '@/data/itinerary';
 import { emergencyNumbers, embassies, emergencyPhrases } from '@/data/emergency';
 import { STATIC_KZT_PER_EUR } from '@/data/budget';
 import { asLocale, localised } from '@/lib/i18n-helpers';
+import { useWakeLock } from '@/lib/wake-lock';
+import AnimatedNumber from '@/components/ui/AnimatedNumber';
+import TripStartConfetti from '@/components/today/TripStartConfetti';
 import type { ItineraryDay } from '@/lib/types';
 
 /** Local YYYY-MM-DD. */
@@ -53,6 +56,9 @@ function formatDateLocalised(iso: string, locale: string): string {
 }
 
 export default function TodayDashboard() {
+  // During the trip the user reads the day-by-day plan on the go — keep
+  // the screen alive so they don't have to keep tapping it awake.
+  useWakeLock();
   const today = useSyncExternalStore<string | null>(
     subscribeToDate,
     getClientDate,
@@ -146,13 +152,18 @@ function PreTripView({
 
   return (
     <div className="space-y-4">
-      <section className="rounded-lg border border-(--color-steppe) bg-(--color-steppe)/10 p-6">
+      <section className="kz-mesh-steppe relative overflow-hidden rounded-lg border border-(--color-steppe) p-6">
         <p className="text-xs uppercase tracking-wide text-(--color-muted)">
           {t('components.todayDashboard.countdownLabel')}
         </p>
         <p className="mt-1 text-4xl font-bold text-(--color-steppe)">
           {daysLeft !== null
-            ? t('components.todayDashboard.daysLeft', { count: daysLeft })
+            ? t.rich('components.todayDashboard.daysLeft', {
+                count: daysLeft,
+                num: () => (
+                  <AnimatedNumber value={daysLeft} className="tabular-nums" />
+                ),
+              })
             : t('components.todayDashboard.daysLeftSoon')}
         </p>
         <p className="mt-2 text-sm text-(--color-muted)">
@@ -224,8 +235,11 @@ function TripView({
   const loc = asLocale(locale);
   const dayCity = day.city ? localised(day.city, loc) : undefined;
   const daySleepCity = day.sleepCity ? localised(day.sleepCity, loc) : undefined;
+  // Celebrate once when the user first opens /today on trip day 1.
+  const isTripStart = isExactToday && day.day === 1;
   return (
     <div className="space-y-4">
+      <TripStartConfetti active={isTripStart} />
       <section className="rounded-lg border border-(--color-steppe) bg-(--color-steppe)/10 p-5">
         <p className="text-xs uppercase tracking-wide text-(--color-muted)">
           {isExactToday

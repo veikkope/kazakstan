@@ -1,6 +1,7 @@
 'use client';
 
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
+import type { Route } from 'next';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
@@ -474,9 +475,12 @@ function writeShortlistToUrl(
   if (next === '') params.delete(PARAM_SL);
   else params.set(PARAM_SL, next);
   const query = params.toString();
-  const url = query
+  // Dynamic same-path update with mutated query — typedRoutes can't prove
+  // pathname is a known Route at build time, so cast: the URL by construction
+  // matches whatever route we're already on.
+  const url = (query
     ? `${window.location.pathname}?${query}`
-    : window.location.pathname;
+    : window.location.pathname) as Route;
   router.replace(url, { scroll: false });
 }
 

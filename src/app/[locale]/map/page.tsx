@@ -16,6 +16,7 @@ import { filterBySearch } from '@/lib/search';
 import { asLocale, localised } from '@/lib/i18n-helpers';
 import { useUrlState } from '@/lib/url-state';
 import { useShortlist } from '@/lib/shortlist';
+import { useWakeLock } from '@/lib/wake-lock';
 import { cn } from '@/lib/utils';
 import { Card } from '@/components/ui/card';
 import {
@@ -31,6 +32,9 @@ function KarttaPageInner() {
   const loc = asLocale(useLocale());
   const { state, update } = useUrlState();
   const { entries: shortlistEntries } = useShortlist();
+  // Keep the screen awake while the passenger is following the map — the
+  // primary use case for this page on the road. No-op where unsupported.
+  useWakeLock();
   // Sets are memoised on the entries array — keeps the marker
   // popup/icon-sync effects from re-running on unrelated re-renders.
   // priorityIds and visitedIds are both subsets of shortlistIds (you

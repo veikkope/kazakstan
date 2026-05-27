@@ -39,14 +39,16 @@ So it's a **decision tool for two travellers**, not a catalogue. It runs offline
 | 🗺️ **Interactive map** | 66 curated sights with marker clustering, category/region filters, and list ↔ map sync |
 | 🔍 **Instant full-text search** | Diacritic-insensitive, multi-language, zero dependencies |
 | 🌍 **4 languages** | Finnish · English · Russian · Kazakh — fully translated UI *and* content |
+| 🔊 **Phrase audio** | 52 native-recorded Kazakh & Russian phrases — playable offline at point of need |
 | 📴 **Works offline** | One-tap *Download trip* provisions every sight, photo and your chosen map regions into eviction-proof caches — the whole trip works with zero signal |
 | ⭐ **Smart ranking** | Sights rated on *popularity*, *interest* & *uniqueness*; sort and filter by any dimension |
 | 📋 **Shortlist & share** | Save favourites, sync them via the URL, and share with a travel companion (Web Share API) |
 | 🧭 **Itineraries & presets** | Ready-made multi-day routes plus a personal day-by-day planner |
+| 📅 **Calendar export** | One tap exports the trip as an RFC 5545 `.ics` file — share to a partner via the native share sheet |
 | 💸 **Budget & logistics** | Per-region cost estimates (€ ↔ ₸), car-rental notes, visa & safety info |
 | 🌓 **Dark mode** | System-aware theme, WCAG-compliant tap targets, no iOS auto-zoom |
 
-> Try the [**live demo**](https://kazakstan.vercel.app/) — install it to your home screen and turn on airplane mode to see the offline mode in action.
+> Try the [**live demo**](https://kazakstan.vercel.app/) — install it to your home screen and turn on airplane mode to see the offline mode in action. Best in recent Chrome, Safari or Edge.
 
 ---
 
@@ -74,6 +76,7 @@ So it's a **decision tool for two travellers**, not a catalogue. It runs offline
 | **Styling** | [Tailwind CSS v4](https://tailwindcss.com/) (CSS-first `@theme`) | Design tokens in CSS, no config file |
 | **UI** | Radix UI · shadcn · lucide-react · sonner · Motion | Accessible primitives + polished interactions |
 | **Maps** | [Leaflet](https://leafletjs.com/) + react-leaflet 5 + markercluster | Open data (OpenStreetMap), no API keys, no billing |
+| **Offline** | Custom service worker + Web App Manifest | Two-tier caching, eviction-exempt trip bucket, navigation preload |
 | **i18n** | [next-intl](https://next-intl.dev/) | Server-component-safe, type-safe message keys |
 | **Theming** | next-themes | System-aware dark mode |
 | **Deploy** | [Vercel](https://vercel.com/) | Zero-config, automatic preview deploys |
@@ -115,6 +118,8 @@ The interesting parts I deliberately spent time on:
 - **Marker clustering against a moving target.** `react-leaflet` 5 ships no cluster component, so the cluster layer is built **imperatively** via `useMap()` against the raw Leaflet API — including `zoomToShowLayer` so a list click opens the right cluster *before* flying to the marker.
 
 - **Content as code, not a CMS.** All 66 sights are typed objects, statically generated with `generateStaticParams`. Each photo carries real **Wikimedia attribution** (author + licence) shown in a clickable © chip.
+
+- **Native share, not download dialogs.** The itinerary exports as a hand-rolled, RFC 5545-valid iCalendar file (UTF-8 line folding, proper TEXT escaping) and is handed to the OS via the Web Share Level 2 `files` API — so it lands in a partner's calendar via AirDrop or WhatsApp in two taps, with a graceful download fallback on browsers without share.
 
 - **Built for thumbs.** Mobile bottom tab bar, sticky per-sight action bar, every tap target ≥ 44×44 px (WCAG), 16 px inputs so iOS Safari won't auto-zoom, and `prefers-contrast: more` honoured.
 
@@ -165,6 +170,7 @@ public/                  Service worker, manifest, icons, Leaflet markers
 - **Type-enforced i18n** is worth the upfront boilerplate: a translation can never silently go missing, which is exactly the bug class that plagues multilingual apps.
 - **Working against a library's gaps** (clustering in react-leaflet 5) means reaching for the imperative API underneath — and understanding the abstraction you usually take for granted.
 - **Scoping AI agents narrowly** (one job, least-privilege file access) produces far more reliable results than a single do-everything prompt.
+- **Experimental flags need integration testing, not just a passing build.** Enabling Next.js's `experimental.viewTransition` looped instantly against an unrelated `<Suspense>` boundary nested 66 deep in the sights list — a reminder that "experimental" means exactly that, and `pnpm build` succeeding doesn't equal a working app.
 
 ---
 

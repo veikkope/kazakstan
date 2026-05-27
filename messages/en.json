@@ -390,6 +390,12 @@
       "unique": "Unique",
       "standoutTitle": "{label} — top dimension 5/5"
     },
+    "calendarExport": {
+      "button": "Add to calendar",
+      "shareTitle": "Kazakhstan trip schedule",
+      "downloadedToast": "Schedule downloaded (.ics)",
+      "errorToast": "Export failed"
+    },
     "shortlistButton": {
       "add": "Add to shortlist",
       "onShortlist": "On shortlist",
@@ -481,7 +487,7 @@
     "todayDashboard": {
       "emptyState": "No itinerary. Add days to your <link>itinerary</link>.",
       "countdownLabel": "Until departure",
-      "daysLeft": "{count, plural, one {# day} other {# days}}",
+      "daysLeft": "{count, plural, one {<num>#</num> day} other {<num>#</num> days}}",
       "daysLeftSoon": "soon",
       "tripStarts": "Trip starts on {date} — a {total}-day journey",
       "tripStartsNoDate": "Trip starts soon — a {total}-day journey",
