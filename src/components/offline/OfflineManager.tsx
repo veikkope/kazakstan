@@ -28,6 +28,7 @@ import {
   type Bbox,
 } from '@/lib/tiles';
 import { useOffline } from '@/components/offline/OfflineProvider';
+import { tripAudioUrls } from '@/lib/offline';
 import { cn } from '@/lib/utils';
 
 const MAX_ZOOM_MIN = 8;
@@ -82,6 +83,7 @@ export default function OfflineManager() {
   );
 
   const sightsWithImages = useMemo(() => sights.filter((s) => s.image).length, []);
+  const audioCount = useMemo(() => tripAudioUrls().length, []);
 
   function toggleRegion(region: Region) {
     setSelectedRegions((prev) =>
@@ -124,22 +126,34 @@ export default function OfflineManager() {
           </p>
         ) : (
           <>
-            {/* Status line */}
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-              {tripState === 'ready' && (
-                <span className="inline-flex items-center gap-1.5 font-medium text-(--color-accent)">
-                  <Check className="size-4" aria-hidden />
-                  {t('statusReady', { date: dateLabel })}
-                </span>
-              )}
-              {tripState === 'stale' && (
-                <span className="font-medium text-(--color-sand-dark)">{t('statusStale')}</span>
-              )}
-              {tripState === 'none' && (
-                <span className="text-muted-foreground">{t('statusNone')}</span>
-              )}
+            {/* Status line + content breakdown */}
+            <div className="space-y-1">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+                {tripState === 'ready' && (
+                  <span className="inline-flex items-center gap-1.5 font-medium text-(--color-accent)">
+                    <Check className="size-4" aria-hidden />
+                    {t('statusReady', { date: dateLabel })}
+                  </span>
+                )}
+                {tripState === 'stale' && (
+                  <span className="font-medium text-(--color-sand-dark)">{t('statusStale')}</span>
+                )}
+                {tripState === 'none' && (
+                  <span className="text-muted-foreground">{t('statusNone')}</span>
+                )}
+                {manifest && tripState === 'ready' && (
+                  <span className="text-muted-foreground">· {formatBytes(manifest.bytes)}</span>
+                )}
+              </div>
               {manifest && tripState === 'ready' && (
-                <span className="text-muted-foreground">· {formatBytes(manifest.bytes)}</span>
+                <p className="text-xs text-muted-foreground">
+                  {t('breakdown', {
+                    pages: manifest.pages,
+                    images: manifest.images,
+                    audio: manifest.audio,
+                    tiles: manifest.tiles,
+                  })}
+                </p>
               )}
             </div>
 
@@ -209,7 +223,7 @@ export default function OfflineManager() {
             </div>
 
             <p className="text-xs text-muted-foreground">
-              {t('includesNote', { sights: sightsWithImages })}
+              {t('includesNote', { sights: sightsWithImages, audio: audioCount })}
             </p>
 
             {/* Progress (also mirrored in a global toast, so it shows on any page) */}

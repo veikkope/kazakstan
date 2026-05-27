@@ -16,7 +16,7 @@
  *   - Map tiles: cache-first; trip tiles win, runtime tiles stay LRU-bounded
  */
 
-const VERSION = 'v4';
+const VERSION = 'v5';
 const SHELL_CACHE = `shell-${VERSION}`;
 const PAGES_CACHE = `pages-${VERSION}`;
 const STATIC_CACHE = `static-${VERSION}`;
@@ -156,10 +156,12 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Same-origin static assets (incl. /images/sights/*.jpg) — cache-first.
+  // Same-origin static assets (incl. /images/sights/*.jpg, /audio/phrases/*.mp3)
+  // — cache-first. Audio extensions are included so phrase clips work offline
+  // even without a proactive trip download.
   if (
     url.pathname.startsWith('/_next/') ||
-    /\.(?:js|css|woff2?|ttf|otf|png|jpe?g|webp|svg|ico|gif)$/.test(url.pathname)
+    /\.(?:js|css|woff2?|ttf|otf|png|jpe?g|webp|svg|ico|gif|mp3|ogg|m4a|wav)$/.test(url.pathname)
   ) {
     event.respondWith(cacheFirst(request, STATIC_CACHE));
     return;

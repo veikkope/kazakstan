@@ -407,10 +407,12 @@ body.kartta-locked footer {
 }
 
 /*
- * Download-progress toast: on mobile lift it above the fixed BottomNav.
- * Sonner's toaster uses data-position to set its edge offsets — we
- * override bottom/right directly so the toast never hides behind the nav.
- * On ≥640 px the BottomNav is hidden (sm:hidden) so the default offset applies.
+ * Sonner bottom-right toasts (e.g. offline download success/error) need to
+ * sit above the fixed BottomNav on mobile. Sonner's toaster uses
+ * data-position to set its edge offsets — we override bottom/right directly
+ * so toasts never hide behind the nav. On ≥640 px the BottomNav is hidden
+ * (sm:hidden) so the default offset applies. The download-in-progress ring
+ * (<DownloadProgressIndicator />) positions itself separately.
  */
 @media (max-width: 639px) {
   [data-sonner-toaster][data-position="bottom-right"] {

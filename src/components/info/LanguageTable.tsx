@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useRef, useSyncExternalStore } from 'react';
 import { Volume2, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
@@ -56,6 +56,16 @@ function toRomanization(text: string): string | null {
 
 // ─── SpeakButton ─────────────────────────────────────────────────────────────
 
+// SSR-safe hydration flag — `useSyncExternalStore` gives `false` on the server
+// and `true` after hydration without calling setState in an effect.
+const subscribeNoop = () => () => {};
+const useHydrated = () =>
+  useSyncExternalStore(
+    subscribeNoop,
+    () => true,
+    () => false,
+  );
+
 function SpeakButton({
   text,
   bcp47,
@@ -67,7 +77,8 @@ function SpeakButton({
   colLabel: string;
   audioUrl?: string;
 }) {
-  const [supported, setSupported] = useState(false);
+  const hydrated = useHydrated();
+  const supported = !!audioUrl || (hydrated && 'speechSynthesis' in window);
   const [playing, setPlaying] = useState(false);
   const playingRef = useRef(false);
 
@@ -75,13 +86,6 @@ function SpeakButton({
     playingRef.current = value;
     setPlaying(value);
   }, []);
-
-  useEffect(() => {
-    setSupported(
-      !!audioUrl ||
-        (typeof window !== 'undefined' && 'speechSynthesis' in window),
-    );
-  }, [audioUrl]);
 
   const speak = useCallback(() => {
     if (audioUrl) {
