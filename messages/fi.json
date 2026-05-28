@@ -368,7 +368,11 @@
     "sightImage": {
       "placeholderAria": "{category}-kategoria — kuva puuttuu",
       "attributionAria": "Kuvan lähde: {source}",
-      "attributionAriaWithCredit": "Kuvan lähde: {source} — {credit}"
+      "attributionAriaWithCredit": "Kuvan lähde: {source} — {credit}",
+      "zoomOpenAria": "Suurenna kuva: {name}",
+      "zoomCloseAria": "Sulje kuva",
+      "zoomInAria": "Lähennä",
+      "zoomOutAria": "Loitonna"
     },
     "nearbyList": {
       "distanceKm": "{km} km"

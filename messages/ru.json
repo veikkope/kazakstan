@@ -369,7 +369,11 @@
     "sightImage": {
       "placeholderAria": "Категория {category} — изображение отсутствует",
       "attributionAria": "Источник изображения: {source}",
-      "attributionAriaWithCredit": "Источник изображения: {source} — {credit}"
+      "attributionAriaWithCredit": "Источник изображения: {source} — {credit}",
+      "zoomOpenAria": "Открыть фото больше: {name}",
+      "zoomCloseAria": "Закрыть фото",
+      "zoomInAria": "Приблизить",
+      "zoomOutAria": "Отдалить"
     },
     "nearbyList": {
       "distanceKm": "{km} км"

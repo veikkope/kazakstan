@@ -369,7 +369,11 @@
     "sightImage": {
       "placeholderAria": "{category} category — image missing",
       "attributionAria": "Image source: {source}",
-      "attributionAriaWithCredit": "Image source: {source} — {credit}"
+      "attributionAriaWithCredit": "Image source: {source} — {credit}",
+      "zoomOpenAria": "View larger photo: {name}",
+      "zoomCloseAria": "Close photo",
+      "zoomInAria": "Zoom in",
+      "zoomOutAria": "Zoom out"
     },
     "nearbyList": {
       "distanceKm": "{km} km"

@@ -10,9 +10,9 @@ import { nearestSights } from '@/lib/distance';
 import NearbyList from '@/components/sights/NearbyList';
 import ShortlistButton from '@/components/sights/ShortlistButton';
 import SightActionBar from '@/components/sights/SightActionBar';
-import SightImage from '@/components/sights/SightImage';
 import NavigateMenu from '@/components/navigation/NavigateMenu';
 import ScrollToTopOnMount from '@/components/layout/ScrollToTopOnMount';
+import SightHeroLightbox from '@/components/sights/SightHeroLightbox';
 import StarRating, { RatingPlaceholder } from '@/components/sights/StarRating';
 import OverallStars from '@/components/sights/OverallStars';
 import { formatKZT } from '@/lib/currency';
@@ -89,7 +89,7 @@ export default async function SightDetailPage({
         hero. See ::view-transition-*(.morph) rules in globals.css.
       */}
       <ViewTransition name={`sight-image-${sight.slug}`} share="morph">
-        <SightImage
+        <SightHeroLightbox
           sight={sight}
           sizes="(min-width: 1024px) 1024px, 100vw"
           aspect="aspect-[16/9] sm:aspect-[21/9]"

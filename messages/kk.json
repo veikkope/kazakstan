@@ -371,7 +371,11 @@
     "sightImage": {
       "placeholderAria": "{category} санаты — сурет жоқ",
       "attributionAria": "Сурет көзі: {source}",
-      "attributionAriaWithCredit": "Сурет көзі: {source} — {credit}"
+      "attributionAriaWithCredit": "Сурет көзі: {source} — {credit}",
+      "zoomOpenAria": "Үлкен суретті ашу: {name}",
+      "zoomCloseAria": "Суретті жабу",
+      "zoomInAria": "Жақындату",
+      "zoomOutAria": "Алыстату"
     },
     "nearbyList": {
       "distanceKm": "{km} км"

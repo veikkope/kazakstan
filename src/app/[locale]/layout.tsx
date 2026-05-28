@@ -9,6 +9,7 @@ import Footer from '@/components/layout/Footer';
 import BottomNav from '@/components/layout/BottomNav';
 import OfflineBanner from '@/components/layout/OfflineBanner';
 import ServiceWorkerRegistration from '@/components/layout/ServiceWorkerRegistration';
+import SpeculationRules from '@/components/layout/SpeculationRules';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Toaster } from '@/components/ui/sonner';
 import MotionProvider from '@/components/layout/MotionProvider';
@@ -99,6 +100,7 @@ export default async function LocaleLayout({
               <TooltipProvider delayDuration={150}>
                 <MotionProvider>
                   <ServiceWorkerRegistration />
+                  <SpeculationRules />
                   <ShortlistUrlSync />
                   <Header />
                   <OfflineBanner />
