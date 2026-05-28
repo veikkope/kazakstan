@@ -365,10 +365,18 @@ function MarkerClusterLayer({
   const shortlistIdsRef = useRef(shortlistIds);
   const priorityIdsRef = useRef(priorityIds);
   const visitedIdsRef = useRef(visitedIds);
+  // Same ref pattern for onSelect — the parent re-creates the callback
+  // every render (`onSelect={(id) => update({ selectedId: id })}`), so
+  // including it in the build effect's deps would rebuild the whole
+  // cluster on every click. That rebuild destroys the marker whose
+  // popup Leaflet just opened natively, producing a visible "popup
+  // flashes then closes" on the second tap.
+  const onSelectRef = useRef(onSelect);
   useEffect(() => {
     shortlistIdsRef.current = shortlistIds;
     priorityIdsRef.current = priorityIds;
     visitedIdsRef.current = visitedIds;
+    onSelectRef.current = onSelect;
   });
 
   useEffect(() => {
@@ -402,7 +410,7 @@ function MarkerClusterLayer({
         autoPanPaddingTopLeft: L.point(12, 130),
         autoPanPaddingBottomRight: L.point(12, 100),
       });
-      marker.on('click', () => onSelect(s.id));
+      marker.on('click', () => onSelectRef.current(s.id));
       cluster.addLayer(marker);
       markers.set(s.id, marker);
     }
@@ -416,7 +424,10 @@ function MarkerClusterLayer({
       markersMapRef.current = new Map();
       registerMarkers(cluster, new Map()); // signal cleanup to parent
     };
-  }, [sights, map, onSelect, registerMarkers, locale, popupLabels]);
+    // onSelect intentionally NOT in deps — read via onSelectRef so a
+    // changing callback identity doesn't trigger a cluster rebuild on
+    // every click (see ref comment above).
+  }, [sights, map, registerMarkers, locale, popupLabels]);
 
   // Update popup content + marker icon when shortlist/priority/visited
   // membership changes, without rebuilding the cluster (which would
