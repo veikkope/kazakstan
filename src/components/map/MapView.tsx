@@ -304,6 +304,14 @@ function TripPinLayer({ pins, locale, labels }: TripPinLayerProps) {
         className: 'trip-pin-popup',
         maxWidth: 280,
         minWidth: 240,
+        // Mobile chrome (filter bar on top, "Lista" FAB on bottom) sits
+        // *over* the map canvas, so Leaflet's default autoPan considers
+        // the whole canvas visible and lets the popup land behind those
+        // overlays. Reserve generous edge padding so the popup always
+        // ends up inside the visually clear area. Harmless on desktop
+        // (no overlays + larger viewport, autoPan rarely engages).
+        autoPanPaddingTopLeft: L.point(12, 130),
+        autoPanPaddingBottomRight: L.point(12, 100),
       });
       layer.addLayer(marker);
     }
@@ -388,6 +396,11 @@ function MarkerClusterLayer({
         className: 'sight-popup',
         maxWidth: 280,
         minWidth: 248,
+        // See TripPinLayer for the rationale — mobile filter bar (~110 px)
+        // and "Lista" FAB (~80 px) overlay the map; without padding the
+        // popup top lands behind the filter bar after openPopup.
+        autoPanPaddingTopLeft: L.point(12, 130),
+        autoPanPaddingBottomRight: L.point(12, 100),
       });
       marker.on('click', () => onSelect(s.id));
       cluster.addLayer(marker);
@@ -439,19 +452,49 @@ function PanToSelected({ sights, selectedId, clusterRef, markersRef }: PanProps)
     const marker = markersRef.current.get(selectedId);
     const cluster = clusterRef.current;
 
+    // Guard so a quick second selection (user taps another pin while the
+    // first flyTo is still animating) doesn't open the *previous* popup
+    // after this effect's cleanup has already run.
+    let cancelled = false;
+    const cleanups: Array<() => void> = [];
+
+    const flyAndOpen = (anchor: L.Marker, targetZoom: number) => {
+      if (cancelled) return;
+      map.flyTo([sight.coords.lat, sight.coords.lng], targetZoom, {
+        duration: 0.6,
+      });
+      // Open the popup AFTER flyTo settles. Opening it concurrently makes
+      // Leaflet's autoPan race against the in-flight flyTo: autoPan reads
+      // the still-moving viewport, computes a stale adjustment, and the
+      // popup ends up partially behind the chrome overlay. Waiting for
+      // moveend lets autoPan see the final viewport and pan correctly.
+      const onMoveEnd = () => {
+        map.off('moveend', onMoveEnd);
+        if (cancelled) return;
+        anchor.openPopup();
+      };
+      map.on('moveend', onMoveEnd);
+      cleanups.push(() => map.off('moveend', onMoveEnd));
+    };
+
     if (marker && cluster) {
-      // Expand cluster if the marker is hidden behind one.
+      // Expand cluster if the marker is hidden behind one. zoomToShowLayer
+      // animates to the zoom level that breaks the cluster, then fires the
+      // callback once that's complete — our flyTo nudges to at least zoom 9
+      // and centres the marker.
       cluster.zoomToShowLayer(marker, () => {
-        map.flyTo([sight.coords.lat, sight.coords.lng], Math.max(map.getZoom(), 9), {
-          duration: 0.6,
-        });
-        marker.openPopup();
+        flyAndOpen(marker, Math.max(map.getZoom(), 9));
       });
     } else {
       map.flyTo([sight.coords.lat, sight.coords.lng], Math.max(map.getZoom(), 8), {
         duration: 0.6,
       });
     }
+
+    return () => {
+      cancelled = true;
+      for (const fn of cleanups) fn();
+    };
   }, [selectedId, sights, map, clusterRef, markersRef]);
 
   return null;
