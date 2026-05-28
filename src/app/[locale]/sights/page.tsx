@@ -8,8 +8,9 @@ import { sights } from '@/data/sights';
 import SightCard from '@/components/sights/SightCard';
 import SearchInput from '@/components/sights/SearchInput';
 import CategoryFilter from '@/components/map/CategoryFilter';
+import ActivityFilter from '@/components/map/ActivityFilter';
 import { regionMeta } from '@/data/categories';
-import { filterByCategories, filterByRegions } from '@/lib/filters';
+import { filterByActivities, filterByCategories, filterByRegions } from '@/lib/filters';
 import { filterBySearch } from '@/lib/search';
 import { useUrlState } from '@/lib/url-state';
 import { sortSights } from '@/lib/sort';
@@ -96,16 +97,17 @@ function NahtavyydetPageInner() {
   const totalCount = verified.length;
 
   // Filter order matters for cost:
-  // 1. category/region — set lookups, O(1) per item, slash dataset early.
+  // 1. category/region/activity — set lookups, O(1) per item, slash dataset early.
   // 2. text search — substring scan, more expensive per item.
   // 3. sort — runs on the smallest possible set.
   const visible = useMemo(() => {
     let result = filterByCategories(verified, state.categories);
     result = filterByRegions(result, state.regions);
+    result = filterByActivities(result, state.activities);
     result = filterBySearch(result, state.q);
     result = sortSights(result, state.sort);
     return result;
-  }, [verified, state.categories, state.regions, state.q, state.sort]);
+  }, [verified, state.categories, state.regions, state.activities, state.q, state.sort]);
 
   // Stable handler — required so SearchInput's debounce effect doesn't
   // restart its timer on every parent rerender (which would happen as the
@@ -122,6 +124,7 @@ function NahtavyydetPageInner() {
   const activeFilterCount =
     state.categories.length +
     state.regions.length +
+    state.activities.length +
     (state.sort !== 'default' ? 1 : 0);
 
   function toggleRegion(r: Region) {
@@ -130,17 +133,18 @@ function NahtavyydetPageInner() {
     else update({ regions: [...state.regions, r] });
   }
 
-  // Sheet-scoped clear: only categories/regions/sort. Used by the desktop
-  // "Tyhjennä" link and the mobile sheet footer button — clearing q here
-  // would be surprising because the search input isn't in the sheet.
+  // Sheet-scoped clear: only categories/regions/activities/sort. Used by
+  // the desktop "Tyhjennä" link and the mobile sheet footer button —
+  // clearing q here would be surprising because the search input isn't
+  // in the sheet.
   function clearSheetFilters() {
-    update({ categories: [], regions: [], sort: 'default' });
+    update({ categories: [], regions: [], activities: [], sort: 'default' });
   }
 
   // Full clear: everything including the query. Used by the empty state
   // "Tyhjennä kaikki" button when both q and filters are active.
   function clearAll() {
-    update({ categories: [], regions: [], sort: 'default', q: '' });
+    update({ categories: [], regions: [], activities: [], sort: 'default', q: '' });
   }
 
   function clearSearch() {
@@ -151,6 +155,7 @@ function NahtavyydetPageInner() {
   const hasOtherFilters =
     state.categories.length > 0 ||
     state.regions.length > 0 ||
+    state.activities.length > 0 ||
     state.sort !== 'default';
 
   return (
@@ -232,6 +237,17 @@ function NahtavyydetPageInner() {
             <CategoryFilter
               value={state.categories}
               onChange={(categories) => update({ categories })}
+              layout="wrap"
+            />
+          </div>
+
+          <div>
+            <p className="mb-2 text-xs uppercase tracking-wide text-muted-foreground">
+              {t('pages.sights.activitiesHeading')}
+            </p>
+            <ActivityFilter
+              value={state.activities}
+              onChange={(activities) => update({ activities })}
               layout="wrap"
             />
           </div>
@@ -330,6 +346,17 @@ function NahtavyydetPageInner() {
                 <CategoryFilter
                   value={state.categories}
                   onChange={(categories) => update({ categories })}
+                  layout="wrap"
+                />
+              </section>
+
+              <section className="space-y-2">
+                <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                  {t('pages.sights.activitiesHeading')}
+                </p>
+                <ActivityFilter
+                  value={state.activities}
+                  onChange={(activities) => update({ activities })}
                   layout="wrap"
                 />
               </section>

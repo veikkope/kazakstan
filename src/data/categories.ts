@@ -62,6 +62,9 @@ export const categoryMeta: Record<
 
 export const allCategories: Category[] = ['nature', 'culture', 'food', 'nightlife'];
 
+/** Render order for the activity chip row. Extend as new activities ship. */
+export const allActivities: Activity[] = ['hike'];
+
 /**
  * Activity metadata — a cross-cutting tag (orthogonal to `category`) for the
  * outdoor destinations we researched as hikes/summits. Drives the distinct
