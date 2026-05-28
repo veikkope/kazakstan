@@ -13,8 +13,7 @@ import { filterByCategories, filterByRegions } from '@/lib/filters';
 import { filterBySearch } from '@/lib/search';
 import { useUrlState } from '@/lib/url-state';
 import { sortSights } from '@/lib/sort';
-import { useScrollMemory } from '@/lib/scroll-memory';
-import { usePathname } from '@/i18n/navigation';
+import ScrollMemory from '@/components/layout/ScrollMemory';
 import { asLocale, localised } from '@/lib/i18n-helpers';
 import type { Region, SortDimension } from '@/lib/types';
 import { Button } from '@/components/ui/button';
@@ -76,13 +75,6 @@ function NahtavyydetPageInner() {
   const t = useTranslations();
   const loc = asLocale(useLocale());
   const { state, update } = useUrlState();
-  // Remember scroll position per pathname so `list → detail → back`
-  // lands the user where they were. Pathname (not full URL) so the
-  // shortlist `?sl=` history.replaceState writes and filter changes
-  // don't reset the saved Y. See lib/scroll-memory.ts for the rationale
-  // (Next.js's built-in restore fails intermittently on Suspense
-  // fallback flashes after a router-cache miss).
-  useScrollMemory(usePathname());
   const [filterSheetOpen, setFilterSheetOpen] = useState(false);
 
   const sortLabel = (s: SortDimension): string => {
@@ -163,6 +155,12 @@ function NahtavyydetPageInner() {
 
   return (
     <div className="space-y-5">
+      {/* Remembers scroll-Y per pathname so `list → detail → back`
+          lands the user where they were. The key is pathname (not full
+          URL) so the silent `?sl=` writes from ShortlistUrlSync and the
+          `?cat=`/`?sort=` filter updates don't reset the saved position
+          mid-session. */}
+      <ScrollMemory />
       <div className="space-y-1">
         <h1 className="text-2xl font-semibold">{t('pages.sights.title')}</h1>
         <p className="hidden text-sm text-muted-foreground sm:block">
