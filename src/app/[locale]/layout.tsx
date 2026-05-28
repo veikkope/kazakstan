@@ -42,9 +42,20 @@ export const metadata: Metadata = {
     statusBarStyle: 'default',
     title: 'Kazakstan',
   },
+  // PNGs listed before the SVG so iOS Safari (which renders the SVG path
+  // inconsistently across versions) and older Android Chrome pick a raster
+  // first. Modern browsers honour the `sizes` hint and still pick the best
+  // match — vector remains as the catch-all fallback.
   icons: {
-    icon: [{ url: '/icons/icon.svg', type: 'image/svg+xml' }],
-    apple: '/icons/icon.svg',
+    icon: [
+      { url: '/icons/icon-192.png', type: 'image/png', sizes: '192x192' },
+      { url: '/icons/icon-512.png', type: 'image/png', sizes: '512x512' },
+      { url: '/icons/icon.svg', type: 'image/svg+xml', sizes: 'any' },
+    ],
+    // 180×180 is the iOS home-screen contract since iOS 7. A PNG kills the
+    // intermittent "generic Safari favicon" fallback we'd otherwise hit
+    // when iOS can't decode our SVG into a touch icon.
+    apple: [{ url: '/icons/apple-touch-icon.png', sizes: '180x180' }],
   },
   formatDetection: {
     telephone: false,

@@ -179,10 +179,13 @@ function NahtavyydetPageInner() {
       </div>
 
       {/* Sticky filter bar — sits flush under the Header.
-          Mobile header is 48px (top-12), desktop is 56px (top-14).
+          Mobile: --app-header-h (3rem + safe-area-inset-top) so the bar
+          tucks under the notch-aware Header in iOS PWA mode.
+          Desktop: 56px (top-14) — desktop Header is 3.5rem and doesn't
+          consume safe-area, so a flat value is correct there.
           Search input is the first child everywhere — it's the most
           frequently used affordance on a 66-item dataset. */}
-      <div className="sticky top-12 z-20 -mx-4 space-y-2.5 border-b border-border bg-background/95 px-4 py-2.5 backdrop-blur-md sm:top-14 sm:space-y-3 sm:py-3">
+      <div className="sticky top-[var(--app-header-h)] z-20 -mx-4 space-y-2.5 border-b border-border bg-background/95 px-4 py-2.5 backdrop-blur-md sm:top-14 sm:space-y-3 sm:py-3">
         <SearchInput
           value={state.q}
           onChange={onSearchChange}
