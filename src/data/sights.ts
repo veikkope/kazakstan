@@ -6741,6 +6741,14 @@ export const sights: Sight[] = [
         kk: 'Prix Versailles 2024 жеңімпазы (әлемнің ең әдемі 16 мейрамханасының бірі) және CNN Travel-дің Алматы туралы мақаласында аталған — үстелге кепілді отыру үшін ертерек брондаңыз.',
       },
     ],
+    ratings: {
+      popularity: 5,
+      interest: 5,
+      uniqueness: 5,
+      ratedAt: '2026-05-28',
+      rationale: 'Kazakstanin tunnetuin ravintola kansainvälisesti: Prix Versailles 2024, CNN Travelin Almaty-piece, 50 Best Discovery — ainutlaatuinen neo-nomadinen konsepti jurtassa.',
+    },
+    lastEnriched: '2026-05-28',
   },
   {
     id: 'bul-bar',
@@ -6807,6 +6815,14 @@ export const sights: Sight[] = [
         kk: 'Көңіл-күй кешке қарай қызады — күн батқан кезде келіп, музыкалық сетке қалыңыз.',
       },
     ],
+    ratings: {
+      popularity: 3,
+      interest: 4,
+      uniqueness: 4,
+      ratedAt: '2026-05-28',
+      rationale: 'Tatler Kazakhstanin Top 20 -listalla 2025; musiikkilistana rakentuva cocktail-menu ja vinyyli-DJ-setit erottavat selvästi geneerisistä rooftop-baareista.',
+    },
+    lastEnriched: '2026-05-28',
   },
   {
     id: 'kishlak-seyfullin',
@@ -6881,6 +6897,14 @@ export const sights: Sight[] = [
         kk: 'Жазда террасаға сұраныс жоғары — жұма мен сенбі кештеріне үстелді алдын ала брондаңыз.',
       },
     ],
+    ratings: {
+      popularity: 4,
+      interest: 3,
+      uniqueness: 2,
+      ratedAt: '2026-05-28',
+      rationale: 'Vakiintunut Keski-Aasian ravintolainstituutio (Yandex 1500+ ääntä, TripAdvisor #30/1257); luotettavaa uzbeki-uiguuri-ruokaa mutta konsepti löytyy muualtakin Almatyssa.',
+    },
+    lastEnriched: '2026-05-28',
   },
   {
     id: 'sandyq-restaurant',
@@ -6954,6 +6978,14 @@ export const sights: Sight[] = [
         kk: 'Мекенжайы — Әлімжанов 55, Абылай хан даңғылынан ~5 минут жаяу; орталық қонақүйлерден таксимен 10 минут ішінде.',
       },
     ],
+    ratings: {
+      popularity: 4,
+      interest: 4,
+      uniqueness: 3,
+      ratedAt: '2026-05-28',
+      rationale: 'Yksi Almatyn tunnetuimmista modernin kazakkilaisen keittiön ravintoloista (TripAdvisor #21/1257, Yandex 5.0/3930+); upea toteutus mutta konseptina ei aivan Auylin tasoa.',
+    },
+    lastEnriched: '2026-05-28',
   },
   {
     id: 'bowler-coffee-roasters',
@@ -7026,6 +7058,14 @@ export const sights: Sight[] = [
         kk: 'Көк базар немесе Арбат серуенімен жақсы үйлеседі — Қабанбай батыр 65 орталықтан жаяу жетуге болатын қашықтықта.',
       },
     ],
+    ratings: {
+      popularity: 3,
+      interest: 3,
+      uniqueness: 3,
+      ratedAt: '2026-05-28',
+      rationale: 'Almatyn johdonmukaisimmin kehuttu specialty-kahvi, European Coffee Tripin oppaassa; pieni nicheristin nostama paahtimo — ei massasuosittu mutta erottuva.',
+    },
+    lastEnriched: '2026-05-28',
   },
   {
     id: 'daredzhani-kunayev',
@@ -7072,7 +7112,7 @@ export const sights: Sight[] = [
       ru: 'ежедневно до полуночи',
       kk: 'күн сайын түн ортасына дейін',
     },
-    combinesWith: ['almaty-keskusta', 'almaty-arbat', 'bul-bar', 'kishlak-seyfullin'],
+    combinesWith: ['almaty-keskusta', 'almaty-arbat', 'bul-bar'],
     practicalTips: [
       {
         fi: 'Tilatkaa Adjarian khachapuri, naudan khinkali, ostri ja lasi Saperavia — talon klassikot.',
@@ -7105,6 +7145,14 @@ export const sights: Sight[] = [
         kk: 'Құрманғазы 11-дегі филиалы да жақсы, бірақ Қонаев көшесіндегі мейрамхана түпнұсқа әрі орталықта орналасқан.',
       },
     ],
+    ratings: {
+      popularity: 4,
+      interest: 4,
+      uniqueness: 2,
+      ratedAt: '2026-05-28',
+      rationale: 'Almatyn vakiintunut georgialaisravintola (TripAdvisor 4.5/576, "paras Georgian ulkopuolella"); ruoka korkeatasoista mutta konseptina georgialaiset paikat eivät ole erityisen ainutlaatuisia.',
+    },
+    lastEnriched: '2026-05-28',
   },
   {
     id: 'everjazz',
@@ -7184,6 +7232,14 @@ export const sights: Sight[] = [
         kk: 'EverJazz JazzTimes-тің 2024 жылғы Орталық Азия джазы туралы мақаласында аталған — бұл фондық музыкасы бар емес, концерттік формат.',
       },
     ],
+    ratings: {
+      popularity: 3,
+      interest: 5,
+      uniqueness: 4,
+      ratedAt: '2026-05-28',
+      rationale: 'Almatyn ensimmäinen ammattimainen jazz-klubi konserttisaliformaatilla, 36 keikkaa/kk; jazz on niche-yleisö mutta itse paikkana selvästi distinctive Keski-Aasiassa.',
+    },
+    lastEnriched: '2026-05-28',
   },
   {
     id: 'selfie-astana',
@@ -7263,6 +7319,14 @@ export const sights: Sight[] = [
         kk: 'Мекенжайы: Достық 16, Talan Towers / Ritz-Carlton, Есіл ауданы (Сол жағалау). Лобби лифтімен 18-қабатқа — smart casual жеткілікті, шорты жоқ.',
       },
     ],
+    ratings: {
+      popularity: 4,
+      interest: 5,
+      uniqueness: 4,
+      ratedAt: '2026-05-28',
+      rationale: 'La Liste 2025 Top 1000 ja Moscow Selfie -ketjun (World\'s 50 Best #70) sisarpaikka 18. kerroksen panoramalla; chef-driven tasting menu — vahva mutta nojaa Moskovan brändiin.',
+    },
+    lastEnriched: '2026-05-28',
   },
   {
     id: 'saksaul-astana',
@@ -7309,7 +7373,7 @@ export const sights: Sight[] = [
       ru: 'пн–чт и вс 09:00–24:00, пт–сб 09:00–01:00',
       kk: 'дс–бс және жс 09:00–24:00, жм–сб 09:00–01:00',
     },
-    combinesWith: ['bayterek', 'khan-shatyr', 'nur-astana-mosque', 'palace-of-peace', 'selfie-astana'],
+    combinesWith: ['bayterek', 'khan-shatyr', 'nur-astana-mosque', 'palace-of-peace'],
     practicalTips: [
       {
         fi: 'Tilatkaa beshbarmak, kuyrdak ja samsa tandoorista — talon vahvuus on klassikoissa, ei kokeiluissa.',
@@ -7342,6 +7406,14 @@ export const sights: Sight[] = [
         kk: 'Жұмыс уақыты: дс–бс және жс 09:00–24:00, жм–сб 09:00–01:00 — Бәйтеректі араған соң түскі асқа немесе кешкі асқа қолайлы.',
       },
     ],
+    ratings: {
+      popularity: 4,
+      interest: 4,
+      uniqueness: 3,
+      ratedAt: '2026-05-28',
+      rationale: 'Astanan käytetyin laatu-Kazakh-ravintola (Yandex 5.0/4124, TripAdvisor #6/1162); accessible hinta + avoin keittiö, mutta konsepti ei ole concept-distinctive Qazaq Gourmetin tai Daididaun tavoin.',
+    },
+    lastEnriched: '2026-05-28',
   },
   {
     id: 'qazaq-gourmet',
@@ -7421,6 +7493,14 @@ export const sights: Sight[] = [
         kk: 'Сол жағалау, Есіл ауданы, Министрліктер үйі кварталында — Бәйтеректен таксимен ~5 минут немесе жаяу ~15 минут.',
       },
     ],
+    ratings: {
+      popularity: 4,
+      interest: 5,
+      uniqueness: 5,
+      ratedAt: '2026-05-28',
+      rationale: 'La Liste 2025 Top 1000 (vain neljäs KZ-ravintola listalla) ja World\'s 50 Best Discovery; Astanan ensimmäinen haute Kazakh — kategorian luonut konsepti.',
+    },
+    lastEnriched: '2026-05-28',
   },
   {
     id: 'temple-astana',
@@ -7500,6 +7580,14 @@ export const sights: Sight[] = [
         kk: 'Басты белгі — бар үстелінің үстіне ілінген, Петропавлдан әкелінген 150 жылдық ағаш тамыры; бармейстерден тарихын сұраңыз.',
       },
     ],
+    ratings: {
+      popularity: 3,
+      interest: 5,
+      uniqueness: 5,
+      ratedAt: '2026-05-28',
+      rationale: 'Kazakstanin ensimmäinen kokeellinen speakeasy + World\'s 50 Best Discovery + Kvadrat Architectsin palkittu design 2023; konseptiltaan globaalisti distinctive, mutta speakeasy on määritelmällisesti niche.',
+    },
+    lastEnriched: '2026-05-28',
   },
   {
     id: 'chechil-pub-aktau',
@@ -7572,6 +7660,14 @@ export const sights: Sight[] = [
         kk: 'Демалыс күндері жанды музыка басталған кезде зал тез толады — сахнаға жақын отырғыңыз келсе, үстелді алдын ала брондаңыз.',
       },
     ],
+    ratings: {
+      popularity: 4,
+      interest: 3,
+      uniqueness: 2,
+      ratedAt: '2026-05-28',
+      rationale: 'Aqtaun ylivoimaisesti validoiduin paikka (2GIS 4.7/1483, kaupungin paras tilastollinen näyttö) — vakaa ja paikan paras yöelämävalinta, mutta gastropub-konseptina ei erityisen ainutlaatuinen.',
+    },
+    lastEnriched: '2026-05-28',
   },
   {
     id: 'narsharab-aktau',
@@ -7650,6 +7746,14 @@ export const sights: Sight[] = [
         kk: 'Жұмыс уақыты күн сайын 11:00–01:00 — жағалаудан кейінгі түскі асқа да, кешкі асқа да жарайды. Демалыс кештеріне үстелді алдын ала брондаған дұрыс.',
       },
     ],
+    ratings: {
+      popularity: 3,
+      interest: 4,
+      uniqueness: 4,
+      ratedAt: '2026-05-28',
+      rationale: 'Tarjoaa fishbarmakia — Mangystaun erikoisuus jota ei valmisteta muualla Kazakstanissa. Yhdistettynä azerbaidžanilaiseen narsharab-traditioon Caspian-sammen kanssa, alueen kategorian määräävä paikka.',
+    },
+    lastEnriched: '2026-05-28',
   },
   {
     id: 'karvon-aktau',
@@ -7689,7 +7793,7 @@ export const sights: Sight[] = [
     needsGuide: false,
     budgetLevel: 'low',
     timeNeededHours: 1.5,
-    combinesWith: ['aqtau-promenade', 'narsharab-aktau'],
+    combinesWith: ['aqtau-promenade'],
     openingHours: {
       fi: 'päivittäin 12:00–22:00 (live-musiikin iltoina pidempään)',
       en: 'Daily 12:00–22:00 (later on live-music nights)',
@@ -7728,6 +7832,14 @@ export const sights: Sight[] = [
         kk: 'Мекенжайы — 4А ықшамауданы, 52, Геологов көшесі, қаланың Каспий жиегіндегі жағында — Ақтау жағалауынан таксимен қысқа жол немесе шамамен 25 минут жаяу.',
       },
     ],
+    ratings: {
+      popularity: 3,
+      interest: 3,
+      uniqueness: 3,
+      ratedAt: '2026-05-28',
+      rationale: 'Vakiintunut Aqtaun uzbekiravintola, kesäterassi Kaspianmerelle ja tapchanit erottavat geneerisistä shashlik-paikoista; reilun kokoinen ja luotettava illan paikka.',
+    },
+    lastEnriched: '2026-05-28',
   },
   {
     id: 'daididau',
@@ -7813,5 +7925,13 @@ export const sights: Sight[] = [
         kk: 'Мекенжайы: Дінмұхамед Қонаев 14, Есіл ауданы (Сол жағалау) — Бәйтеректен жаяу ~10 минут немесе таксимен 3 минут. Күн сайын 12:00–01:00 ашық.',
       },
     ],
+    ratings: {
+      popularity: 3,
+      interest: 4,
+      uniqueness: 4,
+      ratedAt: '2026-05-28',
+      rationale: 'Laulaja Dimash Kudaibergenin perheen omistama, molekyligastronomiaa kazakhin perinneruoassa + musiikkikokoelma salina; konsepti todella distinctive Astanan ravintolakentässä.',
+    },
+    lastEnriched: '2026-05-28',
   },
 ];
