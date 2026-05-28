@@ -510,6 +510,12 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Mukava kävelykatu, mutta vastaavia löytyy jokaisesta isosta kaupungista.',
     },
+    externalLinks: [
+      {
+        kind: 'listing',
+        url: 'https://welcome.kz/en/info-cities/almaty/panfilova-i-zhibek-zholy',
+      },
+    ],
   },
   {
     id: 'almaty-craft-beer',
@@ -568,6 +574,12 @@ export const sights: Sight[] = [
       ratedAt: '2026-05-18',
       rationale: 'Paikallinen niche-skene; piristystä iltaan mutta ei matkan vetonaula.',
     },
+    externalLinks: [
+      {
+        kind: 'listing',
+        url: 'https://www.ratebeer.com/places/city/almaty/0/107/',
+      },
+    ],
   },
 
   // ============== ALMATYN ALUE (luontoretket) ==============
