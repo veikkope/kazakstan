@@ -13,6 +13,8 @@ import { filterByCategories, filterByRegions } from '@/lib/filters';
 import { filterBySearch } from '@/lib/search';
 import { useUrlState } from '@/lib/url-state';
 import { sortSights } from '@/lib/sort';
+import { useScrollMemory } from '@/lib/scroll-memory';
+import { usePathname } from '@/i18n/navigation';
 import { asLocale, localised } from '@/lib/i18n-helpers';
 import type { Region, SortDimension } from '@/lib/types';
 import { Button } from '@/components/ui/button';
@@ -74,6 +76,13 @@ function NahtavyydetPageInner() {
   const t = useTranslations();
   const loc = asLocale(useLocale());
   const { state, update } = useUrlState();
+  // Remember scroll position per pathname so `list → detail → back`
+  // lands the user where they were. Pathname (not full URL) so the
+  // shortlist `?sl=` history.replaceState writes and filter changes
+  // don't reset the saved Y. See lib/scroll-memory.ts for the rationale
+  // (Next.js's built-in restore fails intermittently on Suspense
+  // fallback flashes after a router-cache miss).
+  useScrollMemory(usePathname());
   const [filterSheetOpen, setFilterSheetOpen] = useState(false);
 
   const sortLabel = (s: SortDimension): string => {
@@ -474,7 +483,16 @@ function NahtavyydetPageInner() {
 
 function PageFallback() {
   const t = useTranslations();
-  return <p className="text-sm text-muted-foreground">{t('common.loading')}</p>;
+  // Reserve full viewport height so that if this fallback briefly
+  // renders during back-navigation hydration, the document stays tall
+  // enough for the browser (and useScrollMemory) to land on the saved
+  // Y position. A short fallback would collapse the layout, causing
+  // scroll restoration to silently fail and dump the user at the top.
+  return (
+    <div className="min-h-[100dvh]">
+      <p className="text-sm text-muted-foreground">{t('common.loading')}</p>
+    </div>
+  );
 }
 
 export default function NahtavyydetPage() {
