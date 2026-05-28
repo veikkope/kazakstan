@@ -1,19 +1,20 @@
 'use client';
 
 import { useState } from 'react';
-import dynamic from 'next/dynamic';
 import { useLocale, useTranslations } from 'next-intl';
 import { asLocale, localised } from '@/lib/i18n-helpers';
 import { hapticTap } from '@/lib/haptic';
 import type { Sight } from '@/lib/types';
+import HeroLightboxDialog from './HeroLightboxDialog';
 import SightImage from './SightImage';
 
-// Lazy-load the lightbox + zoom plugin (~18 kB gzipped) — only paid
-// for after the user actually taps the hero. The dynamic boundary also
-// drops the library from SSR so its DOM access doesn't break prerender.
-const HeroLightboxDialog = dynamic(() => import('./HeroLightboxDialog'), {
-  ssr: false,
-});
+// Lightbox is statically imported so the ~18 kB chunk + its stylesheet
+// land in the detail page's HTML as a normal script/link reference.
+// `offline.ts:discoverAssets()` parses those tags to build the trip
+// cache — a lazy `next/dynamic` import would only fetch on first tap and
+// stay invisible to the asset crawl, breaking the lightbox on a
+// downloaded trip. The dialog itself does not render until `open=true`,
+// so the actual DOM cost is still deferred.
 
 interface Props {
   sight: Sight;
