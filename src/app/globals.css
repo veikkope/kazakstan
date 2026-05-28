@@ -236,6 +236,14 @@
   html {
     @apply font-sans;
     scroll-behavior: smooth;
+    /*
+     * Suppress iOS Safari's default grey tap-highlight overlay. CSS :active
+     * and Tailwind's `active:` utilities give cleaner, design-controlled
+     * feedback; the OS rectangle now looks dated next to the morph
+     * transition. Buttons and links elsewhere still use their own focus
+     * rings, so accessibility isn't degraded.
+     */
+    -webkit-tap-highlight-color: transparent;
   }
   /*
    * Heading typography. Tighter tracking on h1–h3 gives the outdoor sans
@@ -478,23 +486,82 @@ body.kartta-locked footer {
 }
 
 /*
- * Cross-document View Transitions — soft global enable. With this rule a
- * browser-level navigation (hard refresh, back/forward, address-bar change)
- * cross-fades the page automatically. The richer per-element morph between
- * the sights grid and a detail page would need React 19.2's <ViewTransition>
- * wrapped around <SightImage> *and* `experimental.viewTransition: true` —
- * that combination currently loops with ShortlistButton's <Suspense>, so
- * it's deferred. The CSS below is safe with or without that flag.
+ * View Transitions — three layers:
+ *
+ *  1. `@view-transition { navigation: auto }` activates cross-document
+ *     transitions for hard navigations (refresh, back/forward, typed URL).
+ *  2. `experimental.viewTransition: true` in next.config.ts + React 19.2's
+ *     <ViewTransition> wrapper enables them for App Router soft navigations
+ *     too. Used by SightCard ↔ detail page hero (share="morph").
+ *  3. The .morph class targets just the shared-element image so the rest of
+ *     the page does its default crossfade — keeps the hero motion focused.
  *
  * Supported: Chrome 126+, Safari 18.2+. Firefox and older browsers ignore.
  */
 @view-transition {
   navigation: auto;
 }
+
+/* Default cross-fade for everything that isn't explicitly named. */
 ::view-transition-group(*) {
   animation-duration: 280ms;
   animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
 }
+
+/*
+ * Sight image morph — slightly slower than the default fade so the
+ * shape change reads, and a brief mid-flight blur hides the
+ * pixel-stretch artefacts of a 4:3 thumbnail interpolating into a
+ * 16:9/21:9 hero. The `object-fit` rules force the snapshots to
+ * cover their boxes (the browser default would stretch).
+ */
+::view-transition-group(.morph) {
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+::view-transition-old(.morph),
+::view-transition-new(.morph) {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  overflow: clip;
+}
+::view-transition-image-pair(.morph) {
+  isolation: isolate;
+  animation-name: kz-morph-blur;
+  animation-duration: 400ms;
+}
+@keyframes kz-morph-blur {
+  0%, 100% {
+    filter: blur(0);
+  }
+  35% {
+    filter: blur(3px);
+  }
+}
+
+/*
+ * Sticky chrome (header, bottom nav) should NOT travel with the morph.
+ * Anchor them with their own names and suppress animation so they stay
+ * pinned while the image morphs underneath. `display: none` on the old
+ * snapshot prevents a brief double-render flash where both copies of
+ * the header are visible at once.
+ */
+::view-transition-group(site-header),
+::view-transition-group(bottom-nav) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header),
+::view-transition-old(bottom-nav) {
+  display: none;
+}
+::view-transition-new(site-header),
+::view-transition-new(bottom-nav) {
+  animation: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(*),
   ::view-transition-new(*),

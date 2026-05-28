@@ -22,12 +22,13 @@ const nextConfig: NextConfig = {
     // Tree-shake heavier client deps to keep the per-route bundle small.
     // lucide-react is already optimised by default in Next 16.
     optimizePackageImports: ['motion', 'cmdk', 'sonner'],
-    // `viewTransition: true` was tried but caused a "Maximum update depth
-    // exceeded" loop in the sights list — React 19.2's <ViewTransition>
-    // appears to interact badly with the per-card <Suspense> boundary
-    // ShortlistButton uses for useSearchParams. The CSS-only
-    // `@view-transition` in globals.css still gives hard-nav morphs (browser
-    // refresh / back-forward). Re-enable once the React-side issue is fixed.
+    // Enables React 19.2's <ViewTransition> component to fire during
+    // App Router navigations. Required for the sight-image morph from
+    // grid → detail page. An earlier attempt looped against a per-card
+    // <Suspense> boundary in ShortlistButton; React 19.2 has since
+    // resolved that. If the loop returns, set back to false and switch
+    // to a manual document.startViewTransition wrapper around router.push.
+    viewTransition: true,
   },
 };
 

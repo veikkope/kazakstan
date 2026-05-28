@@ -30,7 +30,15 @@ export default function Header() {
   return (
     // Mobile compact: 48px total (py-1.5 + h-9). Desktop: 56px (py-3 + h-8)
     // with full inline navigation. Mobile relies on BottomNav for primary nav.
-    <header className="sticky top-0 z-20 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
+    //
+    // `viewTransitionName` anchors the header during route transitions: the
+    // sight-image morph (and any other view transition) animates the page
+    // body but the header stays pinned. The matching CSS in globals.css
+    // disables its animation and hides the old snapshot to avoid a flash.
+    <header
+      style={{ viewTransitionName: 'site-header' }}
+      className="sticky top-0 z-20 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80"
+    >
       <div className="mx-auto flex max-w-6xl items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-3">
         <Link
           href="/"

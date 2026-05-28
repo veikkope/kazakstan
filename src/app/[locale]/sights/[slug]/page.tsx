@@ -1,3 +1,4 @@
+import { ViewTransition } from 'react';
 import { notFound } from 'next/navigation';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
@@ -11,6 +12,7 @@ import ShortlistButton from '@/components/sights/ShortlistButton';
 import SightActionBar from '@/components/sights/SightActionBar';
 import SightImage from '@/components/sights/SightImage';
 import NavigateMenu from '@/components/navigation/NavigateMenu';
+import ScrollToTopOnMount from '@/components/layout/ScrollToTopOnMount';
 import StarRating, { RatingPlaceholder } from '@/components/sights/StarRating';
 import OverallStars from '@/components/sights/OverallStars';
 import { formatKZT } from '@/lib/currency';
@@ -78,14 +80,23 @@ export default async function SightDetailPage({
 
   return (
     <>
+    <ScrollToTopOnMount />
     <article className="space-y-8 pb-20 lg:pb-0">
-      <SightImage
-        sight={sight}
-        sizes="(min-width: 1024px) 1024px, 100vw"
-        aspect="aspect-[16/9] sm:aspect-[21/9]"
-        className="rounded-lg"
-        priority
-      />
+      {/*
+        Shared-element morph target — matches the name on SightCard's
+        thumbnail (sight-image-<slug>). When the user navigates from the
+        list to here, the browser morphs the thumbnail bitmap into this
+        hero. See ::view-transition-*(.morph) rules in globals.css.
+      */}
+      <ViewTransition name={`sight-image-${sight.slug}`} share="morph">
+        <SightImage
+          sight={sight}
+          sizes="(min-width: 1024px) 1024px, 100vw"
+          aspect="aspect-[16/9] sm:aspect-[21/9]"
+          className="rounded-lg"
+          priority
+        />
+      </ViewTransition>
       <header className="space-y-3">
         <div className="flex flex-wrap items-center gap-2">
           <span
