@@ -6749,6 +6749,10 @@ export const sights: Sight[] = [
       rationale: 'Kazakstanin tunnetuin ravintola kansainvälisesti: Prix Versailles 2024, CNN Travelin Almaty-piece, 50 Best Discovery — ainutlaatuinen neo-nomadinen konsepti jurtassa.',
     },
     lastEnriched: '2026-05-28',
+    externalLinks: [
+      { kind: 'website', url: 'https://auylrestaurant.com/' },
+      { kind: 'instagram', url: 'https://www.instagram.com/auyl.almaty/' },
+    ],
   },
   {
     id: 'bul-bar',
@@ -6823,6 +6827,10 @@ export const sights: Sight[] = [
       rationale: 'Tatler Kazakhstanin Top 20 -listalla 2025; musiikkilistana rakentuva cocktail-menu ja vinyyli-DJ-setit erottavat selvästi geneerisistä rooftop-baareista.',
     },
     lastEnriched: '2026-05-28',
+    externalLinks: [
+      { kind: 'website', url: 'https://bulbar.kz/' },
+      { kind: 'instagram', url: 'https://www.instagram.com/bulbar.almaty/' },
+    ],
   },
   {
     id: 'kishlak-seyfullin',
@@ -6905,6 +6913,9 @@ export const sights: Sight[] = [
       rationale: 'Vakiintunut Keski-Aasian ravintolainstituutio (Yandex 1500+ ääntä, TripAdvisor #30/1257); luotettavaa uzbeki-uiguuri-ruokaa mutta konsepti löytyy muualtakin Almatyssa.',
     },
     lastEnriched: '2026-05-28',
+    externalLinks: [
+      { kind: 'instagram', url: 'https://www.instagram.com/kishlak.kz/' },
+    ],
   },
   {
     id: 'sandyq-restaurant',
@@ -6986,6 +6997,10 @@ export const sights: Sight[] = [
       rationale: 'Yksi Almatyn tunnetuimmista modernin kazakkilaisen keittiön ravintoloista (TripAdvisor #21/1257, Yandex 5.0/3930+); upea toteutus mutta konseptina ei aivan Auylin tasoa.',
     },
     lastEnriched: '2026-05-28',
+    externalLinks: [
+      { kind: 'website', url: 'https://sandyq.kz/' },
+      { kind: 'instagram', url: 'https://www.instagram.com/sandyq_restaurant/' },
+    ],
   },
   {
     id: 'bowler-coffee-roasters',
@@ -7066,6 +7081,9 @@ export const sights: Sight[] = [
       rationale: 'Almatyn johdonmukaisimmin kehuttu specialty-kahvi, European Coffee Tripin oppaassa; pieni nicheristin nostama paahtimo — ei massasuosittu mutta erottuva.',
     },
     lastEnriched: '2026-05-28',
+    externalLinks: [
+      { kind: 'facebook', url: 'https://www.facebook.com/bowler.coffee.roasters/' },
+    ],
   },
   {
     id: 'daredzhani-kunayev',
@@ -7153,6 +7171,10 @@ export const sights: Sight[] = [
       rationale: 'Almatyn vakiintunut georgialaisravintola (TripAdvisor 4.5/576, "paras Georgian ulkopuolella"); ruoka korkeatasoista mutta konseptina georgialaiset paikat eivät ole erityisen ainutlaatuisia.',
     },
     lastEnriched: '2026-05-28',
+    externalLinks: [
+      { kind: 'website', url: 'https://abr.kz/restaurant/daredzhani' },
+      { kind: 'instagram', url: 'https://www.instagram.com/daredzhani/' },
+    ],
   },
   {
     id: 'everjazz',
@@ -7240,6 +7262,9 @@ export const sights: Sight[] = [
       rationale: 'Almatyn ensimmäinen ammattimainen jazz-klubi konserttisaliformaatilla, 36 keikkaa/kk; jazz on niche-yleisö mutta itse paikkana selvästi distinctive Keski-Aasiassa.',
     },
     lastEnriched: '2026-05-28',
+    externalLinks: [
+      { kind: 'website', url: 'https://everjazz.kz/english' },
+    ],
   },
   {
     id: 'selfie-astana',
@@ -7327,6 +7352,9 @@ export const sights: Sight[] = [
       rationale: 'La Liste 2025 Top 1000 ja Moscow Selfie -ketjun (World\'s 50 Best #70) sisarpaikka 18. kerroksen panoramalla; chef-driven tasting menu — vahva mutta nojaa Moskovan brändiin.',
     },
     lastEnriched: '2026-05-28',
+    externalLinks: [
+      { kind: 'instagram', url: 'https://www.instagram.com/selfievastane/' },
+    ],
   },
   {
     id: 'saksaul-astana',
@@ -7414,6 +7442,9 @@ export const sights: Sight[] = [
       rationale: 'Astanan käytetyin laatu-Kazakh-ravintola (Yandex 5.0/4124, TripAdvisor #6/1162); accessible hinta + avoin keittiö, mutta konsepti ei ole concept-distinctive Qazaq Gourmetin tai Daididaun tavoin.',
     },
     lastEnriched: '2026-05-28',
+    externalLinks: [
+      { kind: 'instagram', url: 'https://www.instagram.com/saksaul_astana/' },
+    ],
   },
   {
     id: 'qazaq-gourmet',
@@ -7501,6 +7532,9 @@ export const sights: Sight[] = [
       rationale: 'La Liste 2025 Top 1000 (vain neljäs KZ-ravintola listalla) ja World\'s 50 Best Discovery; Astanan ensimmäinen haute Kazakh — kategorian luonut konsepti.',
     },
     lastEnriched: '2026-05-28',
+    externalLinks: [
+      { kind: 'instagram', url: 'https://www.instagram.com/qazaq.gourmet/' },
+    ],
   },
   {
     id: 'temple-astana',
@@ -7588,6 +7622,9 @@ export const sights: Sight[] = [
       rationale: 'Kazakstanin ensimmäinen kokeellinen speakeasy + World\'s 50 Best Discovery + Kvadrat Architectsin palkittu design 2023; konseptiltaan globaalisti distinctive, mutta speakeasy on määritelmällisesti niche.',
     },
     lastEnriched: '2026-05-28',
+    externalLinks: [
+      { kind: 'instagram', url: 'https://www.instagram.com/temple.kz/' },
+    ],
   },
   {
     id: 'chechil-pub-aktau',
@@ -7668,6 +7705,10 @@ export const sights: Sight[] = [
       rationale: 'Aqtaun ylivoimaisesti validoiduin paikka (2GIS 4.7/1483, kaupungin paras tilastollinen näyttö) — vakaa ja paikan paras yöelämävalinta, mutta gastropub-konseptina ei erityisen ainutlaatuinen.',
     },
     lastEnriched: '2026-05-28',
+    externalLinks: [
+      { kind: 'facebook', url: 'https://www.facebook.com/aktauchechilpub/' },
+      { kind: 'instagram', url: 'https://www.instagram.com/chechil_aktau/' },
+    ],
   },
   {
     id: 'narsharab-aktau',
@@ -7754,6 +7795,9 @@ export const sights: Sight[] = [
       rationale: 'Tarjoaa fishbarmakia — Mangystaun erikoisuus jota ei valmisteta muualla Kazakstanissa. Yhdistettynä azerbaidžanilaiseen narsharab-traditioon Caspian-sammen kanssa, alueen kategorian määräävä paikka.',
     },
     lastEnriched: '2026-05-28',
+    externalLinks: [
+      { kind: 'instagram', url: 'https://www.instagram.com/narsharab_aktau/' },
+    ],
   },
   {
     id: 'karvon-aktau',
@@ -7840,6 +7884,9 @@ export const sights: Sight[] = [
       rationale: 'Vakiintunut Aqtaun uzbekiravintola, kesäterassi Kaspianmerelle ja tapchanit erottavat geneerisistä shashlik-paikoista; reilun kokoinen ja luotettava illan paikka.',
     },
     lastEnriched: '2026-05-28',
+    externalLinks: [
+      { kind: 'facebook', url: 'https://www.facebook.com/karvon.kz/' },
+    ],
   },
   {
     id: 'daididau',
@@ -7933,5 +7980,9 @@ export const sights: Sight[] = [
       rationale: 'Laulaja Dimash Kudaibergenin perheen omistama, molekyligastronomiaa kazakhin perinneruoassa + musiikkikokoelma salina; konsepti todella distinctive Astanan ravintolakentässä.',
     },
     lastEnriched: '2026-05-28',
+    externalLinks: [
+      { kind: 'website', url: 'https://daididau.kz/en/' },
+      { kind: 'instagram', url: 'https://www.instagram.com/daididau.restaurant/' },
+    ],
   },
 ];

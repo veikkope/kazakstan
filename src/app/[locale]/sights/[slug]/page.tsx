@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import type { Metadata } from 'next';
+import { Globe, AtSign, Users, Calendar, BookOpen, Info } from 'lucide-react';
 import { sights } from '@/data/sights';
 import { activityMeta, categoryMeta, regionMeta } from '@/data/categories';
 import { findBySlug } from '@/lib/filters';
@@ -17,6 +18,7 @@ import StarRating, { RatingPlaceholder } from '@/components/sights/StarRating';
 import OverallStars from '@/components/sights/OverallStars';
 import { formatKZT } from '@/lib/currency';
 import { asLocale, getSightFields, localised } from '@/lib/i18n-helpers';
+import type { ExternalLinkKind } from '@/lib/types';
 import {
   Card,
   CardContent,
@@ -324,6 +326,39 @@ export default async function SightDetailPage({
               </Link>
             </CardContent>
           </Card>
+
+          {/* External links — virallinen some/sivu kun CC-kuvaa ei ole.
+              Linkit renderöidään ikoni-saatteisina, target="_blank" + rel
+              noopener+noreferrer (lisätään hover-vastineissa kotopuolella). */}
+          {sight.externalLinks && sight.externalLinks.length > 0 && (
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                  {t('pages.sightDetail.externalLinksHeading')}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-1.5">
+                  {sight.externalLinks.map((link) => {
+                    const { Icon, labelKey } = externalLinkMeta(link.kind);
+                    return (
+                      <li key={link.url}>
+                        <a
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex min-h-11 items-center gap-2 text-sm text-(--color-steppe) hover:text-(--color-steppe-dark) hover:underline"
+                        >
+                          <Icon className="size-4" aria-hidden />
+                          <span>{t(labelKey)}</span>
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </CardContent>
+            </Card>
+          )}
         </aside>
       </div>
     </article>
@@ -339,4 +374,39 @@ function Row({ label, value }: { label: string; value: string }) {
       <dd className="text-right text-foreground">{value}</dd>
     </div>
   );
+}
+
+/**
+ * Ikoni- ja käännösavain per linkkityyppi. Erillinen funktio jotta
+ * tagit pysyvät visuaalisesti yhdenmukaisina kaikilla kohteilla ja
+ * uuden tyypin lisääminen on yhden case-haaran päässä.
+ */
+function externalLinkMeta(kind: ExternalLinkKind): {
+  Icon: typeof Globe;
+  labelKey:
+    | 'pages.sightDetail.linkWebsite'
+    | 'pages.sightDetail.linkInstagram'
+    | 'pages.sightDetail.linkFacebook'
+    | 'pages.sightDetail.linkReservation'
+    | 'pages.sightDetail.linkMenu'
+    | 'pages.sightDetail.linkListing';
+} {
+  switch (kind) {
+    case 'website':
+      return { Icon: Globe, labelKey: 'pages.sightDetail.linkWebsite' };
+    case 'instagram':
+      // lucide-react dropped brand icons; AtSign mirrors the @handle
+      // convention without infringing on Meta's trademarks.
+      return { Icon: AtSign, labelKey: 'pages.sightDetail.linkInstagram' };
+    case 'facebook':
+      // Same reason — Users gestures toward "social/community" without
+      // reproducing the Facebook mark.
+      return { Icon: Users, labelKey: 'pages.sightDetail.linkFacebook' };
+    case 'reservation':
+      return { Icon: Calendar, labelKey: 'pages.sightDetail.linkReservation' };
+    case 'menu':
+      return { Icon: BookOpen, labelKey: 'pages.sightDetail.linkMenu' };
+    case 'listing':
+      return { Icon: Info, labelKey: 'pages.sightDetail.linkListing' };
+  }
 }

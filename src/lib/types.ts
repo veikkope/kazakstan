@@ -78,6 +78,30 @@ export interface ImageAttribution {
   license?: string;
 }
 
+/**
+ * Tyypit ulkoisille linkeille. Käytetään erityisesti ravintoloilla ja
+ * baareilla joilla ei ole CC-lisensoitua kuvaa — virallinen some/sivu
+ * antaa käyttäjälle tavan vahvistaa aukioloajat, varata pöytä ja nähdä
+ * paikan ilmeen ilman että rikomme kuvalisenssejä.
+ *
+ * `listing` on geneerinen kaatopaikka 2GIS / Yandex / TripAdvisor
+ * -tyyppisille kolmannen osapuolen sivuille kun virallista presenssiä
+ * ei ole. UI näyttää sen "Lisätietoja"-ikonilla.
+ */
+export type ExternalLinkKind =
+  | 'website'
+  | 'instagram'
+  | 'facebook'
+  | 'reservation'
+  | 'menu'
+  | 'listing';
+
+export interface ExternalLink {
+  kind: ExternalLinkKind;
+  /** Suora HTTPS-URL. Validoidaan tyypistystasolla vain stringiksi. */
+  url: string;
+}
+
 export interface Sight {
   id: string;
   slug: string;
@@ -101,6 +125,14 @@ export interface Sight {
   image?: string;
   imageAlt?: TranslatableString;
   imageAttribution?: ImageAttribution;
+  /**
+   * Viralliset some- tai nettisivulinkit. Käytetään erityisesti
+   * ravintoloilla ja baareilla joilla ei ole CC-lisensoitua kuvaa —
+   * UI renderöi linkit detail-sivulla pienenä ikoniriviä, jotta
+   * käyttäjä voi tarkistaa nykyisen tilan (aukioloajat, menu, varaukset)
+   * suoraan paikan omasta lähteestä.
+   */
+  externalLinks?: ExternalLink[];
   bestMonths?: number[];
   travelTimeFromAlmatyHours?: number;
   travelTimeFromAstanaHours?: number;
