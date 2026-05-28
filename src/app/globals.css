@@ -244,6 +244,14 @@
      * rings, so accessibility isn't degraded.
      */
     -webkit-tap-highlight-color: transparent;
+    /*
+     * Block pull-to-refresh and the rubber-band overscroll that breaks the
+     * illusion of an app. The locked-map page already overrides this with
+     * `overscroll-behavior: none` for its own reasons; `contain` here keeps
+     * scroll chaining inside nested scrollers (sheets, command palette)
+     * without nuking it system-wide.
+     */
+    overscroll-behavior-y: contain;
   }
   /*
    * Heading typography. Tighter tracking on h1–h3 gives the outdoor sans

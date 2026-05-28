@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { userItinerary } from '@/data/itinerary';
 import { buildItineraryIcs } from '@/lib/ics';
 import { asLocale } from '@/lib/i18n-helpers';
+import { hapticSuccess, hapticWarning } from '@/lib/haptic';
 
 /**
  * Exports the itinerary as a .ics file. Prefers the Level 2 Web Share API
@@ -37,6 +38,7 @@ export default function CalendarExportButton() {
       ) {
         try {
           await navigator.share({ files: [file], title: t('shareTitle') });
+          hapticSuccess();
           return;
         } catch (err) {
           // User cancelled the share sheet — not an error worth surfacing.
@@ -54,8 +56,10 @@ export default function CalendarExportButton() {
       anchor.click();
       anchor.remove();
       URL.revokeObjectURL(url);
+      hapticSuccess();
       toast.success(t('downloadedToast'));
     } catch {
+      hapticWarning();
       toast.error(t('errorToast'));
     } finally {
       setBusy(false);

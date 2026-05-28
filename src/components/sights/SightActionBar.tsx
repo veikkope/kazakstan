@@ -10,6 +10,7 @@ import type { Sight } from '@/lib/types';
 import { asLocale, localised } from '@/lib/i18n-helpers';
 import { useShortlist } from '@/lib/shortlist';
 import { shareUrl } from '@/lib/share';
+import { hapticSuccess, hapticTap } from '@/lib/haptic';
 import { cn } from '@/lib/utils';
 
 interface Props {
@@ -25,17 +26,21 @@ function SightActionBarInner({ sight }: Props) {
 
   async function onShare() {
     if (typeof window === 'undefined') return;
+    hapticTap();
     const result = await shareUrl({
       url: window.location.href,
       title: t('components.sightActionBar.shareTitle', { name: sightName }),
       text: localised(sight.shortDescription, loc),
     });
     if (result === 'copied') {
+      hapticSuccess();
       toast.success(t('components.sightActionBar.linkCopiedTitle'), {
         description: t('components.sightActionBar.linkCopiedDescription'),
       });
     } else if (result === 'error') {
       toast.error(t('components.sightActionBar.linkCopyError'));
+    } else if (result === 'shared') {
+      hapticSuccess();
     }
     // 'shared' → native OS share sheet gives its own feedback; stay silent.
     // 'cancelled' → user dismissed; no toast.
@@ -61,7 +66,10 @@ function SightActionBarInner({ sight }: Props) {
           type="button"
           variant="outline"
           size="icon"
-          onClick={() => toggle(sight.id)}
+          onClick={() => {
+            toggle(sight.id);
+            hapticTap();
+          }}
           disabled={!hydrated}
           aria-pressed={active}
           aria-label={active ? t('components.sightActionBar.removeShortlistAria') : t('components.sightActionBar.addShortlistAria')}
