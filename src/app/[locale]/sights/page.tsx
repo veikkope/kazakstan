@@ -16,6 +16,7 @@ import { useUrlState } from '@/lib/url-state';
 import { sortSights } from '@/lib/sort';
 import ScrollMemory from '@/components/layout/ScrollMemory';
 import { asLocale, localised } from '@/lib/i18n-helpers';
+import { isBackNav } from '@/lib/nav-intent';
 import type { Region, SortDimension } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import {
@@ -494,7 +495,12 @@ function NahtavyydetPageInner() {
         <m.ul
           key={visible.map((s) => s.id).join(',')}
           variants={gridVariants}
-          initial="hidden"
+          // Skip the stagger on a history restore (back/forward): the grid
+          // should reappear instantly and full-height, not re-fade card by
+          // card. `initial={false}` renders straight at the `visible` state.
+          // Read at render so a filter re-key (>0.5s after a back) still
+          // staggers. Forward/first visits animate normally.
+          initial={isBackNav() ? false : 'hidden'}
           animate="visible"
           className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
         >

@@ -2,6 +2,7 @@
 
 import { m, useReducedMotion } from 'motion/react';
 import type { ReactNode } from 'react';
+import { isBackNav } from '@/lib/nav-intent';
 
 /**
  * Page transition for the /sights subtree.
@@ -26,12 +27,17 @@ import type { ReactNode } from 'react';
  * the containing block for those `fixed` descendants and mis-position them.
  * Opacity creates a stacking context but no containing block, so it's safe —
  * and it still reads as a smooth crossfade between the grid and the detail.
+ *
+ * The crossfade is suppressed on a history *restore* (back/forward) via
+ * `isBackNav()`: returning to a page should be an instant, stable restore, not
+ * a re-entrance. Forward navigations (opening a sight) still crossfade.
  */
 export default function SightsTemplate({ children }: { children: ReactNode }) {
   const reduce = useReducedMotion();
+  const skip = reduce || isBackNav();
   return (
     <m.div
-      initial={reduce ? false : { opacity: 0 }}
+      initial={skip ? false : { opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.22, ease: 'easeOut' }}
     >
