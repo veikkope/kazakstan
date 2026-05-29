@@ -97,6 +97,7 @@
       "filterButtonActiveAria": "Сүзгілер — {count} белсенді",
       "filterSheetTitle": "Сүзгілер",
       "categoriesHeading": "Санаттар",
+      "activitiesHeading": "Іс-шаралар",
       "regionsHeading": "Аймақтар",
       "allRegions": "Барлығы",
       "sortLabel": "Реті:",
@@ -148,6 +149,13 @@
       "bestTime": "Ең қолайлы уақыт",
       "locationHeading": "Орналасуы",
       "openOnMap": "Картадан ашу →",
+      "externalLinksHeading": "Толығырақ",
+      "linkWebsite": "Сайт",
+      "linkInstagram": "Instagram",
+      "linkFacebook": "Facebook",
+      "linkReservation": "Үстелді брондау",
+      "linkMenu": "Мәзір",
+      "linkListing": "Толығырақ",
       "monthJan": "қаң",
       "monthFeb": "ақп",
       "monthMar": "нау",
@@ -251,6 +259,7 @@
       "languageColFi": "Фин тілі",
       "languageColKk": "Қазақ тілі",
       "languageColRu": "Орыс тілі",
+      "playAll": "Барлығын ойнату",
       "safetyHeading": "Қауіпсіздік — практикада нені білдіреді"
     },
     "carRental": {
@@ -293,10 +302,11 @@
       "statusReady": "Офлайнға жүктелді · жаңартылды {date}",
       "statusStale": "Бұрын сақталған — жаңарту үшін қайта жүктеңіз",
       "statusNone": "Әлі жүктелмеген",
+      "breakdown": "{pages} бет · {images} фото · {audio} аудио · {tiles} тақташа",
       "tilesToggle": "Карта тақташаларын қосу",
       "detail": "Егжей-тегжейлік",
       "tilesEstimate": "≈ {count} тақташа · {size}",
-      "includesNote": "Барлық {sights} нысанды, фотоларды және бағыттарды ағымдағы тілде қамтиды",
+      "includesNote": "Барлық {sights} нысанды фотолармен, {audio} аудио үзіндіні және бағыттарды ағымдағы тілде қамтиды",
       "downloadingTitle": "Офлайнға жүктелуде",
       "keepBrowsing": "Қолданбаны пайдалана беруге болады — жүктеу фонда жалғасады.",
       "download": "Офлайнға жүктеу",
@@ -369,7 +379,11 @@
     "sightImage": {
       "placeholderAria": "{category} санаты — сурет жоқ",
       "attributionAria": "Сурет көзі: {source}",
-      "attributionAriaWithCredit": "Сурет көзі: {source} — {credit}"
+      "attributionAriaWithCredit": "Сурет көзі: {source} — {credit}",
+      "zoomOpenAria": "Үлкен суретті ашу: {name}",
+      "zoomCloseAria": "Суретті жабу",
+      "zoomInAria": "Жақындату",
+      "zoomOutAria": "Алыстату"
     },
     "nearbyList": {
       "distanceKm": "{km} км"
@@ -389,6 +403,12 @@
       "rich": "Мазмұнға бай",
       "unique": "Ерекше",
       "standoutTitle": "{label} — ең үздік өлшем 5/5"
+    },
+    "calendarExport": {
+      "button": "Күнтізбеге қосу",
+      "shareTitle": "Қазақстан сапарының кестесі",
+      "downloadedToast": "Кесте жүктелді (.ics)",
+      "errorToast": "Экспорттау сәтсіз аяқталды"
     },
     "shortlistButton": {
       "add": "Шорт-листке қосу",
@@ -481,7 +501,7 @@
     "todayDashboard": {
       "emptyState": "Сапар жоспары жоқ. <link>Сапар жоспарына</link> күндер қосыңыз.",
       "countdownLabel": "Шығуға дейін",
-      "daysLeft": "{count, plural, one {# күн} other {# күн}}",
+      "daysLeft": "{count, plural, one {<num>#</num> күн} other {<num>#</num> күн}}",
       "daysLeftSoon": "жақында",
       "tripStarts": "Сапар {date} басталады — {total} күндік бағдарлама",
       "tripStartsNoDate": "Сапар жақында басталады — {total} күндік бағдарлама",

@@ -34,7 +34,8 @@
       "WebFetch(domain:fi.wikipedia.org)",
       "WebFetch(domain:openstreetmap.org)",
       "WebFetch(domain:caravanistan.com)",
-      "WebFetch(domain:advantour.com)"
+      "WebFetch(domain:advantour.com)",
+      "Bash(curl -s *)"
     ],
     "deny": [
       "Bash(rm -rf:*)",

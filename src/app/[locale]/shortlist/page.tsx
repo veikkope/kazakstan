@@ -18,6 +18,7 @@ import {
   type RoutePoint,
 } from '@/lib/route';
 import NavigateMenu from '@/components/navigation/NavigateMenu';
+import ScrollMemory from '@/components/layout/ScrollMemory';
 import { Check, Heart, MapPin, Star } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -586,13 +587,24 @@ function ShortlistPageInner() {
   const groupedByRegion = groupShortlistByRegion(entries, loc);
 
   if (!hydrated) {
-    return <p className="text-sm text-muted-foreground">{t('pages.shortlist.loading')}</p>;
+    // Same outer shell + first child as the hydrated return below so
+    // React reconciles the <ScrollMemory /> as the same instance across
+    // the unhydrated → hydrated transition. Otherwise it would unmount
+    // and remount, with the unmount-snapshot overwriting the saved Y
+    // with the (still-zero) pre-content scroll position.
+    return (
+      <div className="space-y-6">
+        <ScrollMemory />
+        <p className="text-sm text-muted-foreground">{t('pages.shortlist.loading')}</p>
+      </div>
+    );
   }
 
   const orderedRegions = REGION_ORDER.filter((r) => groupedByRegion.has(r));
 
   return (
     <div className="space-y-6">
+      <ScrollMemory />
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-2xl font-semibold">{t('pages.shortlist.title')}</h1>
@@ -733,5 +745,12 @@ export default function ShortlistPage() {
 
 function ShortlistFallback() {
   const t = useTranslations();
-  return <p className="text-sm text-muted-foreground">{t('pages.shortlist.loading')}</p>;
+  // min-h-[100dvh] so a Suspense flash during back-navigation hydration
+  // doesn't collapse the document height — the browser's and our own
+  // scroll restore both need a tall enough page to land on the saved Y.
+  return (
+    <div className="min-h-[100dvh]">
+      <p className="text-sm text-muted-foreground">{t('pages.shortlist.loading')}</p>
+    </div>
+  );
 }

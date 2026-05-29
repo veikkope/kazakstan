@@ -1,5 +1,6 @@
 'use client';
 
+import { ViewTransition } from 'react';
 import { Link } from '@/i18n/navigation';
 import { Clock, Dumbbell, Wallet, Car, Compass } from 'lucide-react';
 import { m } from 'motion/react';
@@ -43,11 +44,25 @@ export default function SightCard({ sight }: { sight: Sight }) {
 
   return (
     <m.div variants={cardVariants}>
-      <Card className="group relative gap-0 py-0 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:ring-1 hover:ring-foreground/8">
-        <SightImage
-          sight={sight}
-          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-        />
+      {/*
+        `contain-layout` isolates each card's layout from the grid so a
+        re-render of one card (hover, stagger, view-transition snapshot)
+        can't cascade reflows through its siblings. Paint isn't contained
+        because the hover shadow extends outside the card box.
+      */}
+      <Card className="group relative gap-0 py-0 transition-all duration-200 contain-layout hover:-translate-y-0.5 hover:shadow-md hover:ring-1 hover:ring-foreground/8">
+        {/*
+          Shared-element morph anchor — the same name on the detail page's
+          hero lets the browser animate this thumbnail into the larger image
+          across the navigation. `share="morph"` opts into the `.morph` class
+          targeted by ::view-transition-group(.morph) in globals.css.
+        */}
+        <ViewTransition name={`sight-image-${sight.slug}`} share="morph">
+          <SightImage
+            sight={sight}
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          />
+        </ViewTransition>
         <CardContent className="p-4">
           <div className="flex items-center gap-2 pr-12">
             <span

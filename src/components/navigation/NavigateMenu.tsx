@@ -27,6 +27,7 @@ import {
   type NavigatorId,
   type RoutePoint,
 } from '@/lib/route';
+import { hapticTap } from '@/lib/haptic';
 import { cn } from '@/lib/utils';
 
 interface BaseProps {
@@ -291,7 +292,12 @@ export default function NavigateMenu(props: NavigateMenuProps) {
                 display={display}
                 subtitle={subtitle}
                 href={href}
-                onSelect={() => setSheetOpen(false)}
+                onSelect={() => {
+                  // Haptic confirms the external-app hand-off before the OS
+                  // chrome (app picker, deep link) takes over the viewport.
+                  hapticTap();
+                  setSheetOpen(false);
+                }}
               />
             ))}
           </div>

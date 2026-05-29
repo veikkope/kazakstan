@@ -8,11 +8,13 @@ import { sights } from '@/data/sights';
 import SightCard from '@/components/sights/SightCard';
 import SearchInput from '@/components/sights/SearchInput';
 import CategoryFilter from '@/components/map/CategoryFilter';
+import ActivityFilter from '@/components/map/ActivityFilter';
 import { regionMeta } from '@/data/categories';
-import { filterByCategories, filterByRegions } from '@/lib/filters';
+import { filterByActivities, filterByCategories, filterByRegions } from '@/lib/filters';
 import { filterBySearch } from '@/lib/search';
 import { useUrlState } from '@/lib/url-state';
 import { sortSights } from '@/lib/sort';
+import ScrollMemory from '@/components/layout/ScrollMemory';
 import { asLocale, localised } from '@/lib/i18n-helpers';
 import type { Region, SortDimension } from '@/lib/types';
 import { Button } from '@/components/ui/button';
@@ -95,16 +97,17 @@ function NahtavyydetPageInner() {
   const totalCount = verified.length;
 
   // Filter order matters for cost:
-  // 1. category/region — set lookups, O(1) per item, slash dataset early.
+  // 1. category/region/activity — set lookups, O(1) per item, slash dataset early.
   // 2. text search — substring scan, more expensive per item.
   // 3. sort — runs on the smallest possible set.
   const visible = useMemo(() => {
     let result = filterByCategories(verified, state.categories);
     result = filterByRegions(result, state.regions);
+    result = filterByActivities(result, state.activities);
     result = filterBySearch(result, state.q);
     result = sortSights(result, state.sort);
     return result;
-  }, [verified, state.categories, state.regions, state.q, state.sort]);
+  }, [verified, state.categories, state.regions, state.activities, state.q, state.sort]);
 
   // Stable handler — required so SearchInput's debounce effect doesn't
   // restart its timer on every parent rerender (which would happen as the
@@ -121,6 +124,7 @@ function NahtavyydetPageInner() {
   const activeFilterCount =
     state.categories.length +
     state.regions.length +
+    state.activities.length +
     (state.sort !== 'default' ? 1 : 0);
 
   function toggleRegion(r: Region) {
@@ -129,17 +133,18 @@ function NahtavyydetPageInner() {
     else update({ regions: [...state.regions, r] });
   }
 
-  // Sheet-scoped clear: only categories/regions/sort. Used by the desktop
-  // "Tyhjennä" link and the mobile sheet footer button — clearing q here
-  // would be surprising because the search input isn't in the sheet.
+  // Sheet-scoped clear: only categories/regions/activities/sort. Used by
+  // the desktop "Tyhjennä" link and the mobile sheet footer button —
+  // clearing q here would be surprising because the search input isn't
+  // in the sheet.
   function clearSheetFilters() {
-    update({ categories: [], regions: [], sort: 'default' });
+    update({ categories: [], regions: [], activities: [], sort: 'default' });
   }
 
   // Full clear: everything including the query. Used by the empty state
   // "Tyhjennä kaikki" button when both q and filters are active.
   function clearAll() {
-    update({ categories: [], regions: [], sort: 'default', q: '' });
+    update({ categories: [], regions: [], activities: [], sort: 'default', q: '' });
   }
 
   function clearSearch() {
@@ -150,10 +155,17 @@ function NahtavyydetPageInner() {
   const hasOtherFilters =
     state.categories.length > 0 ||
     state.regions.length > 0 ||
+    state.activities.length > 0 ||
     state.sort !== 'default';
 
   return (
     <div className="space-y-5">
+      {/* Remembers scroll-Y per pathname so `list → detail → back`
+          lands the user where they were. The key is pathname (not full
+          URL) so the silent `?sl=` writes from ShortlistUrlSync and the
+          `?cat=`/`?sort=` filter updates don't reset the saved position
+          mid-session. */}
+      <ScrollMemory />
       <div className="space-y-1">
         <h1 className="text-2xl font-semibold">{t('pages.sights.title')}</h1>
         <p className="hidden text-sm text-muted-foreground sm:block">
@@ -167,10 +179,13 @@ function NahtavyydetPageInner() {
       </div>
 
       {/* Sticky filter bar — sits flush under the Header.
-          Mobile header is 48px (top-12), desktop is 56px (top-14).
+          Mobile: --app-header-h (3rem + safe-area-inset-top) so the bar
+          tucks under the notch-aware Header in iOS PWA mode.
+          Desktop: 56px (top-14) — desktop Header is 3.5rem and doesn't
+          consume safe-area, so a flat value is correct there.
           Search input is the first child everywhere — it's the most
           frequently used affordance on a 66-item dataset. */}
-      <div className="sticky top-12 z-20 -mx-4 space-y-2.5 border-b border-border bg-background/95 px-4 py-2.5 backdrop-blur-md sm:top-14 sm:space-y-3 sm:py-3">
+      <div className="sticky top-[var(--app-header-h)] z-20 -mx-4 space-y-2.5 border-b border-border bg-background/95 px-4 py-2.5 backdrop-blur-md sm:top-14 sm:space-y-3 sm:py-3">
         <SearchInput
           value={state.q}
           onChange={onSearchChange}
@@ -225,6 +240,17 @@ function NahtavyydetPageInner() {
             <CategoryFilter
               value={state.categories}
               onChange={(categories) => update({ categories })}
+              layout="wrap"
+            />
+          </div>
+
+          <div>
+            <p className="mb-2 text-xs uppercase tracking-wide text-muted-foreground">
+              {t('pages.sights.activitiesHeading')}
+            </p>
+            <ActivityFilter
+              value={state.activities}
+              onChange={(activities) => update({ activities })}
               layout="wrap"
             />
           </div>
@@ -323,6 +349,17 @@ function NahtavyydetPageInner() {
                 <CategoryFilter
                   value={state.categories}
                   onChange={(categories) => update({ categories })}
+                  layout="wrap"
+                />
+              </section>
+
+              <section className="space-y-2">
+                <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                  {t('pages.sights.activitiesHeading')}
+                </p>
+                <ActivityFilter
+                  value={state.activities}
+                  onChange={(activities) => update({ activities })}
                   layout="wrap"
                 />
               </section>
@@ -474,7 +511,16 @@ function NahtavyydetPageInner() {
 
 function PageFallback() {
   const t = useTranslations();
-  return <p className="text-sm text-muted-foreground">{t('common.loading')}</p>;
+  // Reserve full viewport height so that if this fallback briefly
+  // renders during back-navigation hydration, the document stays tall
+  // enough for the browser (and useScrollMemory) to land on the saved
+  // Y position. A short fallback would collapse the layout, causing
+  // scroll restoration to silently fail and dump the user at the top.
+  return (
+    <div className="min-h-[100dvh]">
+      <p className="text-sm text-muted-foreground">{t('common.loading')}</p>
+    </div>
+  );
 }
 
 export default function NahtavyydetPage() {

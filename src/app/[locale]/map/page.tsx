@@ -5,17 +5,19 @@ import { Info, List as ListIcon, Map as MapIcon } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import MapViewClient from '@/components/map/MapView.client';
 import CategoryFilter from '@/components/map/CategoryFilter';
+import ActivityFilter from '@/components/map/ActivityFilter';
 import SearchInput from '@/components/sights/SearchInput';
 import SightList from '@/components/sights/SightList';
 import { Button } from '@/components/ui/button';
 import { sights } from '@/data/sights';
 import { carRental } from '@/data/logistics';
 import type { TripPin } from '@/lib/types';
-import { filterByCategories } from '@/lib/filters';
+import { filterByActivities, filterByCategories } from '@/lib/filters';
 import { filterBySearch } from '@/lib/search';
 import { asLocale, localised } from '@/lib/i18n-helpers';
 import { useUrlState } from '@/lib/url-state';
 import { useShortlist } from '@/lib/shortlist';
+import { useWakeLock } from '@/lib/wake-lock';
 import { cn } from '@/lib/utils';
 import { Card } from '@/components/ui/card';
 import {
@@ -31,6 +33,9 @@ function KarttaPageInner() {
   const loc = asLocale(useLocale());
   const { state, update } = useUrlState();
   const { entries: shortlistEntries } = useShortlist();
+  // Keep the screen awake while the passenger is following the map — the
+  // primary use case for this page on the road. No-op where unsupported.
+  useWakeLock();
   // Sets are memoised on the entries array — keeps the marker
   // popup/icon-sync effects from re-running on unrelated re-renders.
   // priorityIds and visitedIds are both subsets of shortlistIds (you
@@ -92,9 +97,10 @@ function KarttaPageInner() {
   // when their source state changes thanks to useMemo deps.
   const verified = sights;
   const visible = useMemo(() => {
-    const byCategory = filterByCategories(verified, state.categories);
-    return filterBySearch(byCategory, state.q);
-  }, [verified, state.categories, state.q]);
+    let result = filterByCategories(verified, state.categories);
+    result = filterByActivities(result, state.activities);
+    return filterBySearch(result, state.q);
+  }, [verified, state.categories, state.activities, state.q]);
 
   // Stable handler — SearchInput's debounce effect re-runs when onChange
   // identity changes; using useCallback prevents the timer from being
@@ -166,7 +172,9 @@ function KarttaPageInner() {
 
       {/* Desktop filter (inline above map) — search input on top, then
           category chips so the same vertical priority holds across
-          /kartta and /nahtavyydet. */}
+          /kartta and /nahtavyydet. ActivityFilter sits inline after the
+          categories: same look, separate state dimension, ANDed with
+          category at filter time. */}
       <div className="hidden space-y-3 sm:block">
         <SearchInput
           value={state.q}
@@ -175,10 +183,16 @@ function KarttaPageInner() {
           totalCount={verified.length}
           className="max-w-md"
         />
-        <CategoryFilter
-          value={state.categories}
-          onChange={(categories) => update({ categories })}
-        />
+        <div className="flex flex-wrap items-center gap-2">
+          <CategoryFilter
+            value={state.categories}
+            onChange={(categories) => update({ categories })}
+          />
+          <ActivityFilter
+            value={state.activities}
+            onChange={(activities) => update({ activities })}
+          />
+        </div>
       </div>
 
       {/*
@@ -218,11 +232,20 @@ function KarttaPageInner() {
               resultCount={visible.length}
               totalCount={verified.length}
             />
+            {/* Same scroll-row hosts both filter dimensions — visually
+                a single chip strip, semantically ANDed at filter time.
+                Inner flex with gap mirrors CategoryFilter's own layout. */}
             <div className="overflow-x-auto [-webkit-overflow-scrolling:touch]">
-              <CategoryFilter
-                value={state.categories}
-                onChange={(categories) => update({ categories })}
-              />
+              <div className="flex flex-nowrap items-center gap-2">
+                <CategoryFilter
+                  value={state.categories}
+                  onChange={(categories) => update({ categories })}
+                />
+                <ActivityFilter
+                  value={state.activities}
+                  onChange={(activities) => update({ activities })}
+                />
+              </div>
             </div>
           </div>
 

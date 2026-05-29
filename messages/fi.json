@@ -94,6 +94,7 @@
       "filterButtonActiveAria": "Suodattimet — {count} aktiivinen",
       "filterSheetTitle": "Suodattimet",
       "categoriesHeading": "Kategoriat",
+      "activitiesHeading": "Aktiviteetit",
       "regionsHeading": "Alueet",
       "allRegions": "Kaikki",
       "sortLabel": "Järjestys:",
@@ -145,6 +146,13 @@
       "bestTime": "Paras aika",
       "locationHeading": "Sijainti",
       "openOnMap": "Avaa kartalla →",
+      "externalLinksHeading": "Lisätietoja",
+      "linkWebsite": "Verkkosivut",
+      "linkInstagram": "Instagram",
+      "linkFacebook": "Facebook",
+      "linkReservation": "Varaa pöytä",
+      "linkMenu": "Menu",
+      "linkListing": "Lisätietoja",
       "monthJan": "tam",
       "monthFeb": "hel",
       "monthMar": "maa",
@@ -248,6 +256,7 @@
       "languageColFi": "Suomi",
       "languageColKk": "Kazakki",
       "languageColRu": "Venäjä",
+      "playAll": "Toista kaikki",
       "safetyHeading": "Turvallisuus — mitä se tarkoittaa käytännössä"
     },
     "carRental": {
@@ -290,10 +299,11 @@
       "statusReady": "Ladattu offline-käyttöön · päivitetty {date}",
       "statusStale": "Tallennettu aiemmin — lataa uudelleen päivittääksesi",
       "statusNone": "Ei vielä ladattu",
+      "breakdown": "{pages} sivua · {images} kuvaa · {audio} äänitettä · {tiles} laattaa",
       "tilesToggle": "Sisällytä karttalaatat",
       "detail": "Tarkkuus",
       "tilesEstimate": "≈ {count} laattaa · {size}",
-      "includesNote": "Sisältää kaikki {sights} kohdetta, kuvat ja reitit valitulla kielellä",
+      "includesNote": "Sisältää kaikki {sights} kohdetta kuvineen, {audio} ääntämysnäytettä ja reitit valitulla kielellä",
       "downloadingTitle": "Ladataan offline-tilaan",
       "keepBrowsing": "Voit jatkaa sovelluksen käyttöä — lataus jatkuu taustalla.",
       "download": "Lataa offline-käyttöön",
@@ -366,7 +376,11 @@
     "sightImage": {
       "placeholderAria": "{category}-kategoria — kuva puuttuu",
       "attributionAria": "Kuvan lähde: {source}",
-      "attributionAriaWithCredit": "Kuvan lähde: {source} — {credit}"
+      "attributionAriaWithCredit": "Kuvan lähde: {source} — {credit}",
+      "zoomOpenAria": "Suurenna kuva: {name}",
+      "zoomCloseAria": "Sulje kuva",
+      "zoomInAria": "Lähennä",
+      "zoomOutAria": "Loitonna"
     },
     "nearbyList": {
       "distanceKm": "{km} km"
@@ -386,6 +400,12 @@
       "rich": "Sisältörikas",
       "unique": "Erikoinen",
       "standoutTitle": "{label} — paras ulottuvuus 5/5"
+    },
+    "calendarExport": {
+      "button": "Vie kalenteriin",
+      "shareTitle": "Kazakstan-reissun aikataulu",
+      "downloadedToast": "Aikataulu ladattu (.ics)",
+      "errorToast": "Vienti epäonnistui"
     },
     "shortlistButton": {
       "add": "Lisää shortlistille",
@@ -478,7 +498,7 @@
     "todayDashboard": {
       "emptyState": "Ei reittisuunnitelmaa. Lisää päiviä <link>reittisuunnitelmaan</link>.",
       "countdownLabel": "Lähtöön",
-      "daysLeft": "{count, plural, one {# päivä} other {# päivää}}",
+      "daysLeft": "{count, plural, one {<num>#</num> päivä} other {<num>#</num> päivää}}",
       "daysLeftSoon": "pian",
       "tripStarts": "Reissu alkaa {date} — {total} päivän kokonaisuus",
       "tripStartsNoDate": "Reissu alkaa pian — {total} päivän kokonaisuus",

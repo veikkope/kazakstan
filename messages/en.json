@@ -95,6 +95,7 @@
       "filterButtonActiveAria": "Filters — {count} active",
       "filterSheetTitle": "Filters",
       "categoriesHeading": "Categories",
+      "activitiesHeading": "Activities",
       "regionsHeading": "Regions",
       "allRegions": "All",
       "sortLabel": "Sort:",
@@ -146,6 +147,13 @@
       "bestTime": "Best time",
       "locationHeading": "Location",
       "openOnMap": "Open on map →",
+      "externalLinksHeading": "Read more",
+      "linkWebsite": "Website",
+      "linkInstagram": "Instagram",
+      "linkFacebook": "Facebook",
+      "linkReservation": "Reserve a table",
+      "linkMenu": "Menu",
+      "linkListing": "Listing",
       "monthJan": "Jan",
       "monthFeb": "Feb",
       "monthMar": "Mar",
@@ -249,6 +257,7 @@
       "languageColFi": "Finnish",
       "languageColKk": "Kazakh",
       "languageColRu": "Russian",
+      "playAll": "Play all",
       "safetyHeading": "Safety — what it means in practice"
     },
     "carRental": {
@@ -291,10 +300,11 @@
       "statusReady": "Downloaded for offline · updated {date}",
       "statusStale": "Saved earlier — download again to refresh",
       "statusNone": "Not downloaded yet",
+      "breakdown": "{pages} pages · {images} photos · {audio} audio clips · {tiles} tiles",
       "tilesToggle": "Include map tiles",
       "detail": "Detail",
       "tilesEstimate": "≈ {count} tiles · {size}",
-      "includesNote": "Includes all {sights} sights, photos and routes in the current language",
+      "includesNote": "Includes all {sights} sights with photos, {audio} audio clips and routes in the current language",
       "downloadingTitle": "Downloading for offline",
       "keepBrowsing": "You can keep using the app — the download continues in the background.",
       "download": "Download for offline",
@@ -367,7 +377,11 @@
     "sightImage": {
       "placeholderAria": "{category} category — image missing",
       "attributionAria": "Image source: {source}",
-      "attributionAriaWithCredit": "Image source: {source} — {credit}"
+      "attributionAriaWithCredit": "Image source: {source} — {credit}",
+      "zoomOpenAria": "View larger photo: {name}",
+      "zoomCloseAria": "Close photo",
+      "zoomInAria": "Zoom in",
+      "zoomOutAria": "Zoom out"
     },
     "nearbyList": {
       "distanceKm": "{km} km"
@@ -387,6 +401,12 @@
       "rich": "Rich in content",
       "unique": "Unique",
       "standoutTitle": "{label} — top dimension 5/5"
+    },
+    "calendarExport": {
+      "button": "Add to calendar",
+      "shareTitle": "Kazakhstan trip schedule",
+      "downloadedToast": "Schedule downloaded (.ics)",
+      "errorToast": "Export failed"
     },
     "shortlistButton": {
       "add": "Add to shortlist",
@@ -479,7 +499,7 @@
     "todayDashboard": {
       "emptyState": "No itinerary. Add days to your <link>itinerary</link>.",
       "countdownLabel": "Until departure",
-      "daysLeft": "{count, plural, one {# day} other {# days}}",
+      "daysLeft": "{count, plural, one {<num>#</num> day} other {<num>#</num> days}}",
       "daysLeftSoon": "soon",
       "tripStarts": "Trip starts on {date} — a {total}-day journey",
       "tripStartsNoDate": "Trip starts soon — a {total}-day journey",

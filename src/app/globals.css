@@ -7,8 +7,14 @@
 :root {
   /* Fixed mobile chrome heights — single source for the locked map view.
      --bottom-nav-h is also consumed by BottomNav itself so they can't drift.
-     Mirror --app-header-h if the Header height (h-9 + py-1.5 = 3rem) changes. */
-  --app-header-h: 3rem;
+     Mirror --app-header-h if the Header height (h-9 + py-1.5 = 3rem) changes.
+
+     --app-header-h adds env(safe-area-inset-top) so the locked map view's
+     height calc still resolves correctly under iOS PWA mode, where the
+     Header pads itself out to clear the notch / Dynamic Island. Browsers
+     without safe-area support evaluate the env() to 0, so desktop is
+     unaffected. */
+  --app-header-h: calc(3rem + env(safe-area-inset-top));
   --bottom-nav-h: 4rem;
   /* Live height of the offline banner while visible (0 otherwise); published
      by OfflineBanner so the locked map view can subtract it. */
@@ -236,6 +242,22 @@
   html {
     @apply font-sans;
     scroll-behavior: smooth;
+    /*
+     * Suppress iOS Safari's default grey tap-highlight overlay. CSS :active
+     * and Tailwind's `active:` utilities give cleaner, design-controlled
+     * feedback; the OS rectangle now looks dated next to the morph
+     * transition. Buttons and links elsewhere still use their own focus
+     * rings, so accessibility isn't degraded.
+     */
+    -webkit-tap-highlight-color: transparent;
+    /*
+     * Block pull-to-refresh and the rubber-band overscroll that breaks the
+     * illusion of an app. The locked-map page already overrides this with
+     * `overscroll-behavior: none` for its own reasons; `contain` here keeps
+     * scroll chaining inside nested scrollers (sheets, command palette)
+     * without nuking it system-wide.
+     */
+    overscroll-behavior-y: contain;
   }
   /*
    * Heading typography. Tighter tracking on h1–h3 gives the outdoor sans
@@ -403,5 +425,178 @@ body.kartta-locked footer {
   .locate-pulse-ring {
     animation: none;
     opacity: 0.2;
+  }
+}
+
+/*
+ * Story-mode typography for the historicalContext block on sight detail.
+ * Lifts the prose feel from "facts on a card" to a small editorial vignette:
+ * larger leading, a warm drop cap, and a paragraph treatment that invites
+ * reading rather than scanning. Pure CSS so reduced-motion users keep it.
+ *
+ * `:first-letter` only matches the first character of the first block-level
+ * child, so the surrounding `<p>` carries it. Whitespace-pre-line preserves
+ * paragraph breaks that the underlying data uses.
+ */
+.kz-story {
+  text-wrap: pretty;
+  hanging-punctuation: first;
+}
+.kz-story::first-letter {
+  font-family: ui-serif, Georgia, 'Times New Roman', serif;
+  font-size: 3.2em;
+  font-weight: 700;
+  float: left;
+  line-height: 0.85;
+  padding-right: 0.08em;
+  margin-top: 0.08em;
+  color: var(--color-steppe);
+}
+
+/*
+ * Decorative gradient meshes — soft animated radial blobs in the steppe-blue
+ * and sand palette. Pure CSS so they cost nothing at runtime and degrade to
+ * a flat gradient under prefers-reduced-motion. Used on the home hero and
+ * the pre-trip countdown card to add depth without overwhelming the content.
+ *
+ * The element they're applied to must be `relative overflow-hidden` so the
+ * pseudo blobs can extend past the box without spilling onto the page.
+ */
+.kz-mesh-hero,
+.kz-mesh-steppe {
+  isolation: isolate;
+}
+.kz-mesh-hero::before,
+.kz-mesh-steppe::before {
+  content: '';
+  position: absolute;
+  inset: -25%;
+  z-index: -1;
+  background:
+    radial-gradient(38% 42% at 20% 30%, color-mix(in oklab, var(--color-steppe), transparent 70%) 0%, transparent 65%),
+    radial-gradient(34% 38% at 80% 20%, color-mix(in oklab, var(--color-sand), transparent 65%) 0%, transparent 60%),
+    radial-gradient(40% 44% at 65% 80%, color-mix(in oklab, var(--color-accent), transparent 78%) 0%, transparent 65%);
+  filter: blur(28px);
+  animation: kz-mesh-drift 18s ease-in-out infinite alternate;
+}
+.kz-mesh-steppe::before {
+  inset: -15%;
+  filter: blur(34px);
+  animation-duration: 22s;
+}
+@keyframes kz-mesh-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(-2%, 1.5%, 0) scale(1.05);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kz-mesh-hero::before,
+  .kz-mesh-steppe::before {
+    animation: none;
+  }
+}
+
+/*
+ * View Transitions — three layers:
+ *
+ *  1. `@view-transition { navigation: auto }` activates cross-document
+ *     transitions for hard navigations (refresh, back/forward, typed URL).
+ *  2. `experimental.viewTransition: true` in next.config.ts + React 19.2's
+ *     <ViewTransition> wrapper enables them for App Router soft navigations
+ *     too. Used by SightCard ↔ detail page hero (share="morph").
+ *  3. The .morph class targets just the shared-element image so the rest of
+ *     the page does its default crossfade — keeps the hero motion focused.
+ *
+ * Supported: Chrome 126+, Safari 18.2+. Firefox and older browsers ignore.
+ */
+@view-transition {
+  navigation: auto;
+}
+
+/* Default cross-fade for everything that isn't explicitly named. */
+::view-transition-group(*) {
+  animation-duration: 280ms;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/*
+ * Sight image morph — slightly slower than the default fade so the
+ * shape change reads, and a brief mid-flight blur hides the
+ * pixel-stretch artefacts of a 4:3 thumbnail interpolating into a
+ * 16:9/21:9 hero. The `object-fit` rules force the snapshots to
+ * cover their boxes (the browser default would stretch).
+ */
+::view-transition-group(.morph) {
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+::view-transition-old(.morph),
+::view-transition-new(.morph) {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  overflow: clip;
+}
+::view-transition-image-pair(.morph) {
+  isolation: isolate;
+  animation-name: kz-morph-blur;
+  animation-duration: 400ms;
+}
+@keyframes kz-morph-blur {
+  0%, 100% {
+    filter: blur(0);
+  }
+  35% {
+    filter: blur(3px);
+  }
+}
+
+/*
+ * Sticky chrome (header, bottom nav) should NOT travel with the morph.
+ * Anchor them with their own names and suppress animation so they stay
+ * pinned while the image morphs underneath. `display: none` on the old
+ * snapshot prevents a brief double-render flash where both copies of
+ * the header are visible at once.
+ */
+::view-transition-group(site-header),
+::view-transition-group(bottom-nav) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header),
+::view-transition-old(bottom-nav) {
+  display: none;
+}
+::view-transition-new(site-header),
+::view-transition-new(bottom-nav) {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}
+
+/*
+ * Sonner bottom-right toasts (e.g. offline download success/error) need to
+ * sit above the fixed BottomNav on mobile. Sonner's toaster uses
+ * data-position to set its edge offsets — we override bottom/right directly
+ * so toasts never hide behind the nav. On ≥640 px the BottomNav is hidden
+ * (sm:hidden) so the default offset applies. The download-in-progress ring
+ * (<DownloadProgressIndicator />) positions itself separately.
+ */
+@media (max-width: 639px) {
+  [data-sonner-toaster][data-position="bottom-right"] {
+    bottom: calc(var(--bottom-nav-h) + env(safe-area-inset-bottom) + 0.5rem) !important;
+    right: 0.75rem !important;
+    left: auto !important;
   }
 }

@@ -30,7 +30,23 @@ export default function Header() {
   return (
     // Mobile compact: 48px total (py-1.5 + h-9). Desktop: 56px (py-3 + h-8)
     // with full inline navigation. Mobile relies on BottomNav for primary nav.
-    <header className="sticky top-0 z-20 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
+    //
+    // `viewTransitionName` anchors the header during route transitions: the
+    // sight-image morph (and any other view transition) animates the page
+    // body but the header stays pinned. The matching CSS in globals.css
+    // disables its animation and hides the old snapshot to avoid a flash.
+    //
+    // `pt-[env(safe-area-inset-top)]` keeps the header bar clear of the iOS
+    // notch / Dynamic Island when the app is launched in PWA standalone
+    // mode (where there's no browser chrome to displace the content). On
+    // every other surface — desktop, in-browser mobile, Android — the env
+    // resolves to 0 and the header looks identical. `--app-header-h` in
+    // globals.css mirrors the same calc so the locked map view's height
+    // arithmetic still lines up under the notch.
+    <header
+      style={{ viewTransitionName: 'site-header' }}
+      className="sticky top-0 z-20 border-b border-border bg-card/95 pt-[env(safe-area-inset-top)] backdrop-blur supports-[backdrop-filter]:bg-card/80"
+    >
       <div className="mx-auto flex max-w-6xl items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-3">
         <Link
           href="/"

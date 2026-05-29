@@ -95,6 +95,7 @@
       "filterButtonActiveAria": "Фильтры — {count} активно",
       "filterSheetTitle": "Фильтры",
       "categoriesHeading": "Категории",
+      "activitiesHeading": "Активности",
       "regionsHeading": "Регионы",
       "allRegions": "Все",
       "sortLabel": "Сортировка:",
@@ -146,6 +147,13 @@
       "bestTime": "Лучшее время",
       "locationHeading": "Расположение",
       "openOnMap": "Открыть на карте →",
+      "externalLinksHeading": "Подробнее",
+      "linkWebsite": "Сайт",
+      "linkInstagram": "Instagram",
+      "linkFacebook": "Facebook",
+      "linkReservation": "Забронировать стол",
+      "linkMenu": "Меню",
+      "linkListing": "Подробнее",
       "monthJan": "янв",
       "monthFeb": "фев",
       "monthMar": "мар",
@@ -249,6 +257,7 @@
       "languageColFi": "Финский",
       "languageColKk": "Казахский",
       "languageColRu": "Русский",
+      "playAll": "Воспроизвести всё",
       "safetyHeading": "Безопасность — что это значит на практике"
     },
     "carRental": {
@@ -291,10 +300,11 @@
       "statusReady": "Скачано для офлайна · обновлено {date}",
       "statusStale": "Сохранено ранее — скачайте снова для обновления",
       "statusNone": "Ещё не скачано",
+      "breakdown": "{pages} стр. · {images} фото · {audio} аудио · {tiles} тайлов",
       "tilesToggle": "Включить тайлы карты",
       "detail": "Детализация",
       "tilesEstimate": "≈ {count} тайлов · {size}",
-      "includesNote": "Включает все объекты ({sights}), фото и маршруты на текущем языке",
+      "includesNote": "Включает все объекты ({sights}) с фото, {audio} аудио и маршруты на текущем языке",
       "downloadingTitle": "Загрузка для офлайна",
       "keepBrowsing": "Можно продолжать пользоваться приложением — загрузка идёт в фоне.",
       "download": "Скачать для офлайна",
@@ -367,7 +377,11 @@
     "sightImage": {
       "placeholderAria": "Категория {category} — изображение отсутствует",
       "attributionAria": "Источник изображения: {source}",
-      "attributionAriaWithCredit": "Источник изображения: {source} — {credit}"
+      "attributionAriaWithCredit": "Источник изображения: {source} — {credit}",
+      "zoomOpenAria": "Открыть фото больше: {name}",
+      "zoomCloseAria": "Закрыть фото",
+      "zoomInAria": "Приблизить",
+      "zoomOutAria": "Отдалить"
     },
     "nearbyList": {
       "distanceKm": "{km} км"
@@ -387,6 +401,12 @@
       "rich": "Насыщенный",
       "unique": "Уникальный",
       "standoutTitle": "{label} — лучший показатель 5/5"
+    },
+    "calendarExport": {
+      "button": "В календарь",
+      "shareTitle": "Расписание поездки в Казахстан",
+      "downloadedToast": "Расписание скачано (.ics)",
+      "errorToast": "Не удалось экспортировать"
     },
     "shortlistButton": {
       "add": "Добавить в шорт-лист",
@@ -479,7 +499,7 @@
     "todayDashboard": {
       "emptyState": "Нет плана маршрута. Добавьте дни в <link>план маршрута</link>.",
       "countdownLabel": "До отъезда",
-      "daysLeft": "{count, plural, one {# день} few {# дня} many {# дней} other {# дня}}",
+      "daysLeft": "{count, plural, one {<num>#</num> день} few {<num>#</num> дня} many {<num>#</num> дней} other {<num>#</num> дня}}",
       "daysLeftSoon": "скоро",
       "tripStarts": "Поездка начинается {date} — {total, plural, one {# день} few {# дня} many {# дней} other {# дня}}",
       "tripStartsNoDate": "Поездка начинается скоро — {total, plural, one {# день} few {# дня} many {# дней} other {# дня}}",

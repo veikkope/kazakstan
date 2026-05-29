@@ -1,7 +1,7 @@
 'use client';
 
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
 import {
@@ -27,10 +27,10 @@ const PARAM_SL = 'sl';
 
 /**
  * Debounce window for store → URL writes. Coalesces bursts of clicks (e.g.,
- * bulk-toggling on the listing page) into a single `router.replace`, which
- * is cheap but not free. 60ms is just under one frame at 16ms so individual
- * clicks still feel immediate while sequential clicks within a tap-tap
- * cadence get batched.
+ * bulk-toggling on the listing page) into a single `history.replaceState`,
+ * which is cheap but not free. 60ms is just under one frame at 16ms so
+ * individual clicks still feel immediate while sequential clicks within a
+ * tap-tap cadence get batched.
  */
 const URL_WRITE_DEBOUNCE_MS = 60;
 
@@ -59,7 +59,6 @@ const URL_WRITE_DEBOUNCE_MS = 60;
  * preserved by reading `window.location.search` at write time.
  */
 function ShortlistUrlSyncInner() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const t = useTranslations();
   const [importPayload, setImportPayload] = useState<ImportPayload | null>(
@@ -107,11 +106,11 @@ function ShortlistUrlSyncInner() {
     // page is immediately shareable.
     if (urlIds.length === 0) {
       if (localIds.length > 0) {
-        writeShortlistToUrl(router, localIds);
+        writeShortlistToUrl(localIds);
       }
       // If the URL had only unknown ids, rewrite to drop them.
       else if (unknownUrlCount > 0) {
-        writeShortlistToUrl(router, []);
+        writeShortlistToUrl([]);
       }
       if (unknownUrlCount > 0) {
         toast.warning(
@@ -179,15 +178,12 @@ function ShortlistUrlSyncInner() {
   }, []);
 
   // Store → URL with debounce. Bursts of clicks (e.g., bulk select-all in
-  // a region section) coalesce into a single router.replace call.
+  // a region section) coalesce into a single history.replaceState call.
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout> | null = null;
     const flush = () => {
       timer = null;
-      writeShortlistToUrl(
-        router,
-        snapshotShortlist().map((e) => e.sightId),
-      );
+      writeShortlistToUrl(snapshotShortlist().map((e) => e.sightId));
     };
     const unsubscribe = subscribeToShortlist(() => {
       if (timer) clearTimeout(timer);
@@ -197,7 +193,7 @@ function ShortlistUrlSyncInner() {
       if (timer) clearTimeout(timer);
       unsubscribe();
     };
-  }, [router]);
+  }, []);
 
   // Surface localStorage write failures (quota, private mode, blocked
   // extension) so the user knows their picks won't survive a refresh —
@@ -238,10 +234,7 @@ function ShortlistUrlSyncInner() {
     // refresh doesn't re-trigger this dialog (URL would otherwise keep
     // the sender's ids forever).
     setImportPayload(null);
-    writeShortlistToUrl(
-      router,
-      snapshotShortlist().map((e) => e.sightId),
-    );
+    writeShortlistToUrl(snapshotShortlist().map((e) => e.sightId));
   }
 
   return (
@@ -461,10 +454,7 @@ function seedFromUrl(
   );
 }
 
-function writeShortlistToUrl(
-  router: ReturnType<typeof useRouter>,
-  ids: string[],
-): void {
+function writeShortlistToUrl(ids: string[]): void {
   if (typeof window === 'undefined') return;
   // Read live params so we preserve cat/region/sort/id set after mount.
   const params = new URLSearchParams(window.location.search);
@@ -477,7 +467,17 @@ function writeShortlistToUrl(
   const url = query
     ? `${window.location.pathname}?${query}`
     : window.location.pathname;
-  router.replace(url, { scroll: false });
+  // history.replaceState (not router.replace) so Next.js doesn't treat the
+  // sl= update as a navigation. With experimental.viewTransition: true,
+  // router.replace wraps every URL change in document.startViewTransition,
+  // which snapshots each <ViewTransition share="morph"> card image — the
+  // pseudo-element snapshots don't inherit the Card's rounded-xl clip, so
+  // corners flicker for ~400ms. The transition could also interfere with
+  // scroll restoration. Since useShortlist() (localStorage) is the source
+  // of truth for the UI and nothing reads sl= from useSearchParams() at
+  // runtime — only on mount, and on share via window.location.href —
+  // a silent URL write is sufficient.
+  window.history.replaceState(null, '', url);
 }
 
 export default function ShortlistUrlSync() {

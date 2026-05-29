@@ -10,6 +10,7 @@ import {
   snapshotShortlist,
   useShortlist,
 } from '@/lib/shortlist';
+import { hapticTap } from '@/lib/haptic';
 import { cn } from '@/lib/utils';
 
 interface Props {
@@ -31,6 +32,7 @@ function ShortlistButtonInner({ sightId, sightName, variant = 'icon' }: Props) {
     // Capture pre-toggle state so we know which direction we just moved.
     const wasActive = active;
     toggle(sightId);
+    hapticTap();
     if (wasActive) {
       toast(t('components.shortlistButton.removedToast'));
       return;

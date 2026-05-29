@@ -99,6 +99,11 @@ export default function BottomNav() {
         // (DayCard accordions, sight cards) so it's never visually obscured.
         // bg-card/95 stays nearly opaque even if backdrop-filter is disabled
         // by the browser or by a transformed ancestor (Safari quirk).
+        //
+        // `viewTransitionName` pins the nav across route transitions so the
+        // sight-image morph animates underneath it without the bar sliding
+        // or flashing. Matching anchor rules live in globals.css.
+        style={{ viewTransitionName: 'bottom-nav' }}
         className="fixed inset-x-0 bottom-0 z-40 isolate border-t border-border/60 bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80 pb-[env(safe-area-inset-bottom)] sm:hidden"
       >
         <ul className="mx-auto grid max-w-6xl grid-cols-5">

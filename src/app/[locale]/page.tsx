@@ -18,7 +18,7 @@ export default async function HomePage() {
 
   return (
     <div className="space-y-12">
-      <section className="space-y-3">
+      <section className="kz-mesh-hero relative space-y-3 overflow-hidden rounded-2xl px-4 py-8 sm:px-8 sm:py-12">
         <p className="text-sm uppercase tracking-wide text-muted-foreground">
           {t('pages.home.eyebrow')}
         </p>

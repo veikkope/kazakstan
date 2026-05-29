@@ -16,6 +16,7 @@
  */
 import { sights } from '@/data/sights';
 import { presets } from '@/data/presets';
+import { languageBasics } from '@/data/practical';
 
 const SHELL_SEGMENTS = [
   'today',
@@ -36,6 +37,7 @@ export interface TripManifest {
   locale: string;
   pages: number;
   images: number;
+  audio: number;
   tiles: number;
   bytes: number;
   at: number;
@@ -61,6 +63,17 @@ export function tripPageUrls(locale: string): string[] {
 export function tripImageUrls(): string[] {
   const urls = new Set<string>();
   for (const s of sights) if (s.image) urls.add(s.image);
+  return [...urls];
+}
+
+export function tripAudioUrls(): string[] {
+  const urls = new Set<string>();
+  for (const group of languageBasics.groups) {
+    for (const row of group.phrases) {
+      if (row.audioUrls?.kk) urls.add(row.audioUrls.kk);
+      if (row.audioUrls?.ru) urls.add(row.audioUrls.ru);
+    }
+  }
   return [...urls];
 }
 
@@ -161,7 +174,8 @@ export async function downloadTrip(
 
   const pages = tripPageUrls(locale);
   const images = tripImageUrls();
-  const urls = [...new Set([...pages, ...assets, ...images])];
+  const audio = tripAudioUrls();
+  const urls = [...new Set([...pages, ...assets, ...images, ...audio])];
 
   const result = await new Promise<{ bytes: number }>((resolve, reject) => {
     const onMessage = (event: MessageEvent) => {
@@ -190,6 +204,7 @@ export async function downloadTrip(
     locale,
     pages: pages.length,
     images: images.length,
+    audio: audio.length,
     tiles: tiles.length,
     bytes: result.bytes,
     at: Date.now(),
@@ -262,7 +277,18 @@ export async function storageEstimate(): Promise<{ usage: number; quota: number 
 export function readManifest(): TripManifest | null {
   try {
     const raw = localStorage.getItem(MANIFEST_KEY);
-    return raw ? (JSON.parse(raw) as TripManifest) : null;
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as Partial<TripManifest>;
+    // Older manifests pre-date `audio` — backfill to 0 so consumers can rely on it.
+    return {
+      locale: parsed.locale ?? 'fi',
+      pages: parsed.pages ?? 0,
+      images: parsed.images ?? 0,
+      audio: parsed.audio ?? 0,
+      tiles: parsed.tiles ?? 0,
+      bytes: parsed.bytes ?? 0,
+      at: parsed.at ?? 0,
+    };
   } catch {
     return null;
   }

@@ -80,7 +80,9 @@ Service worker `public/sw.js` + "Lataa offline-käyttöön" (/today). Tausta: [`
 - **Välimuistihaut `{ ignoreVary: true }`** (navigoinneissa myös `ignoreSearch`). Next-sivut lähettävät `Vary: rsc, …, Accept-Encoding`; Safari noudattaa Varya tiukasti → ilman tätä offline-navigointi putoaa etusivulle (Chromiumissa "toimii" silti — harhaanjohtavaa).
 - **Proxy/middleware ajetaan vain palvelimella** → SW tekee `/`→`/<locale>`-ohjauksen offline (NEXT_LOCALE-eväste). Älä oleta locale-redirectin toimivan offline ilman sitä.
 - **Nähtävyyskuvat pidetään `unoptimized`** (`SightImage`) — `/_next/image`-optimoija ei toimi offline.
-- **`sw.js`:n `VERSION`-nosto tyhjentää myös ladatun reissun** (`trip-*`-lokerot) → nosta vain kun välimuistin rakenne oikeasti muuttuu.
+- **Ääntämysnäytteet (`/audio/phrases/*.mp3`) ovat osa offline-pakettia.** `tripAudioUrls()` skannaa kaikki `languageBasics.groups[].phrases[].audioUrls`-arvot ja SW:n staattisten varojen extensio-regexi sisältää `mp3|ogg|m4a|wav`. Jos lisäät uuden audio-formaatin, päivitä molemmat (`src/lib/offline.ts` + `public/sw.js`).
+- **Persistent storage pyydetään käyttäjän painalluksessa**, ei mountilla (`OfflineProvider.startDownload`). Firefox kysyy lupaa → tuore user activation on välttämätön.
+- **`sw.js`:n `VERSION`-nosto tyhjentää myös ladatun reissun** (`trip-*`-lokerot) → nosta vain kun välimuistin rakenne oikeasti muuttuu (esim. uusi reitti, uusi asset-tyyppi, fetch-strategian muutos).
 - **Lukitun karttasivun korkeus** = `100dvh − var(--app-header-h) − var(--offline-banner-h) − var(--bottom-nav-h)`; pidä CSS-muuttujat yksilähteisinä tai lista/kartta-nappi jää alapalkin alle.
 
 ### Mitä EI saa tehdä

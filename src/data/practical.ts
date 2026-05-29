@@ -23,50 +23,234 @@ interface LanguagePhrase {
   fi: TranslatableString;
   kk: string;
   ru: string;
+  audioUrls?: { kk?: string; ru?: string };
+}
+
+interface PhraseGroup {
+  label: TranslatableString;
+  phrases: LanguagePhrase[];
+  playAll?: boolean;
 }
 
 interface LanguageBasics {
-  greetings: LanguagePhrase[];
+  groups: PhraseGroup[];
   notes: TranslatableString;
   alphabet: TranslatableString;
 }
 
 export const languageBasics: LanguageBasics = {
-  greetings: [
+  groups: [
     {
-      fi: { fi: 'Hei', en: 'Hello', ru: 'Привет', kk: 'Сәлем' },
-      kk: 'Сәлем (Sälem)',
-      ru: 'Привет (Privet)',
+      label: { fi: 'Perusteet', en: 'Basics', ru: 'Основное', kk: 'Негіздер' },
+      phrases: [
+        {
+          fi: { fi: 'Hei', en: 'Hello', ru: 'Привет', kk: 'Сәлем' },
+          kk: 'Сәлем (Sälem)',
+          ru: 'Привет (Privet)',
+          audioUrls: { kk: '/audio/phrases/kk-0.mp3', ru: '/audio/phrases/ru-0.mp3' },
+        },
+        {
+          fi: { fi: 'Kiitos', en: 'Thank you', ru: 'Спасибо', kk: 'Рахмет' },
+          kk: 'Рахмет (Rakhmet)',
+          ru: 'Спасибо (Spasibo)',
+          audioUrls: { kk: '/audio/phrases/kk-1.mp3', ru: '/audio/phrases/ru-1.mp3' },
+        },
+        {
+          fi: { fi: 'Anteeksi', en: 'Excuse me', ru: 'Извините', kk: 'Кешіріңіз' },
+          kk: 'Кешіріңіз (Keshiriñiz)',
+          ru: 'Извините (Izvinite)',
+          audioUrls: { kk: '/audio/phrases/kk-2.mp3', ru: '/audio/phrases/ru-2.mp3' },
+        },
+        {
+          fi: { fi: 'Kyllä / Ei', en: 'Yes / No', ru: 'Да / Нет', kk: 'Иә / Жоқ' },
+          kk: 'Иә / Жоқ (İä / Jok)',
+          ru: 'Да / Нет (Da / Net)',
+          audioUrls: { kk: '/audio/phrases/kk-3.mp3', ru: '/audio/phrases/ru-3.mp3' },
+        },
+        {
+          fi: { fi: 'Apua!', en: 'Help!', ru: 'Помогите!', kk: 'Көмек!' },
+          kk: 'Көмек! (Kömek!)',
+          ru: 'Помогите! (Pomogite!)',
+          audioUrls: { kk: '/audio/phrases/kk-5.mp3', ru: '/audio/phrases/ru-5.mp3' },
+        },
+      ],
     },
     {
-      fi: { fi: 'Kiitos', en: 'Thank you', ru: 'Спасибо', kk: 'Рахмет' },
-      kk: 'Рахмет (Rakhmet)',
-      ru: 'Спасибо (Spasibo)',
+      label: { fi: 'Viestintä', en: 'Communication', ru: 'Общение', kk: 'Байланыс' },
+      phrases: [
+        {
+          fi: { fi: 'En ymmärrä', en: "I don't understand", ru: 'Не понимаю', kk: 'Түсінбеймін' },
+          kk: 'Түсінбеймін (Tüsinbeymin)',
+          ru: 'Не понимаю (Ne ponimayu)',
+          audioUrls: { kk: '/audio/phrases/kk-11.mp3', ru: '/audio/phrases/ru-11.mp3' },
+        },
+        {
+          fi: {
+            fi: 'Puhutteko englantia?',
+            en: 'Do you speak English?',
+            ru: 'Вы говорите по-английски?',
+            kk: 'Ағылшынша сөйлейсіз бе?',
+          },
+          kk: 'Ағылшынша сөйлейсіз бе? (Aghylshinsha söyleyiz be?)',
+          ru: 'Вы говорите по-английски? (Vy govorite po-angliyski?)',
+          audioUrls: { kk: '/audio/phrases/kk-13.mp3', ru: '/audio/phrases/ru-13.mp3' },
+        },
+        {
+          fi: {
+            fi: 'En puhu venäjää.',
+            en: "I don't speak Russian.",
+            ru: 'Я не говорю по-русски.',
+            kk: 'Мен орысша сөйлемеймін.',
+          },
+          kk: 'Мен орысша сөйлемеймін. (Men oryssha söylemeymin.)',
+          ru: 'Я не говорю по-русски. (Ya ne govoryu po-russki.)',
+          audioUrls: { kk: '/audio/phrases/kk-14.mp3', ru: '/audio/phrases/ru-14.mp3' },
+        },
+        {
+          fi: {
+            fi: 'En puhu kazakkia.',
+            en: "I don't speak Kazakh.",
+            ru: 'Я не говорю по-казахски.',
+            kk: 'Мен қазақша сөйлемеймін.',
+          },
+          kk: 'Мен қазақша сөйлемеймін. (Men qazaqsha söylemeymin.)',
+          ru: 'Я не говорю по-казахски. (Ya ne govoryu po-kazakhski.)',
+          audioUrls: { kk: '/audio/phrases/kk-15.mp3', ru: '/audio/phrases/ru-15.mp3' },
+        },
+      ],
     },
     {
-      fi: { fi: 'Anteeksi', en: 'Excuse me', ru: 'Извините', kk: 'Кешіріңіз' },
-      kk: 'Кешіріңіз (Keshiriñiz)',
-      ru: 'Извините (Izvinite)',
+      label: { fi: 'Navigointi', en: 'Navigation', ru: 'Навигация', kk: 'Бағдарлау' },
+      phrases: [
+        {
+          fi: { fi: 'Missä on...?', en: 'Where is...?', ru: 'Где...?', kk: 'Қайда...?' },
+          kk: 'Қайда...? (Kayda...?)',
+          ru: 'Где...? (Gde...?)',
+          audioUrls: { kk: '/audio/phrases/kk-6.mp3', ru: '/audio/phrases/ru-6.mp3' },
+        },
+        {
+          fi: {
+            fi: 'Vasen / Oikea / Suoraan',
+            en: 'Left / Right / Straight',
+            ru: 'Налево / Направо / Прямо',
+            kk: 'Сол / Оң / Тура',
+          },
+          kk: 'Сол / Оң / Тура (Sol / Oñ / Tura)',
+          ru: 'Налево / Направо / Прямо (Nalevo / Napravo / Pryamo)',
+          audioUrls: { kk: '/audio/phrases/kk-7.mp3', ru: '/audio/phrases/ru-7.mp3' },
+        },
+        {
+          fi: { fi: 'Missä on WC?', en: 'Where is the toilet?', ru: 'Где туалет?', kk: 'Дәретхана қайда?' },
+          kk: 'Дәретхана қайда? (Däretkhana kayda?)',
+          ru: 'Где туалет? (Gde tualet?)',
+          audioUrls: { kk: '/audio/phrases/kk-16.mp3', ru: '/audio/phrases/ru-16.mp3' },
+        },
+        {
+          fi: { fi: 'Tarvitsen taksin.', en: 'I need a taxi.', ru: 'Мне нужно такси.', kk: 'Маған такси керек.' },
+          kk: 'Маған такси керек. (Maghan taksi kerek.)',
+          ru: 'Мне нужно такси. (Mne nuzhno taksi.)',
+          audioUrls: { kk: '/audio/phrases/kk-18.mp3', ru: '/audio/phrases/ru-18.mp3' },
+        },
+      ],
     },
     {
-      fi: { fi: 'Kyllä / Ei', en: 'Yes / No', ru: 'Да / Нет', kk: 'Иә / Жоқ' },
-      kk: 'Иә / Жоқ (İä / Jok)',
-      ru: 'Да / Нет (Da / Net)',
+      label: { fi: 'Ruoka & juoma', en: 'Food & drink', ru: 'Еда и напитки', kk: 'Тамақ пен сусын' },
+      phrases: [
+        {
+          fi: { fi: 'Vettä, kiitos', en: 'Water, please', ru: 'Воды, пожалуйста', kk: 'Су беріңіз' },
+          kk: 'Су беріңіз (Su beríngiz)',
+          ru: 'Воды, пожалуйста (Vody, pozhaluysta)',
+          audioUrls: { kk: '/audio/phrases/kk-8.mp3', ru: '/audio/phrases/ru-8.mp3' },
+        },
+        {
+          fi: { fi: 'Lasku, kiitos', en: 'Bill, please', ru: 'Счёт, пожалуйста', kk: 'Есеп беріңіз' },
+          kk: 'Есеп беріңіз (Esep beríngiz)',
+          ru: 'Счёт, пожалуйста (Shchyot, pozhaluysta)',
+          audioUrls: { kk: '/audio/phrases/kk-9.mp3', ru: '/audio/phrases/ru-9.mp3' },
+        },
+        {
+          fi: { fi: 'Herkullista!', en: 'Delicious!', ru: 'Вкусно!', kk: 'Дәмді!' },
+          kk: 'Дәмді! (Dämdi!)',
+          ru: 'Вкусно! (Vkusno!)',
+          audioUrls: { kk: '/audio/phrases/kk-10.mp3', ru: '/audio/phrases/ru-10.mp3' },
+        },
+      ],
     },
     {
-      fi: {
-        fi: 'Paljonko maksaa?',
-        en: 'How much does it cost?',
-        ru: 'Сколько стоит?',
-        kk: 'Қанша тұрады?',
+      label: { fi: 'Ostokset & maksu', en: 'Shopping & payment', ru: 'Покупки и оплата', kk: 'Сатып алу және төлем' },
+      phrases: [
+        {
+          fi: { fi: 'Paljonko maksaa?', en: 'How much does it cost?', ru: 'Сколько стоит?', kk: 'Қанша тұрады?' },
+          kk: 'Қанша тұрады? (Qansha turady?)',
+          ru: 'Сколько стоит? (Skolko stoit?)',
+          audioUrls: { kk: '/audio/phrases/kk-4.mp3', ru: '/audio/phrases/ru-4.mp3' },
+        },
+        {
+          fi: { fi: 'Liian kallis', en: 'Too expensive', ru: 'Дорого', kk: 'Қымбат' },
+          kk: 'Қымбат (Qymbat)',
+          ru: 'Дорого (Dorogo)',
+          audioUrls: { kk: '/audio/phrases/kk-12.mp3', ru: '/audio/phrases/ru-12.mp3' },
+        },
+        {
+          fi: { fi: 'Voiko maksaa kortilla?', en: 'Can I pay by card?', ru: 'Можно оплатить картой?', kk: 'Картамен төлей аламын ба?' },
+          kk: 'Картамен төлей аламын ба? (Kartamen töley alamyn ba?)',
+          ru: 'Можно оплатить картой? (Mozhno oplatit kartoy?)',
+          audioUrls: { kk: '/audio/phrases/kk-17.mp3', ru: '/audio/phrases/ru-17.mp3' },
+        },
+        {
+          fi: { fi: 'Voiko maksaa käteisellä?', en: 'Can I pay in cash?', ru: 'Можно оплатить наличными?', kk: 'Қолма-қол ақшамен төлей аламын ба?' },
+          kk: 'Қолма-қол ақшамен төлей аламын ба? (Qolma-qol aqshamen töley alamyn ba?)',
+          ru: 'Можно оплатить наличными? (Mozhno oplatit nalichnymi?)',
+          audioUrls: { kk: '/audio/phrases/kk-19.mp3', ru: '/audio/phrases/ru-19.mp3' },
+        },
+      ],
+    },
+    {
+      label: {
+        fi: 'Ruokarajoitukset',
+        en: 'Dietary restrictions',
+        ru: 'Пищевые ограничения',
+        kk: 'Тағамдық шектеулер',
       },
-      kk: 'Қанша тұрады? (Qansha turady?)',
-      ru: 'Сколько стоит? (Skolko stoit?)',
-    },
-    {
-      fi: { fi: 'Apua!', en: 'Help!', ru: 'Помогите!', kk: 'Көмек!' },
-      kk: 'Көмек! (Kömek!)',
-      ru: 'Помогите! (Pomogite!)',
+      playAll: true,
+      phrases: [
+        {
+          fi: { fi: 'Olen allerginen', en: 'I am allergic', ru: 'У меня аллергия', kk: 'Менің аллергиям бар' },
+          kk: 'Менің аллергиям бар (Mening allergiyam bar)',
+          ru: 'У меня аллергия (U menya allergiya)',
+          audioUrls: { kk: '/audio/phrases/kk-25.mp3', ru: '/audio/phrases/ru-25.mp3' },
+        },
+        {
+          fi: { fi: 'Gluteeniton', en: 'Gluten-free', ru: 'Без глютена', kk: 'Глютенсіз' },
+          kk: 'Глютенсіз (Glyutensiz)',
+          ru: 'Без глютена (Bez glyutena)',
+          audioUrls: { kk: '/audio/phrases/kk-20.mp3', ru: '/audio/phrases/ru-20.mp3' },
+        },
+        {
+          fi: { fi: 'Kalaton', en: 'No fish', ru: 'Без рыбы', kk: 'Балықсыз' },
+          kk: 'Балықсыз (Balyqsyz)',
+          ru: 'Без рыбы (Bez ryby)',
+          audioUrls: { kk: '/audio/phrases/kk-21.mp3', ru: '/audio/phrases/ru-21.mp3' },
+        },
+        {
+          fi: { fi: 'Ei viljaa', en: 'No grains', ru: 'Без зерна', kk: 'Дән жоқ' },
+          kk: 'Дән жоқ (Dän joq)',
+          ru: 'Без зерна (Bez zerna)',
+          audioUrls: { kk: '/audio/phrases/kk-22.mp3', ru: '/audio/phrases/ru-22.mp3' },
+        },
+        {
+          fi: { fi: 'Ei jauhoa', en: 'No flour', ru: 'Без муки', kk: 'Ұн жоқ' },
+          kk: 'Ұн жоқ (Un joq)',
+          ru: 'Без муки (Bez muki)',
+          audioUrls: { kk: '/audio/phrases/kk-23.mp3', ru: '/audio/phrases/ru-23.mp3' },
+        },
+        {
+          fi: { fi: 'Ei leipää', en: 'No bread', ru: 'Без хлеба', kk: 'Нан жоқ' },
+          kk: 'Нан жоқ (Nan joq)',
+          ru: 'Без хлеба (Bez khleba)',
+          audioUrls: { kk: '/audio/phrases/kk-24.mp3', ru: '/audio/phrases/ru-24.mp3' },
+        },
+      ],
     },
   ],
   notes: {

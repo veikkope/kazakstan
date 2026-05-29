@@ -16,7 +16,7 @@
  *   - Map tiles: cache-first; trip tiles win, runtime tiles stay LRU-bounded
  */
 
-const VERSION = 'v4';
+const VERSION = 'v5';
 const SHELL_CACHE = `shell-${VERSION}`;
 const PAGES_CACHE = `pages-${VERSION}`;
 const STATIC_CACHE = `static-${VERSION}`;
@@ -92,6 +92,12 @@ self.addEventListener('activate', (event) => {
       await Promise.all(
         keys.filter((k) => !ALLOWED_CACHES.has(k)).map((k) => caches.delete(k)),
       );
+      // Let the browser start fetching the navigation in parallel with SW
+      // boot — typically shaves 50–250 ms off the first nav after a cold
+      // start. Safe on browsers that don't support it (no-op).
+      if (self.registration.navigationPreload) {
+        await self.registration.navigationPreload.enable();
+      }
       await self.clients.claim();
     })(),
   );
@@ -152,14 +158,16 @@ self.addEventListener('fetch', (event) => {
     request.mode === 'navigate' ||
     (request.headers.get('accept') || '').includes('text/html')
   ) {
-    event.respondWith(navigateResponse(request));
+    event.respondWith(navigateResponse(event));
     return;
   }
 
-  // Same-origin static assets (incl. /images/sights/*.jpg) — cache-first.
+  // Same-origin static assets (incl. /images/sights/*.jpg, /audio/phrases/*.mp3)
+  // — cache-first. Audio extensions are included so phrase clips work offline
+  // even without a proactive trip download.
   if (
     url.pathname.startsWith('/_next/') ||
-    /\.(?:js|css|woff2?|ttf|otf|png|jpe?g|webp|svg|ico|gif)$/.test(url.pathname)
+    /\.(?:js|css|woff2?|ttf|otf|png|jpe?g|webp|svg|ico|gif|mp3|ogg|m4a|wav)$/.test(url.pathname)
   ) {
     event.respondWith(cacheFirst(request, STATIC_CACHE));
     return;
@@ -178,10 +186,14 @@ function hasLocalePrefix(pathname) {
   return LOCALES.some((l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`));
 }
 
-async function navigateResponse(request) {
+async function navigateResponse(event) {
+  const request = event.request;
   const url = new URL(request.url);
   try {
-    const response = await fetch(request);
+    // Navigation Preload: the browser kicked off the fetch in parallel with
+    // SW boot. Use that response if it landed, fall back to a fresh fetch.
+    const preload = await event.preloadResponse;
+    const response = preload || (await fetch(request));
     if (response.ok) {
       const cache = await caches.open(PAGES_CACHE);
       cache.put(request, response.clone()).catch(() => {});

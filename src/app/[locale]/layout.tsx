@@ -9,6 +9,7 @@ import Footer from '@/components/layout/Footer';
 import BottomNav from '@/components/layout/BottomNav';
 import OfflineBanner from '@/components/layout/OfflineBanner';
 import ServiceWorkerRegistration from '@/components/layout/ServiceWorkerRegistration';
+import SpeculationRules from '@/components/layout/SpeculationRules';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Toaster } from '@/components/ui/sonner';
 import MotionProvider from '@/components/layout/MotionProvider';
@@ -17,14 +18,17 @@ import OfflineProvider from '@/components/offline/OfflineProvider';
 import ShortlistUrlSync from '@/components/shortlist/ShortlistUrlSync';
 import { routing } from '@/i18n/routing';
 
+// `latin-ext` covers Finnish/Kazakh Latin diacritics (ä, ö, ü, ş, ğ) the base
+// `latin` subset misses. Cyrillic-script content (ru, kk) currently falls back
+// to the system font stack — Geist does not ship a Cyrillic subset (2026-05).
 const geistSans = Geist({
   variable: '--font-geist-sans',
-  subsets: ['latin'],
+  subsets: ['latin', 'latin-ext'],
 });
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
-  subsets: ['latin'],
+  subsets: ['latin', 'latin-ext'],
 });
 
 export const metadata: Metadata = {
@@ -38,9 +42,20 @@ export const metadata: Metadata = {
     statusBarStyle: 'default',
     title: 'Kazakstan',
   },
+  // PNGs listed before the SVG so iOS Safari (which renders the SVG path
+  // inconsistently across versions) and older Android Chrome pick a raster
+  // first. Modern browsers honour the `sizes` hint and still pick the best
+  // match — vector remains as the catch-all fallback.
   icons: {
-    icon: [{ url: '/icons/icon.svg', type: 'image/svg+xml' }],
-    apple: '/icons/icon.svg',
+    icon: [
+      { url: '/icons/icon-192.png', type: 'image/png', sizes: '192x192' },
+      { url: '/icons/icon-512.png', type: 'image/png', sizes: '512x512' },
+      { url: '/icons/icon.svg', type: 'image/svg+xml', sizes: 'any' },
+    ],
+    // 180×180 is the iOS home-screen contract since iOS 7. A PNG kills the
+    // intermittent "generic Safari favicon" fallback we'd otherwise hit
+    // when iOS can't decode our SVG into a touch icon.
+    apple: [{ url: '/icons/apple-touch-icon.png', sizes: '180x180' }],
   },
   formatDetection: {
     telephone: false,
@@ -96,6 +111,7 @@ export default async function LocaleLayout({
               <TooltipProvider delayDuration={150}>
                 <MotionProvider>
                   <ServiceWorkerRegistration />
+                  <SpeculationRules />
                   <ShortlistUrlSync />
                   <Header />
                   <OfflineBanner />
@@ -104,7 +120,7 @@ export default async function LocaleLayout({
                   </main>
                   <Footer />
                   <BottomNav />
-                  <Toaster position="bottom-center" richColors closeButton />
+                  <Toaster position="bottom-right" richColors closeButton />
                 </MotionProvider>
               </TooltipProvider>
             </OfflineProvider>

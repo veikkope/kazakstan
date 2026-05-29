@@ -3,8 +3,8 @@
 import { useSearchParams } from 'next/navigation';
 import { useRouter, usePathname } from '@/i18n/navigation';
 import { useCallback, useMemo } from 'react';
-import type { Category, Region, SortDimension } from './types';
-import { allCategories } from '@/data/categories';
+import type { Activity, Category, Region, SortDimension } from './types';
+import { allActivities, allCategories } from '@/data/categories';
 import { isSortDimension } from './sort';
 
 const PARAM = {
@@ -14,6 +14,7 @@ const PARAM = {
   SL: 'sl',
   SORT: 'sort',
   Q: 'q',
+  ACT: 'act',
 } as const;
 
 const ALL_REGIONS: Region[] = [
@@ -42,6 +43,7 @@ function csvOrNull<T extends string>(values: T[]): string | null {
 export interface UrlState {
   categories: Category[];
   regions: Region[];
+  activities: Activity[];
   selectedId: string | null;
   shortlist: string[];
   sort: SortDimension;
@@ -54,6 +56,7 @@ export function readUrlState(params: URLSearchParams): UrlState {
   return {
     categories: parseCsv(params.get(PARAM.CAT), allCategories),
     regions: parseCsv(params.get(PARAM.REGION), ALL_REGIONS),
+    activities: parseCsv(params.get(PARAM.ACT), allActivities),
     selectedId: params.get(PARAM.ID),
     shortlist: params.get(PARAM.SL)?.split(',').filter(Boolean) ?? [],
     sort: isSortDimension(rawSort) ? rawSort : 'default',
@@ -85,6 +88,9 @@ export function useUrlState() {
       }
       if ('regions' in patch && patch.regions) {
         apply(PARAM.REGION, csvOrNull(patch.regions));
+      }
+      if ('activities' in patch && patch.activities) {
+        apply(PARAM.ACT, csvOrNull(patch.activities));
       }
       if ('selectedId' in patch) {
         apply(PARAM.ID, patch.selectedId ?? null);
